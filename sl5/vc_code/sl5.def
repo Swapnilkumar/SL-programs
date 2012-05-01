@@ -1,0 +1,8 @@
+LIBRARY example1
+
+EXPORTS
+
+sum	@1
+sub1 @2
+mult @3
+div1 @4

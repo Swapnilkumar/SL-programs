@@ -1,0 +1,14 @@
+
+AD 1 C 200
+IS 9 S 1
+IS 4 1 L 1
+IS 4 2 L 2
+IS 7 2 S 2
+AD 05
+IS 4 1 S 1
+IS 4 2 L 3
+IS 5 2 L 4
+IS 5 2 S 3
+AD 05
+DL 1 C 5
+DL 2 C 3

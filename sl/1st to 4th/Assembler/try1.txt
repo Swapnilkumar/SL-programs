@@ -1,0 +1,17 @@
+.model ssmall
+.stack 100
+.data
+var1 db 20h
+var2 dw 12h
+msg db "wats up"
+data dw ?
+.code
+mov ax,@data
+mov ds,ax
+add ax,bx
+add ax,var2
+lable: sub ax,90
+add ax,var1
+mov ax,4ch
+int 21h
+end

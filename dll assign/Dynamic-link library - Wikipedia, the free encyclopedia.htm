@@ -1,0 +1,982 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0049)http://en.wikipedia.org/wiki/Dynamic-link_library -->
+<html lang="en" dir="ltr" xmlns="http://www.w3.org/1999/xhtml" class="client-chrome client-chrome-9 client-webkit client-win"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Dynamic-link library - Wikipedia, the free encyclopedia</title>
+
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="generator" content="MediaWiki 1.17wmf1">
+<link rel="apple-touch-icon" href="http://en.wikipedia.org/apple-touch-icon.png">
+<link rel="shortcut icon" href="http://en.wikipedia.org/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="http://en.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)">
+<link rel="EditURI" type="application/rsd+xml" href="http://en.wikipedia.org/w/api.php?action=rsd">
+<link rel="copyright" href="http://creativecommons.org/licenses/by-sa/3.0/">
+<link rel="alternate" type="application/atom+xml" title="Wikipedia Atom feed" href="http://en.wikipedia.org/w/index.php?title=Special:RecentChanges&feed=atom">
+<link rel="stylesheet" href="./Dynamic-link library - Wikipedia, the free encyclopedia_files/load.php" type="text/css" media="all">
+<style type="text/css" media="all">.suggestions{overflow:hidden;position:absolute;top:0px;left:0px;width:0px;border:none;z-index:99;padding:0;margin:-1px -1px 0 0} html > body .suggestions{margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:Window;font-size:0.8em;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;background-color:Window;font-size:0.8em;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;color:WindowText;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left}.suggestions-result-current{background-color:#4C59A6;background-color:Highlight;color:white;color:HighlightText}.suggestions-special .special-label{font-size:0.8em;color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white;color:HighlightText}.autoellipsis-matched,.highlight{font-weight:bold}
+
+/* cache key: enwiki:resourceloader:filter:minify-css:3:8d395f27880b6ffcab73b1c74b0217ea */</style><style type="text/css" media="all">#mw-panel.collapsible-nav div.portal{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIwAAAABCAMAAAA7MLYKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAEtQTFRF29vb2tra4ODg6urq5OTk4uLi6+vr7e3t7Ozs8PDw5+fn4+Pj4eHh3d3d39/f6Ojo5eXl6enp8fHx8/Pz8vLy7+/v3Nzc2dnZ2NjYnErj7QAAAD1JREFUeNq0wQUBACAMALDj7hf6JyUFGxzEnYhC9GaNPG1xVffGDErk/iCigLl1XV2xM49lfAxEaSM+AQYA9HMKuv4liFQAAAAASUVORK5CYII=);background-image:url(http://bits.wikimedia.org/w/extensions-1.17/Vector/modules/./images/portal-break.png?2011-02-12T21:25:00Z)!ie;background-position:left top;background-repeat:no-repeat;padding:0.25em 0 !important;margin:-11px 9px 10px 11px}#mw-panel.collapsible-nav div.portal h5{color:#4D4D4D;font-weight:normal;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA9QTFRFeXl53d3dmpqasbGx////GU0iEgAAAAV0Uk5T/////wD7tg5TAAAAK0lEQVQI12NwgQIG0hhCDAwMTCJAhqMCA4MiWEoIJABiOCooQhULi5BqMgB2bh4svs8t+QAAAABJRU5ErkJggg==) left center no-repeat;background:url(http://bits.wikimedia.org/w/extensions-1.17/Vector/modules/./images/open.png?2011-02-12T21:25:00Z) left center no-repeat!ie;padding:4px 0 3px 1.5em;margin-bottom:0px}#mw-panel.collapsible-nav div.collapsed h5{color:#0645AD;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAxQTFRF3d3deXl5////nZ2dQA6SoAAAAAN0Uk5T//8A18oNQQAAADNJREFUeNpiYEIDDMQKMKALMDOgCTDCRWACcBG4AEwEIcDITEAFuhnotmC4g4EEzwEEGAADqgHmQSPJKgAAAABJRU5ErkJggg==) left center no-repeat;background:url(http://bits.wikimedia.org/w/extensions-1.17/Vector/modules/./images/closed-ltr.png?2011-02-12T21:25:00Z) left center no-repeat!ie;margin-bottom:0px}#mw-panel.collapsible-nav div h5:hover{cursor:pointer;text-decoration:none}#mw-panel.collapsible-nav div.collapsed h5:hover{text-decoration:underline}#mw-panel.collapsible-nav div.portal div.body{background:none !important;padding-top:0px;display:none}#mw-panel.collapsible-nav div.persistent div.body{display:block}#mw-panel.collapsible-nav div.first h5{display:none}#mw-panel.collapsible-nav div.persistent h5{background:none !important;padding-left:0.7em;cursor:default}#mw-panel.collapsible-nav div.portal div.body ul li{padding:0.25em 0}#mw-panel.collapsible-nav div.first{background-image:none;margin-top:0px}#mw-panel.collapsible-nav div.persistent div.body{margin-left:0.5em}
+
+/* cache key: enwiki:resourceloader:filter:minify-css:3:c5cca4c308b0b64d12b1147b6871e86e */</style><meta name="ResourceLoaderDynamicStyles" content=""><link rel="stylesheet" href="./Dynamic-link library - Wikipedia, the free encyclopedia_files/load(1).php" type="text/css" media="all">
+<style type="text/css" media="all">a.new,#quickbar a.new{color:#ba0000}
+
+/* cache key: enwiki:resourceloader:filter:minify-css:3:f2a9127573a22335c2a9102b208c73e7 */</style><link rel="stylesheet" href="./Dynamic-link library - Wikipedia, the free encyclopedia_files/load(2).php" type="text/css" media="all">
+
+<style type="text/css">/*<![CDATA[*/
+.source-c {line-height: normal;}
+.source-c li, .source-c pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for c
+ * CSS class: source-c, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.c.source-c .de1, .c.source-c .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.c.source-c  {font-family:monospace;}
+.c.source-c .imp {font-weight: bold; color: red;}
+.c.source-c li, .c.source-c .li1 {font-weight: normal; vertical-align:top;}
+.c.source-c .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.c.source-c .li2 {font-weight: bold; vertical-align:top;}
+.c.source-c .kw1 {color: #b1b100;}
+.c.source-c .kw2 {color: #000000; font-weight: bold;}
+.c.source-c .kw3 {color: #000066;}
+.c.source-c .kw4 {color: #993333;}
+.c.source-c .co1 {color: #666666; font-style: italic;}
+.c.source-c .co2 {color: #339933;}
+.c.source-c .coMULTI {color: #808080; font-style: italic;}
+.c.source-c .es0 {color: #000099; font-weight: bold;}
+.c.source-c .es1 {color: #000099; font-weight: bold;}
+.c.source-c .es2 {color: #660099; font-weight: bold;}
+.c.source-c .es3 {color: #660099; font-weight: bold;}
+.c.source-c .es4 {color: #660099; font-weight: bold;}
+.c.source-c .es5 {color: #006699; font-weight: bold;}
+.c.source-c .br0 {color: #009900;}
+.c.source-c .sy0 {color: #339933;}
+.c.source-c .st0 {color: #ff0000;}
+.c.source-c .nu0 {color: #0000dd;}
+.c.source-c .nu6 {color: #208080;}
+.c.source-c .nu8 {color: #208080;}
+.c.source-c .nu12 {color: #208080;}
+.c.source-c .nu16 {color:#800080;}
+.c.source-c .nu17 {color:#800080;}
+.c.source-c .nu18 {color:#800080;}
+.c.source-c .nu19 {color:#800080;}
+.c.source-c .me1 {color: #202020;}
+.c.source-c .me2 {color: #202020;}
+.c.source-c .ln-xtra, .c.source-c li.ln-xtra, .c.source-c div.ln-xtra {background-color: #ffc;}
+.c.source-c span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-pascal {line-height: normal;}
+.source-pascal li, .source-pascal pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for pascal
+ * CSS class: source-pascal, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.pascal.source-pascal .de1, .pascal.source-pascal .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.pascal.source-pascal  {font-family:monospace;}
+.pascal.source-pascal .imp {font-weight: bold; color: red;}
+.pascal.source-pascal li, .pascal.source-pascal .li1 {font-weight: normal; vertical-align:top;}
+.pascal.source-pascal .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.pascal.source-pascal .li2 {font-weight: bold; vertical-align:top;}
+.pascal.source-pascal .kw1 {color: #000000; font-weight: bold;}
+.pascal.source-pascal .kw2 {color: #000000; font-weight: bold;}
+.pascal.source-pascal .kw3 {color: #000066;}
+.pascal.source-pascal .kw4 {color: #000066; font-weight: bold;}
+.pascal.source-pascal .co1 {color: #666666; font-style: italic;}
+.pascal.source-pascal .coMULTI {color: #666666; font-style: italic;}
+.pascal.source-pascal .es0 {color: #000099; font-weight: bold;}
+.pascal.source-pascal .es_h {color: #000099; font-weight: bold;}
+.pascal.source-pascal .br0 {color: #009900;}
+.pascal.source-pascal .sy0 {color: #339933;}
+.pascal.source-pascal .st0 {color: #ff0000;}
+.pascal.source-pascal .st_h {color: #ff0000;}
+.pascal.source-pascal .nu0 {color: #cc66cc;}
+.pascal.source-pascal .me1 {color: #0066ee;}
+.pascal.source-pascal .ln-xtra, .pascal.source-pascal li.ln-xtra, .pascal.source-pascal div.ln-xtra {background-color: #ffc;}
+.pascal.source-pascal span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-vb {line-height: normal;}
+.source-vb li, .source-vb pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for vb
+ * CSS class: source-vb, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.vb.source-vb .de1, .vb.source-vb .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.vb.source-vb  {font-family:monospace;}
+.vb.source-vb .imp {font-weight: bold; color: red;}
+.vb.source-vb li, .vb.source-vb .li1 {font-weight: normal; vertical-align:top;}
+.vb.source-vb .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.vb.source-vb .li2 {font-weight: bold; vertical-align:top;}
+.vb.source-vb .kw1 {color: #000080;}
+.vb.source-vb .co1 {color: #008000;}
+.vb.source-vb .es0 {color: #800000; font-weight: bold;}
+.vb.source-vb .st0 {color: #800000;}
+.vb.source-vb .ln-xtra, .vb.source-vb li.ln-xtra, .vb.source-vb div.ln-xtra {background-color: #ffc;}
+.vb.source-vb span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><style type="text/css">/*<![CDATA[*/
+.source-python {line-height: normal;}
+.source-python li, .source-python pre {
+	line-height: normal; border: 0px none white;
+}
+/**
+ * GeSHi Dynamically Generated Stylesheet
+ * --------------------------------------
+ * Dynamically generated stylesheet for python
+ * CSS class: source-python, CSS id: 
+ * GeSHi (C) 2004 - 2007 Nigel McNie, 2007 - 2008 Benny Baumann
+ * (http://qbnz.com/highlighter/ and http://geshi.org/)
+ * --------------------------------------
+ */
+.python.source-python .de1, .python.source-python .de2 {font: normal normal 1em/1.2em monospace; margin:0; padding:0; background:none; vertical-align:top;}
+.python.source-python  {font-family:monospace;}
+.python.source-python .imp {font-weight: bold; color: red;}
+.python.source-python li, .python.source-python .li1 {font-weight: normal; vertical-align:top;}
+.python.source-python .ln {width:1px;text-align:right;margin:0;padding:0 2px;vertical-align:top;}
+.python.source-python .li2 {font-weight: bold; vertical-align:top;}
+.python.source-python .kw1 {color: #ff7700;font-weight:bold;}
+.python.source-python .kw2 {color: #008000;}
+.python.source-python .kw3 {color: #dc143c;}
+.python.source-python .kw4 {color: #0000cd;}
+.python.source-python .co1 {color: #808080; font-style: italic;}
+.python.source-python .coMULTI {color: #808080; font-style: italic;}
+.python.source-python .es0 {color: #000099; font-weight: bold;}
+.python.source-python .br0 {color: black;}
+.python.source-python .sy0 {color: #66cc66;}
+.python.source-python .st0 {color: #483d8b;}
+.python.source-python .nu0 {color: #ff4500;}
+.python.source-python .me1 {color: black;}
+.python.source-python .ln-xtra, .python.source-python li.ln-xtra, .python.source-python div.ln-xtra {background-color: #ffc;}
+.python.source-python span.xtra { display:block; }
+
+/*]]>*/
+</style>
+<style type="text/css">/*<![CDATA[*/
+@import "/w/index.php?title=MediaWiki:Geshi.css&usemsgcache=yes&action=raw&ctype=text/css&smaxage=2678400";
+/*]]>*/
+</style><!--[if lt IE 7]><style type="text/css">body{behavior:url("/w/skins-1.17/vector/csshover.min.htc")}</style><![endif]--><link type="text/css" rel="stylesheet" href="./Dynamic-link library - Wikipedia, the free encyclopedia_files/index.php"></head>
+<body class="mediawiki ltr ns-0 ns-subject page-Dynamic-link_library skin-vector">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<!-- content -->
+		<div id="content"><div style="visibility: hidden; display: none; width: 602px; height: 402px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; background-color: white; position: absolute; right: 2em; top: 1em; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: gray; border-right-color: gray; border-bottom-color: gray; border-left-color: gray; z-index: 13; "><iframe scrolling="no" frameborder="0" style="z-index: 14; position: absolute; right: 1px; top: 1px; width: 600px; height: 400px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; "></iframe><img title="close" src="./Dynamic-link library - Wikipedia, the free encyclopedia_files/Button_hide.png" style="z-index: 15; position: absolute; right: 11px; top: 9px; width: 18px; cursor: pointer; "></div>
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- sitenotice -->
+			<div id="siteNotice"><!-- centralNotice loads here --><script type="text/javascript">
+/* <![CDATA[ */
+document.writeln("\x3cdiv id=\"localNotice\"\x3e\x3cp\x3e\x3c/p\x3e\n\x3c/div\x3e");
+/* ]]> */
+</script><div id="localNotice"><p></p>
+</div>
+</div>
+			<!-- /sitenotice -->
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">Dynamic-link library</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+				<!-- tagline -->
+				<div id="siteSub">From Wikipedia, the free encyclopedia</div>
+				<!-- /tagline -->
+				<!-- subtitle -->
+				<div id="contentSub"></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="http://en.wikipedia.org/wiki/Dynamic-link_library#mw-head">navigation</a>,
+					<a href="http://en.wikipedia.org/wiki/Dynamic-link_library#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodytext -->
+				<table class="metadata plainlinks ambox ambox-content" style="">
+<tbody><tr>
+<td class="mbox-image">
+<div style="width: 52px;"><img alt="" src="./Dynamic-link library - Wikipedia, the free encyclopedia_files/Ambox_content.png" width="40" height="40"></div>
+</td>
+<td class="mbox-text" style="">This article <b>may contain excessive, poor or irrelevant examples</b>. You can <a href="http://en.wikipedia.org/wiki/Wikipedia:How_to_edit_a_page" title="Wikipedia:How to edit a page">improve the article</a> by adding more descriptive text. See Wikipedia's <a href="http://en.wikipedia.org/wiki/Wikipedia:Guide_to_writing_better_articles" title="Wikipedia:Guide to writing better articles" class="mw-redirect">guide to writing better articles</a> for further suggestions. <small><i>(September 2010)</i></small></td>
+</tr>
+</tbody></table>
+<table class="metadata plainlinks ambox ambox-style" style="">
+<tbody><tr>
+<td class="mbox-image">
+<div style="width: 52px;"><a href="http://en.wikipedia.org/wiki/File:Text_document_with_red_question_mark.svg" class="image"><img alt="Text document with red question mark.svg" src="./Dynamic-link library - Wikipedia, the free encyclopedia_files/40px-Text_document_with_red_question_mark.svg.png" width="40" height="40"></a></div>
+</td>
+<td class="mbox-text" style="">This article includes a <a href="http://en.wikipedia.org/wiki/Wikipedia:Citing_sources" title="Wikipedia:Citing sources">list of references</a>, but <b>its sources remain unclear because it has insufficient <a href="http://en.wikipedia.org/wiki/Wikipedia:Citing_sources#Adding_the_citation" title="Wikipedia:Citing sources">inline citations</a></b>.<br>
+<small>Please help to <a href="http://en.wikipedia.org/wiki/Wikipedia:WikiProject_Fact_and_Reference_Check" title="Wikipedia:WikiProject Fact and Reference Check">improve</a> this article by introducing more precise citations <a href="http://en.wikipedia.org/wiki/Wikipedia:When_to_cite" title="Wikipedia:When to cite">where appropriate</a>. <i>(October 2009)</i></small></td>
+</tr>
+</tbody></table>
+<table class="infobox" cellspacing="5" style="width:22em; text-align:left; font-size:88%; line-height:1.5em;">
+<caption class="" style="font-size:125%; font-weight:bold;">Dynamic link library</caption>
+<tbody><tr class="">
+<td colspan="2" class="" style="text-align:center;"><a href="http://en.wikipedia.org/wiki/File:DLL_icon_on_Windows_Vista.png" class="image" title="DLL Icon"><img alt="DLL Icon" src="./Dynamic-link library - Wikipedia, the free encyclopedia_files/64px-DLL_icon_on_Windows_Vista.png" width="64" height="64"></a></td>
+</tr>
+<tr class="">
+<th scope="row" style="text-align:left;"><a href="http://en.wikipedia.org/wiki/Filename_extension">Filename extension</a></th>
+<td class="" style=""><code>.dll</code></td>
+</tr>
+<tr class="">
+<th scope="row" style="text-align:left;"><a href="http://en.wikipedia.org/wiki/Internet_media_type">Internet media type</a></th>
+<td class="" style=""><code>application/x-msdownload</code></td>
+</tr>
+<tr class="">
+<th scope="row" style="text-align:left;"><a href="http://en.wikipedia.org/wiki/Uniform_Type_Identifier">Uniform Type Identifier</a></th>
+<td class="" style="">com.microsoft.windows-dynamic-link-library</td>
+</tr>
+<tr class="">
+<th scope="row" style="text-align:left;"><a href="http://en.wikipedia.org/wiki/File_format#Magic_number" title="File format">Magic number</a></th>
+<td class="" style="">MZ</td>
+</tr>
+<tr class="">
+<th scope="row" style="text-align:left;">Developed by</th>
+<td class="" style=""><a href="http://en.wikipedia.org/wiki/Microsoft">Microsoft</a></td>
+</tr>
+<tr class="">
+<th scope="row" style="text-align:left;">Container for</th>
+<td class="" style=""><a href="http://en.wikipedia.org/wiki/Shared_library" class="mw-redirect" title="Shared library">Shared library</a></td>
+</tr>
+</tbody></table>
+<p><b>Dynamic-link library</b> (also written without the hyphen), or <b>DLL</b>, is <a href="http://en.wikipedia.org/wiki/Microsoft">Microsoft</a>'s implementation of the <a href="http://en.wikipedia.org/wiki/Shared_library" class="mw-redirect" title="Shared library">shared library</a> concept in the <a href="http://en.wikipedia.org/wiki/Microsoft_Windows">Microsoft Windows</a> and <a href="http://en.wikipedia.org/wiki/OS/2">OS/2</a> <a href="http://en.wikipedia.org/wiki/Operating_system" title="Operating system">operating systems</a>. These libraries usually have the <a href="http://en.wikipedia.org/wiki/File_extension" class="mw-redirect" title="File extension">file extension</a> <tt>DLL</tt>, <tt>OCX</tt> (for libraries containing <a href="http://en.wikipedia.org/wiki/ActiveX">ActiveX</a> controls), or <tt>DRV</tt> (for legacy <a href="http://en.wikipedia.org/wiki/Device_driver" title="Device driver">system drivers</a>). The file formats for DLLs are the same as for Windows <a href="http://en.wikipedia.org/wiki/EXE">EXE</a> files — that is, <a href="http://en.wikipedia.org/wiki/Portable_Executable">Portable Executable</a> (PE) for <a href="http://en.wikipedia.org/wiki/32-bit">32-bit</a> and <a href="http://en.wikipedia.org/wiki/64-bit">64-bit</a> Windows, and <a href="http://en.wikipedia.org/wiki/New_Executable">New Executable</a> (NE) for <a href="http://en.wikipedia.org/wiki/16-bit">16-bit</a> Windows. As with EXEs, DLLs can contain <a href="http://en.wikipedia.org/wiki/Code_(computer_programming)" title="Code (computer programming)" class="mw-redirect">code</a>, <a href="http://en.wikipedia.org/wiki/Data_(computing)" title="Data (computing)">data</a>, and <a href="http://en.wikipedia.org/wiki/Resource_(Windows)" title="Resource (Windows)">resources</a>, in any combination.</p>
+<p>In the broader sense of the term, any data <a href="http://en.wikipedia.org/wiki/Computer_file" title="Computer file">file</a> with the same <a href="http://en.wikipedia.org/wiki/File_format">file format</a> can be called a <i>resource DLL</i>. Examples of such DLLs include <i><a href="http://en.wikipedia.org/wiki/Icon_(computing)" title="Icon (computing)" class="mw-redirect">icon</a> libraries</i>, sometimes having the extension <tt>ICL</tt>, and <a href="http://en.wikipedia.org/wiki/Typeface" title="Typeface">font</a> files, having the extensions <tt>FON</tt> and <tt>FOT</tt>.<sup class="Template-Fact" title="This claim needs references to reliable sources from September 2010" style="white-space:nowrap;">[<i><a href="http://en.wikipedia.org/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed">citation needed</a></i>]</sup></p>
+<table id="toc" class="toc">
+<tbody><tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+ <span class="toctoggle">[<a id="togglelink" class="internal" href="http://en.wikipedia.org/wiki/Dynamic-link_library#">hide</a>]</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#Background_for_DLL"><span class="tocnumber">1</span> <span class="toctext">Background for DLL</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#Features_of_DLL"><span class="tocnumber">2</span> <span class="toctext">Features of DLL</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#Memory_management"><span class="tocnumber">2.1</span> <span class="toctext">Memory management</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#Import_libraries"><span class="tocnumber">2.2</span> <span class="toctext">Import libraries</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#Symbol_resolution_and_binding"><span class="tocnumber">2.3</span> <span class="toctext">Symbol resolution and binding</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#Explicit_run-time_linking"><span class="tocnumber">2.4</span> <span class="toctext">Explicit run-time linking</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#Delayed_loading"><span class="tocnumber">2.5</span> <span class="toctext">Delayed loading</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#Compiler_and_language_considerations"><span class="tocnumber">3</span> <span class="toctext">Compiler and language considerations</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#Delphi"><span class="tocnumber">3.1</span> <span class="toctext">Delphi</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#Microsoft_Visual_Basic"><span class="tocnumber">3.2</span> <span class="toctext">Microsoft Visual Basic</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#C_and_C.2B.2B"><span class="tocnumber">3.3</span> <span class="toctext">C and C++</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-12"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#Programming_examples"><span class="tocnumber">4</span> <span class="toctext">Programming examples</span></a>
+<ul>
+<li class="toclevel-2 tocsection-13"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#Creating_DLL_exports"><span class="tocnumber">4.1</span> <span class="toctext">Creating DLL exports</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#Using_DLL_imports"><span class="tocnumber">4.2</span> <span class="toctext">Using DLL imports</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#Using_explicit_run-time_linking"><span class="tocnumber">4.3</span> <span class="toctext">Using explicit run-time linking</span></a>
+<ul>
+<li class="toclevel-3 tocsection-16"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#Microsoft_Visual_Basic_2"><span class="tocnumber">4.3.1</span> <span class="toctext">Microsoft Visual Basic</span></a></li>
+<li class="toclevel-3 tocsection-17"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#Delphi_2"><span class="tocnumber">4.3.2</span> <span class="toctext">Delphi</span></a></li>
+<li class="toclevel-3 tocsection-18"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#C_and_C.2B.2B_2"><span class="tocnumber">4.3.3</span> <span class="toctext">C and C++</span></a></li>
+<li class="toclevel-3 tocsection-19"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#Python"><span class="tocnumber">4.3.4</span> <span class="toctext">Python</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-20"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#Component_Object_Model"><span class="tocnumber">5</span> <span class="toctext">Component Object Model</span></a></li>
+<li class="toclevel-1 tocsection-21"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#DLL_Hijacking"><span class="tocnumber">6</span> <span class="toctext">DLL Hijacking</span></a></li>
+<li class="toclevel-1 tocsection-22"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1 tocsection-23"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#External_links"><span class="tocnumber">8</span> <span class="toctext">External links</span></a></li>
+<li class="toclevel-1 tocsection-24"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#References"><span class="tocnumber">9</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</tbody></table>
+<h2><span class="mw-headline" id="Background_for_DLL">Background for DLL</span></h2>
+<p>The first versions of <a href="http://en.wikipedia.org/wiki/Microsoft_Windows">Microsoft Windows</a> ran every program in a single <a href="http://en.wikipedia.org/wiki/Address_space">address space</a>. Every program was meant to co-operate by yielding the CPU to other programs so that the <a href="http://en.wikipedia.org/wiki/Graphical_user_interface" title="Graphical user interface">GUI</a> was capable of multitasking and could be as responsive as possible. All Operating-System level operations were provided by the underlying operating system: <a href="http://en.wikipedia.org/wiki/MS-DOS">MS-DOS</a>. All higher level services were provided by Windows Libraries <b>Dynamic Link Libraries</b>. The Drawing API, <a href="http://en.wikipedia.org/wiki/Graphics_Device_Interface" title="Graphics Device Interface">GDI</a>, was implemented in a DLL called <tt>GDI.EXE</tt>, the user interface in <tt>USER.EXE</tt>. These extra layers on top of DOS had to be shared across all running windows programs, not just to enable Windows to work in a machine with less than a megabyte of RAM, but to enable the programs to co-operate amongst each other. The <a href="http://en.wikipedia.org/wiki/Graphics_Device_Interface">Graphics Device Interface</a> code in GDI needed to translate drawing commands to operations on specific devices. On the display, it had to manipulate pixels in the frame buffer. When drawing to a printer, the API calls had to be transformed into requests to a printer. Although it could have been possible to provide hard-coded support for a limited set of devices (like the <a href="http://en.wikipedia.org/wiki/Color_Graphics_Adapter">Color Graphics Adapter</a> display, the HP LaserJet <a href="http://en.wikipedia.org/wiki/Printer_Command_Language">Printer Command Language</a>), Microsoft chose a different approach. GDI would work by loading different pieces of code to work with different output devices—pieces of code called '<a href="http://en.wikipedia.org/wiki/Device_Driver" title="Device Driver" class="mw-redirect">Device Drivers</a>'.</p>
+<p>The same architectural concept that allowed GDI to load different device drivers is that which allowed the Windows shell to load different windows programs, and for these programs to invoke API calls from the shared USER and GDI libraries. That concept was <i>Dynamic Linking</i>.</p>
+<p>In a conventional non-shared, <i>static</i> library, sections of code are simply added to the calling program when its executable is built at the <i>linking</i> phase; if two programs call the same routine, the routine is included in both the programs during the linking stage of the two. With dynamic linking, shared code is placed into a single, separate file. The programs that call this file are connected to it at run time, with the operating system (or, in the case of early versions of Windows, the OS-extension), performing the binding.</p>
+<p>For those early versions of Windows (1.0 to 3.11), the DLLs were the foundation for the entire GUI.</p>
+<ul>
+<li>Display drivers were merely DLLs with a .DRV extension that provided custom implementations of the same drawing API through a unified <a href="http://en.wikipedia.org/wiki/Device_Driver_Interface" class="mw-redirect" title="Device Driver Interface">Device Driver Interface</a> (DDI).</li>
+<li>The Drawing (GDI) and GUI (USER) APIs were merely the function calls exported by the GDI and USER, system DLLs with .EXE extension.</li>
+</ul>
+<p>This notion of building up the operating system from a collection of dynamically loaded libraries is a core concept of Windows that persists even today. DLLs provide the standard benefits of <a href="http://en.wikipedia.org/wiki/Shared_library#Shared_libraries" title="Shared library" class="mw-redirect">shared libraries</a>, such as <a href="http://en.wikipedia.org/wiki/Modularity_(programming)" title="Modularity (programming)" class="mw-redirect">modularity</a>. Modularity allows changes to be made to code and data in a single self-contained DLL shared by several applications without any change to the applications themselves.</p>
+<p>Another benefit of the modularity is the use of generic interfaces for plug-ins. A single interface may be developed which allows old as well as new modules to be integrated seamlessly at run-time into pre-existing applications, without any modification to the application itself. This concept of dynamic extensibility is taken to the extreme with the <a href="http://en.wikipedia.org/wiki/Component_Object_Model">Component Object Model</a>, the underpinnings of <a href="http://en.wikipedia.org/wiki/ActiveX">ActiveX</a>.</p>
+<p>In Windows 1.x, 2.x and 3.x, all windows applications shared the same address space, as well as the same memory. A DLL was only loaded once into this address space; from then on all programs using the library accessed it. The library's data was shared across all the programs. This could be used as an indirect form of <a href="http://en.wikipedia.org/wiki/Inter-process_communication">Inter-process communication</a>, or it could accidentally corrupt the different programs. With <a href="http://en.wikipedia.org/wiki/Windows_95">Windows 95</a> and successors every process runs in its own address space. While the DLL code may be shared, the data is private except where shared data is explicitly requested by the library. That said, large swathes of <a href="http://en.wikipedia.org/wiki/Windows_95">Windows 95</a>, <a href="http://en.wikipedia.org/wiki/Windows_98">Windows 98</a> and <a href="http://en.wikipedia.org/wiki/Windows_Me">Windows Me</a> were built from 16-bit libraries, a feature which limited the performance of the <a href="http://en.wikipedia.org/wiki/Pentium_Pro">Pentium Pro</a> microprocessor when launched, and ultimately limited the stability and scalability of the DOS-based versions of Windows.</p>
+<p>While DLLs are the core of the Windows architecture, they have a number of drawbacks, collectively called "<a href="http://en.wikipedia.org/wiki/DLL_hell">DLL hell</a>".<sup id="cite_ref-DLL_Hell_0-0" class="reference"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#cite_note-DLL_Hell-0"><span>[</span>1<span>]</span></a></sup> Currently, Microsoft promotes <a href="http://en.wikipedia.org/wiki/Microsoft_.NET" class="mw-redirect" title="Microsoft .NET">Microsoft .NET</a> as one solution to the problems of DLL hell, although they now promote Virtualization based solutions such as <a href="http://en.wikipedia.org/wiki/Microsoft_Virtual_PC" class="mw-redirect" title="Microsoft Virtual PC">Microsoft Virtual PC</a> and <a href="http://en.wikipedia.org/wiki/Microsoft_Application_Virtualization" class="mw-redirect" title="Microsoft Application Virtualization">Microsoft Application Virtualization</a>, because they offer superior isolation between applications. An alternative mitigating solution to DLL hell has been the implementation of <a href="http://en.wikipedia.org/wiki/Side-by-Side_Assembly" class="mw-redirect" title="Side-by-Side Assembly">Side-by-Side Assembly</a>.</p>
+<h2><span class="mw-headline" id="Features_of_DLL">Features of DLL</span></h2>
+<h3><span class="mw-headline" id="Memory_management">Memory management</span></h3>
+<p>In <a href="http://en.wikipedia.org/wiki/Win32" class="mw-redirect" title="Win32">Win32</a>, the DLL files are organized into <i>sections</i>. Each section has its own set of attributes, such as being writable or read-only, executable (for code) or non-executable (for data), and so on.</p>
+<p>The code in a DLL is usually shared among all the processes that use the DLL; that is, they occupy a single place in physical memory, and do not take up space in the <a href="http://en.wikipedia.org/wiki/Page_file" class="mw-redirect" title="Page file">page file</a>. If the physical memory occupied by a code section is to be reclaimed, its contents are discarded, and later reloaded directly from the DLL file as necessary.</p>
+<p>In contrast to code sections, the data sections of a DLL are usually private; that is, each process using the DLL has its own copy of all the DLL's data. Optionally, data sections can be made shared, allowing <a href="http://en.wikipedia.org/wiki/Inter-process_communication">inter-process communication</a> via this shared memory area. However, because user restrictions do not apply to the use of shared DLL memory, this creates a <a href="http://en.wikipedia.org/wiki/Vulnerability_(computer_science)" title="Vulnerability (computer science)" class="mw-redirect">security hole</a>; namely, one process can corrupt the shared data, which will likely cause all other sharing processes to behave undesirably. For example, a process running under a guest account can in this way corrupt another process running under a privileged account. This is an important reason to avoid the use of shared sections in DLLs.</p>
+<p>If a DLL is compressed by certain <a href="http://en.wikipedia.org/wiki/Executable_compression" title="Executable compression">executable packers</a> (e.g. <a href="http://en.wikipedia.org/wiki/UPX">UPX</a>), all of its code sections are marked as read-and-write, and will be unshared. Read-and-write code sections, much like private data sections, are private to each process. Thus DLLs with shared data sections should not be compressed if they are intended to be used simultaneously by multiple programs, since each program instance would have to carry its own copy of the DLL, resulting in increased memory consumption.</p>
+<h3><span class="mw-headline" id="Import_libraries">Import libraries</span></h3>
+<p>Linking to dynamic libraries is usually handled by linking to an import library when building or linking to create an executable file. The created executable then contains an import address table (IAT) by which all DLL function calls are referenced (each referenced DLL function contains its own entry in the IAT). At run-time, the IAT is filled with appropriate addresses that point directly to a function in the separately-loaded DLL.</p>
+<p>Like static libraries, import libraries for DLLs are noted by the .<a href="http://en.wikipedia.org/wiki/Lib">lib</a> file extension. For example, <a href="http://en.wikipedia.org/wiki/Kernel32.dll" class="mw-redirect" title="Kernel32.dll">kernel32.dll</a>, the primary dynamic library for Windows' base functions such as file creation and memory management, is linked via kernel32.lib.</p>
+<h3><span class="mw-headline" id="Symbol_resolution_and_binding">Symbol resolution and binding</span></h3>
+<p>Each function exported by a DLL is identified by a numeric ordinal and optionally a name. Likewise, functions can be imported from a DLL either by ordinal or by name. The ordinal represents the position of the function's address pointer in the DLL Export Address table. It is common for internal functions to be exported by ordinal only. For most Windows API functions only the names are preserved across different Windows releases; the ordinals are subject to change. Thus, one cannot reliably import Windows API functions by their ordinals.</p>
+<p>Importing functions by ordinal provides only slightly better performance than importing them by name: export tables of DLLs are ordered by name, so a <a href="http://en.wikipedia.org/wiki/Binary_search" class="mw-redirect" title="Binary search">binary search</a> can be used to find a function. The index of the found name is then used to look up the ordinal in the Export Ordinal table. In 16-bit Windows, the name table was not sorted, so the name lookup overhead was much more noticeable.</p>
+<p>It is also possible to <i>bind</i> an executable to a specific version of a DLL, that is, to resolve the addresses of imported functions at compile-time. For bound imports, the <a href="http://en.wikipedia.org/wiki/Linker_(computing)" title="Linker (computing)">linker</a> saves the timestamp and checksum of the DLL to which the import is bound. At run-time Windows checks to see if the same version of library is being used, and if so, Windows bypasses processing the imports. Otherwise, if the library is different from the one which was bound to, Windows processes the imports in a normal way.</p>
+<p>Bound executables load somewhat faster if they are run in the same environment that they were compiled for, and exactly the same time if they are run in a different environment, so there's no drawback for binding the imports. For example, all the standard Windows applications are bound to the system DLLs of their respective Windows release. A good opportunity to bind an application's imports to its target environment is during the application's installation. This keeps the libraries 'bound' until the next OS update. It does, however, change the checksum of the executable, so it is not something that can be done with signed programs, or programs that are managed by a configuration management tool that uses checksums (such as <a href="http://en.wikipedia.org/wiki/MD5">MD5</a> checksums) to manage file versions. As more recent Windows versions have moved away from having fixed addresses for every loaded library (for security reasons), the opportunity and value of binding an executable is decreasing.</p>
+<h3><span class="mw-headline" id="Explicit_run-time_linking">Explicit run-time linking</span></h3>
+<p>DLL files may be explicitly loaded at run-time, a process referred to simply as <i>run-time dynamic linking</i> by Microsoft, by using the <tt>LoadLibrary</tt> (or <tt>LoadLibraryEx</tt>) API function. The <tt>GetProcAddress</tt> API function is used to look up exported symbols by name, and <tt>FreeLibrary</tt> — to unload the DLL. These functions are analogous to <tt>dlopen</tt>, <tt>dlsym</tt>, and <tt>dlclose</tt> in the <a href="http://en.wikipedia.org/wiki/POSIX">POSIX</a> standard API.</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c" style="font-family:monospace;">
+<pre class="de1"><span class="co1">// LSPaper draw using OLE2 function if available on client</span>
+ 
+HINSTANCE hOle2Dll <span class="sy0">;</span>
+ 
+hOle2Dll <span class="sy0">=</span> LoadLibrary <span class="br0">(</span> <span class="st0">"OLE2.DLL"</span> <span class="br0">)</span> <span class="sy0">;</span>
+ 
+<span class="kw1">if</span> <span class="br0">(</span> hOle2Dll <span class="sy0">!=</span> NULL <span class="br0">)</span>
+<span class="br0">{</span>
+  FARPROC lpOleDraw <span class="sy0">;</span>
+ 
+  lpOleDraw <span class="sy0">=</span> GetProcAddress <span class="br0">(</span> hOle2Dll <span class="sy0">,</span> <span class="st0">"OleDraw"</span> <span class="br0">)</span> <span class="sy0">;</span>
+ 
+  <span class="kw1">if</span> <span class="br0">(</span> lpOleDraw <span class="sy0">!=</span> <span class="br0">(</span>FARPROC<span class="br0">)</span>NULL <span class="br0">)</span>
+  <span class="br0">{</span>
+    <span class="br0">(</span><span class="sy0">*</span>lpOleDraw<span class="br0">)</span> <span class="br0">(</span>pUnknown <span class="sy0">,</span> dwAspect <span class="sy0">,</span> hdcDraw <span class="sy0">,</span> lprcBounds <span class="br0">)</span> <span class="sy0">;</span>
+  <span class="br0">}</span>
+  FreeLibrary <span class="br0">(</span> hOle2Dll <span class="br0">)</span> <span class="sy0">;</span>
+<span class="br0">}</span>
+</pre></div>
+</div>
+<p>The procedure for explicit run-time linking is the same in any language that supports <a href="http://en.wikipedia.org/wiki/Function_pointer" title="Function pointer">pointers to functions</a>, since it depends on the <a href="http://en.wikipedia.org/wiki/Windows_API">Windows API</a> rather than language constructs.</p>
+<h3><span class="mw-headline" id="Delayed_loading">Delayed loading</span></h3>
+<p>Normally, an application that was linked against a DLL’s import library will fail to start if the DLL cannot be found, because Windows will not run the application unless it can find all of the DLLs that the application may require. However an application may be linked against an import library to allow delayed loading of the dynamic library.<sup id="cite_ref-1" class="reference"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#cite_note-1"><span>[</span>2<span>]</span></a></sup> In this case the operating system will not try to find or load the DLL when the application starts; instead, it will only try to find and load the DLL when one of its functions is called. If the DLL cannot be found or loaded, or the called function does not exist, the operating system will generate an <a href="http://en.wikipedia.org/wiki/Exception_handling" title="Exception handling">exception</a>, which the application can catch and handle appropriately. If the application does not handle the exception, it will be caught by the operating system, which will terminate the program with an error message.</p>
+<p>The delay-loading mechanism also provides notification <a href="http://en.wikipedia.org/wiki/Hooking" title="Hooking">hooks</a>, allowing the application to perform additional processing or <a href="http://en.wikipedia.org/wiki/Error_handling" class="mw-redirect" title="Error handling">error handling</a> when the DLL is loaded and/or any DLL function is called.</p>
+<h2><span class="mw-headline" id="Compiler_and_language_considerations">Compiler and language considerations</span></h2>
+<h3><span class="mw-headline" id="Delphi">Delphi</span></h3>
+<p>In the heading of a source file, the keyword <tt>library</tt> is used instead of <tt>program</tt>. At the end of the file, the functions to be exported are listed in <tt>exports</tt> clause.</p>
+<p><a href="http://en.wikipedia.org/wiki/Delphi_programming_language" title="Delphi programming language" class="mw-redirect">Delphi</a> does not require <tt>LIB</tt> files to import functions from DLLs; to link to a DLL, the <tt>external</tt> keyword is used in the function declaration.</p>
+<h3><span class="mw-headline" id="Microsoft_Visual_Basic">Microsoft Visual Basic</span></h3>
+<p>In <a href="http://en.wikipedia.org/wiki/Visual_Basic">Visual Basic</a> (VB), only run-time linking is supported; but in addition to using <tt>LoadLibrary</tt> and <tt>GetProcAddress</tt> API functions, <i>declarations</i> of imported functions are allowed.</p>
+<p>When importing DLL functions through declarations, VB will generate a run-time error if the <tt>DLL</tt> file cannot be found. The developer can catch the error and handle it appropriately.</p>
+<p>When creating DLLs in VB, the IDE will only allow you to create ActiveX DLLs, however methods have been created <sup id="cite_ref-2" class="reference"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#cite_note-2"><span>[</span>3<span>]</span></a></sup> to allow the user to explicitly tell the linker to include a .DEF file which defines the ordinal position and name of each exported function. This allows the user to create a standard Windows DLL using Visual Basic (Version 6 or lower) which can be referenced through a "Declare" statement.</p>
+<h3><span class="mw-headline" id="C_and_C.2B.2B">C and C++</span></h3>
+<p>Microsoft <a href="http://en.wikipedia.org/wiki/Visual_C_Plus_Plus" title="Visual C Plus Plus" class="mw-redirect">Visual C++</a> (MSVC) provides a number of extensions to standard <a href="http://en.wikipedia.org/wiki/C_Plus_Plus" title="C Plus Plus" class="mw-redirect">C++</a> which allow functions to be specified as imported or exported directly in the C++ code; these have been adopted by other Windows <a href="http://en.wikipedia.org/wiki/C_(programming_language)" title="C (programming language)">C</a> and C++ compilers, including Windows versions of <a href="http://en.wikipedia.org/wiki/GNU_Compiler_Collection" title="GNU Compiler Collection">GCC</a>. These extensions use the attribute <tt>__declspec</tt> before a function declaration. Note that when C functions are accessed from C++, they must also be declared as <tt>extern "C"</tt> in C++ code, to inform the compiler that the C linkage should be used.<sup id="cite_ref-3" class="reference"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#cite_note-3"><span>[</span>4<span>]</span></a></sup></p>
+<p>Besides specifying imported or exported functions using <tt>__declspec</tt> attributes, they may be listed in IMPORT or EXPORTS section of the <tt><a href="http://en.wikipedia.org/w/index.php?title=.def_file&action=edit&redlink=1" class="new" title=".def file (page does not exist)">DEF</a></tt> file used by the project. The <tt>DEF</tt> file is processed by the linker, rather than the compiler, and thus it is not specific to C++.</p>
+<p>DLL compilation will produce both <tt>DLL</tt> and <tt>LIB</tt> files. The <tt>LIB</tt> file is used to link against a DLL at compile-time; it is not necessary for run-time linking. Unless your DLL is a <a href="http://en.wikipedia.org/wiki/Component_Object_Model" title="Component Object Model">COM</a> server, the <tt>DLL</tt> file must be placed in one of the directories listed in the PATH environment variable, in the default system directory, or in the same directory as the program using it. <a href="http://en.wikipedia.org/wiki/Component_Object_Model" title="Component Object Model">COM</a> server DLLs are registered using regsvr32.exe, which places the DLL's location and its globally unique ID (<a href="http://en.wikipedia.org/wiki/GUID" class="mw-redirect" title="GUID">GUID</a>) in the registry. Programs can then use the DLL by looking up its GUID in the registry to find its location.</p>
+<h2><span class="mw-headline" id="Programming_examples">Programming examples</span></h2>
+<h3><span class="mw-headline" id="Creating_DLL_exports">Creating DLL exports</span></h3>
+<p>The following examples show language-specific bindings for exporting symbols from DLLs.</p>
+<p><b>Delphi</b></p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="pascal source-pascal" style="font-family:monospace;">
+<pre class="de1"><span class="kw1">library</span> Example;
+ 
+<span class="co1">// function that adds two numbers</span>
+<span class="kw1">function</span> AddNumbers<span class="br0">(</span>a<span class="sy0">,</span> b <span class="sy0">:</span> Double<span class="br0">)</span><span class="sy0">:</span> Double;
+<span class="kw1">begin</span>
+  Result <span class="sy0">:=</span> a <span class="sy0">+</span> b;
+<span class="kw1">end</span>;
+ 
+<span class="co1">// export this function</span>
+<span class="kw1">exports</span> AddNumbers;
+ 
+<span class="co1">// DLL initialization code: no special handling needed</span>
+<span class="kw1">begin</span>
+<span class="kw1">end</span>.
+</pre></div>
+</div>
+<p><b>C and C++</b></p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c" style="font-family:monospace;">
+<pre class="de1"><span class="co2">#include &lt;windows.h&gt;</span>
+ 
+<span class="co1">// DLL entry function (called on load, unload, ...)</span>
+BOOL APIENTRY DllMain<span class="br0">(</span>HANDLE hModule<span class="sy0">,</span> DWORD dwReason<span class="sy0">,</span> LPVOID lpReserved<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">return</span> TRUE<span class="sy0">;</span>
+<span class="br0">}</span>
+ 
+<span class="co1">// Exported function - adds two numbers</span>
+<span class="kw2">extern</span> <span class="st0">"C"</span> __declspec<span class="br0">(</span>dllexport<span class="br0">)</span> <span class="kw4">double</span> AddNumbers<span class="br0">(</span><span class="kw4">double</span> a<span class="sy0">,</span> <span class="kw4">double</span> b<span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw1">return</span> a <span class="sy0">+</span> b<span class="sy0">;</span>
+<span class="br0">}</span>
+</pre></div>
+</div>
+<h3><span class="mw-headline" id="Using_DLL_imports">Using DLL imports</span></h3>
+<p>The following examples show how to use language-specific bindings to import symbols for linking against a DLL at compile-time.</p>
+<p><b>Delphi</b></p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="pascal source-pascal" style="font-family:monospace;">
+<pre class="de1"><span class="coMULTI">{$APPTYPE CONSOLE}</span>
+ 
+<span class="kw1">program</span> Example;
+ 
+<span class="co1">// import function that adds two numbers</span>
+<span class="kw1">function</span> AddNumbers<span class="br0">(</span>a<span class="sy0">,</span> b <span class="sy0">:</span> Double<span class="br0">)</span><span class="sy0">:</span> Double; <span class="kw1">external</span> <span class="st_h">'Example.dll'</span>;
+ 
+<span class="co1">// main program</span>
+<span class="kw1">var</span>
+   R<span class="sy0">:</span>Double;
+ 
+<span class="kw1">begin</span>
+  R <span class="sy0">:=</span> AddNumbers<span class="br0">(</span>1<span class="sy0">,</span> 2<span class="br0">)</span>;
+  <span class="kw3">Writeln</span><span class="br0">(</span><span class="st_h">'The result was: '</span><span class="sy0">,</span> R<span class="br0">)</span>;
+<span class="kw1">end</span>.
+</pre></div>
+</div>
+<p><b>C and C++</b></p>
+<p>Make sure you include Example.lib file (assuming that Example.dll is generated) in the project (Add Existing Item option for Project!) before static linking. The file Example.lib is automatically generated by the compiler when compiling the DLL. Not executing the above statement would cause <u><b>linking error</b></u> as the linker would not know where to find the definition of AddNumbers. You also need to copy the DLL Example.dll to the location where the .exe file would be generated by the following code.</p>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c" style="font-family:monospace;">
+<pre class="de1"><span class="co2">#include &lt;windows.h&gt;</span>
+<span class="co2">#include &lt;stdio.h&gt;</span>
+ 
+<span class="co1">// Import function that adds two numbers</span>
+<span class="kw2">extern</span> <span class="st0">"C"</span> __declspec<span class="br0">(</span>dllimport<span class="br0">)</span> <span class="kw4">double</span> AddNumbers<span class="br0">(</span><span class="kw4">double</span> a<span class="sy0">,</span> <span class="kw4">double</span> b<span class="br0">)</span><span class="sy0">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">int</span> argc<span class="sy0">,</span> <span class="kw4">char</span> <span class="sy0">*</span>argv<span class="br0">[</span><span class="br0">]</span><span class="br0">)</span>
+<span class="br0">{</span>
+    <span class="kw4">double</span> result <span class="sy0">=</span> AddNumbers<span class="br0">(</span>1<span class="sy0">,</span> 2<span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw3">printf</span><span class="br0">(</span><span class="st0">"The result was: %f<span class="es1">\n</span>"</span><span class="sy0">,</span> result<span class="br0">)</span><span class="sy0">;</span>
+    <span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span>
+<span class="br0">}</span>
+</pre></div>
+</div>
+<h3><span class="mw-headline" id="Using_explicit_run-time_linking">Using explicit run-time linking</span></h3>
+<p>The following examples show how to use the run-time loading and linking facilities using language-specific WIN32 API bindings.</p>
+<h4><span class="mw-headline" id="Microsoft_Visual_Basic_2">Microsoft Visual Basic</span></h4>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="vb source-vb" style="font-family:monospace;">
+<pre class="de1"><span class="kw1">Option</span> <span class="kw1">Explicit</span>
+<span class="kw1">Declare</span> <span class="kw1">Function</span> AddNumbers <span class="kw1">Lib</span> <span class="st0">"Example.dll"</span> _
+(<span class="kw1">ByVal</span> a <span class="kw1">As</span> <span class="kw1">Double</span>, <span class="kw1">ByVal</span> b <span class="kw1">As</span> <span class="kw1">Double</span>) <span class="kw1">As</span> <span class="kw1">Double</span>
+ 
+<span class="kw1">Sub</span> Main()
+        <span class="kw1">Dim</span> Result <span class="kw1">As</span> <span class="kw1">Double</span>
+        Result = AddNumbers(1, 2)
+        Debug.<span class="kw1">Print</span> <span class="st0">"The result was: "</span> &amp; Result
+<span class="kw1">End</span> <span class="kw1">Sub</span>
+</pre></div>
+</div>
+<h4><span class="mw-headline" id="Delphi_2">Delphi</span></h4>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="pascal source-pascal" style="font-family:monospace;">
+<pre class="de1"><span class="kw1">program</span> Example;
+ 
+<span class="coMULTI">{$APPTYPE CONSOLE}</span>
+ 
+<span class="kw1">uses</span> Windows;
+ 
+<span class="kw1">var</span>
+        AddNumbers      <span class="sy0">:</span> <span class="kw1">function</span> <span class="br0">(</span>a<span class="sy0">,</span> b<span class="sy0">:</span> Double<span class="br0">)</span><span class="sy0">:</span> Double;
+        LibHandle       <span class="sy0">:</span> HMODULE;
+ 
+<span class="kw1">begin</span>
+        LibHandle <span class="sy0">:=</span> LoadLibrary<span class="br0">(</span><span class="st_h">'example.dll'</span><span class="br0">)</span>;
+ 
+        <span class="kw1">if</span> LibHandle <span class="sy0">=</span> 0 <span class="kw1">then</span>
+        Exit;
+ 
+        AddNumbers <span class="sy0">:=</span> GetProcAddress<span class="br0">(</span>LibHandle<span class="sy0">,</span> <span class="st_h">'AddNumbers'</span><span class="br0">)</span>;
+ 
+        <span class="kw1">if</span> Assigned<span class="br0">(</span> AddNumbers <span class="br0">)</span> <span class="kw1">then</span>
+        <span class="kw3">Writeln</span><span class="br0">(</span> <span class="st_h">'1 + 2 = '</span><span class="sy0">,</span> AddNumbers<span class="br0">(</span> 1<span class="sy0">,</span> 2 <span class="br0">)</span> <span class="br0">)</span>;
+        <span class="kw1">else</span>
+        <span class="kw3">Writeln</span><span class="br0">(</span><span class="st_h">'Error: unable to find DLL function'</span><span class="br0">)</span>;
+ 
+        FreeLibrary<span class="br0">(</span>LibHandle<span class="br0">)</span>;
+<span class="kw1">end</span>.
+</pre></div>
+</div>
+<h4><span class="mw-headline" id="C_and_C.2B.2B_2">C and C++</span></h4>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="c source-c" style="font-family:monospace;">
+<pre class="de1"><span class="co2">#include &lt;windows.h&gt;</span>
+<span class="co2">#include &lt;stdio.h&gt;</span>
+ 
+<span class="co1">// DLL function signature</span>
+<span class="kw4">typedef</span> <span class="kw4">double</span> <span class="br0">(</span><span class="sy0">*</span>importFunction<span class="br0">)</span><span class="br0">(</span><span class="kw4">double</span><span class="sy0">,</span> <span class="kw4">double</span><span class="br0">)</span><span class="sy0">;</span>
+ 
+<span class="kw4">int</span> main<span class="br0">(</span><span class="kw4">int</span> argc<span class="sy0">,</span> <span class="kw4">char</span> <span class="sy0">**</span>argv<span class="br0">)</span>
+<span class="br0">{</span>
+        importFunction addNumbers<span class="sy0">;</span>
+        <span class="kw4">double</span> result<span class="sy0">;</span>
+ 
+        <span class="co1">// Load DLL file</span>
+        HINSTANCE hinstLib <span class="sy0">=</span> LoadLibrary<span class="br0">(</span>TEXT<span class="br0">(</span><span class="st0">"Example.dll"</span><span class="br0">)</span><span class="br0">)</span><span class="sy0">;</span>
+        <span class="kw1">if</span> <span class="br0">(</span>hinstLib <span class="sy0">==</span> NULL<span class="br0">)</span> <span class="br0">{</span>
+                <span class="kw3">printf</span><span class="br0">(</span><span class="st0">"ERROR: unable to load DLL<span class="es1">\n</span>"</span><span class="br0">)</span><span class="sy0">;</span>
+                <span class="kw1">return</span> <span class="nu0">1</span><span class="sy0">;</span>
+        <span class="br0">}</span>
+ 
+        <span class="co1">// Get function pointer</span>
+        addNumbers <span class="sy0">=</span> <span class="br0">(</span>importFunction<span class="br0">)</span>GetProcAddress<span class="br0">(</span>hinstLib<span class="sy0">,</span> <span class="st0">"AddNumbers"</span><span class="br0">)</span><span class="sy0">;</span>
+        <span class="kw1">if</span> <span class="br0">(</span>addNumbers <span class="sy0">==</span> NULL<span class="br0">)</span> <span class="br0">{</span>
+                <span class="kw3">printf</span><span class="br0">(</span><span class="st0">"ERROR: unable to find DLL function<span class="es1">\n</span>"</span><span class="br0">)</span><span class="sy0">;</span>
+                FreeLibrary<span class="br0">(</span>hinstLib<span class="br0">)</span><span class="sy0">;</span>
+                <span class="kw1">return</span> <span class="nu0">1</span><span class="sy0">;</span>
+        <span class="br0">}</span>
+ 
+        <span class="co1">// Call function.</span>
+        result <span class="sy0">=</span> addNumbers<span class="br0">(</span>1<span class="sy0">,</span> 2<span class="br0">)</span><span class="sy0">;</span>
+ 
+        <span class="co1">// Unload DLL file</span>
+        FreeLibrary<span class="br0">(</span>hinstLib<span class="br0">)</span><span class="sy0">;</span>
+ 
+        <span class="co1">// Display result</span>
+        <span class="kw3">printf</span><span class="br0">(</span><span class="st0">"The result was: %f<span class="es1">\n</span>"</span><span class="sy0">,</span> result<span class="br0">)</span><span class="sy0">;</span>
+ 
+        <span class="kw1">return</span> <span class="nu0">0</span><span class="sy0">;</span>
+<span class="br0">}</span>
+</pre></div>
+</div>
+<h4><span class="mw-headline" id="Python">Python</span></h4>
+<div dir="ltr" class="mw-geshi" style="text-align: left;">
+<div class="python source-python" style="font-family:monospace;">
+<pre class="de1"><span class="kw1">import</span> ctypes
+ 
+my_dll = ctypes.<span class="me1">cdll</span>.<span class="me1">LoadLibrary</span><span class="br0">(</span><span class="st0">"Example.dll"</span><span class="br0">)</span>
+ 
+<span class="co1"># The following "restype" method specificationis needed to make</span>
+<span class="co1"># Python understand what type is returned by the function.</span>
+my_dll.<span class="me1">AddNumbers</span>.<span class="me1">restype</span> = ctypes.<span class="me1">c_double</span>
+ 
+p = my_dll.<span class="me1">AddNumbers</span><span class="br0">(</span>ctypes.<span class="me1">c_double</span><span class="br0">(</span>1.0<span class="br0">)</span>, ctypes.<span class="me1">c_double</span><span class="br0">(</span>2.0<span class="br0">)</span><span class="br0">)</span>
+ 
+<span class="kw1">print</span> <span class="st0">"The result was: "</span>, p
+</pre></div>
+</div>
+<h2><span class="mw-headline" id="Component_Object_Model">Component Object Model</span></h2>
+<p>The <a href="http://en.wikipedia.org/wiki/Component_Object_Model">Component Object Model</a> (COM) extends the DLL concept to <a href="http://en.wikipedia.org/wiki/Object-oriented_programming">object-oriented programming</a>. Objects can be called from another process or hosted on another machine. COM objects have unique <a href="http://en.wikipedia.org/wiki/GUID" title="GUID" class="mw-redirect">GUIDs</a> and can be used to implement powerful back-ends to simple GUI front ends such as Visual Basic and ASP. They can also be programmed from scripting languages. COM objects are more complex to create and use than DLLs.</p>
+<h2><span class="mw-headline" id="DLL_Hijacking">DLL Hijacking</span></h2>
+<p>Due to a <a href="http://en.wikipedia.org/wiki/Vulnerability_(computing)" title="Vulnerability (computing)">vulnerability</a> commonly known as <a href="http://en.wikipedia.org/w/index.php?title=DLL_Hijacking&action=edit&redlink=1" class="new" title="DLL Hijacking (page does not exist)">DLL Hijacking</a>, many programs will load and execute a malicious DLL contained in the same folder as a file on a remote system. The vulnerability was discovered by <a href="http://en.wikipedia.org/wiki/HD_Moore">HD Moore</a>, who has published an <a href="http://en.wikipedia.org/wiki/Exploit_(computer_security)" title="Exploit (computer security)">exploit</a> for the open-source based <a href="http://en.wikipedia.org/wiki/Penetration_testing" class="mw-redirect" title="Penetration testing">penetration testing</a> software <a href="http://en.wikipedia.org/wiki/Metasploit" class="mw-redirect" title="Metasploit">Metasploit</a>.<sup id="cite_ref-4" class="reference"><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#cite_note-4"><span>[</span>5<span>]</span></a></sup></p>
+<h2><span class="mw-headline" id="See_also">See also</span></h2>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/Dependency_Walker">Dependency Walker</a>, a utility which displays exported and imported functions of DLL and EXE files.</li>
+<li><a href="http://en.wikipedia.org/w/index.php?title=DLL_Hijacking&action=edit&redlink=1" class="new" title="DLL Hijacking (page does not exist)">DLL Hijacking</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Dynamic_library" class="mw-redirect" title="Dynamic library">Dynamic library</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Library_(computing)">Library (computing)</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Linker_(computing)">Linker (computing)</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Loader_(computing)">Loader (computing)</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Object_file">Object file</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Shared_library" class="mw-redirect" title="Shared library">Shared library</a></li>
+<li><a href="http://en.wikipedia.org/wiki/Static_library">Static library</a></li>
+</ul>
+<h2><span class="mw-headline" id="External_links">External links</span></h2>
+<ul>
+<li><a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/vclang/html/_pluslang_the_dllexport_and_dllimport_attributes.asp" class="external text" rel="nofollow">dllexport, dllimport</a> on MSDN</li>
+<li><a href="http://msdn2.microsoft.com/en-us/library/ms682589.aspx" class="external text" rel="nofollow">Dynamic-Link Libraries</a> on MSDN</li>
+<li><a href="http://support.microsoft.com/kb/815065" class="external text" rel="nofollow">What is a DLL?</a> on Microsoft support site</li>
+<li><a href="http://msdn2.microsoft.com/en-us/library/ms682599.aspx" class="external text" rel="nofollow">Dynamic-Link Library Functions</a> on MSDN</li>
+<li><a href="http://www.microsoft.com/whdc/system/platform/firmware/PECOFF.mspx" class="external text" rel="nofollow">Microsoft Portable Executable and Common Object File Format Specification</a></li>
+<li><a href="http://download.microsoft.com/download/9/c/5/9c5b2167-8017-4bae-9fde-d599bac8184a/pecoff_v8.docx" class="external text" rel="nofollow">Microsoft specification for dll files</a></li>
+</ul>
+<h2><span class="mw-headline" id="References">References</span></h2>
+<ul>
+<li>Hart, Johnson. <i>Windows System Programming Third Edition</i>. Addison-Wesley, 2005. <a href="http://en.wikipedia.org/wiki/Special:BookSources/0321256190" class="internal mw-magiclink-isbn">ISBN 0-321-25619-0</a></li>
+<li>Rector, Brent et al. <i>Win32 Programming</i>. Addison-Wesley Developers Press, 1997. <a href="http://en.wikipedia.org/wiki/Special:BookSources/0201634929" class="internal mw-magiclink-isbn">ISBN 0-201-63492-9</a>.</li>
+</ul>
+<div class="reflist" style="">
+<div class="references">
+<ol>
+<li id="cite_note-DLL_Hell-0"><b><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#cite_ref-DLL_Hell_0-0">^</a></b> <span class="citation web"><a href="http://web.archive.org/web/20080506103746/http://msdn.microsoft.com/en-us/library/ms811694.aspx" class="external text" rel="nofollow">"The End of DLL Hell"</a>. Microsoft Corporation. Archived from <a href="http://msdn.microsoft.com/en-us/library/ms811694.aspx" class="external text" rel="nofollow">the original</a> on 2008-05-06<span class="printonly">. <a href="http://web.archive.org/web/20080506103746/http://msdn.microsoft.com/en-us/library/ms811694.aspx" class="external free" rel="nofollow">http://web.archive.org/web/20080506103746/http://msdn.microsoft.com/en-us/library/ms811694.aspx</a></span><span class="reference-accessdate">. Retrieved 2009-07-11</span>.</span><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.btitle=The+End+of+DLL+Hell&amp;rft.atitle=&amp;rft.pub=Microsoft+Corporation&amp;rft_id=http%3A%2F%2Fweb.archive.org%2Fweb%2F20080506103746%2Fhttp%3A%2F%2Fmsdn.microsoft.com%2Fen-us%2Flibrary%2Fms811694.aspx&amp;rfr_id=info:sid/en.wikipedia.org:Dynamic-link_library"><span style="display: none;">&nbsp;</span></span></li>
+<li id="cite_note-1"><b><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#cite_ref-1">^</a></b> <span class="citation web"><a href="http://msdn.microsoft.com/en-us/library/151kt790.aspx" class="external text" rel="nofollow">"Linker Support for Delay-Loaded DLLs"</a>. Microsoft Corporation<span class="printonly">. <a href="http://msdn.microsoft.com/en-us/library/151kt790.aspx" class="external free" rel="nofollow">http://msdn.microsoft.com/en-us/library/151kt790.aspx</a></span><span class="reference-accessdate">. Retrieved 2009-07-11</span>.</span><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.btitle=Linker+Support+for+Delay-Loaded+DLLs&amp;rft.atitle=&amp;rft.pub=Microsoft+Corporation&amp;rft_id=http%3A%2F%2Fmsdn.microsoft.com%2Fen-us%2Flibrary%2F151kt790.aspx&amp;rfr_id=info:sid/en.wikipedia.org:Dynamic-link_library"><span style="display: none;">&nbsp;</span></span></li>
+<li id="cite_note-2"><b><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#cite_ref-2">^</a></b> <span class="citation web">Petrusha, Ron (2005-04-26). <a href="http://www.windowsdevcenter.com/pub/a/windows/2005/04/26/create_dll.html?page=1" class="external text" rel="nofollow">"Creating a Windows DLL with Visual Basic"</a>. O'Reilly Media<span class="printonly">. <a href="http://www.windowsdevcenter.com/pub/a/windows/2005/04/26/create_dll.html?page=1" class="external free" rel="nofollow">http://www.windowsdevcenter.com/pub/a/windows/2005/04/26/create_dll.html?page=1</a></span><span class="reference-accessdate">. Retrieved 2009-07-11</span>.</span><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.btitle=Creating+a+Windows+DLL+with+Visual+Basic&amp;rft.atitle=&amp;rft.aulast=Petrusha&amp;rft.aufirst=Ron&amp;rft.au=Petrusha%2C%26%2332%3BRon&amp;rft.date=2005-04-26&amp;rft.pub=O%27Reilly+Media&amp;rft_id=http%3A%2F%2Fwww.windowsdevcenter.com%2Fpub%2Fa%2Fwindows%2F2005%2F04%2F26%2Fcreate_dll.html%3Fpage%3D1&amp;rfr_id=info:sid/en.wikipedia.org:Dynamic-link_library"><span style="display: none;">&nbsp;</span></span></li>
+<li id="cite_note-3"><b><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#cite_ref-3">^</a></b> <a href="http://msdn.microsoft.com/en-us/library/0603949d%28VS.80%29.aspx" class="external text" rel="nofollow">MSDN</a>, Using extern to Specify Linkage</li>
+<li id="cite_note-4"><b><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#cite_ref-4">^</a></b> <a href="http://www.techworld.com.au/article/358035/hacking_toolkit_publishes_dll_hijacking_exploit" class="external text" rel="nofollow">TechWorld: Hacking toolkit publishes DLL hijacking exploit</a></li>
+</ol>
+</div>
+</div>
+<table class="navbox" cellspacing="0" style=";">
+<tbody><tr>
+<td style="padding:2px;">
+<table cellspacing="0" class="nowraplinks collapsible autocollapse" style="width:100%;background:transparent;color:inherit;;" id="collapsibleTable0">
+<tbody><tr>
+<th style=";" colspan="2" class="navbox-title"><span class="collapseButton">[<a id="collapseButton0" href="http://en.wikipedia.org/wiki/Dynamic-link_library#">hide</a>]</span><span style="float:left;width:6em;text-align:left;"><span class="noprint plainlinks navbar" style=""><span style="white-space:nowrap;word-spacing:-.12em;"><a href="http://en.wikipedia.org/wiki/Template:Microsoft_Windows_components" title="Template:Microsoft Windows components"><span style=";;background:none transparent;border:none;font-size:100%;" title="View this template">v</span></a> <span style=";;background:none transparent;border:none;font-size:100%;"><b>·</b></span> <a href="http://en.wikipedia.org/wiki/Template_talk:Microsoft_Windows_components" title="Template talk:Microsoft Windows components"><span style=";;background:none transparent;border:none;font-size:100%;" title="Discuss this template">d</span></a> <span style=";;background:none transparent;border:none;font-size:100%;"><b>·</b></span> <a href="http://en.wikipedia.org/w/index.php?title=Template:Microsoft_Windows_components&action=edit" class="external text" rel="nofollow"><span style=";;background:none transparent;border:none;font-size:100%;" title="Edit this template">e</span></a></span></span></span><span class="" style="font-size:110%;"><a href="http://en.wikipedia.org/wiki/List_of_Microsoft_Windows_components" title="List of Microsoft Windows components">Microsoft Windows components</a></span></th>
+</tr>
+<tr style="height:2px;">
+<td></td>
+</tr>
+<tr>
+<td class="navbox-group" style=";;">Core</td>
+<td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd">
+<div style="padding:0em 0.25em"><span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Active_Scripting">Active Scripting</a> (<a href="http://en.wikipedia.org/wiki/Windows_Script_Host" title="Windows Script Host">WSH</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://en.wikipedia.org/wiki/VBScript">VBScript</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://en.wikipedia.org/wiki/JScript">JScript</a>)&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Aero" title="Windows Aero">Aero</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/AutoPlay">AutoPlay</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/AutoRun">AutoRun</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/ClearType">ClearType</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Component_Object_Model" title="Component Object Model">COM</a> (<a href="http://en.wikipedia.org/wiki/ActiveX">ActiveX</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://en.wikipedia.org/wiki/ActiveX_Document">ActiveX Document</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://en.wikipedia.org/wiki/COM_Structured_Storage">COM Structured storage</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://en.wikipedia.org/wiki/Distributed_Component_Object_Model" title="Distributed Component Object Model">DCOM</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://en.wikipedia.org/wiki/Object_Linking_and_Embedding" title="Object Linking and Embedding">OLE</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://en.wikipedia.org/wiki/OLE_Automation">OLE Automation</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://en.wikipedia.org/wiki/Microsoft_Transaction_Server" title="Microsoft Transaction Server">Transaction Server</a>)&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Desktop_Window_Manager">Desktop Window Manager</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/DirectX">DirectX</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Explorer" title="Windows Explorer">Explorer</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Graphics_Device_Interface">Graphics Device Interface</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Imaging_Format" title="Windows Imaging Format">Imaging Format</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/.NET_Framework">.NET Framework</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Search" title="Windows Search">Search</a> (<a href="http://en.wikipedia.org/wiki/IFilter">IFilter</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://en.wikipedia.org/wiki/Virtual_folder#Windows" title="Virtual folder">Saved search</a>)&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Server_Message_Block">Server Message Block</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_shell" title="Windows shell">Shell</a> (<a href="http://en.wikipedia.org/wiki/Windows_Explorer#Extensibility" title="Windows Explorer">Extensions</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://en.wikipedia.org/wiki/File_association" title="File association">File associations</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://en.wikipedia.org/wiki/Windows_Shell_namespace" title="Windows Shell namespace">Namespace</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://en.wikipedia.org/wiki/Special_Folders">Special Folders</a>)&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Start_menu">Start menu</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Shadow_Copy" title="Shadow Copy">Previous Versions</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Taskbar">Taskbar</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_USER">Windows USER</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Win32_console">Win32 console</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Open_XML_Paper_Specification" title="Open XML Paper Specification">XML Paper Specification</a></span></div>
+</td>
+</tr>
+<tr style="height:2px">
+<td></td>
+</tr>
+<tr>
+<td class="navbox-group" style=";;">Management<br>
+tools</td>
+<td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even">
+<div style="padding:0em 0.25em"><span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Backup_and_Restore_Center">Backup and Restore Center</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Command_Prompt" title="Command Prompt">cmd.exe</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Control_Panel_(Windows)" title="Control Panel (Windows)">Control Panel</a> (<a href="http://en.wikipedia.org/wiki/List_of_Control_Panel_applets_(Windows)" title="List of Control Panel applets (Windows)" class="mw-redirect">Applets</a>)&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Device_Manager">Device Manager</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Disk_Cleanup">Disk Cleanup</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Disk_Defragmenter_(Windows)" title="Disk Defragmenter (Windows)">Disk Defragmenter</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Driver_Verifier">Driver Verifier</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Event_Viewer">Event Viewer</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Internet_Explorer_Administration_Kit" title="Internet Explorer Administration Kit">IEAK</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/IExpress">IExpress</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Microsoft_Management_Console" title="Microsoft Management Console">Management Console</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Netsh">Netsh</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Problem_Reports_and_Solutions" class="mw-redirect" title="Problem Reports and Solutions">Problem Reports and Solutions</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Resource_Monitor">Resource Monitor</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;">‎<a href="http://en.wikipedia.org/wiki/Sysprep">Sysprep</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/System_Policy_Editor">System Policy Editor</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/MSConfig" title="MSConfig">System Configuration</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Task_Manager" title="Windows Task Manager">Task Manager</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/System_File_Checker">System File Checker</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/System_Restore">System Restore</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Management_Instrumentation" title="Windows Management Instrumentation">WMI</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Installer">Windows Installer</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_PowerShell">Windows PowerShell</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Update">Windows Update</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Automated_Installation_Kit" title="Windows Automated Installation Kit">WAIK</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_System_Assessment_Tool" title="Windows System Assessment Tool">WinSAT</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Easy_Transfer">Windows Easy Transfer</a></span></div>
+</td>
+</tr>
+<tr style="height:2px">
+<td></td>
+</tr>
+<tr>
+<td class="navbox-group" style=";;">Applications</td>
+<td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd">
+<div style="padding:0em 0.25em"><span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Calculator_(Windows)" title="Calculator (Windows)">Calculator</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Character_Map">Character Map</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Contacts" title="Windows Contacts">Contacts</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_DVD_Maker" title="Windows DVD Maker">DVD Maker</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Fax_and_Scan" title="Windows Fax and Scan">Fax and Scan</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Internet_Explorer">Internet Explorer</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Journal" title="Windows Journal">Journal</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Magnifier_(Windows)" title="Magnifier (Windows)">Magnifier</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Media_Center" title="Windows Media Center">Media Center</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Media_Player" title="Windows Media Player">Media Player</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Mobile_Device_Center" title="Windows Mobile Device Center">Mobile Device Center</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Mobility_Center" title="Windows Mobility Center">Mobility Center</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Microsoft_Narrator" title="Microsoft Narrator">Narrator</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Notepad_(software)" title="Notepad (software)">Notepad</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Paint_(software)" title="Paint (software)">Paint</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Photo_Viewer">Windows Photo Viewer</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Private_Character_Editor">Private Character Editor</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Remote_Assistance" title="Windows Remote Assistance">Remote Assistance</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Desktop_Gadgets">Windows Desktop Gadgets</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Snipping_Tool">Snipping Tool</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Sound_Recorder_(Windows)" title="Sound Recorder (Windows)">Sound Recorder</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Speech_Recognition" title="Windows Speech Recognition">Speech Recognition</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Tablet_PC_Input_Panel">Tablet PC Input Panel</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/WordPad">WordPad</a></span></div>
+</td>
+</tr>
+<tr style="height:2px">
+<td></td>
+</tr>
+<tr>
+<td class="navbox-group" style=";;">Games</td>
+<td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even">
+<div style="padding:0em 0.25em"><span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Chess_Titans">Chess Titans</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/FreeCell_(Windows)" title="FreeCell (Windows)">FreeCell</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Hearts_(Windows)" title="Hearts (Windows)">Hearts</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Inkball" class="mw-redirect" title="Inkball">Inkball</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Mahjong_Titans">Mahjong Titans</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Minesweeper_(Windows)" title="Minesweeper (Windows)">Minesweeper</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Purble_Place">Purble Place</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Solitaire_(Windows)" title="Solitaire (Windows)">Solitaire</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Spider_Solitaire_(Windows)" title="Spider Solitaire (Windows)">Spider Solitaire</a></span></div>
+</td>
+</tr>
+<tr style="height:2px">
+<td></td>
+</tr>
+<tr>
+<td class="navbox-group" style=";;"><a href="http://en.wikipedia.org/wiki/Kernel_(computing)" title="Kernel (computing)">Kernel</a></td>
+<td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd">
+<div style="padding:0em 0.25em"><span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Ntoskrnl.exe">Ntoskrnl.exe</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Hal.dll" class="mw-redirect" title="Hal.dll">hal.dll</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/System_Idle_Process">System Idle Process</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Svchost.exe">svchost.exe</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Registry" title="Windows Registry">Registry</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_service">Windows service</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><strong class="selflink">DLL</strong>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Portable_Executable" title="Portable Executable">EXE</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/NTLDR">NTLDR</a> / <a href="http://en.wikipedia.org/wiki/Windows_Vista_startup_process" title="Windows Vista startup process">Boot Manager</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Winlogon">Winlogon</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Recovery_Console">Recovery Console</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Vista_I/O_technologies" title="Windows Vista I/O technologies">I/O</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Recovery_Environment" title="Windows Recovery Environment">WinRE</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Preinstallation_Environment" title="Windows Preinstallation Environment">WinPE</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Kernel_Patch_Protection">Kernel Patch Protection</a></span></div>
+</td>
+</tr>
+<tr style="height:2px">
+<td></td>
+</tr>
+<tr>
+<td class="navbox-group" style=";;"><a href="http://en.wikipedia.org/wiki/Windows_service" title="Windows service">Services</a></td>
+<td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even">
+<div style="padding:0em 0.25em"><span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Background_Intelligent_Transfer_Service" title="Background Intelligent Transfer Service">BITS</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Task_Scheduler">Task Scheduler</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Wireless_Zero_Configuration">Wireless Zero Configuration</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Shadow_Copy">Shadow Copy</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Error_Reporting" title="Windows Error Reporting">Error Reporting</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Multimedia_Class_Scheduler_Service" title="Multimedia Class Scheduler Service">Multimedia Class Scheduler</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Common_Log_File_System" title="Common Log File System">CLFS</a></span></div>
+</td>
+</tr>
+<tr style="height:2px">
+<td></td>
+</tr>
+<tr>
+<td class="navbox-group" style=";;"><a href="http://en.wikipedia.org/wiki/File_system" title="File system">File systems</a></td>
+<td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd">
+<div style="padding:0em 0.25em"><span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/NTFS">NTFS</a> (<a href="http://en.wikipedia.org/wiki/Hard_link">Hard link</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://en.wikipedia.org/wiki/NTFS_junction_point" title="NTFS junction point">Junction point</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://en.wikipedia.org/wiki/Volume_Mount_Point" title="Volume Mount Point">Mount Point</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://en.wikipedia.org/wiki/NTFS_reparse_point" title="NTFS reparse point">Reparse point</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://en.wikipedia.org/wiki/NTFS_symbolic_link" title="NTFS symbolic link">Symbolic link</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://en.wikipedia.org/wiki/Transactional_NTFS" title="Transactional NTFS">TxF</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://en.wikipedia.org/wiki/Encrypting_File_System" title="Encrypting File System">EFS</a>)&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/WinFS">WinFS</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/File_Allocation_Table" title="File Allocation Table">FAT</a> (<a href="http://en.wikipedia.org/wiki/FAT12" class="mw-redirect" title="FAT12">FAT12</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://en.wikipedia.org/wiki/FAT16" class="mw-redirect" title="FAT16">FAT16</a>&nbsp;<span style="font-weight:bold;">·</span> <a href="http://en.wikipedia.org/wiki/FAT32" class="mw-redirect" title="FAT32">FAT32</a>)&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/ExFAT">exFAT</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/ISO_9660" title="ISO 9660">CDFS</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Universal_Disk_Format" title="Universal Disk Format">UDF</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Distributed_File_System_(Microsoft)" title="Distributed File System (Microsoft)">DFS</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Installable_File_System" title="Installable File System">IFS</a></span></div>
+</td>
+</tr>
+<tr style="height:2px">
+<td></td>
+</tr>
+<tr>
+<td class="navbox-group" style=";;"><a href="http://en.wikipedia.org/wiki/Server_(computing)" title="Server (computing)">Server</a></td>
+<td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even">
+<div style="padding:0em 0.25em"><span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_domain" title="Windows domain">Domains</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Active_Directory">Active Directory</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Microsoft_DNS" title="Microsoft DNS">DNS</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Group_Policy">Group Policy</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Roaming_user_profile" title="Roaming user profile">Roaming user profiles</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Folder_redirection">Folder redirection</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Distributed_Transaction_Coordinator">Distributed Transaction Coordinator</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Microsoft_Message_Queuing" title="Microsoft Message Queuing">MSMQ</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Media_Services">Windows Media Services</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Rights_Management_Services">Rights Management Services</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Internet_Information_Services" title="Internet Information Services">IIS</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Remote_Desktop_Services" title="Remote Desktop Services">Terminal Services</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Server_Update_Services" title="Windows Server Update Services">WSUS</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_SharePoint_Services" class="mw-redirect" title="Windows SharePoint Services">Windows SharePoint Services</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Network_Access_Protection">Network Access Protection</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Microsoft_Personal_Web_Server" title="Microsoft Personal Web Server">PWS</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/File_Replication_Service" title="File Replication Service">DFS Replication</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Remote_Differential_Compression">Remote Differential Compression</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Print_Services_for_UNIX">Print Services for UNIX</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Remote_Installation_Services">Remote Installation Services</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Deployment_Services">Windows Deployment Services</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_System_Resource_Manager" title="Windows System Resource Manager">System Resource Manager</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Hyper-V">Hyper-V</a></span></div>
+</td>
+</tr>
+<tr style="height:2px">
+<td></td>
+</tr>
+<tr>
+<td class="navbox-group" style=";;"><a href="http://en.wikipedia.org/wiki/Software_architecture" title="Software architecture">Architecture</a></td>
+<td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd">
+<div style="padding:0em 0.25em"><span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Architecture_of_Windows_NT" title="Architecture of Windows NT">NT series architecture</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Object_Manager_(Windows)" title="Object Manager (Windows)">Object Manager</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_NT_startup_process" title="Windows NT startup process">Startup process</a> (<a href="http://en.wikipedia.org/wiki/Windows_Vista_startup_process" title="Windows Vista startup process">Vista/7</a>)&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/I/O_request_packet">I/O request packet</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Kernel_Transaction_Manager">Kernel Transaction Manager</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Logical_Disk_Manager">Logical Disk Manager</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Security_Accounts_Manager">Security Accounts Manager</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_File_Protection">Windows File Protection</a> / <a href="http://en.wikipedia.org/wiki/Windows_Resource_Protection">Windows Resource Protection</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_library_files" class="mw-redirect" title="Windows library files">Windows library files</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Local_Security_Authority_Subsystem_Service" title="Local Security Authority Subsystem Service">LSASS</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Client/Server_Runtime_Subsystem" title="Client/Server Runtime Subsystem">CSRSS</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Session_Manager_Subsystem" title="Session Manager Subsystem">SMSS</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/MinWin">MinWin</a></span></div>
+</td>
+</tr>
+<tr style="height:2px">
+<td></td>
+</tr>
+<tr>
+<td class="navbox-group" style=";;">Security</td>
+<td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-even">
+<div style="padding:0em 0.25em"><span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/User_Account_Control">User Account Control</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/BitLocker_Drive_Encryption" title="BitLocker Drive Encryption">BitLocker</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Defender" title="Windows Defender">Defender</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Data_Execution_Prevention">Data Execution Prevention</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Microsoft_Security_Essentials" title="Microsoft Security Essentials">Security Essentials</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Protected_Media_Path">Protected Media Path</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Mandatory_Integrity_Control">Mandatory Integrity Control</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/User_Interface_Privilege_Isolation">User Interface Privilege Isolation</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Firewall">Windows Firewall</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_Security_Center" title="Windows Security Center" class="mw-redirect">Security Center</a></span></div>
+</td>
+</tr>
+<tr style="height:2px">
+<td></td>
+</tr>
+<tr>
+<td class="navbox-group" style=";;">Compatibility</td>
+<td style="text-align:left;border-left-width:2px;border-left-style:solid;width:100%;padding:0px;;;" class="navbox-list navbox-odd">
+<div style="padding:0em 0.25em"><span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Microsoft_Windows_Services_for_UNIX" title="Microsoft Windows Services for UNIX" class="mw-redirect">Unix subsystem</a> (<a href="http://en.wikipedia.org/wiki/Microsoft_POSIX_subsystem" title="Microsoft POSIX subsystem">Microsoft POSIX</a> &nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Interix">Interix</a>)&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Virtual_DOS_machine">Virtual DOS machine</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/COMMAND.COM">command.com</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_on_Windows">Windows on Windows</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/WoW64">WoW64</a>&nbsp;<b>·</b></span> <span style="white-space:nowrap;"><a href="http://en.wikipedia.org/wiki/Windows_XP_Mode" class="mw-redirect" title="Windows XP Mode">Windows XP Mode</a></span></div>
+</td>
+</tr>
+</tbody></table>
+</td>
+</tr>
+</tbody></table>
+
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 5370/1000000
+Post-expand include size: 108877/2048000 bytes
+Template argument size: 54259/2048000 bytes
+Expensive parser function count: 3/500
+-->
+
+<!-- Saved in parser cache with key enwiki:pcache:idhash:2701077-0!*!0!!*!4!edit=0 and timestamp 20110221161411 -->
+<div class="printfooter">
+Retrieved from "<a href="./Dynamic-link library - Wikipedia, the free encyclopedia_files/Dynamic-link library - Wikipedia, the free encyclopedia.htm">http://en.wikipedia.org/wiki/Dynamic-link_library</a>"</div>
+				<!-- /bodytext -->
+								<!-- catlinks -->
+				<div id="catlinks" class="catlinks"><div id="mw-normal-catlinks"><a href="http://en.wikipedia.org/wiki/Special:Categories" title="Special:Categories">Categories</a>: <span dir="ltr"><a href="http://en.wikipedia.org/wiki/Category:Computer_libraries" title="Category:Computer libraries">Computer libraries</a></span> | <span dir="ltr"><a href="http://en.wikipedia.org/wiki/Category:Windows_administration" title="Category:Windows administration">Windows administration</a></span> | <span dir="ltr"><a href="http://en.wikipedia.org/wiki/Category:Computer_file_formats" title="Category:Computer file formats">Computer file formats</a></span> | <span dir="ltr"><a href="http://en.wikipedia.org/wiki/Category:Filename_extensions" title="Category:Filename extensions">Filename extensions</a></span></div><div id="mw-hidden-catlinks" class="mw-hidden-cats-hidden">Hidden categories: <span dir="ltr"><a href="http://en.wikipedia.org/wiki/Category:Articles_with_too_many_examples" title="Category:Articles with too many examples">Articles with too many examples</a></span> | <span dir="ltr"><a href="http://en.wikipedia.org/wiki/Category:Articles_lacking_in-text_citations_from_October_2009" title="Category:Articles lacking in-text citations from October 2009">Articles lacking in-text citations from October 2009</a></span> | <span dir="ltr"><a href="http://en.wikipedia.org/wiki/Category:All_articles_lacking_in-text_citations" title="Category:All articles lacking in-text citations">All articles lacking in-text citations</a></span> | <span dir="ltr"><a href="http://en.wikipedia.org/wiki/Category:All_articles_with_unsourced_statements" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></span> | <span dir="ltr"><a href="http://en.wikipedia.org/wiki/Category:Articles_with_unsourced_statements_from_September_2010" title="Category:Articles with unsourced statements from September 2010">Articles with unsourced statements from September 2010</a></span></div></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		<div id="mw-head" class="noprint">
+			
+<!-- 0 -->
+<div id="p-personal" class="">
+	<h5>Personal tools</h5>
+	<ul>
+					<li id="pt-login"><a href="http://en.wikipedia.org/w/index.php?title=Special:UserLogin&returnto=Dynamic-link_library" title="You are encouraged to log in; however, it is not mandatory. [alt-o]" accesskey="o">Log in / create account</a></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+			<div id="left-navigation">
+				
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>Namespaces</h5>
+	<ul>
+					<li id="ca-nstab-main" class="selected"><span><a href="./Dynamic-link library - Wikipedia, the free encyclopedia_files/Dynamic-link library - Wikipedia, the free encyclopedia.htm" title="View the content page [alt-c]" accesskey="c">Article</a></span></li>
+					<li id="ca-talk"><span><a href="http://en.wikipedia.org/wiki/Talk:Dynamic-link_library" title="Discussion about the content page [alt-t]" accesskey="t">Discussion</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu emptyPortlet">
+		<h5><span>Variants</span><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+			</div>
+			<div id="right-navigation">
+				
+<!-- 0 -->
+<div id="p-views" class="vectorTabs">
+	<h5>Views</h5>
+	<ul>
+					<li id="ca-view" class="selected"><span><a href="./Dynamic-link library - Wikipedia, the free encyclopedia_files/Dynamic-link library - Wikipedia, the free encyclopedia.htm">Read</a></span></li>
+					<li id="ca-viewsource"><span><a href="http://en.wikipedia.org/w/index.php?title=Dynamic-link_library&action=edit" title="This page is protected.
+You can view its source [alt-e]" accesskey="e">View source</a></span></li>
+					<li id="ca-history" class="collapsible "><span><a href="http://en.wikipedia.org/w/index.php?title=Dynamic-link_library&action=history" title="Past versions of this page [alt-h]" accesskey="h">View history</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>Actions</span><a href="http://en.wikipedia.org/wiki/Dynamic-link_library#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+
+<!-- 2 -->
+<div id="p-search">
+	<h5><label for="searchInput">Search</label></h5>
+	<form action="http://en.wikipedia.org/w/index.php" id="searchform">
+		<input type="hidden" name="title" value="Special:Search">
+				<div id="simpleSearch">
+						<input id="searchInput" name="search" type="text" title="Search Wikipedia [alt-f]" accesskey="f" value="" tabindex="1" placeholder="Search" autocomplete="off">
+						<button id="searchButton" type="submit" name="button" title="Search Wikipedia for this text"><img src="./Dynamic-link library - Wikipedia, the free encyclopedia_files/search-ltr.png" alt="Search"></button>
+					</div>
+			</form>
+</div>
+
+<!-- /2 -->
+			</div>
+		</div>
+		<!-- /header -->
+		<!-- panel -->
+			<div id="mw-panel" class="noprint collapsible-nav">
+				<!-- logo -->
+					<div id="p-logo"><a style="background-image: url(http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png);" href="http://en.wikipedia.org/wiki/Main_Page" title="Visit the main page"></a></div>
+				<!-- /logo -->
+				
+<!-- navigation -->
+<div class="portal first persistent" id="p-navigation">
+	<h5>Navigation</h5>
+	<div class="body">
+				<ul>
+					<li id="n-mainpage-description"><a href="http://en.wikipedia.org/wiki/Main_Page" title="Visit the main page [alt-z]" accesskey="z">Main page</a></li>
+					<li id="n-contents"><a href="http://en.wikipedia.org/wiki/Portal:Contents" title="Guides to browsing Wikipedia">Contents</a></li>
+					<li id="n-featuredcontent"><a href="http://en.wikipedia.org/wiki/Portal:Featured_content" title="Featured content – the best of Wikipedia">Featured content</a></li>
+					<li id="n-currentevents"><a href="http://en.wikipedia.org/wiki/Portal:Current_events" title="Find background information on current events">Current events</a></li>
+					<li id="n-randompage"><a href="http://en.wikipedia.org/wiki/Special:Random" title="Load a random article [alt-x]" accesskey="x">Random article</a></li>
+					<li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Special:Landingcheck?landing_page=WMFJA085&language=en&utm_source=donate&utm_medium=sidebar&utm_campaign=20101204SB002" title="Support us">Donate to Wikipedia</a></li>
+				</ul>
+			</div>
+</div>
+
+<!-- /navigation -->
+
+<!-- SEARCH -->
+
+<!-- /SEARCH -->
+
+<!-- interaction -->
+<div class="portal expanded" id="p-interaction">
+	<h5 tabindex="2">Interaction</h5>
+	<div class="body" style="display: block; ">
+				<ul>
+					<li id="n-help"><a href="http://en.wikipedia.org/wiki/Help:Contents" title="Guidance on how to use and edit Wikipedia">Help</a></li>
+					<li id="n-aboutsite"><a href="http://en.wikipedia.org/wiki/Wikipedia:About" title="Find out about Wikipedia">About Wikipedia</a></li>
+					<li id="n-portal"><a href="http://en.wikipedia.org/wiki/Wikipedia:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+					<li id="n-recentchanges"><a href="http://en.wikipedia.org/wiki/Special:RecentChanges" title="The list of recent changes in the wiki [alt-r]" accesskey="r">Recent changes</a></li>
+					<li id="n-contact"><a href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us" title="How to contact Wikipedia">Contact Wikipedia</a></li>
+				</ul>
+			</div>
+</div>
+
+<!-- /interaction -->
+
+<!-- TOOLBOX -->
+<div class="portal collapsed" id="p-tb">
+	<h5 tabindex="3">Toolbox</h5>
+	<div class="body">
+		<ul>
+					<li id="t-whatlinkshere"><a href="http://en.wikipedia.org/wiki/Special:WhatLinksHere/Dynamic-link_library" title="List of all English Wikipedia pages containing links to this page [alt-j]" accesskey="j">What links here</a></li>
+						<li id="t-recentchangeslinked"><a href="http://en.wikipedia.org/wiki/Special:RecentChangesLinked/Dynamic-link_library" title="Recent changes in pages linked from this page [alt-k]" accesskey="k">Related changes</a></li>
+																																					<li id="t-upload"><a href="http://en.wikipedia.org/wiki/Wikipedia:Upload" title="Upload files [alt-u]" accesskey="u">Upload file</a></li>
+											<li id="t-specialpages"><a href="http://en.wikipedia.org/wiki/Special:SpecialPages" title="List of all special pages [alt-q]" accesskey="q">Special pages</a></li>
+											<li id="t-permalink"><a href="http://en.wikipedia.org/w/index.php?title=Dynamic-link_library&oldid=414544517" title="Permanent link to this revision of the page">Permanent link</a></li>
+				<li id="t-cite"><a href="http://en.wikipedia.org/w/index.php?title=Special:Cite&page=Dynamic-link_library&id=414544517" title="Information on how to cite this page">Cite this page</a></li>		</ul>
+	</div>
+</div>
+
+<!-- /TOOLBOX -->
+
+<!-- coll-print_export -->
+<div class="portal collapsed" id="p-coll-print_export">
+	<h5 tabindex="4">Print/export</h5>
+	<div class="body">
+				<ul id="collectionPortletList"><li id="coll-create_a_book"><a href="http://en.wikipedia.org/w/index.php?title=Special:Book&bookcmd=book_creator&referer=Dynamic-link+library" title="Create a book or page collection" rel="nofollow">Create a book</a></li><li id="coll-download-as-rl"><a href="http://en.wikipedia.org/w/index.php?title=Special:Book&bookcmd=render_article&arttitle=Dynamic-link+library&oldid=414544517&writer=rl" title="Download a PDF version of this wiki page" rel="nofollow">Download as PDF</a></li><li id="t-print"><a href="http://en.wikipedia.org/w/index.php?title=Dynamic-link_library&printable=yes" title="Printable version of this page [alt-p]" accesskey="p">Printable version</a></li></ul>			</div>
+</div>
+
+<!-- /coll-print_export -->
+
+<!-- LANGUAGES -->
+<div class="portal expanded" id="p-lang">
+	<h5 tabindex="5">Languages</h5>
+	<div class="body" style="display: block; ">
+		<ul>
+					<li class="interwiki-ar"><a href="http://ar.wikipedia.org/wiki/%D9%85%D9%83%D8%AA%D8%A8%D8%A9_%D8%A7%D9%84%D8%B1%D8%A8%D8%B7_%D8%A7%D9%84%D8%AF%D9%8A%D9%86%D8%A7%D9%85%D9%8A%D9%83%D9%8A" title="مكتبة الربط الديناميكي">العربية</a></li>
+					<li class="interwiki-bg"><a href="http://bg.wikipedia.org/wiki/DLL" title="DLL">Български</a></li>
+					<li class="interwiki-ca"><a href="http://ca.wikipedia.org/wiki/DLL" title="DLL">Català</a></li>
+					<li class="interwiki-cv"><a href="http://cv.wikipedia.org/wiki/DLL" title="DLL">Чӑвашла</a></li>
+					<li class="interwiki-cs"><a href="http://cs.wikipedia.org/wiki/DLL" title="DLL">Česky</a></li>
+					<li class="interwiki-de"><a href="http://de.wikipedia.org/wiki/Dynamic_Link_Library" title="Dynamic Link Library">Deutsch</a></li>
+					<li class="interwiki-es"><a href="http://es.wikipedia.org/wiki/Biblioteca_de_enlace_din%C3%A1mico" title="Biblioteca de enlace dinámico">Español</a></li>
+					<li class="interwiki-ko"><a href="http://ko.wikipedia.org/wiki/%EB%8F%99%EC%A0%81_%EB%A7%81%ED%81%AC_%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC" title="동적 링크 라이브러리">한국어</a></li>
+					<li class="interwiki-hi"><a href="http://hi.wikipedia.org/wiki/%E0%A4%A1%E0%A5%80_%E0%A4%8F%E0%A4%B2_%E0%A4%8F%E0%A4%B2" title="डी एल एल">हिन्दी</a></li>
+					<li class="interwiki-it"><a href="http://it.wikipedia.org/wiki/Dynamic-link_library" title="Dynamic-link library">Italiano</a></li>
+					<li class="interwiki-he"><a href="http://he.wikipedia.org/wiki/Dynamic-Link_Library" title="Dynamic-Link Library">עברית</a></li>
+					<li class="interwiki-hu"><a href="http://hu.wikipedia.org/wiki/Dinamikus_csatol%C3%A1s%C3%BA_k%C3%B6nyvt%C3%A1r" title="Dinamikus csatolású könyvtár">Magyar</a></li>
+					<li class="interwiki-nl"><a href="http://nl.wikipedia.org/wiki/Dynamically_Linked_Library" title="Dynamically Linked Library">Nederlands</a></li>
+					<li class="interwiki-ja"><a href="http://ja.wikipedia.org/wiki/%E3%83%80%E3%82%A4%E3%83%8A%E3%83%9F%E3%83%83%E3%82%AF%E3%83%AA%E3%83%B3%E3%82%AF%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA" title="ダイナミックリンクライブラリ">日本語</a></li>
+					<li class="interwiki-no"><a href="http://no.wikipedia.org/wiki/Dynamic-Link_Library" title="Dynamic-Link Library">‪Norsk (bokmål)‬</a></li>
+					<li class="interwiki-pl"><a href="http://pl.wikipedia.org/wiki/DLL" title="DLL">Polski</a></li>
+					<li class="interwiki-pt"><a href="http://pt.wikipedia.org/wiki/DLL" title="DLL">Português</a></li>
+					<li class="interwiki-ru"><a href="http://ru.wikipedia.org/wiki/DLL" title="DLL">Русский</a></li>
+					<li class="interwiki-si"><a href="http://si.wikipedia.org/wiki/DLL" title="DLL">සිංහල</a></li>
+					<li class="interwiki-simple"><a href="http://simple.wikipedia.org/wiki/Dynamic-link_library" title="Dynamic-link library">Simple English</a></li>
+					<li class="interwiki-sk"><a href="http://sk.wikipedia.org/wiki/Dynamic-link_library" title="Dynamic-link library">Slovenčina</a></li>
+					<li class="interwiki-sv"><a href="http://sv.wikipedia.org/wiki/Dynamic-link_library" title="Dynamic-link library">Svenska</a></li>
+					<li class="interwiki-uk"><a href="http://uk.wikipedia.org/wiki/Dll" title="Dll">Українська</a></li>
+					<li class="interwiki-vi"><a href="http://vi.wikipedia.org/wiki/DLL" title="DLL">Tiếng Việt</a></li>
+					<li class="interwiki-zh"><a href="http://zh.wikipedia.org/wiki/%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93" title="动态链接库">中文</a></li>
+				</ul>
+	</div>
+</div>
+
+<!-- /LANGUAGES -->
+			</div>
+		<!-- /panel -->
+		<!-- footer -->
+		<div id="footer">
+											<ul id="footer-info">
+																	<li id="footer-info-lastmod"> This page was last modified on 18 February 2011 at 01:41.<br></li>
+																							<li id="footer-info-copyright">Text is available under the <a rel="license" href="http://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License">Creative Commons Attribution-ShareAlike License</a><a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/" style="display:none;"></a>;
+additional terms may apply.
+See <a href="http://wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a> for details.<br>
+Wikipedia® is a registered trademark of the <a href="http://www.wikimediafoundation.org/">Wikimedia Foundation, Inc.</a>, a non-profit organization.<br></li><li class="noprint"><a class="internal" href="http://en.wikipedia.org/wiki/Wikipedia:Contact_us">Contact us</a></li>
+															</ul>
+															<ul id="footer-places">
+																	<li id="footer-places-privacy"><a href="http://wikimediafoundation.org/wiki/Privacy_policy" title="wikimedia:Privacy policy">Privacy policy</a></li>
+																							<li id="footer-places-about"><a href="http://en.wikipedia.org/wiki/Wikipedia:About" title="Wikipedia:About">About Wikipedia</a></li>
+																							<li id="footer-places-disclaimer"><a href="http://en.wikipedia.org/wiki/Wikipedia:General_disclaimer" title="Wikipedia:General disclaimer">Disclaimers</a></li>
+															</ul>
+											<ul id="footer-icons" class="noprint">
+					<li id="footer-copyrightico">
+						<a href="http://wikimediafoundation.org/"><img src="./Dynamic-link library - Wikipedia, the free encyclopedia_files/wikimedia-button.png" width="88" height="31" alt="Wikimedia Foundation"></a>
+					</li>
+					<li id="footer-poweredbyico">
+						<a href="http://www.mediawiki.org/"><img src="./Dynamic-link library - Wikipedia, the free encyclopedia_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31"></a>
+					</li>
+				</ul>
+						<div style="clear:both"></div>
+		</div>
+		<!-- /footer -->
+		
+<script src="./Dynamic-link library - Wikipedia, the free encyclopedia_files/load(3).php" type="text/javascript"></script><script src="./Dynamic-link library - Wikipedia, the free encyclopedia_files/load(4).php" type="text/javascript"></script>
+<script type="text/javascript">if ( window.mediaWiki ) {
+	mediaWiki.config.set({"wgCanonicalNamespace": "", "wgCanonicalSpecialPageName": false, "wgNamespaceNumber": 0, "wgPageName": "Dynamic-link_library", "wgTitle": "Dynamic-link library", "wgAction": "view", "wgArticleId": 2701077, "wgIsArticle": true, "wgUserName": null, "wgUserGroups": ["*"], "wgCurRevisionId": 414544517, "wgCategories": ["Articles with too many examples", "Articles lacking in-text citations from October 2009", "All articles lacking in-text citations", "All articles with unsourced statements", "Articles with unsourced statements from September 2010", "Computer libraries", "Windows administration", "Computer file formats", "Filename extensions"], "wgBreakFrames": false, "wgRestrictionEdit": [], "wgRestrictionMove": [], "wgSearchNamespaces": [0], "wgFlaggedRevsParams": {"tags": {"status": {"levels": 1, "quality": 2, "pristine": 3}}}, "wgStableRevisionId": null, "wgRevContents": {"error": "Unable to get content.", "waiting": "Waiting for content"}, "wgWikimediaMobileUrl": "http://en.m.wikipedia.org/wiki", "wgCollapsibleNavBucketTest": false, "wgCollapsibleNavForceNewVersion": false, "wgArticleAssessmentJUIPath": "http://bits.wikimedia.org/w/extensions-1.17/UsabilityInitiative/js/js2stopgap/jui.combined.min.js", "Geo": {"city": "", "country": ""}, "wgNoticeProject": "wikipedia"});
+}
+</script>
+<script type="text/javascript">if ( window.mediaWiki ) {
+	mediaWiki.loader.load(["mediawiki.legacy.wikibits", "mediawiki.util", "mediawiki.legacy.ajax", "mediawiki.legacy.mwsuggest", "ext.vector.collapsibleNav", "ext.vector.collapsibleTabs", "ext.vector.editWarning", "ext.vector.simpleSearch"]);
+	mediaWiki.loader.go();
+}
+</script><script type="text/javascript" src="./Dynamic-link library - Wikipedia, the free encyclopedia_files/load(5).php"></script><script type="text/javascript" src="./Dynamic-link library - Wikipedia, the free encyclopedia_files/load(6).php"></script>
+
+<script src="./Dynamic-link library - Wikipedia, the free encyclopedia_files/MobileRedirect.js" type="text/javascript"></script>
+<script src="./Dynamic-link library - Wikipedia, the free encyclopedia_files/index(1).php" type="text/javascript"></script>
+<script src="./Dynamic-link library - Wikipedia, the free encyclopedia_files/load(7).php" type="text/javascript"></script><script type="text/javascript" src="./Dynamic-link library - Wikipedia, the free encyclopedia_files/index(2).php"></script>
+<script type="text/javascript">if ( window.mediaWiki ) {
+	mediaWiki.user.options.set({"ccmeonemails":0,"cols":80,"contextchars":50,"contextlines":5,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"highlightbroken":1,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":1,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":4,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":1,"watchdefault":0,"watchdeletion":0,"watchlistdays":"3","watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"flaggedrevssimpleui":1,"flaggedrevsstable":false,"flaggedrevseditdiffs":true,"flaggedrevsviewdiffs":false,"vector-simplesearch":1,"useeditwarning":1,"vector-collapsiblenav":1,"usebetatoolbar":1,"usebetatoolbar-cgd":1,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"searchNs100":false,"searchNs101":false,"searchNs108":false,"searchNs109":false});
+	mediaWiki.loader.state({"user.options":"ready"});
+	
+	
+	/* cache key: enwiki:resourceloader:filter:minify-js:3:ae2156c08a06314b12473d37e57711e2 */
+}
+</script><script type="text/javascript" src="./Dynamic-link library - Wikipedia, the free encyclopedia_files/saved_resource"></script>		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script>
+		<!-- /fixalpha -->
+		<!-- Served by srv269 in 2.017 secs. -->			
+
+<div style="top: 71px; width: 203px; display: none; left: auto; right: 30px; " class="suggestions"><div class="suggestions-results"></div><div class="suggestions-special"></div></div></body></html>

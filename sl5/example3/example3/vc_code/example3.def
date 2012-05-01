@@ -1,0 +1,6 @@
+LIBRARY example3
+
+EXPORTS
+
+InPort	@1
+OutPort @2

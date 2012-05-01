@@ -1,0 +1,1596 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- saved from url=(0046)http://www.codeproject.com/KB/DLL/XDllPt1.aspx -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/i.ashx"></script>
+	<title>Step by Step: Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject</title> 
+	<link type="text/css" rel="stylesheet" href="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/CodeProject.min.css">
+
+	
+
+<meta name="Description" content="This series of articles is a step-by-step guide to constructing C++ DLLs that include C++ functions and C++ classes, and then calling the DLL functions and classes from VC++ and VB programs.; Author: Hans Dietrich; Section: DLLs &amp; Assemblies; Chapter: General Programming">
+<meta name="Keywords" content="VC6, Win2K, WinXP, Win2003, Dev, Beginner,DLLs &amp; Assemblies,General Programming,Free source code, tutorials">
+<meta name="Author" content="The Code Project">
+<meta name="Rating" content="General">
+<meta name="Robots" content="index, follow">
+<meta name="Revisit-After" content="1 days">
+<meta name="google-site-verification" content="RP2bNCUeOmNkkJesEnU8X3UyTbqIcCKP0CmdwU8in5k">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - All topics" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=1">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - MFC / C++" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=2">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - C#" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=3">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - ASP.NET" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=4">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - .NET" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=5">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Latest articles - VB.NET" href="http://www.codeproject.com/webservices/articlerss.aspx?cat=6">
+<link rel="alternate" type="application/rss+xml" title="CodeProject Lounge Postings" href="http://www.codeproject.com/webservices/LoungeRSS.aspx">
+<link rel="search" type="application/opensearchdescription+xml" title="CodeProject" href="http://www.codeproject.com/info/OpenSearch.xml">
+
+	<!--<base target="_top">--><base href="." target="_top">
+	<link rel="icon" href="http://www.codeproject.com/favicon.ico" type="image/ico">
+<link rel="shortcut icon" href="http://www.codeproject.com/favicon.ico" type="image/ico">
+<link rel="apple-touch-icon" href="http://www.codeproject.com/images/FavIcon-Apple.png" type="image/png">
+<script type="text/javascript" language="Javascript">//<![CDATA[
+if(top!=self)top.location.href=location.href; if(typeof(DemoUrl)!="undefined")document.write(unescape('%3Cme')+'ta http'+'-equiv="re' +'fresh" con'+'tent="1;url='+DemoUrl+unescape('"%3CE'));
+function SelfCheck(){ return window.confirm("You are about to reply to your own message. Is this really what you want?");}
+
+//]]>
+</script>
+
+<script type="text/javascript" async="" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/ga.js"></script></head>	
+
+<body>
+
+<a href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx#Main"><img alt="Click here to Skip to main content" class="access-link" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/t.gif"></a>
+
+
+<div class="page-background">
+	<div id="A" class="container-content">
+
+		
+		<div id="ctl00_Suggest" class="suggestions">
+		
+<div class="alert-bar " style="display: block; ">
+	<a href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx#" class="close-notify">×</a>
+	<div><b>Not quite what you are looking for? You may want to try:</b><ul class="see-also"><li><a href="http://www.codeproject.com/KB/cpp/cppfaq10dec04-23jan05.aspx?artkw=create%20dll%20in%20vc++">45 Day Series: CodeProject VC++ Forum Q&amp;A - I</a></li><li><a href="http://www.codeproject.com/KB/cpp/integratingcppjava.aspx?artkw=create%20dll%20in%20vc++">Integrating Visual C++, Java and Assembly</a></li></ul><div id="removeHilite" class="alert-bar-command">
+<a href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx#" onclick="unmarkText(&#39;contentdiv&#39;,&#39;removeHilite&#39;)">highlights off</a>
+</div>
+</div>
+</div>
+		</div>
+
+		
+
+		
+		
+
+<div class="container nav-memberbar clearfix">
+<div class="member-stats float-left">7,561,520 members and growing! (29,143 online)</div>
+<div class="float-left"></div>
+<div class="float-right">
+
+
+
+
+	<script type="text/javascript">//<!--
+	function doSubmit(secure)
+	{
+		if (secure)
+			document.subForm.action = "https://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fKB%2fDLL%2fXDllPt1.aspx"
+		else
+			document.subForm.action = "/script/Membership/LogOn.aspx?rp=%2fKB%2fDLL%2fXDllPt1.aspx"
+		document.subForm.submit();
+		return true;
+	}//-->
+	</script>
+
+	<a name="SignUp"></a>
+	<form name="subForm" id="subForm" action="http://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fKB%2fDLL%2fXDllPt1.aspx" method="post" class="tight">
+
+	
+	<input id="FormName" name="FormName" value="MenuBarForm" type="hidden">
+
+	Email <input class="small-text" type="text" name="Email" id="Email" style="width:150px">
+	Password <input class="small-text" type="password" name="Password" id="Password" style="width:60px">
+	<input type="submit" value="Sign in" class="button" onclick="return doSubmit(false);">
+	
+	<input type="image" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/secure.png" class="align-bottom" title="Sign on securely" onclick="return doSubmit(true);">
+	<script type="text/javascript">
+function Join(){document.location.href='http://www.codeproject.com/script/Membership/Modify.aspx';return false;}
+document.write('<input type="button" class="button" onclick="return Join();" value="Join"');
+document.write('<input type="hidden" name="fld_quicksign" value="true" />');
+</script><input type="button" class="button" onclick="return Join();" value="Join" <input="" name="fld_quicksign">
+	<span class="nowrap">
+		<input type="checkbox" checked="checked" name="RememberMeCheck" id="RememberMeCheck" value="1">
+		<label for="RememberMeCheck">Remember&nbsp;me?</label>
+	</span>&nbsp;
+	<a id="ctl00_MemberMenu_SendPassword" href="http://www.codeproject.com/script/Membership/SendPassword.aspx?rp=%2fKB%2fDLL%2fXDllPt1.aspx">Lost password?</a>
+	</form>
+
+</div>
+
+</div>
+		
+
+		
+		<table width="100%" cellspacing="0" cellpadding="0" border="0">
+		<tbody><tr>
+			<td class="header"><a href="http://www.codeproject.com/"><img id="ctl00_Logo" title="The Code Project" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/logo225x90.gif" alt="Home" style="border-width:0px;"></a></td>
+			<td class="header" align="right">
+				<div class="lqm_ad" width="728px" height="90px" lqm_channel="1" lqm_publisher="495" lqm_zone="77" lqm_format="8" lqm_tags="VC6,Win2K,WinXP,Win2003,Dev,Beginner"><a href="http://a.lakequincy.com/c.ashx?channel=1&format=8&pageid=DB2DD916-7FB1-5452-E1EA-48308FBFC822&publisher=495&tags=VC6%2cWin2K%2cWinXP%2cWin2003%2cDev%2cBeginner%2ccreate%2c+dll%2c+in%2c+vc%2c+2b%2c+2b&target=_blank&ypos=74&zone=77&renderhtml=true&callback=jsonp1298344920596&url=http%253A%252F%252Fwww.codeproject.com%252FKB%252FDLL%252FXDllPt1.aspx&country=IN&userguid=00000000-0000-0000-0000-000000000000&placement=7717&creative=8309" target="_blank"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/634281904240234592.gif" border="0" height="90" width="728" alt="Click here"></a></div>
+			</td>
+		</tr></tbody></table>
+
+		<table cellpadding="0" cellspacing="0" class="contrast1-background extended"><tbody><tr><td nowrap="nowrap">
+			
+
+<div class="navbar clearfix">
+<ul id="nav">
+
+<li><a id="ctl00_TopNavBar_Home" class="down" href="http://www.codeproject.com/">Home</a>
+
+</li><li><a id="ctl00_TopNavBar_Art" class="down selected" href="http://www.codeproject.com/script/Articles/Latest.aspx">Articles</a>
+
+	<ul>
+		<li><a id="ctl00_TopNavBar_ArtTopicList" class="fly last" onmouseover="PopulateMap(this, &#39;siteMap&#39;, &#39;600px&#39;);" href="http://www.codeproject.com/script/Content/SiteMap.aspx">Chapters and Sections</a><ul id="ctl00_TopNavBar_MapFlyout"><li>
+				<div id="siteMap" style="height:0px;width:0px;border:1px solid green;background-color:white;overflow:scroll">
+					<img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/animated.gif" style="margin:150px;width:100px;height:100px;">
+				</div>
+			</li></ul>
+		</li>
+		<li><a id="ctl00_TopNavBar_ArtSearch" class="fly break" href="http://www.codeproject.com/info/search.aspx">Search</a></li>
+		<li><a id="ctl00_TopNavBar_ArtLatestArts" class="fly" href="http://www.codeproject.com/script/Articles/Latest.aspx">Latest Articles</a></li>
+		<li><a id="ctl00_TopNavBar_ArtLatestTips" class="fly" href="http://www.codeproject.com/script/Articles/Latest.aspx?at=6">Latest Tips/Tricks</a></li>
+		<li><a id="ctl00_TopNavBar_ArtTop" class="fly" href="http://www.codeproject.com/script/Articles/TopArticles.aspx?ta_so=4">Top Articles</a></li>
+		<li><a id="ctl00_TopNavBar_ArtBeginner" class="fly" href="http://www.codeproject.com/info/search.aspx?aidlst=152&sa_us=True">Beginner Articles</a></li>
+		<li><a id="ctl00_TopNavBar_ArtBlogArticles" class="fly break" href="http://www.codeproject.com/script/Articles/BlogArticleList.aspx">Technical Blogs</a></li>
+		<li><a id="ctl00_TopNavBar_ArtPostArticle" class="fly" href="http://www.codeproject.com/script/Articles/Submit.aspx">Post an Article</a></li>
+		<li><a id="ctl00_TopNavBar_ArtPostTipTrick" class="fly" href="http://www.codeproject.com/Tips/post.aspx">Post Tip &amp; Trick</a></li>
+		<li><a id="ctl00_TopNavBar_ArtPostBlog" class="fly break" href="http://www.codeproject.com/script/Articles/BlogFeed.aspx">Post your Blog</a></li>
+		<li><a id="ctl00_TopNavBar_ArtGuide" class="fly" href="http://www.codeproject.com/info/Submit.aspx">Posting/Update Guidelines</a></li>
+		<li><a id="ctl00_TopNavBar_ArtCompetition" class="fly last" href="http://www.codeproject.com/script/Awards/CurrentCompetitions.aspx?cmpTpId=1">Article Competition</a></li>
+	</ul>
+
+</li>
+
+
+
+<li><a id="ctl00_TopNavBar_Answers" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active">Questions &amp; Answers</a>
+	<ul>
+		<li id="ctl00_TopNavBar_AQL"><a id="ctl00_TopNavBar_ArticleQuestion" class="fly highlight" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx#_comments">Ask a Question about this article</a></li>
+
+		<li class="heading">Quick Answers</li>
+		<li><a id="ctl00_TopNavBar_QAAsk" class="fly" href="http://www.codeproject.com/Questions/ask.aspx">Ask a Question</a></li>
+		
+		
+		<li><a id="ctl00_TopNavBar_QAUnanswered" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=unanswered">View Unanswered Questions</a></li>
+		<li><a id="ctl00_TopNavBar_QALatest" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active">View All Questions...</a></li>
+		
+				<li><a id="ctl00_TopNavBar_QATR_ctl00_Tag" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active&tags=81" style="padding-left:30px">C# questions</a></li>
+			
+				<li><a id="ctl00_TopNavBar_QATR_ctl01_Tag" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active&tags=85" style="padding-left:30px">ASP.NET questions</a></li>
+			
+				<li><a id="ctl00_TopNavBar_QATR_ctl02_Tag" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active&tags=842" style="padding-left:30px">VB.NET questions</a></li>
+			
+				<li><a id="ctl00_TopNavBar_QATR_ctl03_Tag" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active&tags=78" style="padding-left:30px">C++ questions</a></li>
+			
+				<li><a id="ctl00_TopNavBar_QATR_ctl04_Tag" class="fly" href="http://www.codeproject.com/script/Answers/List.aspx?tab=active&tags=69" style="padding-left:30px">C#3.0 questions</a></li>
+			
+		<li class="heading">Programming Discussions</li>
+		<li><a id="ctl00_TopNavBar_MessageBoardsAll" class="fly" href="http://www.codeproject.com/script/Forums/List.aspx">All Message Boards...</a></li>
+		<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1580997/Application-Lifecycle.aspx">Application Lifecycle<span class="fly-menu">&gt;</span></a>
+<ul><li><a class="fly" href="http://www.codeproject.com/Forums/369270/Design-and-Architecture.aspx">Design and Architecture</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/1533717/Running-a-Business.aspx">Running a Business</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/1533716/Sales-Marketing.aspx">Sales / Marketing</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/1651/Collaboration-Beta-Testing.aspx">Collaboration / Beta Testing</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/3304/Work-Training-Issues.aspx">Work &amp; Training Issues</a></li>
+</ul></li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1647/C-Cplusplus-MFC.aspx">C / C++ / MFC<span class="fly-menu">&gt;</span></a>
+<ul><li><a class="fly" href="http://www.codeproject.com/Forums/4486/ATL-WTL-STL.aspx">ATL /  WTL / STL</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/3785/Managed-Cplusplus-CLI.aspx">Managed C++/CLI</a></li>
+</ul></li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1649/Csharp.aspx">C#</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1725/Database.aspx">Database</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/186301/Hardware-Devices.aspx">Hardware &amp; Devices<span class="fly-menu">&gt;</span></a>
+<ul><li><a class="fly" href="http://www.codeproject.com/Forums/1606152/Hosting-and-Servers.aspx">Hosting and Servers</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/1644/System-Admin.aspx">System Admin</a></li>
+</ul></li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1643/Java.aspx">Java</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1650/NET-Framework.aspx">.NET Framework</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/13695/Mobile.aspx">Mobile</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1540733/Sharepoint.aspx">Sharepoint</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1004257/Silverlight-WPF.aspx">Silverlight / WPF</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1646/Visual-Basic.aspx">Visual Basic</a>
+</li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1640/Web-Development.aspx">Web Development<span class="fly-menu">&gt;</span></a>
+<ul><li><a class="fly" href="http://www.codeproject.com/Forums/12076/ASP-NET.aspx">ASP.NET</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/1580227/CSS.aspx">CSS</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/1580226/Javascript.aspx">Javascript</a></li>
+<li><a class="fly" href="http://www.codeproject.com/Forums/1213656/PHP.aspx">PHP</a></li>
+</ul></li>
+<li><a class="fly" style="padding-left:30px" href="http://www.codeproject.com/Forums/1645/Site-Bugs-Suggestions.aspx">Site Bugs / Suggestions</a>
+</li>
+
+
+		<li class="heading">Other Languages<span class="fly-menu">&gt;</span>
+		<ul>
+		<li><a class="fly" href="http://www.codeproject.com/Forums/1580229/Hindi.aspx">General Indian Topics</a></li>
+		<li><a class="fly" href="http://www.codeproject.com/Forums/1580230/Chinese.aspx">General Chinese Topics</a></li>
+		</ul></li>
+	
+	</ul>
+
+</li>
+
+
+<li><a id="ctl00_TopNavBar_Zones" href="http://www.codeproject.com/Zones/index.aspx">Learning Zones</a>
+
+	<ul>
+		<!--<li class="heading">Zones</li>-->
+		<li><a href="http://www.codeproject.com/Zones/Commerce/" class="fly">The Commerce Zone</a></li><li><a href="http://www.codeproject.com/Zones/Cloud/" class="fly">The Cloud Zone</a></li><li><a href="http://www.codeproject.com/Zones/Hardware/" class="fly">The Hardware Zone</a></li><li><a href="http://www.codeproject.com/Zones/Parallelism/" class="fly">The Parallelism Zone</a></li><li><a href="http://www.codeproject.com/Zones/WPF-Silverlight/" class="fly">The WPF / Silverlight Zone</a></li><li><a href="http://www.codeproject.com/Zones/dotnet/" class="fly">The .NET Zone</a></li><li><a href="http://www.codeproject.com/Zones/SqlServer/" class="fly">The SQL Zone</a></li><li><a href="http://www.codeproject.com/Zones/WhitePapers/" class="fly break">WhitePapers / Webcasts</a></li>
+		<li><a id="ctl00_TopNavBar_Solutions" class="fly last" href="http://www.codeproject.com/kb/Solution-Center/">Solutions Center</a></li>
+	</ul>
+
+</li>
+
+
+
+
+
+
+
+
+
+
+<li><a id="ctl00_TopNavBar_Features" href="http://www.codeproject.com/Feature/">Features</a>
+
+	<ul>
+		<li><a id="ctl00_TopNavBar_WhosWho" class="fly" href="http://www.codeproject.com/script/Membership/Profiles.aspx">Who's Who</a></li>
+		<li><a id="ctl00_TopNavBar_MVPs" class="fly" href="http://www.codeproject.com/script/Awards/MVPWinners.aspx">CodeProject MVPs</a></li>
+		<li><a id="ctl00_TopNavBar_Companies" class="fly break" href="http://www.codeproject.com/script/Membership/Profiles.aspx?mgtid=1&mgm=True">Company Listings</a></li>
+		<li><a id="ctl00_TopNavBar_Catalog" class="fly" href="http://www.codeproject.com/script/Catalog/List.aspx">Component &amp; Service Catalog</a></li>
+		<li><a id="ctl00_TopNavBar_Comps" class="fly" href="http://www.codeproject.com/script/Awards/CurrentCompetitions.aspx?cmpTpId=1&awsac=true">Competitions</a></li>
+		<li><a id="ctl00_TopNavBar_News" class="fly" href="http://www.codeproject.com/script/News/List.aspx">News</a></li>
+		<li><a id="ctl00_TopNavBar_Insider" class="fly" href="http://www.codeproject.com/Feature/Insider/">Daily Insider</a></li>
+		<li><a id="ctl00_TopNavBar_Newsletters" class="fly" href="http://www.codeproject.com/script/Mailouts/Archive.aspx?mtpid=1">Newsletter archive</a></li>
+		<li><a id="ctl00_TopNavBar_PressRelease" class="fly" href="http://www.codeproject.com/script/PressReleases/Preview.aspx">Press Releases</a></li>
+		<li><a id="ctl00_TopNavBar_Surveys" class="fly" href="http://www.codeproject.com/script/Surveys/List.aspx">Surveys</a></li>
+		<li><a id="ctl00_TopNavBar_Stuff" class="fly" href="http://www.codeproject.com/Info/Stuff.aspx">CodeProject Stuff</a></li>
+		<li><a id="ctl00_TopNavBar_AddIn" class="fly last" href="http://www.codeproject.com/Services/Addins/">CodeProject VS Addin </a></li>
+	</ul>
+
+</li>
+
+
+<li><a id="ctl00_TopNavBar_Help" href="http://www.codeproject.com/KB/FAQs/">Help!</a>
+
+	<ul>
+		<li><a id="ctl00_TopNavBar_HelpWhatIs" class="fly" href="http://www.codeproject.com/info/guide.aspx">What is 'The Code Project'?</a></li>
+		<li><a id="ctl00_TopNavBar_HelpGeneral" class="fly" href="http://www.codeproject.com/KB/FAQs/">General FAQ</a></li>
+		<li><a id="ctl00_TopNavBar_HelpPostQuestion" class="fly" href="http://www.codeproject.com/Questions/ask.aspx">Post a Question</a></li>
+		<li><a id="ctl00_TopNavBar_HelpBugs" class="fly" href="http://www.codeproject.com/Forums/1645/Site-Bugs-Suggestions.aspx">Bugs and Suggestions</a></li>
+		<li><a id="ctl00_TopNavBar_HelpSiteMap" class="fly" href="http://www.codeproject.com/script/Content/SiteMap.aspx">Site Directory</a></li>
+		<li><a id="ctl00_TopNavBar_HelpAdvertise" class="fly" href="http://www.codeproject.com/info/MediaKit.aspx">Advertise with us</a></li>
+		<li><a id="ctl00_TopNavBar_HelpAboutUs" class="fly last" href="http://www.codeproject.com/info/about.aspx">About Us</a></li>
+	</ul>
+
+</li>
+
+
+<li style="margin-left:10px">
+<a id="ctl00_TopNavBar_Lounge" class="simple" href="http://www.codeproject.com/Lounge.aspx">The Lounge</a>
+
+	<ul>
+		<li><a id="ctl00_TopNavBar_LoungeLnk" class="fly" href="http://www.codeproject.com/Lounge.aspx">The Lounge &nbsp;</a></li>
+		<li><a id="ctl00_TopNavBar_CleverLnk" class="fly" href="http://www.codeproject.com/feature/CleverCode.aspx">Clever Code</a></li>
+		<li><a id="ctl00_TopNavBar_ShameLnk" class="fly" href="http://www.codeproject.com/feature/HallOfSHame.aspx">Hall of Shame</a></li>
+		<li><a id="ctl00_TopNavBar_SoapBoxLnk" class="fly" href="http://www.codeproject.com/Forums/1536756/The-Soapbox-2-0.aspx">The Soapbox</a></li>
+		
+	</ul>
+
+</li>
+
+</ul>
+
+</div>
+
+<script type="text/javascript">
+function PopulateMap(prnt, elmId, width, height) {
+	var map;
+	if (!prnt.populated && !prnt.populating) {
+		prnt.populating = true;
+		map = $('#' + elmId);
+		map.css('height', '400px');
+		map.css('width', '400px');
+		map.load("/script/content/ajax/SiteMap.aspx", function () {
+			if (height) map.css('height', height); else map.css('height', 'auto');
+			prnt.populated = true;
+		});
+		prnt.populating = false;
+	}
+	if (prnt.populated) {
+		map = map||$('#' + elmId);
+		var defWidth = ($(window).width() * 0.9);
+		if (defWidth > 1000) defWidth = 1000;
+		if (width) map.css('width', width); else map.css('width', defWidth+'px');
+	}
+}
+</script>
+		</td><td align="right">
+			
+
+<div class="search-bar">
+
+<form method="get" action="http://www.codeproject.com/info/search.aspx" name="Search" class="tight">
+
+
+<input class="search highlight" id="sb_tb" value="create dll in vc++ " name="artkw">
+
+<div class="hover-container">
+	<div id="SearchFilter" class="search-advanced small-text align-left" style="display: none; ">
+	<b>Search within:<br></b>
+		
+		<input type="radio" id="sb_kw" name="sbo" value="kw" checked="true"><label for="sb_kw">Articles</label><br>
+<input type="radio" id="sb_qa" name="sbo" value="qa"><label for="sb_qa">Quick Answers</label><br>
+<input type="radio" id="sb_fm" name="sbo" value="fm"><label for="sb_fm">Messages</label><br>
+<input type="radio" id="sb_ctlk" name="sbo" value="ctlk"><label for="sb_ctlk">Product Catalog</label><br>
+
+
+		
+		
+	</div>
+</div>
+</form>
+
+</div>
+		</td></tr></tbody></table>
+		
+
+		
+		<div class="container-article">
+		
+			
+			<div class="container-header">
+				<div id="ctl00_Header" class="header">
+
+					<a name="Main"></a>
+
+					
+					<a name="_top"></a>
+					
+
+<div class="clearfix hover-container">
+
+	<div class="container">
+		
+		<div class="breadcrumb float-left"><a href="http://www.codeproject.com/script/Content/SiteMap.aspx"><span class="sitemap-anchor" onmouseover="PopulateMap(this,&#39;map&#39;);"><img width="16px" height="16px" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/sitemap16.png" border="0" alt="Site map" style="vertical-align:middle"><div id="map"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/animated.gif" style="margin:150px;width:100px;height:100px;border:0;"></div></span></a> » <a href="http://www.codeproject.com/Chapters/6/General-Programming.aspx">General Programming</a> » <a href="http://www.codeproject.com/KB/DLL/">DLLs &amp; Assemblies</a> » <a href="http://www.codeproject.com/KB/DLL/#Beginners">Beginners</a></div>
+
+		<div class="float-right">
+			
+			<a id="ctl00_TitleArea_PageWidth_Fixed" title="Fixed width layout" class=" active" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx?PageFlow=FixedWidth"><img class="toolbar" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/fixed-width.png" style="width:18px;height:18px"></a>
+
+<a id="ctl00_TitleArea_PageWidth_Fluid" title="Fluid layout" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx?PageFlow=Fluid"><img class="toolbar" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/fluid-width.png" style="width:18px;height:18px"></a>
+		</div>
+	</div>
+
+	
+	<div id="ctl00_TitleArea_InfoArea" class="float-right">
+		
+
+<div class="infobox">
+	<table class="tight small-text" cellpadding="0" cellspacing="1">
+	<tbody><tr><td>Licence&nbsp;</td><td><a href="http://www.codeproject.com/info/cpol10.aspx" title="The Code Project Open License (CPOL)">CPOL</a></td></tr>
+	
+	<tr><td>First Posted&nbsp;</td><td nowrap="nowrap"><b>28 Feb 2004</b></td></tr>
+	<tr><td>Views&nbsp;</td><td><b>567,128</b></td></tr>
+		
+	
+	<tr><td>Bookmarked&nbsp;</td><td><b>281 times</b></td></tr>
+	
+
+	
+	
+	</tbody></table>
+</div>	
+	</div>
+
+	
+	<h1 id="ctl00_TitleArea_ArticleTitle">Step by Step: Calling C++ DLLs from VC++ and VB - Part 1</h1>
+
+	
+	<div class="author">
+		By <b><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=15759">Hans Dietrich</a></b> | 
+		29 Feb 2004 
+		
+
+		
+		
+	</div>
+	
+	<div class="tags">
+	<span id="ctl00_TitleArea_TagsList_TagWrp" class="tags">
+	
+	
+	
+	<span id="ctl00_TitleArea_TagsList_VisibleTags"><span class="t"><a href="http://www.codeproject.com/info/search.aspx?aidlst=4">VC6</a></span><span class="t"><a href="http://www.codeproject.com/info/search.aspx?aidlst=23">Win2K</a></span><span class="t"><a href="http://www.codeproject.com/info/search.aspx?aidlst=24">WinXP</a></span><span class="t"><a href="http://www.codeproject.com/info/search.aspx?aidlst=26">Win2003</a></span><span class="t"><a href="http://www.codeproject.com/info/search.aspx?aidlst=118">Dev</a></span><span class="t"><a href="http://www.codeproject.com/info/search.aspx?aidlst=152">Beginner</a></span></span> 
+
+	
+	
+</span>
+
+	</div>
+
+	
+	<div class="abstract"><span id="ctl00_TitleArea_ArticleDescr">This series of articles is a step-by-step guide to constructing C++ DLLs that include C++ functions and C++ classes, and then calling the DLL functions and classes from VC++ and VB programs.</span></div>
+</div>
+
+
+
+					
+
+				</div>
+
+				<div id="ctl00_HeadSide" class="header-sidebar">
+					<div class="align-left" style="height:24px">
+						
+
+
+&nbsp;
+
+
+
+
+
+
+
+
+
+
+					</div>
+
+					
+
+<div class="bold pad-top">See Also</div>
+<ul class="outdent small-text" style="margin-left:5px">
+	<li><a id="ctl00_SeeAlso_LikeThis" href="http://www.codeproject.com/info/search.aspx?artkw=Step+by+Step+Calling+C%2b%2b+DLLs+from+VC%2b%2b++VB++Part+1">Articles like this</a></li>
+	<li><a id="ctl00_SeeAlso_ByAuthor" href="http://www.codeproject.com/script/Articles/MemberArticles.aspx?amid=15759">Articles by this author</a></li>
+</ul>
+
+				</div>
+
+			</div>
+			
+
+			
+			<div id="ctl00_Nav" class="container-nav">
+				<div id="ctl00_TabContainer" class="tabs container">
+
+					
+					<div class="float-right action-links"> 
+						<a id="ctl00_ActionLinks_PrintLnk" class="tooltip" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx?display=Print">
+	<img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/print.gif" width="24px" height="24px" style="vertical-align:middle;border:0">
+	<div class="speech-bubble-container-up">
+		<div class="speech-bubble-up">Print Article</div>
+		<div class="speech-bubble-pointer-up">
+			<div class="speech-bubble-pointer-up-inner"></div>
+		</div>
+	</div>
+</a>
+
+<span id="SBI"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/share_drop24.png" id="ctl00_ActionLinks_AddTo_Img" width="37" height="24" alt="add" style="vertical-align:bottom">
+</span>
+<div id="ATD" class="list-socialbookmark" style="left: 870px; top: 187px; "><div><a class="AddTo" title="Add this page to Twitter" onclick="return socialLinks.addto(0);" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx#"><img align="absmiddle" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/AddTo_Twitter.gif" width="16px" height="16px" border="0"> Twitter</a> </div><div><a class="AddTo" title="Add this page to Digg" onclick="return socialLinks.addto(1);" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx#"><img align="absmiddle" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/AddTo_Digg.png" width="16px" height="16px" border="0"> Digg</a> </div><div><a class="AddTo" title="Add this page to Facebook" onclick="return socialLinks.addto(2);" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx#"><img align="absmiddle" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/AddTo_Facebook.png" width="16px" height="16px" border="0"> Facebook</a> </div><div><a class="AddTo" title="Add this page to Del.icio.us" onclick="return socialLinks.addto(3);" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx#"><img align="absmiddle" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/AddTo_Delicious.png" width="16px" height="16px" border="0"> Del.icio.us</a> </div><div><a class="AddTo" title="Add this page to Reddit" onclick="return socialLinks.addto(4);" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx#"><img align="absmiddle" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/AddTo_Reddit.png" width="16px" height="16px" border="0"> Reddit</a> </div><div><a class="AddTo" title="Add this page to Stumbleupon" onclick="return socialLinks.addto(5);" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx#"><img align="absmiddle" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/AddTo_stumbleupon.png" width="16px" height="16px" border="0"> Stumbleupon</a> </div><div><a class="AddTo" title="Add this page to Newsvine" onclick="return socialLinks.addto(6);" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx#"><img align="absmiddle" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/AddTo_Newsvine.png" width="16px" height="16px" border="0"> Newsvine</a> </div><div><a class="AddTo" title="Add this page to Technorati" onclick="return socialLinks.addto(7);" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx#"><img align="absmiddle" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/AddTo_Technorati.png" width="16px" height="16px" border="0"> Technorati</a> </div><div><a class="AddTo" title="Add this page to Mr. Wong" onclick="return socialLinks.addto(8);" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx#"><img align="absmiddle" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/AddTo_MrWong.png" width="16px" height="16px" border="0"> Mr. Wong</a> </div><div><a class="AddTo" title="Add this page to Yahoo!" onclick="return socialLinks.addto(9);" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx#"><img align="absmiddle" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/AddTo_Yahoo.png" width="16px" height="16px" border="0"> Yahoo!</a> </div><div><a class="AddTo" title="Add this page to Google" onclick="return socialLinks.addto(10);" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx#"><img align="absmiddle" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/AddTo_Google.png" width="16px" height="16px" border="0"> Google</a> </div><div><a class="AddTo" title="Add this page to Windows Live" onclick="return socialLinks.addto(11);" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx#"><img align="absmiddle" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/AddTo_Live.png" width="16px" height="16px" border="0"> Windows Live</a> </div><div><a class="AddTo" title="Send as Email" onclick="return socialLinks.addto(12);" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx#"><img align="absmiddle" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/envelope.gif" width="16px" height="16px" border="0"> Send as Email</a> </div></div> 
+ 
+
+<span class="tooltip">
+	 
+	<div class="speech-bubble-container-up">
+		<div class="speech-bubble-up">Add to your CodeProject bookmarks</div>
+		<div class="speech-bubble-pointer-up">
+			<div class="speech-bubble-pointer-up-inner"></div>
+		</div>
+	</div>
+</span>
+
+<a href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx#_comments" class="tooltip">
+	
+	<img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/discuss.gif" width="24px" height="24px" alt="Discuss" style="vertical-align:middle;border:0">
+	<div class="speech-bubble-container-up">
+		<div class="speech-bubble-up">Discuss this article</div>
+		<div class="speech-bubble-pointer-up">
+			<div class="speech-bubble-pointer-up-inner"></div>
+		</div>
+	</div>
+</a>
+<span id="ctl00_ActionLinks_cmtcnt" class="subdue small-text align-middle" style="margin-left:-4px">75</span>
+
+<a id="ctl00_ActionLinks_BrokenLnk" class="tooltip" href="http://www.codeproject.com/script/Articles/Report.aspx?aid=6242">
+	<img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/report.gif" width="24px" height="24px" alt="Broken Article?" style="vertical-align:middle;border:0">
+	<div class="speech-bubble-container-up" style="width:140px">
+		<div class="speech-bubble-up">Report this article as inappropriate</div>
+		<div class="speech-bubble-pointer-up">
+			<div class="speech-bubble-pointer-up-inner"></div>
+		</div>
+	</div>
+</a>
+					</div>
+
+					<div class="float-left">
+						
+						
+
+<div class="float-left"><table cellpadding="0" cellspacing="0"><tbody><tr>
+	<td class="tab-selected">Article</td><td class="tab-unselected"><a href="http://www.codeproject.com/script/Articles/ViewDownloads.aspx?aid=6242">Browse Code</a></td><td class="tab-unselected"><a href="http://www.codeproject.com/script/Articles/Statistics.aspx?aid=6242">Stats</a></td><td class="tab-unselected"><a href="http://www.codeproject.com/script/Articles/ListVersions.aspx?aid=6242">Revisions</a></td>
+</tr></tbody></table></div>	
+
+
+						
+						<div class="float-left" style="margin-left:15px">
+							<div id="ctl00_CurRat" class="tooltip" name="CurRat_6242">
+								
+<table cellpadding="0" cellspacing="0" class="small-text">
+<tbody><tr>
+	
+	<td class="nowrap">
+		<div style="height:24px;width:120px;position:relative;">
+	<table border="0" cellpadding="0" cellspacing="0" class="rating-bar-stars">
+		<tbody><tr>
+			<td width="109px" height="24px" class="filled"></td>
+			<td width="11px" height="24px"></td>
+		</tr>
+	</tbody></table>
+	<img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/stars_orange.gif" style="position:absolute;top:0;left:0;z-index:10;" width="120" height="24">
+</div>
+
+		
+	</td>
+	
+	<td id="ctl00_ArticleRating_VR" class="nowrap">
+		&nbsp;<span id="ctl00_ArticleRating_VotesR">&nbsp;4.58 (125 votes)</span>
+		
+	</td>
+
+</tr>
+
+</tbody></table>
+
+								<div id="ctl00_RB" class="speech-bubble-container-up">
+									<div class="speech-bubble-up" style="width:150px !important">
+										            
+<div>
+<table class="feature" title="Voting Distribution. Recent data only" cellpadding="0" cellspacing="0"><tbody><tr><td class="chart-column"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/pollcol.gif" width="16px" height="1px" border="0px" alt="2 votes, 1.6%" title="2 votes, 1.6%"><br><span title="2 votes">1</span></td>
+<td class="chart-column"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/pollcol.gif" width="16px" height="1px" border="0px" alt="2 votes, 1.6%" title="2 votes, 1.6%"><br><span title="2 votes">2</span></td>
+<td class="chart-column"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/pollcol.gif" width="16px" height="1px" border="0px" alt="2 votes, 1.6%" title="2 votes, 1.6%"><br><span title="2 votes">3</span></td>
+<td class="chart-column"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/pollcol.gif" width="16px" height="7px" border="0px" alt="15 votes, 12.0%" title="15 votes, 12.0%"><br><span title="15 votes">4</span></td>
+<td class="chart-column"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/pollcol.gif" width="16px" height="50px" border="0px" alt="104 votes, 83.2%" title="104 votes, 83.2%"><br><span title="104 votes">5</span></td>
+</tr></tbody></table>
+</div>
+
+
+
+
+									</div>
+									<div class="speech-bubble-pointer-up">
+										<div class="speech-bubble-pointer-up-inner"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+
+				<div id="ctl00_HeadSideFoot" class="tabs-sidebar">
+					<div>Sponsored Links</div>
+				</div>
+			</div>
+			
+
+			
+			<div class="container-text">
+
+				<div id="AT" class="text">
+					
+					
+					
+					
+
+								
+			
+					<form name="aspnetForm" method="post" action="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject.htm" id="aspnetForm" style="margin:0;padding:0"><div>
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTAyMTMzODg1Ng9kFgJmD2QWAgIED2QWCgIBDxYCHgdWaXNpYmxlZ2QCEQ9kFgICAQ9kFgZmDw8WAh4LTmF2aWdhdGVVcmwFMS9zY3JpcHQvQXJ0aWNsZXMvQWRtaW4vRWRpdG9yQ2hvaWNlLmFzcHg/YWlkPTYyNDJkZAICDw8WAh8BBTcvc2NyaXB0L0F3YXJkcy9BZG1pbi9Bd2FyZE9iamVjdC5hc3B4P29iaWQ9NjI0MiZvYnRpZD0yZGQCCg8PFgIfAQUuL3NjcmlwdC9BcnRpY2xlcy9BZG1pbi9RdWV1ZUVkaXQuYXNweD9haWQ9NjI0MmRkAhMPZBYCAgEPZBYCAgEPZBYGZg8PFgIfAQUiL0tCL0RMTC9YRGxsUHQxLmFzcHg/ZGlzcGxheT1QcmludGRkAgQPFgIeCWlubmVyaHRtbAUCNzVkAgUPDxYCHwEFJS9zY3JpcHQvQXJ0aWNsZXMvUmVwb3J0LmFzcHg/YWlkPTYyNDJkZAIVD2QWAgIJD2QWCAIDDxYCHgZhY3Rpb24FFC9LQi9ETEwvWERsbFB0MS5hc3B4FgQCAw9kFgICAg9kFgICAQ8QZGQWAGQCCQ8WAh4LXyFJdGVtQ291bnQCAWQCCw8PFgIfAQUUL0tCL0RMTC9YRGxsUHQxLmFzcHhkZAITDxYCHgRUZXh0BQsyOSBGZWIgMjAwNGQCFw8WAh8FBR9Db3B5cmlnaHQgMjAwNCBieSBIYW5zIERpZXRyaWNoZAIXD2QWAgIFDw8WAh8AaGRkZFt7r9IO9Nq84pDpXKq2l5f0x5H8">
+</div>
+
+
+						<!-- Article Text Start -->
+						<div id="contentdiv">
+						
+
+<!-- Article Starts -->
+
+
+<ul class="download">
+<li><a href="http://www.codeproject.com/KB/DLL/XDllPt1/XDllPt1_demo.zip">Download demo project - 32.6 Kb</a> </li>
+</ul>
+
+<h2>Introduction</h2>
+
+<p>This series of articles discusses four common situations when working with <span class="search-highlight">DLL</span>s:</p>
+
+<table cellspacing="0" cellpadding="5" width="70%" border="1">
+<tbody>
+<tr>
+<td align="center" width="20%" rowspan="2">Part 1</td>
+
+<td width="80%">Calling a <span class="search-highlight">DLL</span> C++ function from a <span class="search-highlight">VC++</span> application </td>
+</tr>
+
+<tr>
+<td width="80%">Calling a <span class="search-highlight">DLL</span> C++ class from a <span class="search-highlight">VC++</span> application</td>
+</tr>
+
+<tr>
+<td align="center" width="20%"><a href="http://www.codeproject.com/KB/DLL/XDllPt2.aspx" target="newwin">Part 2</a></td>
+
+<td width="80%">Calling a <span class="search-highlight">DLL</span> C++ function from a VB application</td>
+</tr>
+
+<tr>
+<td align="center" width="20%"><a href="http://www.codeproject.com/KB/DLL/XDllPt3.aspx" target="newwin">Part 3</a></td>
+
+<td width="80%">Calling a <span class="search-highlight">DLL</span> C++ class from a VB application</td>
+</tr>
+
+<tr>
+<td align="center" width="20%"><a href="http://www.codeproject.com/KB/DLL/XDllPt4.aspx" target="newwin">Part 4</a></td>
+
+<td width="80%">Loading a C++ <span class="search-highlight">DLL</span> dynamically from a <span class="search-highlight">VC++</span> application</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Calling a <span class="search-highlight">DLL</span> C++ function or class from a <span class="search-highlight">VC++</span> application</h2>
+
+<p>Visual Studio 6 makes it very easy to <span class="search-highlight">create</span> C++ <span class="search-highlight">DLL</span>s that contain functions or C++ classes.</p>
+
+<h3>Step 1</h3>
+
+<p>Open Visual Studio and go to <strong>File | New</strong>:</p>
+
+<p><img height="407" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/XDllPt1_1.jpg" width="561"></p>
+
+<p>Select <strong>Win32 Dynamic Link Library</strong>, enter a project name, and hit OK.</p>
+
+<p><img height="391" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/XDllPt1_2.jpg" width="477"></p>
+
+<p>Select <strong>A <span class="search-highlight">DLL</span> that exports some symbols</strong> and hit Finish. You will see the following files in the File View:</p>
+
+<p><img height="169" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/XDllPt1_3.jpg" width="191"></p>
+
+<h3>Step 2</h3>
+
+<p>Inside <em>Test.cpp</em>, you will see this code:</p>
+
+<div class="small-text align-right" id="premain0" width="100%" style="display:block"><img id="preimg0" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/minus.gif" style="cursor: pointer; " height="9" width="9" preid="0"><span id="precollapse0" style="cursor: pointer; margin-bottom: 0px; " preid="0"> Collapse</span></div><pre id="pre0" style="margin-top: 0px; "><span class="code-comment">//</span><span class="code-comment"> Test.cpp : Defines the entry point for the <span class="search-highlight">DLL</span> application.</span>
+<span class="code-comment">//</span>
+
+<span class="code-preprocessor">#include</span><span class="code-preprocessor"> <span class="code-string">"</span><span class="code-string">stdafx.h"</span></span>
+<span class="code-preprocessor">#include</span><span class="code-preprocessor"> <span class="code-string">"</span><span class="code-string">Test.h"</span></span>
+
+BOOL APIENTRY <span class="search-highlight">Dll</span>Main( HANDLE hModule, 
+                       DWORD  ul_reason_for_call, 
+                       LPVOID lpReserved)
+{
+    <span class="code-keyword">switch</span> (ul_reason_for_call)
+    {
+        <span class="code-keyword">case</span> <span class="search-highlight">DLL</span>_PROCESS_ATTACH:
+        <span class="code-keyword">case</span> <span class="search-highlight">DLL</span>_THREAD_ATTACH:
+        <span class="code-keyword">case</span> <span class="search-highlight">DLL</span>_THREAD_DETACH:
+        <span class="code-keyword">case</span> <span class="search-highlight">DLL</span>_PROCESS_DETACH:
+            <span class="code-keyword">break</span>;
+    }
+    <span class="code-keyword">return</span> TRUE;
+}
+
+
+<span class="code-comment">//</span><span class="code-comment"> This is an example of an exported variable</span>
+TEST_API <span class="code-keyword">int</span> nTest=0;
+
+<span class="code-comment">//</span><span class="code-comment"> This is an example of an exported function.</span>
+TEST_API <span class="code-keyword">int</span> fnTest(<span class="code-keyword">void</span>)
+{
+    <span class="code-keyword">return</span> <span class="code-digit">42</span>;
+}
+
+<span class="code-comment">//</span><span class="code-comment"> This is the constructor of a class that has been exported.</span>
+<span class="code-comment">//</span><span class="code-comment"> see Test.h for the class definition</span>
+CTest::CTest()
+{ 
+    <span class="code-keyword">return</span>; 
+}</pre>
+
+<p><em>Test.cpp</em> contains code for <code>fnTest</code> and <code>CTest::CTest</code>. If you compiled <em>Test.<span class="search-highlight">dll</span></em> at this point, you would have a <span class="search-highlight">DLL</span> that could be called directly by other <span class="search-highlight">VC++</span> applications. The key mechanism that allows other <span class="search-highlight">VC++</span> applications to call <em>Test.<span class="search-highlight">dll</span></em> is contained in <em>Test.h</em>:</p>
+
+<div class="small-text align-right" id="premain1" width="100%" style="display:block"><img id="preimg1" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/minus.gif" style="cursor: pointer; " height="9" width="9" preid="1"><span id="precollapse1" style="cursor: pointer; margin-bottom: 0px; " preid="1"> Collapse</span></div><pre id="pre1" style="margin-top: 0px; "><span class="code-comment">//</span><span class="code-comment"> The following ifdef block is the standard way of creating macros</span>
+<span class="code-comment">//</span><span class="code-comment"> which make exporting from a <span class="search-highlight">DLL</span> simpler. All files within this <span class="search-highlight">DLL</span></span>
+<span class="code-comment">//</span><span class="code-comment"> are compiled with the TEST_EXPORTS symbol defined on the command line.</span>
+<span class="code-comment">//</span><span class="code-comment"> This symbol should not be defined on any project that uses this <span class="search-highlight">DLL</span>.</span>
+<span class="code-comment">//</span><span class="code-comment"> This way any other project whose source files include this file see </span>
+<span class="code-comment">//</span><span class="code-comment"> TEST_API functions as being imported from a <span class="search-highlight">DLL</span>, whereas this <span class="search-highlight">DLL</span></span>
+<span class="code-comment">//</span><span class="code-comment"> sees symbols defined with this macro as being exported.</span>
+#ifdef TEST_EXPORTS
+<span class="code-preprocessor">#define</span> TEST_API <span class="code-keyword">__declspec</span>(<span class="code-keyword"><span class="search-highlight">dll</span>export</span>)
+<span class="code-preprocessor">#else</span>
+<span class="code-preprocessor">#define</span> TEST_API <span class="code-keyword">__declspec</span>(<span class="code-keyword"><span class="search-highlight">dll</span>import</span>)
+<span class="code-preprocessor">#endif</span>
+
+<span class="code-comment">//</span><span class="code-comment"> This class is exported from the Test.<span class="search-highlight">dll</span></span>
+<span class="code-keyword">class</span> TEST_API CTest 
+{
+<span class="code-keyword">public</span>:
+    CTest(<span class="code-keyword">void</span>);
+    <span class="code-comment">//</span><span class="code-comment"> TODO: add your methods here.</span>
+};
+
+<span class="code-keyword">extern</span> TEST_API <span class="code-keyword">int</span> nTest;
+
+TEST_API <span class="code-keyword">int</span> fnTest(<span class="code-keyword">void</span>);</pre>
+
+<p>What is going on here? What does <code>#ifdef TEST_EXPORTS</code> mean, and where is <code>TEST_EXPORTS</code> defined?</p>
+
+<p>What is happening is that, depending on whether <code>TEST_EXPORTS</code> is defined, <code>TEST_API</code> will be defined to export or import the <span class="search-highlight">DLL</span> symbols. The export process results in the <span class="search-highlight">DLL</span>'s symbols being defined in <em>Test.lib</em>, which can be linked to any <span class="search-highlight">VC++</span> application that wants to access the <span class="search-highlight">DLL</span>. When compiling <em>Test.<span class="search-highlight">dll</span></em>, I want to export, which means I want <code>TEST_EXPORTS</code> to be defined.</p>
+
+<h3>Step 3</h3>
+
+<p>Where is <code>TEST_EXPORTS</code> defined? This is one of the things I don't like about the <span class="search-highlight">DLL</span> wizard - it puts the definition of <code>TEST_EXPORTS</code> on the command line. Go to <strong>Project | Settings | C/C++ | General</strong>, and you will see the Project Options:</p>
+
+<p><img height="379" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/XDllPt1_4.jpg" width="577"></p>
+
+<p>While this method certainly works, it is obscure, and may cause maintenance problems later on. I prefer to make explicit the definition of <code>TEST_EXPORTS</code>. I do this by deleting <strong>/D "TEST_EXPORTS"</strong> from the Project Options, and then changing <em>Test.cpp</em> to define <code>TEST_EXPORTS</code>:</p>
+
+<div class="small-text align-right" id="premain2" width="100%" style="display:block"><img id="preimg2" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/minus.gif" style="cursor: pointer; " height="9" width="9" preid="2"><span id="precollapse2" style="cursor: pointer; margin-bottom: 0px; " preid="2"> Collapse</span></div><pre id="pre2" style="margin-top: 0px; "><span class="code-comment">//</span><span class="code-comment"> Test.cpp : Defines the entry point for the <span class="search-highlight">DLL</span> application.</span>
+<span class="code-comment">//</span>
+
+<span class="code-preprocessor">#include</span><span class="code-preprocessor"> <span class="code-string">"</span><span class="code-string">stdafx.h"</span></span>
+<span class="code-preprocessor">#define</span> TEST_EXPORTS                     <span class="code-comment">//</span><span class="code-comment"> &lt;===  ADD THIS LINE</span>
+<span class="code-preprocessor">#include</span><span class="code-preprocessor"> <span class="code-string">"</span><span class="code-string">Test.h"</span></span>
+
+BOOL APIENTRY <span class="search-highlight">Dll</span>Main( HANDLE hModule, 
+                       DWORD  ul_reason_for_call, 
+                       LPVOID lpReserved)
+{
+.
+.
+.</pre>
+
+<p>Notice that the <code><span class="code-preprocessor">#define</span> TEST_EXPORTS</code> is before the line <code><span class="code-preprocessor">#include</span><span class="code-preprocessor"> <span class="code-string">"</span><span class="code-string">Test.h"</span></span></code>, so that the definition will be seen in the include file. Now <em>Test.<span class="search-highlight">dll</span></em> compiles just as before, and you will have a <span class="search-highlight">DLL</span> that can be called from other <span class="search-highlight">VC++</span> applications.</p>
+
+<h3>Step 4</h3>
+
+<p>How can I call the functions in this <span class="search-highlight">DLL</span>? To illustrate this, I <span class="search-highlight">create</span> a demo app using Visual Studio. Select <strong>MFC AppWizard (exe)</strong>, enter a project name, and click OK. Select <strong>Dialog based</strong>, then click Finish. Open the file <em>XXXDlg.cpp</em>, where <em>XXX</em> is the project name. Go to the <code>OnInitDialog()</code> method, and enter the following code:</p>
+
+<div class="small-text align-right" id="premain3" width="100%" style="display:block"><img id="preimg3" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/minus.gif" style="cursor: pointer; " height="9" width="9" preid="3"><span id="precollapse3" style="cursor: pointer; margin-bottom: 0px; " preid="3"> Collapse</span></div><pre id="pre3" style="margin-top: 0px; ">    .
+    .
+    .
+    <span class="code-comment">//</span><span class="code-comment"> Set the icon for this dialog.  The framework does this automatically</span>
+    <span class="code-comment">//</span><span class="code-comment">  when the application's main window is not a dialog</span>
+    SetIcon(m_hIcon, TRUE);            <span class="code-comment">//</span><span class="code-comment"> Set big icon</span>
+    SetIcon(m_hIcon, FALSE);        <span class="code-comment">//</span><span class="code-comment"> Set small icon</span>
+    
+    <span class="code-comment">//</span><span class="code-comment"> code to test Test.<span class="search-highlight">dll</span> function:</span>
+    <span class="code-keyword">int</span> n = fnTest();                    <span class="code-comment">//</span><span class="code-comment"> &lt;=== ADD THIS LINE</span>
+
+    <span class="code-comment">//</span><span class="code-comment"> code to test the CTest class:</span>
+    CTest test;                          <span class="code-comment">//</span><span class="code-comment"> &lt;=== ADD THIS LINE</span>
+    
+    <span class="code-keyword">return</span> TRUE;  <span class="code-comment">//</span><span class="code-comment"> return TRUE  unless you set the focus to a control</span>
+}</pre>
+
+<h3>Step 5</h3>
+
+<p>This code won't compile until I include the <em>Test.h</em> file from the <span class="search-highlight">DLL</span>:</p>
+
+<div class="small-text align-right" id="premain4" width="100%" style="display:block"><img id="preimg4" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/minus.gif" style="cursor: pointer; " height="9" width="9" preid="4"><span id="precollapse4" style="cursor: pointer; margin-bottom: 0px; " preid="4"> Collapse</span></div><pre id="pre4" style="margin-top: 0px; "><span class="code-comment">//</span><span class="code-comment"> TestExeDlg.cpp : implementation file</span>
+<span class="code-comment">//</span>
+
+<span class="code-preprocessor">#include</span><span class="code-preprocessor"> <span class="code-string">"</span><span class="code-string">stdafx.h"</span></span>
+<span class="code-preprocessor">#include</span><span class="code-preprocessor"> <span class="code-string">"</span><span class="code-string">TestExe.h"</span></span>
+<span class="code-preprocessor">#include</span><span class="code-preprocessor"> <span class="code-string">"</span><span class="code-string">TestExeDlg.h"</span></span>
+<span class="code-preprocessor">#include</span><span class="code-preprocessor"> <span class="code-string">"</span><span class="code-string">Test.h"</span>                        // <span class="code-keyword">&lt;</span><span class="code-keyword">===</span> <span class="code-leadattribute">ADD</span> <span class="code-attribute">THIS</span> <span class="code-attribute">LINE</span>
+<span class="code-attribute">.</span>
+<span class="code-attribute">.</span>
+<span class="code-attribute">.</span></span></pre>
+
+<h3>Step 6</h3>
+
+<p>If you are doing a quickie demo, you will probably be tempted just to copy the <span class="search-highlight">DLL</span>'s <em>Test.h</em> into your exe project directory, so the compiler will be able to find it. For larger projects, this is not a good idea, because there is too much risk that you will update the <span class="search-highlight">DLL</span> file, but forget to copy it into your exe directory. There is a simple way to solve this: go to <strong>Project | Settings | C/C++ | Settings | Preprocessor</strong>, and add to the <strong>Additional include directories</strong> field:</p>
+
+<p><img height="379" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/XDllPt1_5.jpg" width="577"></p>
+
+<blockquote>
+<p><strong>Note:</strong> This assumes that the <span class="search-highlight">DLL</span> project and the EXE project have the same parent directory.</p>
+</blockquote>
+
+<p>Now when I compile, I get ... linker errors!</p>
+
+<div class="small-text align-right" id="premain5" width="100%" style="display:block"><img id="preimg5" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/minus.gif" style="cursor: pointer; " height="9" width="9" preid="5"><span id="precollapse5" style="cursor: pointer; margin-bottom: 0px; " preid="5"> Collapse</span></div><pre id="pre5" style="margin-top: 0px; ">Deleting intermediate files and output files <span class="code-keyword">for</span> project <span class="code-string">'</span><span class="code-string">TestExe - Win32 Debug'</span>.
+--------------------Configuration: TestExe - Win32 Debug--------------------
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+TestExe.cpp
+TestExeDlg.cpp
+Generating Code...
+Linking...
+TestExeDlg.obj : error LNK2001: unresolved external symbol <span class="code-string">"</span><span class="code-string">__declspec(<span class="search-highlight">dll</span>import) 
+public: __thiscall CTest::CTest(void)"</span> (__imp_??0CTest@@QAE@XZ)
+TestExeDlg.obj : error LNK2001: unresolved external symbol <span class="code-string">"</span><span class="code-string">__declspec(<span class="search-highlight">dll</span>import) 
+int __cdecl fnTest(void)"</span> (__imp_?fnTest@@YAHXZ)
+Debug/TestExe.exe : fatal error LNK1120: <span class="code-digit">2</span> unresolved externals
+Error executing link.exe.
+
+TestExe.exe - <span class="code-digit">3</span> error(s), <span class="code-digit">0</span> warning(s)</pre>
+
+<h3>Step 7</h3>
+
+<p>Although I told the compiler about the <span class="search-highlight">DLL</span> symbols, I also must tell the linker. Go to <strong>Project | Settings | Link</strong> and add the <span class="search-highlight">DLL</span>'s LIB file to the <strong>Object/library modules</strong> field:</p>
+
+<p><img height="379" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/XDllPt1_6.jpg" width="577"></p>
+
+<h3>Step 8</h3>
+
+<p>Now I get a clean compile. Before running the application, there is one more thing to do: copy <em>Test.<span class="search-highlight">dll</span></em> to the EXE's directory.</p>
+
+<h3>Step 9</h3>
+
+<p>I can then put a breakpoint in the <code>OnInitDialog()</code> method, and hit Go (F5):</p>
+
+<p><img height="295" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/XDllPt1_7.jpg" width="421"></p>
+
+<p>and I see that <code>fnTest</code> has returned 42 as expected. The <code>CTest</code> class can be tested in a similar way.</p>
+
+<h3>Key Concepts</h3>
+
+<ul>
+<li>The Visual Studio project wizard provides a good starting point for creating a <span class="search-highlight">VC++</span> <span class="search-highlight">DLL</span>. </li>
+
+<li>Functions, classes, and variables can be exported from the <span class="search-highlight">DLL</span>. </li>
+
+<li>Using <code><span class="code-preprocessor">#define</span></code> preprocessor definitions, one include file can be used by both the <span class="search-highlight">DLL</span> and the application. </li>
+
+<li>The <span class="search-highlight">DLL</span> exports its symbols, and the application imports the <span class="search-highlight">DLL</span> symbols. When compiling the application, the compiler sees the <span class="search-highlight">DLL</span> symbols via an include file (<em>Test.h</em>). When linking the application, the linker sees the <span class="search-highlight">DLL</span> symbols via the import library (<em>Test.lib</em>). </li>
+
+<li>The <span class="search-highlight">DLL</span> must be in the same directory as the EXE when running the application. In early versions of Windows, it was acceptable practice to put application <span class="search-highlight">DLL</span>s in the Windows or System directories, but this is now recognized to cause problems, and should not be done. </li>
+</ul>
+
+<h3>Comments</h3>
+
+<p>In practice, I never use the approach described in <strong>Step 7</strong>. For large projects, the number of <span class="search-highlight">DLL</span>s and LIB files quickly becomes unmanageable if handled in this way. What you want to do is set up project <em>lib</em> and <em>bin</em> directories, where you can keep copies of all current LIB, <span class="search-highlight">DLL</span>, and EXE files. How do you tell the linker where to find these LIB files? There are two ways to do this in Visual Studio:</p>
+
+<ol>
+<li>Go to <strong>Tools | Options | Directories</strong> and set <strong>Show directories for</strong> to "Library files". Now enter the path to where your project's LIB files are. 
+<p><img height="326" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/XDllPt1_9.jpg" width="417"></p>
+</li>
+
+<li>Alternatively, go to <strong>Project | Settings | Link</strong>, select the <strong>Input</strong> category, and enter the <strong>Additional library path</strong> for your project's LIB files. 
+<p><img height="379" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/XDllPt1_10.jpg" width="577"></p>
+</li>
+</ol>
+
+<p>Which method is better? That depends on the situation in your development environment. Method 1 means all projects on a machine will share the same set of directory paths, but each developer's Visual Studio must be set up with those paths.</p>
+
+<p>Method 2 means that the paths can be customized for each project, and will be stored inside the project, so any developer can check out the project and begin development - provided the same paths exist on the developer's machine.</p>
+
+<p>It is common to establish standard drive+directory mappings, to eliminate endlessly tweaking the directory paths on each developer's machine.</p>
+
+<p>I still haven't discussed how to specify what LIB files to use. Here is my trick: In the <span class="search-highlight">DLL</span>'s <em>Test.h</em>, add two lines. The <em><span class="search-highlight">DLL</span>1.h</em> file now looks like:</p>
+
+<div class="small-text align-right" id="premain6" width="100%" style="display:block"><img id="preimg6" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/minus.gif" style="cursor: pointer; " height="9" width="9" preid="6"><span id="precollapse6" style="cursor: pointer; margin-bottom: 0px; " preid="6"> Collapse</span></div><pre id="pre6" style="margin-top: 0px; ">#ifdef TEST_EXPORTS
+    <span class="code-preprocessor">#define</span> TEST_API <span class="code-keyword">__declspec</span>(<span class="code-keyword"><span class="search-highlight">dll</span>export</span>)
+<span class="code-preprocessor">#else</span>
+    <span class="code-preprocessor">#define</span> TEST_API <span class="code-keyword">__declspec</span>(<span class="code-keyword"><span class="search-highlight">dll</span>import</span>)
+    <span class="code-preprocessor">#pragma</span> message(<span class="code-string">"</span><span class="code-string">automatic link to Test.lib"</span>)   <span class="code-comment">//</span><span class="code-comment"> &lt;== add this line</span>
+    <span class="code-preprocessor">#pragma</span> comment(lib, <span class="code-string">"</span><span class="code-string">Test.lib"</span>)                <span class="code-comment">//</span><span class="code-comment"> &lt;== add this line</span>
+<span class="code-preprocessor">#endif</span>
+
+<span class="code-comment">//</span><span class="code-comment"> This class is exported from the Test.<span class="search-highlight">dll</span></span>
+<span class="code-keyword">class</span> TEST_API CTest 
+{
+<span class="code-keyword">public</span>:
+    CTest(<span class="code-keyword">void</span>);
+};
+
+<span class="code-keyword">extern</span> TEST_API <span class="code-keyword">int</span> nTest;
+
+TEST_API <span class="code-keyword">int</span> fnTest(<span class="code-keyword">void</span>);</pre>
+
+<p>This ensures that when a project includes the <span class="search-highlight">DLL</span>'s header file, it will also automatically link to the <span class="search-highlight">DLL</span>'s LIB file. The developer is notified of this by the <code><span class="code-preprocessor">#pragma</span> message</code>, which appears in the output window of Visual Studio.</p>
+
+<h3>Demo</h3>
+
+<p>The <em>EXE1.exe</em> demo tests the <code>GetCpuSpeed()</code> function and <code>C<span class="search-highlight">DLL</span>1::GetCpuSpeed()</code> class method in <em><span class="search-highlight">DLL</span>1.<span class="search-highlight">dll</span></em>:</p>
+
+<p><img height="146" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/XDllPt1_8.jpg" width="419"></p>
+
+<h2>Revision History</h2>
+
+<h3>Version 1.0 - 2004 February 29</h3>
+
+<ul>
+<li>Initial public release </li>
+</ul>
+
+<h2>Usage</h2>
+
+<p>This software is released into the public domain. You are free to use it in any way you like, except that you may not sell this source code. If you modify it or extend it, please to consider posting new code here for everyone to share. This software is provided "as is" with no expressed or implied warranty. I accept no liability for any damage or loss of business that this software may cause.</p>
+
+
+
+
+
+
+						</div>
+						<!-- Article Text End -->
+
+						
+						
+						<h2>License</h2>
+						<div id="LicenseTerms"><p>This article, along with any associated source code and files, is licensed under <a href="http://www.codeproject.com/info/cpol10.aspx">The Code Project Open License (CPOL)</a></p></div>
+						
+
+						
+						<h2 id="ctl00_AboutHeading">About the Author</h2>
+
+						<div class="float-right">
+						<div class="lqm_ad" width="300px" height="250px" lqm_channel="1" lqm_publisher="495" lqm_zone="77" lqm_format="6" lqm_tags="VC6,Win2K,WinXP,Win2003,Dev,Beginner"><a href="http://a.lakequincy.com/c.ashx?channel=1&format=6&pageid=DB2DD916-7FB1-5452-E1EA-48308FBFC822&publisher=495&tags=VC6%2cWin2K%2cWinXP%2cWin2003%2cDev%2cBeginner%2ccreate%2c+dll%2c+in%2c+vc%2c+2b%2c+2b&target=_blank&ypos=8355&zone=77&renderhtml=true&callback=jsonp1298344920597&url=http%253A%252F%252Fwww.codeproject.com%252FKB%252FDLL%252FXDllPt1.aspx&country=IN&userguid=00000000-0000-0000-0000-000000000000&placement=7728&creative=4216" target="_blank"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/Spreadsheetgear_SG300x250_2_sept9.gif" border="0" height="250" width="300" alt="Click Here"></a></div>
+						</div>
+
+						
+						
+   
+<table cellpadding="0" cellspacing="5" border="0">
+<tbody><tr valign="top">
+<td id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberPhotoTable" valign="top" style="width:155px;">
+	<b><a id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberProfileLink" href="http://www.codeproject.com/Members/Hans-Dietrich">Hans Dietrich</a></b><br><br>
+	<center><img id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberPhoto" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/{A29339B6-2EA0-4F01-BAE6-36FC66E688D7}.gif" style="border-width:0px;"></center>
+
+	<div class="small-text">
+		<span id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberJobTitle">Software Developer (Senior)</span><br>
+		<span id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberCompany">Hans Dietrich Software</span><br>
+		<span id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberLocation"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/US.gif" alt="United States" width="16px" height="11px"> United States</span><br>
+		<br>
+		<span id="ctl00_AboutAuthorRptr_ctl00_AboutAuthor_memberType">Member</span><br>
+		
+
+		
+	</div>
+</td>
+
+<td>
+	I attended St. Michael's College of the University of Toronto, with the intention of becoming a priest.  A friend in the University's Computer Science Department got me interested in programming, and I have been hooked ever since.<br><br>Recently, I have moved to Los Angeles where I am doing consulting and development work.<br>	
+</td>
+</tr>
+</tbody></table><br>
+						
+						
+
+						<div class="clearfix"></div>
+
+						
+						<div id="ctl00_RateArticleRow" class="clearfix voting-bar">
+						<div class="column8_1" style="padding-top:8px"> <a href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx#_top">Article Top</a></div>
+						<div class="column8_7 align-right"><div id="ctl00_RateArticle_RateItemWrapper" class="small-text" name="RateItem_6242">
+
+	<table width="100%" cellpadding="0" cellspacing="0" small-text="">
+	<tbody><tr>
+		
+	
+		<td class="voteTbl" style="white-space:nowrap" align="right">
+			<table class="small-text">
+			<tbody><tr valign="middle">
+				<td id="ctl00_RateArticle_SignIn" nowrap="nowrap">
+					<a href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx#SignUp">Sign Up</a> to vote for this article
+				</td>
+
+				
+				
+				
+				
+				
+			</tr>
+			</tbody></table>
+			<span id="ctl00_RateArticle_ErrorMessage" class="error"></span>
+		</td>
+	</tr>
+	</tbody></table>
+	<div class="hover-container">
+		<div id="ctl00_RateArticle_RCD" class="rating-comment align-left float-right">
+			Add a reason or comment to your vote: <a href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx#" id="clear-rate_ctl00_RateArticle_RCD" title="close">x</a><br>
+			<textarea class="RateComment" rows="5" cols="60" style="width:98%;"></textarea>
+		</div>
+	</div>
+</div>
+</div>
+						</div>
+						
+
+					</form>
+
+					
+					<div style="margin:auto;padding:0px 10px;white-space:nowrap;overflow:hidden;width:460px;height:60px">		  
+						<div class="lqm_ad" width="468px" height="60px" lqm_channel="1" lqm_publisher="495" lqm_zone="77" lqm_format="1" lqm_tags="VC6,Win2K,WinXP,Win2003,Dev,Beginner"><a href="http://a.lakequincy.com/c.ashx?channel=1&format=1&pageid=DB2DD916-7FB1-5452-E1EA-48308FBFC822&publisher=495&tags=VC6%2cWin2K%2cWinXP%2cWin2003%2cDev%2cBeginner%2ccreate%2c+dll%2c+in%2c+vc%2c+2b%2c+2b&target=_blank&ypos=8535&zone=77&renderhtml=true&callback=jsonp1298344920598&url=http%253A%252F%252Fwww.codeproject.com%252FKB%252FDLL%252FXDllPt1.aspx&country=IN&userguid=00000000-0000-0000-0000-000000000000&placement=7726&creative=4205" target="_blank"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/spreadsheetgear_SG468x60_1.gif" border="0" height="60" width="468" alt="Click Here"></a></div>
+					</div>
+					
+
+					
+					
+					<h2>Comments and Discussions</h2>
+					<a name="_comments"></a><!-- Forum Start -->
+<table id="ForumTable" class="box forum" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td class="forum-header1 highlight"><b>You must <a href="http://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fKB%2fDLL%2fXDllPt1.aspx%3ffid%3d34180%26df%3d90%26mpp%3d10%26noise%3d3%26sort%3dPosition%26view%3dExpanded">Sign In</a> to use this message board.</b> (<a href="https://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fKB%2fDLL%2fXDllPt1.aspx%3ffid%3d34180%26df%3d90%26mpp%3d10%26noise%3d3%26sort%3dPosition%26view%3dExpanded">secure sign-in</a>)</td>
+</tr><tr>
+<td><table width="100%" border="0" cellpadding="3px" cellspacing="0">
+<tbody><tr class="forum-header1">
+<td style="white-space:nowrap;"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/info-16.gif" alt="FAQ" style="border-width:0;width:16px;height:16px;vertical-align:middle;">&nbsp;<a href="http://www.codeproject.com/KB/FAQs/MessageBoardsFAQ.aspx"><b>FAQ</b></a>&nbsp;</td><td colspan="2" style="white-space:nowrap;text-align:right;"><form action="http://www.codeproject.com/script/Forums/Search.aspx?fid=0" method="get" style="margin:0;padding:0;">
+<input type="hidden" name="fid" value="34180"><input type="text" class="Frm_Input" name="kw">&nbsp;<input type="submit" value="Search" name="FrmSrch" class="button">
+</form></td>
+</tr><tr class="forum-header2">
+<td colspan="3" style="width:100%;"><div style="text-align:right;">
+<form action="http://www.codeproject.com/script/Forums/SetOptions.aspx?floc=%2fKB%2fDLL%2fXDllPt1.aspx&fid=34180&df=90&mpp=10&noise=3&sort=Position&view=Expanded" method="get" style="margin:0;padding:0;">
+<input type="hidden" name="fid" value="34180"><input type="hidden" name="currentQS" value="?floc=%2fKB%2fDLL%2fXDllPt1.aspx&amp;fid=34180&amp;df=90&amp;mpp=10&amp;noise=3&amp;sort=Position&amp;view=Expanded"><input type="hidden" name="floc" value="/KB/DLL/XDllPt1.aspx">Noise Tolerance<select size="1" class="Frm_DropDown" name="noise">
+<option value="1">Very High</option><option value="2">High</option><option selected="" value="3">Medium</option><option value="4">Low</option><option value="5">Very Low</option>
+</select>&nbsp;&nbsp;Layout<select size="1" class="Frm_DropDown" name="view">
+<option value="Quick">Normal</option><option value="Topic">Expand Posts only</option><option selected="" value="Expanded">Expand Posts &amp; Replies</option><option value="Thread">Thread View</option><option value="Normal">No Javascript</option><option value="Preview">No JS + Preview</option>
+</select>&nbsp;&nbsp;Per page<select size="1" class="Frm_DropDown" name="mpp">
+<option selected="" value="10">10</option><option value="25">25</option><option value="50">50</option>
+</select>&nbsp;&nbsp;&nbsp;<input type="submit" value="Update" name="SetOpt" class="button">
+</form>
+</div></td>
+</tr>
+</tbody></table></td>
+</tr><tr>
+<td><a name="xx0xx"></a><table border="0" cellpadding="2px" cellspacing="0" width="100%">
+<tbody><tr class="forum-navbar">
+<td>&nbsp;</td><td>Msgs 1 to 10 of 75 (Total in Forum: 75) (<a href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx?fid=34180&df=90&mpp=10&noise=3&sort=Position&view=Expanded">Refresh</a>)</td><td style="text-align:right;white-space:nowrap;"><span class="toolbar">First</span><span class="toolbar">Prev</span><a class="toolbar" name="Frm_HoverNL" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx?fid=34180&df=90&mpp=10&noise=3&sort=Position&view=Expanded&fr=11#xx0xx">Next</a></td>
+</tr>
+</tbody></table></td>
+</tr><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%" class="fixed-layout blank-background">
+<tbody><tr>
+<td><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/t(1).gif" border="0" width="1px" height="5px" alt=""></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd Rt HdUnSel ">
+<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td width="16px" class="Frm_MsgIndent"><a name="xx3424729xx"></a><img height="16px" width="16px" align="top" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/msg_general.gif" alt="General"></td><td class="Frm_MsgSubject hover-container">Matrix between VB6 and C++</td><td style="width:20px;white-space:nowrap;"><img border="0" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/member_sm.gif" title="member" alt="member" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=7070841">francomulato</a></td><td class="Frm_MsgDate" style="vertical-align:top;white-space:nowrap;">7:51 1 Apr '10 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr>
+<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width:16px;"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/t(1).gif" height="1px" width="16px" alt=""></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Hi, how I can write a function in your example that, for example, receive 2 matrix from VB6, make some process and return a resul matrix?<br>I.E, code similar this, that process 2 bidimensional matrix of float values:<br><br>	int i, j, Im;<br><br>	for (i = 1; i &lt;= n; i++)<br>		{<br>		for (j = 1; j &lt;= L; j++)<br>			{<br>			MatR[i][j] = 0.0;<br>			for (Im = 1; Im &lt;= M; Im++)<br>				{<br>				MatR[i][j] += MatA[i][Im] * MatB[Im][j];<br>				}<br>			}<br>		}<br><br>	return **MatR; <br><br><br>Thank you in advance<br></td>
+</tr><tr style="vertical-align:middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fKB%2fDLL%2fXDllPt1.aspx">Sign In</a>·<a class="toolbar" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx?fid=34180&df=90&mpp=10&sort=Position&tid=3424729" title="View Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/3424729/Matrix-between-VB6-and-Cplusplus.aspx" title="Get permanent link">Link</a></td><td class="msg-footer" style="text-align:right;"><span id="MVF3424729" style="white-space:nowrap;"></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="expanded">
+<td class="root msg-divide"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/t(1).gif" border="0" width="1px" height="1px" alt=""></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd LoVote Rt HdUnSel ">
+<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td width="16px" class="Frm_MsgIndent"><a name="xx3221624xx"></a><img height="16px" width="16px" align="top" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/msg_general.gif" alt="General"></td><td class="Frm_MsgSubject hover-container">How about ActiveX DLL?</td><td style="width:20px;white-space:nowrap;"><img border="0" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/member_sm.gif" title="member" alt="member" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=2694">transoft</a></td><td class="Frm_MsgDate" style="vertical-align:top;white-space:nowrap;">4:50 4 Oct '09 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr>
+<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width:16px;"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/t(1).gif" height="1px" width="16px" alt=""></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Hi, <br><br>The ActiveX DLL can also be called using the same way? How about a class in a DLL? <br><br>Thanks,<br></td>
+</tr><tr style="vertical-align:middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fKB%2fDLL%2fXDllPt1.aspx">Sign In</a>·<a class="toolbar" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx?fid=34180&df=90&mpp=10&sort=Position&tid=3221624" title="View Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/3221624/How-about-ActiveX-DLL.aspx" title="Get permanent link">Link</a></td><td class="msg-footer" style="text-align:right;"><span id="MVF3221624" style="white-space:nowrap;">1.00/5 (3 votes) </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="expanded">
+<td class="root msg-divide"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/t(1).gif" border="0" width="1px" height="1px" alt=""></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd Rt HdUnSel ">
+<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td width="16px" class="Frm_MsgIndent"><a name="xx3219854xx"></a><img height="16px" width="16px" align="top" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/msg_general.gif" alt="General"></td><td class="Frm_MsgSubject hover-container">DLL that returns a string to Visual Basic 6 program</td><td style="width:20px;white-space:nowrap;"><img border="0" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/member_sm.gif" title="member" alt="member" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=6535336">Captain 24</a></td><td class="Frm_MsgDate" style="vertical-align:top;white-space:nowrap;">3:10 2 Oct '09 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr>
+<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width:16px;"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/t(1).gif" height="1px" width="16px" alt=""></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">hey,<br>I want some help on how to create a DLL in VC++ that returns a string to a Visual Basic program.<br>I have trouble because of data type incompatiblities.<br><br>what i want is sum thing like:<br><br>Void myStr(s)<br>{<br>s="captain 24";<br>}<br><br>so that when myStr is called in VB it returns Captain 24.now i dont know the datatype for "s".<br><br>Pliz help.<br></td>
+</tr><tr style="vertical-align:middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fKB%2fDLL%2fXDllPt1.aspx">Sign In</a>·<a class="toolbar" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx?fid=34180&df=90&mpp=10&sort=Position&tid=3219854" title="View Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/3219854/DLL-that-returns-a-string-to-Visual-Basic-6-progra.aspx" title="Get permanent link">Link</a></td><td class="msg-footer" style="text-align:right;"><span id="MVF3219854" style="white-space:nowrap;"></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="expanded">
+<td class="msg-divide"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/t(1).gif" border="0" width="1px" height="1px" alt=""></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd HiVote HdUnSel ">
+<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td width="34px" class="Frm_MsgIndent"><a name="xx3220795xx"></a><img height="16px" width="16px" align="top" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/msg_general.gif" alt="General"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="3220795" href="http://www.codeproject.com/Messages/3220795/Re-DLL-that-returns-a-string-to-Visual-Basic-6-pro.aspx">Re: DLL that returns a string to Visual Basic 6 program</a></td><td style="width:20px;white-space:nowrap;"><img border="0" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/mvp_sm.gif" title="mvp" alt="mvp" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=15759">Hans Dietrich</a></td><td class="Frm_MsgDate" style="vertical-align:top;white-space:nowrap;">23:54 2 Oct '09 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr>
+<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width:34px;"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/t(1).gif" height="1px" width="34px" alt=""></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">I have added an example for how to do this in the Part 2 download. <br><br><div class="ForumSig">Best wishes,<br>Hans<br><br><hr>[<a target="_blank" href="http://www.hdsoft.org/">Hans Dietrich Software</a>]</div><br></td>
+</tr><tr style="vertical-align:middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fKB%2fDLL%2fXDllPt1.aspx">Sign In</a>·<a class="toolbar" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx?fid=34180&df=90&mpp=10&sort=Position&tid=3219854" title="View Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/3220795/Re-DLL-that-returns-a-string-to-Visual-Basic-6-pro.aspx" title="Get permanent link">Link</a></td><td class="msg-footer" style="text-align:right;"><span id="MVF3220795" style="white-space:nowrap;">5.00/5 (1 vote) </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="expanded">
+<td class="root msg-divide"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/t(1).gif" border="0" width="1px" height="1px" alt=""></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd Rt HdUnSel ">
+<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td width="16px" class="Frm_MsgIndent"><a name="xx2328699xx"></a><img height="16px" width="16px" align="top" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/msg_question.gif" alt="Question"></td><td class="Frm_MsgSubject hover-container">Can we use DLLClassObject ?</td><td style="width:20px;white-space:nowrap;"><img border="0" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/member_sm.gif" title="member" alt="member" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=3808106">JothiMurugeswaran</a></td><td class="Frm_MsgDate" style="vertical-align:top;white-space:nowrap;">0:20 21 Nov '07 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr>
+<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width:16px;"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/t(1).gif" height="1px" width="16px" alt=""></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Can we use dllClassObject for accessing the function present in the activeX dll? <br><br><div class="ForumSig">Jothi Murugeswaran.S</div><br></td>
+</tr><tr style="vertical-align:middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fKB%2fDLL%2fXDllPt1.aspx">Sign In</a>·<a class="toolbar" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx?fid=34180&df=90&mpp=10&sort=Position&tid=2328699" title="View Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/2328699/Can-we-use-DLLClassObject.aspx" title="Get permanent link">Link</a></td><td class="msg-footer" style="text-align:right;"><span id="MVF2328699" style="white-space:nowrap;"></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="expanded">
+<td class="root msg-divide"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/t(1).gif" border="0" width="1px" height="1px" alt=""></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd HiVote Rt HdUnSel ">
+<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td width="16px" class="Frm_MsgIndent"><a name="xx2227042xx"></a><img height="16px" width="16px" align="top" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/msg_general.gif" alt="General"></td><td class="Frm_MsgSubject hover-container">Creating C++ DLL to be used by Java Script</td><td style="width:20px;white-space:nowrap;"><img border="0" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/member_sm.gif" title="member" alt="member" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=4515321">El Tenia</a></td><td class="Frm_MsgDate" style="vertical-align:top;white-space:nowrap;">19:15 13 Sep '07 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr>
+<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width:16px;"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/t(1).gif" height="1px" width="16px" alt=""></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Hi guys!<br><br>Can anybody please explain me how can I do to create a DLL, which will be used by a JS script?<br>That is: I have coded a C++ class, I built it and I got a DLL. Now, I would like to call a DLL method from a JS script (using var obj = ActiveXObjet(MyDll.MyMethod);<br><br>I think the problem is that I haven't registered the dll. However, when I try to do so (regsrv32 MyDll.dll), I got an error message saying that "MyDll.dll was loaded, but the DllRegisterServer entry point was not found"<br><br>As you may notice, I'm quite confused about how to really create this DLL right. <img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/smiley_confused.gif" align="top" alt="Confused"> <br><br>An example to get things clear: <br>Suppose that my class is the one explained at http://www.codeproject.com/dll/XDllPt1.asp (Step 1, 2 and 3)<br><br>* If I would want to call the method fnTest() from a JS script (var obj = ActiveXControl(Test.CTest); ), what do I need to do? Register the DLL? How?<br>* Is the <i>"A DLL that exports symbols"</i> the right <i>kind-of</i> DLL I should create or just an empty one (or any other "kind")?<br>* How can I solve the <i>"DLLRegistrySever entry point was not found"</i> problem?<br><br>Thanks a lot!<img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/smiley_biggrin.gif" align="top" alt="Big Grin">  <br><br>Cheers,<br>El Tenia<br></td>
+</tr><tr style="vertical-align:middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fKB%2fDLL%2fXDllPt1.aspx">Sign In</a>·<a class="toolbar" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx?fid=34180&df=90&mpp=10&sort=Position&tid=2227042" title="View Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/2227042/Creating-Cplusplus-DLL-to-be-used-by-Java-Script.aspx" title="Get permanent link">Link</a></td><td class="msg-footer" style="text-align:right;"><span id="MVF2227042" style="white-space:nowrap;">4.50/5 (2 votes) </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="expanded">
+<td class="msg-divide"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/t(1).gif" border="0" width="1px" height="1px" alt=""></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd LoVote HdUnSel ">
+<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td width="34px" class="Frm_MsgIndent"><a name="xx2227052xx"></a><img height="16px" width="16px" align="top" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/msg_general.gif" alt="General"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="2227052" href="http://www.codeproject.com/Messages/2227052/Re-Creating-Cplusplus-DLL-to-be-used-by-Java-Scrip.aspx">Re: Creating C++ DLL to be used by Java Script</a></td><td style="width:20px;white-space:nowrap;"><img border="0" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/member_sm.gif" title="member" alt="member" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=4515321">El Tenia</a></td><td class="Frm_MsgDate" style="vertical-align:top;white-space:nowrap;">19:27 13 Sep '07 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr>
+<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width:34px;"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/t(1).gif" height="1px" width="34px" alt=""></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Some addendum/corrections to my question:<br><br><br><blockquote class="FQ"><div class="FQA">El Tenia wrote:</div>That is: I have coded a C++ class</blockquote><br>called MyClass<br><br><br><blockquote class="FQ"><div class="FQA">El Tenia wrote:</div>Now, I would like to call a DLL method from a JS script (using var obj = ActiveXObjet(MyDll.MyMethod);</blockquote>.<br>Actually, var obj = ActiveXObjet(MyDll.MyClass); var a = obj.MyMethod();<br><br><br><blockquote class="FQ"><div class="FQA">El Tenia wrote:</div>think the problem is that </blockquote><br>I haven't said what the problem is!! Well, I cannot create the object.<br><br><br><blockquote class="FQ"><div class="FQA">El Tenia wrote:</div>* If I would want to call the method fnTest() from a JS script (var obj = ActiveXControl(Test.CTest); ),</blockquote><br>var a = obj.fnTest();<br><br>That is how I call the method, but nothing happens. So, should I register the DLL, how, etc etc?<br><br>Thanks again<br><br> <br><br>Cheers,<br>El Tenia<br></td>
+</tr><tr style="vertical-align:middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fKB%2fDLL%2fXDllPt1.aspx">Sign In</a>·<a class="toolbar" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx?fid=34180&df=90&mpp=10&sort=Position&tid=2227042" title="View Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/2227052/Re-Creating-Cplusplus-DLL-to-be-used-by-Java-Scrip.aspx" title="Get permanent link">Link</a></td><td class="msg-footer" style="text-align:right;"><span id="MVF2227052" style="white-space:nowrap;">2.00/5 (1 vote) </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="expanded">
+<td class="msg-divide"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/t(1).gif" border="0" width="1px" height="1px" alt=""></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd HdUnSel ">
+<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td width="34px" class="Frm_MsgIndent"><a name="xx2235523xx"></a><img height="16px" width="16px" align="top" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/msg_general.gif" alt="General"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="2235523" href="http://www.codeproject.com/Messages/2235523/Re-Creating-Cplusplus-DLL-to-be-used-by-Java-Scrip.aspx">Re: Creating C++ DLL to be used by Java Script</a></td><td style="width:20px;white-space:nowrap;"><img border="0" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/member_sm.gif" title="member" alt="member" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=4151063">onlinewan</a></td><td class="Frm_MsgDate" style="vertical-align:top;white-space:nowrap;">15:40 19 Sep '07 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr>
+<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width:34px;"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/t(1).gif" height="1px" width="34px" alt=""></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2"><blockquote class="FQ"><div class="FQA">El Tenia wrote:</div>How can I solve the "DLLRegistrySever entry point was not found" problem?</blockquote><br><br>I want to know too. <br></td>
+</tr><tr style="vertical-align:middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fKB%2fDLL%2fXDllPt1.aspx">Sign In</a>·<a class="toolbar" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx?fid=34180&df=90&mpp=10&sort=Position&tid=2227042" title="View Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/2235523/Re-Creating-Cplusplus-DLL-to-be-used-by-Java-Scrip.aspx" title="Get permanent link">Link</a></td><td class="msg-footer" style="text-align:right;"><span id="MVF2235523" style="white-space:nowrap;"></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="expanded">
+<td class="msg-divide"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/t(1).gif" border="0" width="1px" height="1px" alt=""></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd HdUnSel ">
+<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td width="34px" class="Frm_MsgIndent"><a name="xx2235924xx"></a><img height="16px" width="16px" align="top" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/msg_general.gif" alt="General"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="2235924" href="http://www.codeproject.com/Messages/2235924/Re-Creating-Cplusplus-DLL-to-be-used-by-Java-Scrip.aspx">Re: Creating C++ DLL to be used by Java Script</a></td><td style="width:20px;white-space:nowrap;"><img border="0" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/member_sm.gif" title="member" alt="member" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=1485044">flyingdonkey</a></td><td class="Frm_MsgDate" style="vertical-align:top;white-space:nowrap;">23:25 19 Sep '07 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr>
+<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width:34px;"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/t(1).gif" height="1px" width="34px" alt=""></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">hello, i think your dll is ok.<br>but the JS method ActiveXControl(I) just need a ActiveX control, not a dll.<br>a ActiveX control is a component has extension ".ocx"<br>you can find a ocx in codeproject, and try it by JS.<br><br>bless~ <br><br><div class="ForumSig">a donkey can fly ~~~~~~</div><br></td>
+</tr><tr style="vertical-align:middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fKB%2fDLL%2fXDllPt1.aspx">Sign In</a>·<a class="toolbar" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx?fid=34180&df=90&mpp=10&sort=Position&tid=2227042" title="View Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/2235924/Re-Creating-Cplusplus-DLL-to-be-used-by-Java-Scrip.aspx" title="Get permanent link">Link</a></td><td class="msg-footer" style="text-align:right;"><span id="MVF2235924" style="white-space:nowrap;"></span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr class="expanded">
+<td class="msg-divide"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/t(1).gif" border="0" width="1px" height="1px" alt=""></td>
+</tr>
+<!-- Start Message head -->
+
+<tr class="MsgHd LoVote HdUnSel ">
+<td width="100%"><table class="expandedHd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr class="hover-row">
+<td width="34px" class="Frm_MsgIndent"><a name="xx2969001xx"></a><img height="16px" width="16px" align="top" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/msg_general.gif" alt="General"></td><td class="Frm_MsgSubject hover-container"><a id="DynMessLink" name="2969001" href="http://www.codeproject.com/Messages/2969001/Re-Creating-Cplusplus-DLL-to-be-used-by-Java-Scrip.aspx">Re: Creating C++ DLL to be used by Java Script</a></td><td style="width:20px;white-space:nowrap;"><img border="0" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/member_sm.gif" title="member" alt="member" height="16px"></td><td class="Frm_MsgAuthor"><a href="http://www.codeproject.com/script/Membership/View.aspx?mid=5955197">Ash_VCPP</a></td><td class="Frm_MsgDate" style="vertical-align:top;white-space:nowrap;">23:23 17 Mar '09 &nbsp;</td>
+</tr>
+</tbody></table></td>
+</tr><!-- End Message head -->
+
+<tr>
+<td width="100%"><table class="expandedBd" border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td class="Frm_MsgIndent" style="width:34px;"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/t(1).gif" height="1px" width="34px" alt=""></td><td class="MsgBd BdUnSel "><table border="0" cellpadding="0" cellspacing="5px" width="100%">
+<tbody><tr>
+<td><table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tbody><tr>
+<td colspan="2">Hi,<br><br>if you want to call that dll from javascript then you should do some rnd on XPCOM logic.Basically its a dll which works as a bridge between your javascript and your main dll, you need to call that xpcom dll from javascript and then from xpcom u can call your main dll. and this is the best way to do the things which you want to do. <br><br><div class="ForumSig">Thanks A Ton<br>Ash_VCPP</div><br></td>
+</tr><tr style="vertical-align:middle;">
+<td class="msg-footer"><a class="toolbar" href="http://www.codeproject.com/script/Membership/LogOn.aspx?rp=%2fKB%2fDLL%2fXDllPt1.aspx">Sign In</a>·<a class="toolbar" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx?fid=34180&df=90&mpp=10&sort=Position&tid=2227042" title="View Thread">View&nbsp;Thread</a>·<a class="toolbar" href="http://www.codeproject.com/Messages/2969001/Re-Creating-Cplusplus-DLL-to-be-used-by-Java-Scrip.aspx" title="Get permanent link">Link</a></td><td class="msg-footer" style="text-align:right;"><span id="MVF2969001" style="white-space:nowrap;">2.00/5 (1 vote) </span></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table></td>
+</tr><tr>
+<td><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/t(1).gif" border="0" width="1px" height="5px" alt=""></td>
+</tr>
+</tbody></table></td>
+</tr><tr>
+<td><table width="100%" cellpadding="2px" cellspacing="0">
+<tbody><tr class="forum-footer">
+<td>Last Visit: 19:00 31 Dec '99  &nbsp; &nbsp; Last Update: 17:21 21 Feb '11 </td><td style="text-align:right;white-space:nowrap;"><input id="_mbnUrl" type="hidden" value="/KB/DLL/XDllPt1.aspx?fid=34180&amp;df=90&amp;mpp=10&amp;noise=3&amp;sort=Position&amp;view=Expanded&amp;fr=11"><b>1</b><a class="toolbar" name="Frm_HoverNL" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx?fid=34180&df=90&mpp=10&noise=3&sort=Position&view=Expanded&fr=11#xx0xx">2</a><a class="toolbar" name="Frm_HoverNL" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx?fid=34180&df=90&mpp=10&noise=3&sort=Position&view=Expanded&fr=21#xx0xx">3</a><a class="toolbar" name="Frm_HoverNL" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx?fid=34180&df=90&mpp=10&noise=3&sort=Position&view=Expanded&fr=31#xx0xx">4</a><a class="toolbar" name="Frm_HoverNL" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx?fid=34180&df=90&mpp=10&noise=3&sort=Position&view=Expanded&fr=41#xx0xx">5</a><a class="toolbar" name="Frm_HoverNL" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx?fid=34180&df=90&mpp=10&noise=3&sort=Position&view=Expanded&fr=51#xx0xx">6</a><a class="toolbar" name="Frm_HoverNL" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx?fid=34180&df=90&mpp=10&noise=3&sort=Position&view=Expanded&fr=61#xx0xx">7</a><a class="toolbar" name="Frm_HoverNL" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx?fid=34180&df=90&mpp=10&noise=3&sort=Position&view=Expanded&fr=71#xx0xx">8</a> <a class="toolbar" name="Frm_HoverNL" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx?fid=34180&df=90&mpp=10&noise=3&sort=Position&view=Expanded&fr=11#xx0xx">Next »</a></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table><p class="small-text"><img align="top" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/msg_general.gif" width="16px" height="16px" alt="General"> General &nbsp;&nbsp; <img align="top" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/msg_news.gif" width="16px" height="16px" alt="News"> News &nbsp;&nbsp; <img align="top" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/msg_question.gif" width="16px" height="16px" alt="Question"> Question &nbsp;&nbsp; <img align="top" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/msg_answer.gif" width="16px" height="16px" alt="Answer"> Answer &nbsp;&nbsp; <img align="top" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/msg_joke.gif" width="16px" height="16px" alt="Joke"> Joke &nbsp;&nbsp; <img align="top" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/msg_rant.gif" width="16px" height="16px" alt="Rant"> Rant &nbsp;&nbsp; <img align="top" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/msg_admin.gif" width="16px" height="16px" alt="Admin"> Admin &nbsp;&nbsp; </p>
+<!-- Forum End -->
+
+
+
+
+					
+					<div class="theme1-background" style="height:2px"></div>
+
+					<div class="extended tiny-text">
+						<div class="row" style="margin:auto;">
+							<div class="float-left">
+								<a id="ctl00_PermaLink" href="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject.htm">link</a> | 
+								<a id="ctl00_PrivacyLink" href="http://www.codeproject.com/info/privacy.aspx">Privacy</a> |
+								<a id="ctl00_TermsOfUseLink" href="http://www.codeproject.com/info/TermsOfUse.aspx">Terms of Use</a> |
+								<a id="ctl00_Mobile" href="http://www.codeproject.com/KB/DLL/XDllPt1.aspx?display=Mobile">Mobile</a>
+								<br>Last Updated: 29 Feb 2004<br>
+								<br>
+							</div>
+							<div class="float-right align-right">
+								Copyright 2004 by Hans Dietrich<br>Everything else
+								Copyright © <a href="mailto:webmaster@codeproject.com">CodeProject</a>, 1999-2011 <br>
+								Web03 |
+								<a id="ctl00_AdvertiseLink" href="http://www.codeproject.com/info/MediaKit.aspx">Advertise on the Code Project </a>
+							</div>
+						</div>
+					</div>
+					
+
+				
+				</div>
+
+				<div id="ctl00_ContentSide" class="text-sidebar">
+
+					<script type="text/javascript">document.write(unescape('%0d%0a%3cdiv class%3d%22announce%22%3e%0d%0a%0d%0a%3cdiv class%3d%22announce-content%22%3e%09%0d%0a%0d%0a%0d%0a%3cdiv class%3d%22container-adwords%22%3e%0d%0a%09%3ca id%3d%22ctl00_CatalogItems_FeatureItemRptr_ctl00_Link%22 href%3d%22%2fscript%2fCatalog%2fRedir.aspx%3fctid%3d2902%26amp%3bcttype%3d2%22 target%3d%22_blank%22%3e%3cspan id%3d%22ctl00_CatalogItems_FeatureItemRptr_ctl00_Title%22 class%3d%22title%22%3e%244.95%2fmonth ASP.NET Web Hosting - Click Here%3c%2fspan%3e%3cbr %2f%3e%0d%0a%09%09%3cspan id%3d%22ctl00_CatalogItems_FeatureItemRptr_ctl00_Teaser%22 title%3d%22WinHost is a Microsoft-web based hosting provider focusing on low cost%2c reliable Windows%2fASP.NET hosting services starting at %244.95%2fmonth - Sign up Today with WinHost!%22 class%3d%22desc%22%3eWinHost is a Microsoft-web based hosting...%3c%2fspan%3e%3cbr %2f%3e%0d%0a%09%09%3cspan id%3d%22ctl00_CatalogItems_FeatureItemRptr_ctl00_Url%22 class%3d%22link%22%3ewww.winhost.com%3c%2fspan%3e%3c%2fa%3e%0d%0a%3c%2fdiv%3e%0d%0a%0d%0a%3cdiv class%3d%22container-adwords%22%3e%0d%0a%09%3ca id%3d%22ctl00_CatalogItems_FeatureItemRptr_ctl01_Link%22 href%3d%22%2fscript%2fCatalog%2fRedir.aspx%3fctid%3d2682%26amp%3bcttype%3d2%22 target%3d%22_blank%22%3e%3cspan id%3d%22ctl00_CatalogItems_FeatureItemRptr_ctl01_Title%22 class%3d%22title%22%3eActiveAnalysis for Silverlight%2c WinForms%2c ASP.NET%3c%2fspan%3e%3cbr %2f%3e%0d%0a%09%09%3cspan id%3d%22ctl00_CatalogItems_FeatureItemRptr_ctl01_Teaser%22 title%3d%22ActiveAnalysis is a complete OLAP%2c data visualization and business intelligence component for Silverlight%2c Windows Forms and ASP.NET. With the ability to connect to virtually any data source and support for three development platforms%2c rolling out your own BI applications is easier than ever!%22 class%3d%22desc%22%3eActiveAnalysis is a complete OLAP%2c data...%3c%2fspan%3e%3cbr %2f%3e%0d%0a%09%09%3cspan id%3d%22ctl00_CatalogItems_FeatureItemRptr_ctl01_Url%22 class%3d%22link%22%3ewww.gcpowertools.com%3c%2fspan%3e%3c%2fa%3e%0d%0a%3c%2fdiv%3e%0d%0a%0d%0a%3cdiv class%3d%22container-adwords%22%3e%0d%0a%09%3ca id%3d%22ctl00_CatalogItems_FeatureItemRptr_ctl02_Link%22 href%3d%22%2fscript%2fCatalog%2fRedir.aspx%3fctid%3d3561%26amp%3bcttype%3d2%22 target%3d%22_blank%22%3e%3cspan id%3d%22ctl00_CatalogItems_FeatureItemRptr_ctl02_Title%22 class%3d%22title%22%3eIntel%c2%ae Active Management Technology (Intel%c2%ae AMT) Software Development Kit (SDK)%3c%2fspan%3e%3cbr %2f%3e%0d%0a%09%09%3cspan id%3d%22ctl00_CatalogItems_FeatureItemRptr_ctl02_Teaser%22 title%3d%22Make this new SDK version with corrections %26amp%3b improvements to redirection %26amp%3b KVM%2c MPS%2c timing issues and more%2c yours now! Enrich your app for Intel(r) AMT %26amp%3b be an IT Manager%26%2339%3bs %26%2339%3bgo to%26%2339%3b enterprise app!%22 class%3d%22desc%22%3eMake this new SDK version with corrections %26amp%3b...%3c%2fspan%3e%3cbr %2f%3e%0d%0a%09%09%3cspan id%3d%22ctl00_CatalogItems_FeatureItemRptr_ctl02_Url%22 class%3d%22link%22%3esoftware.intel.com%3c%2fspan%3e%3c%2fa%3e%0d%0a%3c%2fdiv%3e%0d%0a%0d%0a%0d%0a%3c%2fdiv%3e%0d%0a%3c%2fdiv%3e%0d%0a%0d%0a%0d%0a'));</script>
+<div class="announce">
+
+<div class="announce-content">	
+
+
+<div class="container-adwords">
+	<a id="ctl00_CatalogItems_FeatureItemRptr_ctl00_Link" href="http://www.codeproject.com/script/Catalog/Redir.aspx?ctid=2902&cttype=2" target="_blank"><span id="ctl00_CatalogItems_FeatureItemRptr_ctl00_Title" class="title">$4.95/month ASP.NET Web Hosting - Click Here</span><br>
+		<span id="ctl00_CatalogItems_FeatureItemRptr_ctl00_Teaser" title="WinHost is a Microsoft-web based hosting provider focusing on low cost, reliable Windows/ASP.NET hosting services starting at $4.95/month - Sign up Today with WinHost!" class="desc">WinHost is a Microsoft-web based hosting...</span><br>
+		<span id="ctl00_CatalogItems_FeatureItemRptr_ctl00_Url" class="link">www.winhost.com</span></a>
+</div>
+
+<div class="container-adwords">
+	<a id="ctl00_CatalogItems_FeatureItemRptr_ctl01_Link" href="http://www.codeproject.com/script/Catalog/Redir.aspx?ctid=2682&cttype=2" target="_blank"><span id="ctl00_CatalogItems_FeatureItemRptr_ctl01_Title" class="title">ActiveAnalysis for Silverlight, WinForms, ASP.NET</span><br>
+		<span id="ctl00_CatalogItems_FeatureItemRptr_ctl01_Teaser" title="ActiveAnalysis is a complete OLAP, data visualization and business intelligence component for Silverlight, Windows Forms and ASP.NET. With the ability to connect to virtually any data source and support for three development platforms, rolling out your own BI applications is easier than ever!" class="desc">ActiveAnalysis is a complete OLAP, data...</span><br>
+		<span id="ctl00_CatalogItems_FeatureItemRptr_ctl01_Url" class="link">www.gcpowertools.com</span></a>
+</div>
+
+<div class="container-adwords">
+	<a id="ctl00_CatalogItems_FeatureItemRptr_ctl02_Link" href="http://www.codeproject.com/script/Catalog/Redir.aspx?ctid=3561&cttype=2" target="_blank"><span id="ctl00_CatalogItems_FeatureItemRptr_ctl02_Title" class="title">IntelÂ® Active Management Technology (IntelÂ® AMT) Software Development Kit (SDK)</span><br>
+		<span id="ctl00_CatalogItems_FeatureItemRptr_ctl02_Teaser" title="Make this new SDK version with corrections &amp; improvements to redirection &amp; KVM, MPS, timing issues and more, yours now! Enrich your app for Intel(r) AMT &amp; be an IT Manager&#39;s &#39;go to&#39; enterprise app!" class="desc">Make this new SDK version with corrections &amp;...</span><br>
+		<span id="ctl00_CatalogItems_FeatureItemRptr_ctl02_Url" class="link">software.intel.com</span></a>
+</div>
+
+
+</div>
+</div>
+
+
+
+
+					
+
+					
+
+					
+<div class="announce">
+<div class="announce-header">See Also...</div>
+<div class="announce-content">	
+
+
+<div class="container-related-item">
+	<a id="ctl00_RelatedArticles_RelatedItemRptr_ctl00_TitleLink" class="title" href="http://www.codeproject.com/KB/DLL/dll.aspx">Creation of a Simple DLL</a><br>
+	<span id="ctl00_RelatedArticles_RelatedItemRptr_ctl00_Teaser" class="desc">Steps to create your first DLL file</span><br>
+</div>
+
+<div class="container-related-item">
+	<a id="ctl00_RelatedArticles_RelatedItemRptr_ctl01_TitleLink" class="title" href="http://www.codeproject.com/KB/DLL/XDllPt2.aspx">Step by Step: Calling C++ DLLs from VC++ and VB - Part 2</a><br>
+	<span id="ctl00_RelatedArticles_RelatedItemRptr_ctl01_Teaser" class="desc">This series of articles is a step-by-step...</span><br>
+</div>
+
+<div class="container-related-item">
+	<a id="ctl00_RelatedArticles_RelatedItemRptr_ctl02_TitleLink" class="title" href="http://www.codeproject.com/KB/DLL/XDllPt3.aspx">Step by Step: Calling C++ DLLs from VC++ and VB - Part 3</a><br>
+	<span id="ctl00_RelatedArticles_RelatedItemRptr_ctl02_Teaser" class="desc">This series of articles is a step-by-step...</span><br>
+</div>
+
+<div class="container-related-item">
+	<a id="ctl00_RelatedArticles_RelatedItemRptr_ctl03_TitleLink" class="title" href="http://www.codeproject.com/KB/DLL/XDllPt4.aspx">Step by Step: Calling C++ DLLs from VC++ and VB - Part 4</a><br>
+	<span id="ctl00_RelatedArticles_RelatedItemRptr_ctl03_Teaser" class="desc">This series of articles is a step-by-step...</span><br>
+</div>
+
+<div class="container-related-item">
+	<a id="ctl00_RelatedArticles_RelatedItemRptr_ctl04_TitleLink" class="title" href="http://www.codeproject.com/KB/DLL/loadingdll.aspx">How to load a dynamic link library (DLL) into a Microsoft Visual C++ 6.0 project</a><br>
+	<span id="ctl00_RelatedArticles_RelatedItemRptr_ctl04_Teaser" class="desc">This article gives guidelines for loading a...</span><br>
+</div>
+
+</div>
+</div>
+
+
+
+
+					
+
+<div class="announce ">
+<div class="announce-header">Announcements</div>
+<div class="announce-content">
+<table cellpadding="2">
+
+
+
+
+
+
+
+
+
+
+
+<tbody><tr valign="middle"><td><img id="ctl00_Announcements_News_ctl00_Img" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/14362.png" alt="News" align="middle" style="height:24px;width:24px;border-width:0px;"></td>
+<td><a id="ctl00_Announcements_News_ctl00_Link" href="http://www.codeproject.com/Competitions/460/Windows-Azure-Marketplace-The-DataMarket-Contest.aspx">Build Azure App - Win a Laptop</a></td></tr>
+
+<tr valign="middle"><td><img id="ctl00_Announcements_News_ctl01_Img" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/13673.jpg" alt="News" align="middle" style="height:24px;width:24px;border-width:0px;"></td>
+<td><a id="ctl00_Announcements_News_ctl01_Link" href="http://www.codeproject.com/Competitions/447/Windows-Phone-7-Competition.aspx">WP7 Comp - Post an Article, Share an App</a></td></tr>
+
+
+
+
+</tbody></table>
+</div>
+</div>
+
+					
+<div class="announce">
+<div class="announce-header">The Daily Insider</div>
+<div class="announce-content">
+
+<div><a id="ctl00_News_News_ctl01_Link" href="http://citizen428.net/archives/434">30 free programming books</a></div>
+
+Daily News: <a id="ctl00_News_News_ctl02_Subscribe" href="http://www.codeproject.com/Feature/Insider/">Signup now</a>.
+</div>
+</div>
+		
+
+					<div style="margin:auto;width:150px"><div class="lqm_ad" width="150px" height="80px" lqm_channel="1" lqm_publisher="495" lqm_zone="77" lqm_format="21" lqm_tags="VC6,Win2K,WinXP,Win2003,Dev,Beginner"></div>
+					</div>
+	
+					<div style="margin:auto;width:160px;margin-top:10px"><div class="lqm_ad" width="160px" height="600px" lqm_channel="1" lqm_publisher="495" lqm_zone="77" lqm_format="18" lqm_tags="VC6,Win2K,WinXP,Win2003,Dev,Beginner"><a href="http://a.lakequincy.com/c.ashx?channel=1&format=18&pageid=DB2DD916-7FB1-5452-E1EA-48308FBFC822&publisher=495&tags=VC6%2cWin2K%2cWinXP%2cWin2003%2cDev%2cBeginner%2ccreate%2c+dll%2c+in%2c+vc%2c+2b%2c+2b&target=_blank&ypos=1226&zone=77&renderhtml=true&callback=jsonp1298344920600&url=http%253A%252F%252Fwww.codeproject.com%252FKB%252FDLL%252FXDllPt1.aspx&country=IN&userguid=00000000-0000-0000-0000-000000000000&placement=8648&creative=7697" target="_blank"><img src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/634243877358201053.gif" border="0" height="600" width="160" alt="Click here"></a></div>
+					</div>
+				</div>
+
+			</div>
+			
+
+		</div>
+		
+
+	</div>
+</div>
+
+
+<script type="text/javascript" language="Javascript" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/jquery-1.4.2.min.js"></script><script type="text/javascript">//<![CDATA[
+if (typeof jQuery == 'undefined') {
+    document.write(unescape("%3Cscript src='/script/JS/jquery-1.4.2.min.js' type='text/javascript' %3E%3C/script%3E"));
+}//]]></script>
+<script type="text/javascript" language="Javascript" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/article.min.js"></script>
+<script type="text/javascript" language="Javascript" src="./Step by Step  Calling C++ DLLs from VC++ and VB - Part 1 - CodeProject_files/m.min.js"></script>
+<script type="text/javascript" language="Javascript">//<![CDATA[
+function markAllText(){
+ markTextInElement('create','contentdiv');
+ markTextInElement('dll','contentdiv');
+ markTextInElement('vc++','contentdiv');
+}
+$(function(){markAllText()});
+var socialLinks = new social();
+socialLinks.PlaceholderId="ATD";socialLinks.ObjectId=6242;
+socialLinks.ObjectTypeId=2;
+socialLinks.addtoMethod=1;
+socialLinks.Horizontal=false;
+socialLinks.Showname=true;
+socialLinks.setupLinks("socialLinks", escape(document.location.href),escape(document.title), 100, 0, "small-text Bold", "AddTo");
+socialLinks.setupMenu();
+$(document).ready(function() {   $('.alert-bar').slideDown('fast');   $('.alert-bar a.close-notify').click(function() {      $('.alert-bar').slideUp('fast');        return false;    });});
+if($.LqmAds)$.LqmAds();
+var oSrchFlt = false, oSrchBox=false,srchBoxFoc=false;
+$(document).ready(function() {
+ InitWatermark('sb_tb', 'Search');
+ var sbar = $('#sb_tb'); 
+ var sfilter = $('#SearchFilter');
+ if (sbar && sfilter) {
+  sfilter.removeClass('popup'); sfilter.hide();
+  sbar.blur(function() { if (!oSrchFlt)sfilter.hide();srchBoxFoc=false; });
+  sbar.focus(function() { oSrchFlt=false;srchBoxFoc=true;sfilter.show(); });
+  sbar.mouseleave(function() { oSrchBox=false; });
+  sbar.mouseover(function() { oSrchBox=true; });
+  sfilter.mouseleave(function() { oSrchFlt=false; if (!srchBoxFoc&&!oSrchBox)sfilter.hide();});
+  sfilter.mouseover(function() { oSrchFlt=true; });
+ }
+});
+$("#ctl00_RateArticle_RateItemWrapper").removeClass("container-rating");$('#clear-rate_ctl00_RateArticle_RCD').click(function () { $('#ctl00_RateArticle_RCD').hide(); return false;});
+function ChkRtctl00_RateArticle(val, objId) {if (val<=3||true) {
+$('div[name=RateItem_' + objId + '] .rating-comment').css("display","");}
+else $('div[name=RateItem_' + objId + '] .rating-comment').css("display","none");}
+
+
+//]]>
+</script>
+
+
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-1735123-1']);
+	_gaq.push(['_trackPageview']);
+	_gaq.push(['_setDomainName', 'www.codeproject.com']);
+	_gaq.push(['_setSessionTimeout', '1200']); 
+
+	(function () {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})(); 
+</script>
+
+
+
+</body></html>

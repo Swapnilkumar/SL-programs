@@ -1,0 +1,21 @@
+inc2011@inc2011-desktop:~/Desktop/my reader writer$ gcc -lpthread slrdwr.c
+inc2011@inc2011-desktop:~/Desktop/my reader writer$ ./a.out
+
+WRITER : 0 val : 478 writecount : 1 
+WRITER : 2 val : 664 writecount : 2 
+WRITER : 1 val : 153 writecount : 2 
+READER : 0 val : 153 readcount : 1 
+READER : 1 val : 153 readcount : 2 
+READER : 3 val : 153 readcount : 3 
+READER : 2 val : 153 readcount : 3 
+WRITER : 3 val : 268 writecount : 3 
+WRITER : 4 val : 500 writecount : 2 
+WRITER : 5 val : 997 writecount : 1 
+READER : 4 val : 997 readcount : 1 
+READER : 5 val : 997 readcount : 2 
+READER : 6 val : 997 readcount : 1 
+WRITER : 6 val : 991 writecount : 1 
+WRITER : 7 val : 903 writecount : 1 
+READER : 7 val : 903 readcount : 1 
+WRITER : 8 val : 762 writecount : 1 
+READER : 8 val : 762 readcount : 1 

@@ -1,0 +1,5 @@
+LIBRARY example2
+
+EXPORTS
+
+to_upper	@1

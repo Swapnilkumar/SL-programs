@@ -1,0 +1,730 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0078)http://logix4u.net/Programming/vc++/A_Tutorial_on_creating_DLLs_with_VC++.html -->
+<html xmlns="http://www.w3.org/1999/xhtml" style="position: static; "><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><script src="./A Tutorial on creating DLLs with VC++_files/menu68.js"></script><link rel="stylesheet" type="text/css" href="./A Tutorial on creating DLLs with VC++_files/widget52.css" media="all">
+
+<meta name="verify-v1" content="6x3f9C0kp23CqhzWmfcRgPGcRZ8zS8WyDaS6a0JlNUk="> 
+<title>A Tutorial on creating DLLs with VC++</title>
+<meta name="author" content="Logix4u">
+<meta name="description" content="Tutorial on creating DLLs with VC++">
+<meta name="keywords" content="parallel ,port ,interfacing ,windows , NT ,2000 , lpt , driver , inp , outp , inpout , VB , visual basic , vc++ , visual c++ , dll , xp">
+<!--<base href="http://logix4u.net/">--><base href=".">
+	<link rel="shortcut icon" href="http://logix4u.net/images/favicon.ico">
+	 
+<link href="./A Tutorial on creating DLLs with VC++_files/template_css.css" rel="stylesheet" type="text/css">
+</head>
+
+<body topmargin="0" leftmargin="0" rightmargin="0" bottommargin="0"><div id="snap_com_shot_main" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; z-index: 99999; position: absolute; left: 0px; top: 0px; width: 328px; height: 346px; visibility: hidden; " class="snap_noengage snap_noshots"><img id="snap_com_shot_link_icon" class="snap_preview_icon" style="margin-top: 0px !important; margin-right: 0px !important; margin-bottom: 0px !important; margin-left: 0px !important; max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; left: auto; top: auto; line-height: normal; z-index: 99999; background-color: transparent; background-image: url(http://i.ixnp.com/images/v6.57/theme/ice/palette.gif); width: 14px; height: 12px; padding-top: 1px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; text-decoration: none; position: static; visibility: hidden; background-position: -943px 0px; background-repeat: no-repeat no-repeat; " src="./A Tutorial on creating DLLs with VC++_files/t.gif">
+<div id="snap_com_shot_bg_div_tl" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; position: absolute; left: 0px; top: 0px; height: 50px; width: 50px; overflow-x: hidden; overflow-y: hidden; "><img id="snap_com_shot_bg_img_tl" src="./A Tutorial on creating DLLs with VC++_files/palette.png" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; position: absolute; left: -100px; top: 0px; "></div>
+<div id="snap_com_shot_bg_div_tr" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; left: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; position: absolute; right: 0px; top: 0px; height: 50px; width: 50px; overflow-x: hidden; overflow-y: hidden; "><img id="snap_com_shot_bg_img_tr" src="./A Tutorial on creating DLLs with VC++_files/palette.png" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; position: absolute; left: -150px; top: 0px; "></div>
+<div id="snap_com_shot_bg_div_bl" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; top: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; position: absolute; left: 0px; bottom: 1px; height: 50px; width: 50px; overflow-x: hidden; overflow-y: hidden; "><img id="snap_com_shot_bg_img_bl" src="./A Tutorial on creating DLLs with VC++_files/palette.png" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; position: absolute; left: 0px; top: 0px; "></div>
+<div id="snap_com_shot_bg_div_br" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; left: auto; top: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; position: absolute; right: 0px; bottom: 1px; height: 50px; width: 50px; overflow-x: hidden; overflow-y: hidden; "><img id="snap_com_shot_bg_img_br" src="./A Tutorial on creating DLLs with VC++_files/palette.png" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; position: absolute; left: -50px; top: 0px; "></div>
+<img id="snap_com_shot_bg_img_l" src="./A Tutorial on creating DLLs with VC++_files/bg_lr.png" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; position: absolute; left: 0px; top: 50px; width: 100px; height: 246px; ">
+<img id="snap_com_shot_bg_img_r" src="./A Tutorial on creating DLLs with VC++_files/bg_lr.png" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; left: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; position: absolute; right: 0px; top: 50px; width: 100px; height: 246px; ">
+<img id="snap_com_shot_bg_img_t" src="./A Tutorial on creating DLLs with VC++_files/bg_tb.png" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; position: absolute; left: 50px; top: 0px; height: 100px; width: 228px; ">
+<img id="snap_com_shot_bg_img_b" src="./A Tutorial on creating DLLs with VC++_files/bg_tb.png" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; top: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; position: absolute; left: 50px; bottom: 1px; height: 100px; width: 228px; ">
+<div id="snap_com_shot_bg_div_point" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; z-index: 100000; position: absolute; height: 29px; width: 28px; overflow-x: hidden; overflow-y: hidden; top: auto; right: auto; visibility: inherit; bottom: -21px; left: 7px; "><img id="snap_com_shot_bg_img_point" src="./A Tutorial on creating DLLs with VC++_files/palette.png" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; position: absolute; left: -248px; top: 0px; "></div>
+<div id="snap_com_shot_bg_body" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; top: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); visibility: inherit; z-index: 99999; position: absolute; left: 2px; bottom: 37px; width: 320px; height: 82px; background-color: rgb(193, 205, 218); "></div>
+
+<img style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; z-index: 100001; position: absolute; right: auto; top: auto; visibility: inherit; width: 200px; height: 5px; bottom: 3px; left: 5px; " id="snap_com_shot_pointer0" src="./A Tutorial on creating DLLs with VC++_files/t.gif">
+<img style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; z-index: 100001; position: absolute; right: auto; top: auto; visibility: inherit; width: 164px; height: 5px; bottom: -1px; left: 5px; " id="snap_com_shot_pointer1" src="./A Tutorial on creating DLLs with VC++_files/t.gif">
+<img style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; z-index: 100001; position: absolute; right: auto; top: auto; visibility: inherit; width: 128px; height: 5px; bottom: -6px; left: 5px; " id="snap_com_shot_pointer2" src="./A Tutorial on creating DLLs with VC++_files/t.gif">
+<img style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; z-index: 100001; position: absolute; right: auto; top: auto; visibility: inherit; width: 92px; height: 5px; bottom: -11px; left: 5px; " id="snap_com_shot_pointer3" src="./A Tutorial on creating DLLs with VC++_files/t.gif">
+<img style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; z-index: 100001; position: absolute; right: auto; top: auto; visibility: inherit; width: 56px; height: 5px; bottom: -16px; left: 5px; " id="snap_com_shot_pointer4" src="./A Tutorial on creating DLLs with VC++_files/t.gif">
+<img style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; z-index: 100001; position: absolute; right: auto; top: auto; visibility: inherit; width: 20px; height: 5px; bottom: -21px; left: 5px; " id="snap_com_shot_pointer5" src="./A Tutorial on creating DLLs with VC++_files/t.gif">
+<div id="snap_com_shot_bubble" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; position: absolute; left: 1px; top: 1px; width: 322px; height: 338px; ">
+<img id="snap_com_shot_bubble_img" src="./A Tutorial on creating DLLs with VC++_files/t.gif" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; position: absolute; left: 0px; top: 0px; width: 322px; height: 297px; ">
+<div id="snap_com_shot_body" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; position: absolute; left: 0px; top: 0px; width: 322px; text-align: left; height: 338px; ">
+ <table id="snap_com_shot_drag_overlay" title="drag to move" style="display: none; cursor: move !important; max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); visibility: inherit; z-index: 100008; position: absolute; left: 0px; top: 0px; width: 322px; height: 20px; background-color: transparent; "><tbody><tr><td style="background-color:transparent;border:0;">&nbsp;</td></tr></tbody></table>
+ <div id="snap_com_shot_top_left_menu" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; z-index: 100009; position: absolute; left: 1px; top: 1px; visibility: hidden; "><img id="snap_com_shot_preview_toggle" src="./A Tutorial on creating DLLs with VC++_files/t.gif" style="cursor: pointer !important; max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; position: static; left: auto; top: auto; line-height: normal; visibility: inherit; z-index: 99999; background-color: transparent; background-image: url(http://i.ixnp.com/images/v6.57/theme/ice/palette.gif); width: 25px; height: 18px; display: inline; background-position: -60px 0px; background-repeat: no-repeat no-repeat; "><img id="snap_com_shot_rss_toggle" src="./A Tutorial on creating DLLs with VC++_files/t.gif" align="top" style="cursor: pointer !important; max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; position: static; left: auto; top: auto; line-height: normal; visibility: inherit; z-index: 99999; background-color: transparent; background-image: url(http://i.ixnp.com/images/v6.57/theme/ice/palette.gif); width: 25px; height: 18px; display: inline; background-position: -427px 0px; background-repeat: no-repeat no-repeat; "></div>
+ <div id="snap_com_shot_top_right_menu" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; left: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 100009; position: absolute; right: 1px; top: 1px; "><img id="snap_com_shot_share_button" src="./A Tutorial on creating DLLs with VC++_files/t.gif" align="top" style="cursor: pointer !important; max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; position: static; left: auto; top: auto; line-height: normal; visibility: inherit; z-index: 99999; background-color: transparent; background-image: url(http://i.ixnp.com/images/v6.57/theme/ice/palette.gif); width: 50px; height: 17px; display: none; background-position: -498px 0px; background-repeat: no-repeat no-repeat; "><img id="snap_com_shot_option_button" src="./A Tutorial on creating DLLs with VC++_files/t.gif" style="cursor: pointer !important; max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; position: static; left: auto; top: auto; line-height: normal; visibility: inherit; z-index: 99999; background-color: transparent; background-image: url(http://i.ixnp.com/images/v6.57/theme/ice/palette.gif); width: 27px; height: 18px; display: inline; background-position: -189px 0px; background-repeat: no-repeat no-repeat; " alt="Snap Shots Options" title="Snap Shots Options"><img id="snap_com_shot_zoom_img" src="./A Tutorial on creating DLLs with VC++_files/t.gif" align="top" style="cursor: pointer !important; max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; position: static; left: auto; top: auto; line-height: normal; visibility: inherit; z-index: 99999; background-color: transparent; background-image: url(http://i.ixnp.com/images/v6.57/theme/ice/palette.gif); width: 23px; height: 18px; display: inline; background-position: -289px 0px; background-repeat: no-repeat no-repeat; " title="Make this Shot larger"><img id="snap_com_shot_pin_close_img" title="Close" src="./A Tutorial on creating DLLs with VC++_files/t.gif" align="top" style="cursor: pointer !important; max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; position: static; left: auto; top: auto; line-height: normal; visibility: inherit; z-index: 99999; background-color: transparent; background-image: url(http://i.ixnp.com/images/v6.57/theme/ice/palette.gif); width: 23px; height: 18px; display: none; background-position: -452px 0px; background-repeat: no-repeat no-repeat; "></div>
+ <div id="snap_com_shot_option_menu" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; float: none; left: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); z-index: 100009; position: absolute; right: 20px; top: 18px; font-size: 10px; font-family: Trebuchet; color: rgb(51, 51, 51); background-color: white; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(139, 138, 138); border-right-color: rgb(139, 138, 138); border-bottom-color: rgb(139, 138, 138); border-left-color: rgb(139, 138, 138); visibility: hidden; ">
+  <div id="snap_com_shot_option_a" style="cursor: pointer !important; max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-bottom: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; position: static; left: auto; top: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; white-space: nowrap; height: 17px; padding-left: 5px; padding-right: 5px; " title="Snap Shots Options">Options</div>
+  <div id="snap_com_shot_disable_a" style="cursor: pointer !important; max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-bottom: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; position: static; left: auto; top: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; white-space: nowrap; height: 17px; padding-left: 5px; padding-right: 5px; border-top-width: 1px; border-top-style: solid; border-top-color: rgb(192, 192, 192); ">Disable</div>
+ </div>
+ <div id="snap_com_shot_search" style="margin-top: 0px !important; margin-right: 0px !important; margin-bottom: 0px !important; margin-left: 0px !important; padding-top: 0px !important; padding-right: 0px !important; padding-bottom: 0px !important; padding-left: 0px !important; max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; top: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); z-index: 99999; position: absolute; left: 1px; bottom: 31px; width: 320px; height: 78px; background-color: rgb(238, 238, 238); visibility: hidden; ">
+  <div id="snap_com_shot_search_form" style="margin-top: 0px !important; margin-right: 0px !important; margin-bottom: 0px !important; margin-left: 0px !important; padding-top: 0px !important; padding-right: 0px !important; padding-bottom: 0px !important; padding-left: 0px !important; max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; position: static; left: auto; top: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; " action="#" method="GET" accept-charset="UTF8" target="_blank">
+   <input id="snap_com_shot_box" type="text" name="snap_com_shot_box_name" autocomplete="off" style="visibility: inherit !important; max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); z-index: 99999; position: absolute; left: 12px; top: 24px; height: 20px; width: 232px; padding-right: 0px; padding-bottom: 0px; padding-left: 6px; padding-top: 5px; font-size: 12px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(153, 153, 153); border-right-color: rgb(153, 153, 153); border-bottom-color: rgb(153, 153, 153); border-left-color: rgb(153, 153, 153); color: rgb(51, 51, 51); direction: ltr; display: none; ">
+   <button type="submit" name="snap_com_shot_submit" id="snap_com_shot_submit" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; left: auto; line-height: normal; visibility: inherit; z-index: 99999; position: absolute; right: 7px; top: 23px; background-color: transparent; background-image: url(http://i.ixnp.com/images/v6.57/theme/ice/palette.gif); width: 55px; height: 29px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 5px; padding-right: 2px; padding-left: 2px; padding-top: 1px; padding-bottom: 2px; cursor: pointer; font-size: 11px; color: rgb(68, 68, 68); text-align: center; background-position: 0px 0px; background-repeat: no-repeat no-repeat; "></button>
+   <a href="about:blank" id="snap_com_shot_hidden_link" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; position: static; left: auto; top: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; "></a>
+  </div>
+ </div>
+ <div id="snap_com_shot_promo" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; top: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; position: absolute; left: 10px; bottom: 8px; height: 15px; direction: ltr; "><a class="snap_nopreview" id="snap_com_shot_promo_a" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; position: static; left: auto; top: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; font-size: 11px; color: rgb(0, 111, 156); text-decoration: none; border-bottom-width: 1px; border-bottom-style: dotted; border-bottom-color: rgb(116, 114, 116); " title="Sign Up and add Free Snap Shots to your site in less than 5 min!" href="https://account.snap.com/signup.php?source=logix4u.net&campaign=viral-foot">Get Free Shots</a><img id="snap_com_shot_promo_icon" src="./A Tutorial on creating DLLs with VC++_files/t.gif" style="border-bottom-style: none !important; border-bottom-width: initial !important; border-bottom-color: initial !important; cursor: pointer !important; max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; position: static; left: auto; top: auto; line-height: normal; visibility: inherit; z-index: 99999; background-color: transparent; background-image: url(http://i.ixnp.com/images/v6.57/theme/ice/palette.gif); width: 14px; height: 12px; display: inline; background-position: -943px 0px; background-repeat: no-repeat no-repeat; "></div>
+ <div id="snap_com_shot_preview_div" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); visibility: inherit; z-index: 99999; position: absolute; left: 0px; top: 20px; width: 320px; height: 207px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(105, 132, 144); border-right-color: rgb(105, 132, 144); border-bottom-color: rgb(105, 132, 144); border-left-color: rgb(105, 132, 144); overflow-x: hidden; overflow-y: hidden; background-color: rgb(255, 255, 255); ">
+  <div style="white-space: nowrap !important; max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; position: absolute; left: 6px; top: 5px; " id="snap_com_shot_url_wrapper"><a class="snap_nopreview" id="snap_com_shot_url_favicon" href="http://logix4u.net/#" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; position: static; left: auto; top: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); visibility: inherit; z-index: 99999; background-color: white; "><img id="snap_com_shot_favicon" src="./A Tutorial on creating DLLs with VC++_files/t.gif" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; left: auto; top: auto; line-height: normal; visibility: inherit; z-index: 99999; background-color: transparent; background-image: url(http://i.ixnp.com/images/v6.57/theme/ice/palette.gif); width: 16px; height: 16px; position: static; display: inline; background-position: -598px 0px; background-repeat: no-repeat no-repeat; "></a>&nbsp;<a class="snap_nopreview" id="snap_com_shot_url_a" href="http://logix4u.net/#" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; position: static; left: auto; top: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); visibility: inherit; z-index: 99999; font-size: 13px; font-weight: bold; text-decoration: underline; color: rgb(0, 0, 238); background-color: white; text-align: left; "><span id="snap_com_shot_url" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; left: auto; top: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; position: static; display: inline; font-size: 13px; font-weight: bold; text-align: left; "></span></a>&nbsp;<a class="snap_nopreview" id="snap_com_shot_url_arrow" href="http://logix4u.net/#" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; position: static; left: auto; top: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); visibility: inherit; z-index: 99999; background-color: white; "><img id="snap_com_shot_arrow" src="./A Tutorial on creating DLLs with VC++_files/t.gif" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; left: auto; top: auto; line-height: normal; visibility: inherit; z-index: 99999; background-color: transparent; background-image: url(http://i.ixnp.com/images/v6.57/theme/ice/palette.gif); width: 7px; height: 7px; position: static; display: inline; background-position: -1008px 0px; background-repeat: no-repeat no-repeat; "></a></div>
+  <a class="snap_nopreview" id="snap_com_shot_img_a" href="http://logix4u.net/#" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; top: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); visibility: inherit; z-index: 99999; position: absolute; left: 23px; bottom: 12px; width: 270px; height: 161px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(153, 153, 153); border-right-color: rgb(153, 153, 153); border-bottom-color: rgb(153, 153, 153); border-left-color: rgb(153, 153, 153); overflow-x: hidden; overflow-y: hidden; background-color: rgb(255, 255, 255); "><img id="snap_com_shot_preview_img" src="./A Tutorial on creating DLLs with VC++_files/t.gif" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; position: absolute; left: 0px; top: 0px; "></a>
+  <iframe name="snap_com_shot_preview" id="snap_com_shot_preview" scrolling="no" frameborder="no" src="about:blank" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); visibility: inherit; z-index: 99999; position: absolute; left: 0px; top: 0px; width: 320px; height: 207px; background-color: rgb(255, 255, 255); "></iframe><img id="snap_com_shot_loading_img" src="./A Tutorial on creating DLLs with VC++_files/loading.gif" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; position: absolute; left: 0px; top: 0px; z-index: 100009; display: inline; ">
+ </div>
+ <div id="snap_com_shot_marea" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; top: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); visibility: inherit; z-index: 99999; position: absolute; left: 1px; bottom: 30px; width: 320px; height: 79px; overflow-x: hidden; overflow-y: hidden; background-color: rgb(238, 238, 238); "><div style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; background-color: rgb(238, 238, 238); overflow-x: hidden; overflow-y: hidden; display: none; "></div><div style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; background-color: rgb(238, 238, 238); overflow-x: hidden; overflow-y: hidden; display: none; "></div></div>
+ <img id="snap_com_shot_cobrand_img" src="./A Tutorial on creating DLLs with VC++_files/t.gif" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; top: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; position: absolute; left: 9px; bottom: 6px; ">
+  <table id="snap_com_shot_flash_overlay" title="Click to play" style="display: none; cursor: pointer !important; max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); visibility: inherit; z-index: 100010; position: absolute; left: 0px; top: 50px; width: 322px; height: 180px; background-color: transparent; "><tbody><tr><td>&nbsp;</td></tr></tbody></table>
+</div><div id="snap_com_shot_options" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; position: absolute; left: 0px; top: 0px; width: 322px; ">
+ <iframe id="snap_com_shot_option_iframe" width="265" height="190" frameborder="0" scrolling="no" src="about:blank" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); visibility: inherit; z-index: 99999; position: absolute; left: 0px; top: 20px; width: 321px; height: 207px; background-color: rgb(255, 255, 255); "></iframe>
+ <div id="snap_com_shot_option_menu_bar" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; left: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; position: absolute; right: 1px; top: 1px; "><img class="snap_nopreview" id="snap_com_shot_option_button_disabled" src="./A Tutorial on creating DLLs with VC++_files/t.gif" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; position: static; left: auto; top: auto; line-height: normal; visibility: inherit; z-index: 99999; background-color: transparent; background-image: url(http://i.ixnp.com/images/v6.57/theme/ice/palette.gif); width: 27px; height: 18px; display: inline; background-position: -162px 0px; background-repeat: no-repeat no-repeat; "><img class="snap_nopreview" id="snap_com_shot_option_close_a" src="./A Tutorial on creating DLLs with VC++_files/t.gif" style="cursor: pointer !important; max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; position: static; left: auto; top: auto; line-height: normal; visibility: inherit; z-index: 99999; background-color: transparent; background-image: url(http://i.ixnp.com/images/v6.57/theme/ice/palette.gif); width: 23px; height: 18px; font-size: 10px; font-weight: normal; color: rgb(105, 132, 144); text-decoration: none; background-position: -452px 0px; background-repeat: no-repeat no-repeat; " alt="Close" title="Close"></div>
+<input id="snap_com_shot_option_cancel" style="visibility: inherit; max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; left: auto; line-height: normal; z-index: 99999; position: absolute; right: 54px; top: 201px; width: 50px; height: 21px; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: rgb(153, 153, 153); border-right-color: rgb(153, 153, 153); border-bottom-color: rgb(153, 153, 153); border-left-color: rgb(153, 153, 153); font-size: 11px; color: rgb(51, 51, 51); background-image: url(http://i.ixnp.com/images/btn-bkgd.gif); background-attachment: initial; background-origin: initial; background-clip: initial; background-color: initial; display: none; background-position: initial initial; background-repeat: initial initial; " name="snap_com_shot_option_cancel_name" type="button" value="Cancel" title="Close">
+</div>
+ <a class="snap_nopreview" id="snap_com_shot_cobrand_a" href="http://shots.snap.com/explore/45702/?key=c70e4de56376d9842045e18704c460e3&src=logix4u.net&cp=pub-logo&tol=pub-logo&url=http%3A%2F%2Fwww.snap.com%2Fabout%2Fshots.php" target="_blank" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; top: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; visibility: inherit; z-index: 99999; position: absolute; left: 10px; bottom: 8px; height: 15px; "><div style="display:none"></div></a>
+ <a class="snap_nopreview" id="snap_com_shot_logo_a" href="http://www.snap.com/?source=&campaign=snap-shots-logo" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; left: auto; top: auto; line-height: normal; visibility: inherit; z-index: 99999; position: absolute; right: 7px; bottom: 8px; background-color: transparent; background-image: url(http://i.ixnp.com/images/v6.57/theme/ice/palette.gif); width: 81px; height: 15px; background-position: -691px 0px; background-repeat: no-repeat no-repeat; " target="_blank" title="Powered by Snap"><div style="display:none"></div></a>
+ <a class="snap_nopreview" id="snap_com_shot_ribbon_a" href="http://www.snap.com/snapshots.php?source=logix4u.net&campaign=charity-ribbon#shares" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; position: static; left: auto; top: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; z-index: 99999; visibility: hidden; "><img id="snap_com_shot_ribbon" src="./A Tutorial on creating DLLs with VC++_files/ribbon.png" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; left: auto; top: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; z-index: 99999; position: absolute; right: 98px; bottom: 5px; width: 17px; height: 20px; visibility: hidden; " alt="Snap Shares for charity" title="Portions of Snap Shares Ad Impressions on this site are donated to Charity"></a>
+ <img id="snap_com_shot_lg" src="./A Tutorial on creating DLLs with VC++_files/t.gif" style="max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; position: static; left: auto; top: auto; line-height: normal; background-image: url(http://i.ixnp.com/images/v6.57/t.gif); background-color: transparent; z-index: 99999; visibility: hidden; ">
+</div>
+</div><div style="visibility: hidden; height: 1px; width: 1px; position: absolute; z-index: 100000; " id="_atssh"><iframe id="_atssh45" style="height: 1px; width: 1px; position: absolute; z-index: 100000; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; left: 0px; top: 0px; " src="./A Tutorial on creating DLLs with VC++_files/sh32.htm"></iframe></div>
+
+<!-- google_ad_section_start(weight=ignore) -->
+
+<a name="top" id="top"></a>
+  <table border="0" cellpadding="0" cellspacing="0" width="100%" align="center">
+
+    <tbody><tr>
+      <td valign="top" background="./A Tutorial on creating DLLs with VC++_files/shad_left.gif">
+      <img border="0" src="./A Tutorial on creating DLLs with VC++_files/shad_top_left.gif" width="11" height="17"></td>
+      <td width="100%" valign="top">
+      <table border="0" cellspacing="1" width="100%" bgcolor="#000000">
+        <tbody><tr>
+          <td width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tbody><tr>
+                <td class="pathway" valign="center" align="left"><img src="./A Tutorial on creating DLLs with VC++_files/arrow.png" hspace="5"><span class="pathway"><a href="http://logix4u.net/" class="pathway">Home</a> <img src="./A Tutorial on creating DLLs with VC++_files/arrow.png" alt="arrow"> <a href="http://logix4u.net/Legacy_Ports/Parallel_Port.html" class="pathway">Parallel Port</a> <img src="./A Tutorial on creating DLLs with VC++_files/arrow.png" alt="arrow">   A Tutorial on creating DLLs with VC++ </span></td>
+                <td class="pathway" valign="center" align="right">Monday, February 21 2011&nbsp;&nbsp;</td>
+              </tr>
+            </tbody></table>
+          </td>
+        </tr>
+        <tr height="50">           
+        <td width="100%">
+            
+            <table height="50" bgcolor="#666699" border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tbody><tr>        
+                  <!-- Print website name -->    
+	              <td bgcolor="#666699" td=""> 
+	              	<font size="5" color="white">
+	              		www.logix4u.net	              	</font>
+	              </td>
+ 
+	              <!-- header Modules -->
+	                            
+              </tr>
+            </tbody></table>
+
+
+        </td>
+
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#AFC6DB" background="./A Tutorial on creating DLLs with VC++_files/but_bar_back.gif">
+                    </td>
+        </tr>
+        <tr>
+          <td width="100%" bgcolor="#FFFFFF">
+          <table border="0" cellpadding="4" cellspacing="0" style="border-collapse: collapse" width="100%" id="AutoNumber1">
+            <tbody><tr>
+              <!-- LEFT Modules -->
+                                <td valign="top" width="150" bgcolor="#F0F0F0">
+                    <div class="modules">
+                    		<table cellpadding="0" cellspacing="0" class="moduletable">
+					<tbody><tr>
+				<th valign="top">
+					Contents				</th>
+			</tr>
+					<tr>
+			<td>
+				<table xwvk="" border="0" cellspacing="1" cellpadding="0" width="100%"><tbody><tr><td align="left">
+<link rel="StyleSheet" href="./A Tutorial on creating DLLs with VC++_files/dtree.css" type="text/css">
+<script type="text/javascript" src="./A Tutorial on creating DLLs with VC++_files/saved_resource"></script><script type="text/javascript" src="./A Tutorial on creating DLLs with VC++_files/auto_shot.js"></script><script type="text/javascript" src="./A Tutorial on creating DLLs with VC++_files/dtree.js"></script>
+<script type="text/javascript">
+d33_1 = new dTree('d33_1',"http://logix4u.net");
+d33_1.config.useSelection=true;
+d33_1.config.useLines=true;
+d33_1.config.useIcons=true;
+d33_1.config.useStatusText=false;
+d33_1.config.closeSameLevel=false;
+d33_1.add(0,-1,"Home","http://logix4u.net/","","")
+d33_1.add(40,0,
+		    "DSP","http://logix4u.net/DSP/","","")
+d33_1.add(42,0,
+		    "Parallel Port","http://logix4u.net/Legacy_Ports/Parallel_Port.html","","")
+d33_1.add(51,0,
+		    "Storage","http://logix4u.net/Storage_Systems/Introduction_to_storage_systems.html","","")
+d33_1.add(53,0,
+		    "Python","http://logix4u.net/Python/","","")
+d33_1.add(37,0,
+		    "Forum","http://logix4u.net/Forum/","","")
+d33_1.add(39,0,
+		    "Sitemap","http://logix4u.net/component/option,com_joomap/Itemid,39/","","")
+d33_1.add(43,0,
+		    "Links","http://logix4u.net/component/option,com_linx/Itemid,43/","","")
+d33_1.add(38,0,
+		    "Contact Us","http://logix4u.net/Contact_Us/","","")
+d33_1.add(57,0,
+		    "Buy Hardware","http://numato.com","","")
+document.write(d33_1);
+d33_1.closeAll();
+d33_1.openTo(42,true);
+</script><div class="dtree">
+<div class="dTreeNode"><img id="id33_10" src="./A Tutorial on creating DLLs with VC++_files/base.gif" alt=""><a id="sd33_10" class="node" href="http://logix4u.net/" onclick="javascript: d33_1.s(0);">Home</a></div><div id="dd33_10" class="clip" style="display:block;"><div class="dTreeNode"><img src="./A Tutorial on creating DLLs with VC++_files/join.gif" alt=""><img id="id33_11" src="./A Tutorial on creating DLLs with VC++_files/page.gif" alt=""><a id="sd33_11" class="node" href="http://logix4u.net/DSP/" onclick="javascript: d33_1.s(1);">DSP</a></div><div class="dTreeNode"><img src="./A Tutorial on creating DLLs with VC++_files/join.gif" alt=""><img id="id33_12" src="./A Tutorial on creating DLLs with VC++_files/page.gif" alt=""><a id="sd33_12" class="nodeSel" href="http://logix4u.net/Legacy_Ports/Parallel_Port.html" onclick="javascript: d33_1.s(2);">Parallel Port</a></div><div class="dTreeNode"><img src="./A Tutorial on creating DLLs with VC++_files/join.gif" alt=""><img id="id33_13" src="./A Tutorial on creating DLLs with VC++_files/page.gif" alt=""><a id="sd33_13" class="node" href="http://logix4u.net/Storage_Systems/Introduction_to_storage_systems.html" onclick="javascript: d33_1.s(3);">Storage</a></div><div class="dTreeNode"><img src="./A Tutorial on creating DLLs with VC++_files/join.gif" alt=""><img id="id33_14" src="./A Tutorial on creating DLLs with VC++_files/page.gif" alt=""><a id="sd33_14" class="node" href="http://logix4u.net/Python/" onclick="javascript: d33_1.s(4);">Python</a></div><div class="dTreeNode"><img src="./A Tutorial on creating DLLs with VC++_files/join.gif" alt=""><img id="id33_15" src="./A Tutorial on creating DLLs with VC++_files/page.gif" alt=""><a id="sd33_15" class="node" href="http://logix4u.net/Forum/" onclick="javascript: d33_1.s(5);">Forum</a></div><div class="dTreeNode"><img src="./A Tutorial on creating DLLs with VC++_files/join.gif" alt=""><img id="id33_16" src="./A Tutorial on creating DLLs with VC++_files/page.gif" alt=""><a id="sd33_16" class="node" href="http://logix4u.net/component/option,com_joomap/Itemid,39/" onclick="javascript: d33_1.s(6);">Sitemap</a></div><div class="dTreeNode"><img src="./A Tutorial on creating DLLs with VC++_files/join.gif" alt=""><img id="id33_17" src="./A Tutorial on creating DLLs with VC++_files/page.gif" alt=""><a id="sd33_17" class="node" href="http://logix4u.net/component/option,com_linx/Itemid,43/" onclick="javascript: d33_1.s(7);">Links</a></div><div class="dTreeNode"><img src="./A Tutorial on creating DLLs with VC++_files/join.gif" alt=""><img id="id33_18" src="./A Tutorial on creating DLLs with VC++_files/page.gif" alt=""><a id="sd33_18" class="node" href="http://logix4u.net/Contact_Us/" onclick="javascript: d33_1.s(8);">Contact Us</a></div><div class="dTreeNode"><img src="./A Tutorial on creating DLLs with VC++_files/joinbottom.gif" alt=""><img id="id33_19" src="./A Tutorial on creating DLLs with VC++_files/page.gif" alt=""><a id="sd33_19" class="node" href="http://numato.com/" onclick="javascript: d33_1.s(9);">Buy Hardware<img id="snap_com_shot_link_icon" class="snap_preview_icon" style="margin-top: 0px !important; margin-right: 0px !important; margin-bottom: 0px !important; margin-left: 0px !important; max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; left: auto; top: auto; line-height: normal; background-color: transparent; background-image: url(http://i.ixnp.com/images/v6.57/theme/ice/palette.gif); width: 14px; height: 12px; padding-top: 1px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; text-decoration: none; position: static; vertical-align: top; display: inline; visibility: visible; background-position: -943px 0px; background-repeat: no-repeat no-repeat; " src="./A Tutorial on creating DLLs with VC++_files/t.gif"></a></div></div></div>
+</td></tr></tbody></table>
+			</td>
+		</tr>
+		</tbody></table>
+				<table cellpadding="0" cellspacing="0" class="moduletable">
+					<tbody><tr>
+				<th valign="top">
+					Bookmark				</th>
+			</tr>
+					<tr>
+			<td>
+				<!-- AddThis Bookmark Button BEGIN --><br>
+<script type="text/javascript">
+addthis_url    = location.href;   
+addthis_title  = document.title;  
+addthis_pub    = 'raygonbt';     </script>
+<script type="text/javascript" src="./A Tutorial on creating DLLs with VC++_files/addthis_widget.php">
+</script><span id="atb4d632bd8734f70f2"><a href="http://www.addthis.com/bookmark.php?v=120&winname=addthis&pub=raygonbt&source=men-120&lng=en&s=&url=http%3A%2F%2Flogix4u.net%2FProgramming%2Fvc%2B%2B%2FA_Tutorial_on_creating_DLLs_with_VC%2B%2B.html&title=A%20Tutorial%20on%20creating%20DLLs%20with%20VC%2B%2B&logo=&logobg=&logocolor=&ate=AT-raygonbt/-/fs-0/4d632bd8625d0b87/1&CXNID=2000001.5215456080540439074NXC&pre=http%3A%2F%2Fwww.google.co.in%2Furl%3Fsa%3Dt%26source%3Dweb%26cd%3D1%26ved%3D0CBYQFjAA%26url%3Dhttp%253A%252F%252Flogix4u.net%252FProgramming%252Fvc%252B%252B%252FA_Tutorial_on_creating_DLLs_with_VC%252B%252B.html%26rct%3Dj%26q%3Dcreate%2520dll%2520in%2520vc%252B%252B%2520%26ei%3DxytjTZzKPMHirAeSiJ2KAg%26usg%3DAFQjCNF9JlSKpm1F0Qhd6GDPSD5l0orLhQ%26cad%3Drja&tt=0" onmouseover="return addthis_open(this, &#39;share&#39;, &#39;http://logix4u.net/Programming/vc++/A_Tutorial_on_creating_DLLs_with_VC++.html&#39;, &#39;A Tutorial on creating DLLs with VC++&#39;)" onmouseout="addthis_close()" onclick="return addthis_to()" class="snap_noshots"><img src="./A Tutorial on creating DLLs with VC++_files/lg-bookmark-en.gif" width="125" height="16" style="border:none;padding:0px" alt="AddThis"></a></span><!-- AddThis Bookmark Button END --><br><br>
+			</td>
+		</tr>
+		</tbody></table>
+				<table cellpadding="0" cellspacing="0" class="moduletable">
+					<tbody><tr>
+				<th valign="top">
+					Login				</th>
+			</tr>
+					<tr>
+			<td>
+				<form action="http://logix4u.net/index.php?option=com_comprofiler&task=login" method="post" id="mod_loginform" style="margin:0px;">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="mod_login">
+<tbody><tr><td><span id="mod_login_usernametext"><label for="mod_login_username">Username</label></span><br>
+<input type="text" name="username" id="mod_login_username" class="inputbox" size="10"><br>
+<span id="mod_login_passwordtext"><label for="mod_login_password">Password</label></span><br><input type="password" name="passwd" id="mod_login_password" class="inputbox" size="10"><br>
+<input type="hidden" name="op2" value="login">
+<input type="hidden" name="lang" value="english">
+<input type="hidden" name="force_session" value="1">
+<input type="hidden" name="return" value="http://logix4u.net/Programming/vc++/A_Tutorial_on_creating_DLLs_with_VC++.html">
+<input type="hidden" name="message" value="0">
+<input type="hidden" name="j6a998f5eec626cf9a05f6098586a3a4c" value="1">
+<input type="checkbox" name="remember" id="mod_login_remember" class="inputbox" value="yes" checked="checked"> <span id="mod_login_remembermetext"><label for="mod_login_remember">Remember me</label></span><br>
+<input type="submit" name="Submit" class="button" value="Login"></td></tr>
+<tr><td><a href="http://logix4u.net/index.php?option=com_comprofiler&task=lostPassword" class="mod_login">Lost Password?</a></td></tr>
+<tr><td>No account yet? <a href="http://logix4u.net/index.php?option=com_comprofiler&task=registers" class="mod_login">Register</a></td></tr>
+</tbody></table></form>			</td>
+		</tr>
+		</tbody></table>
+				<table cellpadding="0" cellspacing="0" class="moduletable">
+					<tbody><tr>
+				<th valign="top">
+					Donate				</th>
+			</tr>
+					<tr>
+			<td>
+				<table border="0" width="100%" height="10">
+<tbody><tr align="left" height="1">
+<td height="1">
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="image" src="./A Tutorial on creating DLLs with VC++_files/x-click-but21.gif" border="0" name="submit" alt="Make payments with PayPal - it&#39;s fast, free and secure!">
+<img alt="" border="0" src="./A Tutorial on creating DLLs with VC++_files/pixel.gif" width="1" height="1">
+<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----MIIIEQYJKoZIhvcNAQcEoIIIAjCCB/4CAQExggEwMIIBLAIBADCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwDQYJKoZIhvcNAQEBBQAEgYBN0G5gXTsTjKYPxM6Vz1BhNuSCnVlfbKy5+eEo7DP5NVaCpiO5M0IInF/kd1TYBDdCCbgi/2XLCA3pqC9xa/Nvxj6xcZFrBseTSnev0ixl+fZUPZUxNgWLGRGaKllXMFy5RfK412KJ70907B4tewyuK+ksaGwts5Hck4F0NjV5aTELMAkGBSsOAwIaBQAwggGNBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECOIico0s1ovBgIIBaD847Dk0CYmLi4xYEdcF/L4sD8cefV9OiIWdaKk7KNGQaAA3T7Qakel2YJ8eo78e7LP8TW1EQa7cOiomhWaMtFIa6ckaYjgcmpoeVk+8Iy50L+StCTlKk2S7ctRVCVYUw947W7dTt6pDN5rNOLQTqL7ZG+a62fcI74HhBLnFJXpZ1h4/FVsaIjzA5YhBxSxrJn6EA9eBxGWATzFUfZKsYj1CzUYbNW13Dikb4R724RDxNinoDL7YcvvE+yqXN4zaVWWfpIbKCRnRFTVMwn7mifbn5Fza16xoe7YSBNswV3F9paiZwqhqySIGwTCt7f+oI2MfVV+oFhISEd0kYpGPxN9pf8Lv+3hXLooRfKa39LguQ3se9hqcxgdlJ0Xl6KCet2BRYAjf7VzfSw6qu22a2fI8EcmXY3BGyBwC68W2l1ae5IXiN/ttzKe/NYfSrkIc2H832GH9vecqu036UgdAbXDYChuN3bWgI6CCA4cwggODMIIC7KADAgECAgEAMA0GCSqGSIb3DQEBBQUAMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTAeFw0wNDAyMTMxMDEzMTVaFw0zNTAyMTMxMDEzMTVaMIGOMQswCQYDVQQGEwJVUzELMAkGA1UECBMCQ0ExFjAUBgNVBAcTDU1vdW50YWluIFZpZXcxFDASBgNVBAoTC1BheVBhbCBJbmMuMRMwEQYDVQQLFApsaXZlX2NlcnRzMREwDwYDVQQDFAhsaXZlX2FwaTEcMBoGCSqGSIb3DQEJARYNcmVAcGF5cGFsLmNvbTCBnzANBgkqhkiG9w0BAQEFAAOBjQAwgYkCgYEAwUdO3fxEzEtcnI7ZKZL412XvZPugoni7i7D7prCe0AtaHTc97CYgm7NsAtJyxNLixmhLV8pyIEaiHXWAh8fPKW+R017+EmXrr9EaquPmsVvTywAAE1PMNOKqo2kl4Gxiz9zZqIajOm1fZGWcGS0f5JQ2kBqNbvbg2/Za+GJ/qwUCAwEAAaOB7jCB6zAdBgNVHQ4EFgQUlp98u8ZvF71ZP1LXChvsENZklGswgbsGA1UdIwSBszCBsIAUlp98u8ZvF71ZP1LXChvsENZklGuhgZSkgZEwgY4xCzAJBgNVBAYTAlVTMQswCQYDVQQIEwJDQTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLUGF5UGFsIEluYy4xEzARBgNVBAsUCmxpdmVfY2VydHMxETAPBgNVBAMUCGxpdmVfYXBpMRwwGgYJKoZIhvcNAQkBFg1yZUBwYXlwYWwuY29tggEAMAwGA1UdEwQFMAMBAf8wDQYJKoZIhvcNAQEFBQADgYEAgV86VpqAWuXvX6Oro4qJ1tYVIT5DgWpE692Ag422H7yRIr/9j/iKG4Thia/Oflx4TdL+IFJBAyPK9v6zZNZtBgPBynXb048hsP16l2vi0k5Q2JKiPDsEfBhGI+HnxLXEaUWAcVfCsQFvd2A1sxRr67ip5y2wwBelUecP3AjJ+YcxggGaMIIBlgIBATCBlDCBjjELMAkGA1UEBhMCVVMxCzAJBgNVBAgTAkNBMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtQYXlQYWwgSW5jLjETMBEGA1UECxQKbGl2ZV9jZXJ0czERMA8GA1UEAxQIbGl2ZV9hcGkxHDAaBgkqhkiG9w0BCQEWDXJlQHBheXBhbC5jb20CAQAwCQYFKw4DAhoFAKBdMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTA3MDkwNzEzNTMwNlowIwYJKoZIhvcNAQkEMRYEFK/Ivk/iXKAOuWw7xBlMxYs8eF2ZMA0GCSqGSIb3DQEBAQUABIGAQCxh2kg2Ah/zQ6yduRcL5z8EDQuTZZC/YfcbotvLU2rZ69HyelgpQEbnoR6W49e83g5FS4LNrqWZHaG+EU52O5URGLZYrTPGMYbt1pYvjiQVPG4vmDNAtayBkXU2AFq82teWKCjWdvDWaoU+7pTVTne/NrTNCke4y4S3ZHOD4O0=-----END PKCS7-----
+">
+</form>
+
+
+</td>
+</tr>
+</tbody></table>			</td>
+		</tr>
+		</tbody></table>
+		 			<table cellpadding="0" cellspacing="0" class="moduletable">
+					<tbody><tr>
+				<th valign="top">
+					Partners				</th>
+			</tr>
+					<tr>
+			<td>
+				<a href="http://www.winasm.net/" target="_self" title="WinAsm Studio, The Assembler IDE - Free Downloads, Source Code"><span style="font-size: 10pt"><b>WinAsm Studio</b></span><img id="snap_com_shot_link_icon" class="snap_preview_icon" style="margin-top: 0px !important; margin-right: 0px !important; margin-bottom: 0px !important; margin-left: 0px !important; max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; left: auto; top: auto; line-height: normal; background-color: transparent; background-image: url(http://i.ixnp.com/images/v6.57/theme/ice/palette.gif); width: 14px; height: 12px; padding-top: 1px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; text-decoration: none; position: static; vertical-align: top; display: inline; visibility: visible; background-position: -943px 0px; background-repeat: no-repeat no-repeat; " src="./A Tutorial on creating DLLs with VC++_files/t.gif"></a> 
+			</td>
+		</tr>
+		</tbody></table>
+				<table cellpadding="0" cellspacing="0" class="moduletable">
+					<tbody><tr>
+				<th valign="top">
+					Related Items				</th>
+			</tr>
+					<tr>
+			<td>
+								<ul>
+											<li>
+							<a href="http://logix4u.net/Legacy_Ports/Parallel_Port/How_Inpout32.dll_works_.html">
+								How Inpout32.dll works ?</a>
+						</li>
+												<li>
+							<a href="http://logix4u.net/Legacy_Ports/Parallel_Port/Inpout32.dll_for_Windows_98/2000/NT/XP.html">
+								Inpout32.dll for Windows 98/2000/NT/XP</a>
+						</li>
+												<li>
+							<a href="http://logix4u.net/Legacy_Ports/Parallel_Port/A_tutorial_on_Parallel_port_Interfacing.html">
+								A tutorial on Parallel port Interfacing</a>
+						</li>
+												<li>
+							<a href="http://logix4u.net/DSP/Tutorials/DSP_tutorial.html">
+								DSP tutorial</a>
+						</li>
+												<li>
+							<a href="http://logix4u.net/DSP/Digital_Filters/Digital_filters.html">
+								Digital filters</a>
+						</li>
+												<li>
+							<a href="http://logix4u.net/DSP/Discrete_Fourier_Transform/Visual_Basic_sample_program_for_Discrete_Fourier_Transform.html">
+								Visual Basic sample program for Discrete Fourier Transform</a>
+						</li>
+												<li>
+							<a href="http://logix4u.net/DSP/Fast_Fourier_Transform/Visual_Basic_program_for_Fast_Fourier_Transform.html">
+								Fast Fourier Transform Source code in Visual Basic - FFT</a>
+						</li>
+												<li>
+							<a href="http://logix4u.net/DSP/Digital_Filters/Moving_Average_Filter.html">
+								Moving Average Filter</a>
+						</li>
+												<li>
+							<a href="http://logix4u.net/DSP/Digital_Filters/Windowed_sinc_filter.html">
+								Windowed sinc filter</a>
+						</li>
+												<li>
+							<a href="http://logix4u.net/Legacy_Ports/Parallel_Port/Inpoutx64.dll_for_WIN_XP_64_bit.html">
+								Inpoutx64.dll for WIN XP 64 bit</a>
+						</li>
+												<li>
+							<a href="http://logix4u.net/Storage_Systems/Introduction_to_storage_systems/storageintro1.html">
+								Introduction to Storage Systems Part1</a>
+						</li>
+												<li>
+							<a href="http://logix4u.net/Python/Tutorials/How_to_create_Windows_executable_exe_from_Python_script.html">
+								How to create Windows executable (.exe) from Python script</a>
+						</li>
+										</ul>
+							</td>
+		</tr>
+		</tbody></table>
+				<table cellpadding="0" cellspacing="0" class="moduletable">
+					<tbody><tr>
+				<th valign="top">
+					Latest posts				</th>
+			</tr>
+					<tr>
+			<td>
+				<ul>
+<li><span title="Parallel Port Interfacing Discussion &gt; Re:Parallel Port&#39;s Currents and Voltages"><a href="http://logix4u.net/Parallel_Port_Interfacing_Discussion/ReParallel_Port_s_Currents_and_Voltages.html#125">Re:Parallel Port's Currents and Voltages</a><br><small>Mysil 20-01-11 02:37</small></span></li>
+<li><span title="Inpout32.dll Discussion &gt; Re:Compiling inpout32 source"><a href="http://logix4u.net/Inpout32.dll_Discussion/ReCompiling_inpout32_source.html#124">Re:Compiling inpout32 source</a><br><small>GoodSamaritan 14-12-10 03:17</small></span></li>
+<li><span title="Parallel Port Interfacing Discussion &gt; Parallel Port&#39;s Currents and Voltages"><a href="http://logix4u.net/Parallel_Port_Interfacing_Discussion/Parallel_Port_s_Currents_and_Voltages.html#123">Parallel Port's Currents and Voltages</a><br><small>snippets 11-12-10 14:06</small></span></li>
+<li><span title="Parallel Port Interfacing Discussion &gt; Re:Would Windows 7 64bit make much difference?"><a href="http://logix4u.net/Parallel_Port_Interfacing_Discussion/ReWould_Windows_7_64bit_make_much_difference.html#122">Re:Would Windows 7 64bit make much diff...</a><br><small>snippets 11-12-10 12:13</small></span></li>
+<li><span title="Parallel Port Interfacing Discussion &gt; Re:Controlling Toy Car&#39;s Remote control with parallel"><a href="http://logix4u.net/Parallel_Port_Interfacing_Discussion/ReControlling_Toy_Car_s_Remote_control_with_parallel.html#120">Re:Controlling Toy Car's Remote control...</a><br><small>latinedi 05-10-10 18:25</small></span></li>
+<li><span title="Inpout32.dll Discussion &gt; Programing Language is Best for Port Programing,"><a href="http://logix4u.net/Inpout32.dll_Discussion/Programing_Language_is_Best_for_Port_Programing.html#119">Programing Language is Best for Port Pr...</a><br><small>faisalnext 25-08-10 06:12</small></span></li>
+<li><span title="Inpout32.dll Discussion &gt; Compiling inpout32 source"><a href="http://logix4u.net/Inpout32.dll_Discussion/Compiling_inpout32_source.html#118">Compiling inpout32 source</a><br><small>augss 21-08-10 19:04</small></span></li>
+<li><span title="Inpout32.dll Discussion &gt; Re:Programming a Cell LCD Display"><a href="http://logix4u.net/Inpout32.dll_Discussion/ReProgramming_a_Cell_LCD_Display.html#117">Re:Programming a Cell LCD Display</a><br><small>dpsjunior 20-08-10 21:13</small></span></li>
+<li><span title="Inpout32.dll Discussion &gt; inpout32.dll with visual studio 2005 express"><a href="http://logix4u.net/Inpout32.dll_Discussion/inpout32.dll_with_visual_studio_2005_express.html#116">inpout32.dll with visual studio 2005 ex...</a><br><small>kevins 19-08-10 15:02</small></span></li>
+<li><span title="Inpout32.dll Discussion &gt; Programming a Cell LCD Display"><a href="http://logix4u.net/Inpout32.dll_Discussion/Programming_a_Cell_LCD_Display.html#115">Programming a Cell LCD Display</a><br><small>Senith 30-07-10 22:47</small></span></li>
+</ul>
+<br><a href="http://logix4u.net/index.php?option=com_fireboard&Itemid=37&func=latest&do=show&sel=168">More...</a>			</td>
+		</tr>
+		</tbody></table>
+				<table cellpadding="0" cellspacing="0" class="moduletable">
+				<tbody><tr>
+			<td>
+							</td>
+		</tr>
+		</tbody></table>
+				<table cellpadding="0" cellspacing="0" class="moduletable">
+				<tbody><tr>
+			<td>
+				
+<!-- Joomla-Visites -->
+<a href="http://www.joomla-visites.net/" title="Joomla-Visites | Web statistics tool for Joomla!" onclick="window.open(this.href);return(false);"><script type="text/javascript">
+<!--
+var a_vars = Array();
+var pagename='';
+
+var joomlaVisitesSite = 1;
+var joomlaVisitesURL = "http://logix4u.net/components/com_joomla-visites/joomla-visites.php";
+var joomlaVisitesUser = 0;//-->
+</script>
+<script language="javascript" src="./A Tutorial on creating DLLs with VC++_files/joomla-visites.js" type="text/javascript"></script><img src="./A Tutorial on creating DLLs with VC++_files/joomla-visites.php" alt="Joomla-Visites" style="border:0">
+
+<noscript>&lt;p&gt;Joomla-Visites | Web statistics tool for Joomla!
+&lt;img src="http://logix4u.net/administrator/components/com_joomla-visites/joomla-visites.php" alt="Statistics" style="border:0" /&gt;
+&lt;/p&gt;</noscript><img id="snap_com_shot_link_icon" class="snap_preview_icon" style="margin-top: 0px !important; margin-right: 0px !important; margin-bottom: 0px !important; margin-left: 0px !important; max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; left: auto; top: auto; line-height: normal; background-color: transparent; background-image: url(http://i.ixnp.com/images/v6.57/theme/ice/palette.gif); width: 14px; height: 12px; padding-top: 1px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; text-decoration: none; position: static; vertical-align: top; display: inline; visibility: visible; background-position: -943px 0px; background-repeat: no-repeat no-repeat; " src="./A Tutorial on creating DLLs with VC++_files/t.gif"></a>
+<!-- /Joomla-Visites --> 			</td>
+		</tr>
+		</tbody></table>
+		                    </div>
+                  </td>
+                                <td valign="top">
+              <!-- Top Modules -->
+              
+              <!-- google_ad_section_end -->
+<script type="text/javascript"><!--
+google_ad_client = "pub-6974310080265953";
+/* 728x90, created 12/29/09 */
+google_ad_slot = "1562509571";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript" src="./A Tutorial on creating DLLs with VC++_files/show_ads.js">
+</script><script src="./A Tutorial on creating DLLs with VC++_files/show_ads_impl.js"></script><script src="./A Tutorial on creating DLLs with VC++_files/expansion_embed.js"></script><script src="./A Tutorial on creating DLLs with VC++_files/test_domain.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px"><ins id="google_ads_frame1_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px"><iframe allowtransparency="true" frameborder="0" height="90" hspace="0" id="google_ads_frame1" marginheight="0" marginwidth="0" name="google_ads_frame" scrolling="no" src="./A Tutorial on creating DLLs with VC++_files/ads(1).htm" style="left:0;position:absolute;top:0" vspace="0" width="728"></iframe></ins></ins>
+              <!-- google_ad_section_start -->
+              
+               				<table class="contentpaneopen">
+			<tbody><tr>
+								<td class="contentheading" width="100%">
+					A Tutorial on creating DLLs with VC++									</td>
+							<td align="right" width="100%" class="buttonheading">
+				<a href="http://logix4u.net/index2.php?option=com_content&do_pdf=1&id=19" target="_blank" onclick="window.open(&#39;http://logix4u.net/index2.php?option=com_content&amp;do_pdf=1&amp;id=19&#39;,&#39;win2&#39;,&#39;status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no&#39;); return false;" title="PDF">
+					<img src="./A Tutorial on creating DLLs with VC++_files/pdf_button.png" alt="PDF" name="PDF" align="middle" border="0"></a>
+			</td>
+							<td align="right" width="100%" class="buttonheading">
+					<a href="http://logix4u.net/index2.php?option=com_content&task=view&id=19&pop=1&page=0&Itemid=42" target="_blank" onclick="window.open(&#39;http://logix4u.net/index2.php?option=com_content&amp;task=view&amp;id=19&amp;pop=1&amp;page=0&amp;Itemid=42&#39;,&#39;win2&#39;,&#39;status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=640,height=480,directories=no,location=no&#39;); return false;" title="Print">
+						<img src="./A Tutorial on creating DLLs with VC++_files/printButton.png" alt="Print" name="Print" align="middle" border="0"></a>
+				</td>
+							<td align="right" width="100%" class="buttonheading">
+				<a href="http://logix4u.net/index2.php?option=com_content&task=emailform&id=19&itemid=42" target="_blank" onclick="window.open(&#39;http://logix4u.net/index2.php?option=com_content&amp;task=emailform&amp;id=19&amp;itemid=42&#39;,&#39;win2&#39;,&#39;status=no,toolbar=no,scrollbars=yes,titlebar=no,menubar=no,resizable=yes,width=400,height=250,directories=no,location=no&#39;); return false;" title="E-mail">
+					<img src="./A Tutorial on creating DLLs with VC++_files/emailButton.png" alt="E-mail" name="E-mail" align="middle" border="0"></a>
+			</td>
+						</tr>
+			</tbody></table>
+			
+		<table class="contentpaneopen">
+				<tbody><tr>
+			<td valign="top" colspan="2">
+				<div class="author_profile"><a href="http://logix4u.net/index.php?option=com_comprofiler&task=userProfile&user=62" align="left"><img src="./A Tutorial on creating DLLs with VC++_files/airplane.gif" border="0" class="authorimg"><div class="authorimg_caption"></div></a></div>How to create a WIN32 DLL from the scratch, A beginners tutorial. This tutorial explains each steps involved in writing a WIN32 Dynamic Link Library, with the help of sample programs. This tutorial also includes directions on how to call the exported functions using Visual Basic.
+
+
+<p>
+&nbsp;Visual basic is very fast and easy tool for developing applications with high degree of user friendliness , but it lacks some important functionalities like direct access to hardware, multi threading(Activex servers allows some type of multi threading !). The easy and effective solution for this problem is to write a DLL. But beginners experience problems in understanding how to write a dll. .Here is a simple tutorial on writing DLLs with Visual C++. I assume that you know a little bit Visual Basic and ‘C’ programming.<br>
+<br>
+<b><u>What is Static linking and Dynamic linking ?</u></b> <br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The libraries can be linked to the executable in two ways . one is static linking and the other is dynamic linking. Static linking is the method used to combine the library routines with the application. When building the program , the linker will search all the libraries for the unresolved functions called in the program and if found, it will copy the corresponding object code from the library and append it to the executable. The linker will keep searching until there are no more unresolved function references. This is the most common method for linking libraries.This method boasts of ease of implementation and speed but will generate bulky executable. In dynamic linking , the required functions are compiled and stored in a library with extension .DLL. Unlike static linking, no object code is copied in to the executable from the libraries.Instead of that, the executable will keep the name of the DLL in which the required function resides. and when the executable is running , it will load the DLL and call the required functions from it. This method yields an executable with small footprint , but have to compromise on speed a little. 
+</p>
+<hr>
+<p>
+<b><u><span style="color: #6633ff">Example 1</span></u></b> <br>
+<br>
+<span style="color: #ff0000"><u>Objective</u> </span><br>
+<br>
+Create a Dynamically linkable library which can calculate and return the sum of two numbers passed to it.<br>
+<br>
+<u>Tools required</u> <br>
+<br>
+visual C++ 6 , Visual basic 6<br>
+<br>
+<u>Writing The DLL</u> <br>
+<br>
+Start VC++ IDE , select New from File menu. Then select Win32 Dynamic - link library from Projects tab(picture-1). enter project name as example1 , then click OK button. Now you can see a dialog box with caption Win32 Dynamic - Link library - step 1 of 1 (picture-2). 
+</p>
+<div style="text-align: center">
+<img src="./A Tutorial on creating DLLs with VC++_files/pic_dll1.gif" alt="Dll1" border="1" height="356" width="400">
+</div>
+<p align="center">
+&nbsp;&nbsp;<u>Picture 1</u> 
+</p>
+<div style="text-align: center">
+<img src="./A Tutorial on creating DLLs with VC++_files/pic_dll2.gif" alt="dll2" border="1" height="344" width="400">
+</div>
+<p align="center">
+<u>Picture 2</u> 
+</p>
+<p>
+Select a simple DLL project and click Finish. Now open exaple1.cpp from fileview (picture-3) 
+</p>
+<div style="text-align: center">
+<img src="./A Tutorial on creating DLLs with VC++_files/pic_dll3.gif" alt="dll3" border="1" height="233" width="400">
+</div>
+<p align="center">
+<u>Picture 3</u> 
+</p>
+<p>
+add these lines in to example1.cpp<br>
+<br>
+<span style="color: #0000ff">int _stdcall sum(int x , int y)<br>
+{<br>
+return x+y;<br>
+} </span><br>
+<br>
+It is a simple function which returns the sum of numbers passed to it.<br>
+<br>
+Now our function is ready. The next step is to create a ‘.def’ file which informs the linker to export our function.Select New from File menu and then select text File from Files tab. Give it a name example1.def. Now you can see an empty file . Add these lines in to example1.def<br>
+<br>
+<span style="color: #0000ff">LIBRARY EXAMPLE1<br>
+<br>
+EXPORTS<br>
+sum @1<br>
+<br>
+</span>Select Build example1.dll from build menu. The build process should complete without any errors. If any error occurs , correct it and rebuild again. Once the build process is completed successfully , you can see example1.dll in debug directory.<br>
+<br>
+Now we have successfully built the Dll and it is the time to test it. For testing the DLL we have to write a small program in VB. Open a new project in Visual Basic. Place three text box and a command button like in picture 4.
+</p>
+<div style="text-align: center">
+<img src="./A Tutorial on creating DLLs with VC++_files/pic_dll4.gif" alt="dll4" border="1" height="196" width="288">
+</div>
+<p align="center">
+<u>Picture 4</u> 
+</p>
+<p>
+Copy the code given bellow , to the code window<br>
+<br>
+<span style="color: #0000ff">Private Declare Function sum Lib "example1.dll" (ByVal x As Long, ByVal y As Long) As Long Private Sub Command1_Click()<br>
+Text3.Text = Str(sum(CInt(Text1.Text), CInt(Text2.Text)))<br>
+End Sub</span><br>
+<br>
+copy example 1.dll to windows or system directory . Then run VB ,enter some values to text1 and text2 and click Calculate button. If you can see the sum in text3, you have completed example1 successfully ! congratulations !.<br>
+<br>
+<a href="http://logix4u.net/example1.zip"><u><span style="color: #0000ff">Download the source code and project files for example1</span></u></a>
+</p>
+<hr>
+<b><u><span style="color: #6633ff">Example 2</span></u></b> <br>
+<br>
+<span style="color: #ff0000"><u>Objective</u> </span><br>
+Create a DLL that contains a function to convert lowercase chars to uppercase and return the result.<br>
+<br>
+<u>Tools required</u> <br>
+<br>
+visual C++ 6 , Visual basic 6<br>
+<br>
+<u>Writing The DLL</u> <br>
+<br>
+Create a new win32 DLL project in VC++ just like in the previous example. insert the statement given below before main<br>
+<br>
+<span style="color: #0000ff">#include string.h </span><br>
+<br>
+Insert the following code after main<br>
+<br>
+<span style="color: #0000ff">char* _stdcall to_upper(char *lowerstring)<br>
+{<br>
+_strupr(lowerstring);<br>
+return lowerstring;<br>
+} </span><br>
+<br>
+Create a def file and insert the following code<br>
+<br>
+<span style="color: #0000ff">LIBRARY example2<br>
+<br>
+EXPORTS<br>
+to_upper &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; @1</span><br>
+<br>
+Now save the project, build it and copy example2.dll to windows or system directory.<br>
+<br>
+Create a new project in VB, place a text box and command button the form paste the following code to code window.<br>
+<br>
+<span style="color: #0000ff">Private Declare Function to_upper Lib "example2.dll" (ByVal text As String) As String<br>
+<br>
+Private Sub Command1_Click()<br>
+<br>
+If (Text1.text) = "" Then<br>
+Exit Sub<br>
+End If<br>
+<br>
+MsgBox to_upper(Text1.text)<br>
+End Sub</span><br>
+<br>
+Run the program and enter some lower case characters in textbox.It should display a messagebox with same characters with case changed.<br>
+<br>
+<a href="http://logix4u.net/example2.zip"><u><span style="color: #0000ff">Download the source code and project files for example2</span></u></a><br>
+<br>
+<br>
+<span style="color: #0000ff"><u>
+<hr>
+</u>
+<p>
+<br>
+<u><b><span style="color: #6633ff">Example 3</span></b> <br>
+<br>
+<span style="color: #ff0000">Objective </span><br>
+<br>
+</u>Create a DLL which can read/write data to parallel port<br>
+<br>
+This DLL is a very useful for interfacing parallel/serial ports. Since Visual Basic does not have any facility to communicate with parallel port directly , programmers will have to write code for accessing parallel port in a DLL and should be called from VB. In this DLL , in this dll , accessing the device registers is done using functions _Inp() and _Outp(), which is declared in ‘conio.h’ . More details about these functions can be found at <a href="http://www.msdn.microsoft.com/"><span style="color: #0000ff">MSDN online</span><img id="snap_com_shot_link_icon" class="snap_preview_icon" style="margin-top: 0px !important; margin-right: 0px !important; margin-bottom: 0px !important; margin-left: 0px !important; max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; left: auto; top: auto; line-height: normal; background-color: transparent; background-image: url(http://i.ixnp.com/images/v6.57/theme/ice/palette.gif); width: 14px; height: 12px; padding-top: 1px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; text-decoration: none; position: static; vertical-align: top; display: inline; visibility: visible; background-position: -943px 0px; background-repeat: no-repeat no-repeat; " src="./A Tutorial on creating DLLs with VC++_files/t.gif"></a> .<br>
+<br>
+We will export two functions from the DLL.One is for reading from a device register and the other is for writing to the device register. Let these functions be InPort() and OutPort(). InPort() will take one parameter ie; the address of the register to be read. and Outport will take two ie; the address of the register to which the data to be written and the data itself. <br>
+<br>
+Note: to do this project , You need to have some knowledge in Parallel port interfacing.<br>
+<br>
+Tools required <br>
+<br>
+visual C++ 6 , Visual basic 6<br>
+<br>
+Writing The DLL <br>
+<br>
+Create a new win32 DLL project in VC++ like in the previous examples. insert the statement given below before main<br>
+<br>
+<span style="color: #0000ff">#include conio.h</span><br>
+<br>
+Insert the following code after main<br>
+<br>
+<span style="color: #0000ff">short _stdcall InPort(short portaddress)<br>
+{<br>
+return _inp(portaddress);<br>
+}<br>
+<br>
+void _stdcall OutPort(short portaddress,short data)<br>
+{<br>
+_outp(portaddress,data);<br>
+}</span><br>
+<br>
+create a .def file with name example3.def and insert the following code<br>
+<br>
+<span style="color: #0000ff">LIBRARY example3<br>
+<br>
+EXPORTS<br>
+<br>
+InPort&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@1<br>
+OutPort &nbsp;&nbsp;&nbsp;@2</span><br>
+<br>
+now save the project and build example3.dll.<br>
+for testing the dll , create a new project in visual basic.Create a form like in picture5.<br>
+<br>
+<u>
+</u></p><div style="text-align: center"><u>
+<img src="./A Tutorial on creating DLLs with VC++_files/dll_vb.gif" alt="dll5" border="1" height="156" width="249">
+</u></div><u>
+</u>
+<p></p>
+</span>
+<p align="center">
+<u>Picture 5</u> 
+</p>
+<p>
+Add the following code to code window<br>
+<br>
+<span style="color: #0000ff">Private Declare Function InPort Lib "example3.dll" (ByVal portaddress As Integer) As Integer Private Declare Function OutPort Lib "example3.dll" (ByVal portaddress As Integer, ByVal data As Integer) As Integer<br>
+<br>
+Private Sub Command1_Click()<br>
+OutPort 888, 10 'Val("&amp;h" + Text2.Text), Val(Text1.Text)<br>
+End Sub<br>
+<br>
+Private Sub Command2_Click()<br>
+Text3.Text = Str(InPort(Val("&amp;h" + Text2.Text))<br>
+End Sub</span><br>
+<br>
+Run the program and enter some value in text1. the n click Write it button. Again click the Read it button , now if text2 displays the number which you entered in text1 , your dll is working successfully.<br>
+<br>
+<a href="http://logix4u.net/example3.zip"><u><span style="color: #0000ff">Download the source code and project files for example3</span></u></a><br>
+<br>
+<br>
+NOTE: This program will not work on Win NT , 2000 , XP systems. Use WIN95/98 for testing<br>
+<br>
+<span style="color: #8b0000"><a href="http://logix4u.net/Legacy_Ports/Parallel_Port/A_tutorial_on_Parallel_port_Interfacing.html" target="_blank">How to use this dll with parallel port ?</a></span> <!-- REPLACE CONTENT HERE//-->
+</p>
+			</td>
+		</tr>
+				</tbody></table>
+
+		<span class="article_seperator">&nbsp;</span>
+
+					<div class="back_button">
+				<a href="javascript:history.go(-1)">
+					[ Back ]</a>
+			</div>
+			
+              <!-- google_ad_section_end -->
+              <!-- google_ad_section_start(weight=ignore) -->
+
+              </td>
+              <!-- RIGHT Modules -->
+                                <td align="center" valign="top" width="150" bgcolor="#F0F0F0">
+                    <div class="modules">
+                    		<table cellpadding="0" cellspacing="0" class="moduletable">
+				<tbody><tr>
+			<td>
+				<script type="text/javascript"><!--
+google_ad_client = "pub-6974310080265953";
+/* 160x600, created 10/11/08 */
+google_ad_slot = "0117958626";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript" src="./A Tutorial on creating DLLs with VC++_files/show_ads.js">
+</script><script src="./A Tutorial on creating DLLs with VC++_files/show_ads_impl.js"></script><script>google_protectAndRun("ads_core.google_render_ad", google_handleError, google_render_ad);</script><ins style="display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px"><ins id="google_ads_frame2_anchor" style="display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:160px"><iframe allowtransparency="true" frameborder="0" height="600" hspace="0" id="google_ads_frame2" marginheight="0" marginwidth="0" name="google_ads_frame" scrolling="no" src="./A Tutorial on creating DLLs with VC++_files/ads.htm" style="left:0;position:absolute;top:0" vspace="0" width="160"></iframe></ins></ins>			</td>
+		</tr>
+		</tbody></table>
+				<table cellpadding="0" cellspacing="0" class="moduletable">
+				<tbody><tr>
+			<td>
+				<!-- Joomla-Visites -->
+<a href="http://www.joomla-visites.net/" title="Free web analytics, website statistics" onclick="window.open(this.href);return(false);"><script type="text/javascript">
+<!--
+var a_vars = Array();
+var pagename='';
+
+var joomlaVisitesSite = 1;
+var joomlaVisitesURL = "http://logix4u.net/components/com_joomla-visites/joomla-visites.php";
+var joomlaVisitesUser = 0;
+//-->
+</script>
+<script language="javascript" src="./A Tutorial on creating DLLs with VC++_files/joomla-visites.js" type="text/javascript"></script><img src="./A Tutorial on creating DLLs with VC++_files/joomla-visites.php" alt="Joomla-Visites" style="border:0">
+
+<noscript>&lt;p&gt;Free web analytics, website statistics
+&lt;img src="http://logix4u.net/components/com_joomla-visites/joomla-visites.php" alt="Statistics" style="border:0" /&gt;
+&lt;/p&gt;</noscript><img id="snap_com_shot_link_icon" class="snap_preview_icon" style="margin-top: 0px !important; margin-right: 0px !important; margin-bottom: 0px !important; margin-left: 0px !important; max-height: 2000px; max-width: 2000px; min-width: 0px; min-height: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-style: normal; font-weight: normal; font-family: &#39;trebuchet ms&#39;, arial, helvetica, sans-serif; float: none; left: auto; top: auto; line-height: normal; background-color: transparent; background-image: url(http://i.ixnp.com/images/v6.57/theme/ice/palette.gif); width: 14px; height: 12px; padding-top: 1px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; text-decoration: none; position: static; vertical-align: top; display: inline; visibility: visible; background-position: -943px 0px; background-repeat: no-repeat no-repeat; " src="./A Tutorial on creating DLLs with VC++_files/t.gif"></a>
+<!-- /Joomla-Visites --> 			</td>
+		</tr>
+		</tbody></table>
+		                    </div>
+                  </td>
+                  
+            </tr>
+          </tbody></table>
+          </td>
+        </tr>
+      </tbody></table>
+      </td>
+      <td valign="top" background="./A Tutorial on creating DLLs with VC++_files/shad_right.gif">
+      <img border="0" src="./A Tutorial on creating DLLs with VC++_files/shad_top_right.gif" width="11" height="17"></td>
+    </tr>
+    <tr>
+      <td><img border="0" src="./A Tutorial on creating DLLs with VC++_files/shad_bottom_left.gif" width="11" height="19"></td>
+      <td width="100%" background="./A Tutorial on creating DLLs with VC++_files/shad_bottom.gif">
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+        <tbody><tr>
+          <td>
+          <img border="0" src="./A Tutorial on creating DLLs with VC++_files/shad_bottom_inner_left.gif" width="19" height="19"></td>
+          <td align="left"><a href="http://logix4u.net/#top"><img src="./A Tutorial on creating DLLs with VC++_files/top_of_page.gif" vspace="5" border="0" alt="Top of Page"></a></td>
+          <td align="right" width="100%"><img src="./A Tutorial on creating DLLs with VC++_files/poweredbyLong.gif" width="169" height="8" vspace="5" border="0" alt=""></td>
+          <td>
+          <img border="0" src="./A Tutorial on creating DLLs with VC++_files/shad_bottom_inner_right.gif" width="19" height="19"></td>
+        </tr>
+      </tbody></table>
+      </td>
+      <td>
+      <img border="0" src="./A Tutorial on creating DLLs with VC++_files/shad_bottom_right.gif" width="11" height="19"></td>
+    </tr>
+  </tbody></table>
+  <table align="center" border="0" cellpadding="3" cellspacing="0" width="780">
+   <tbody><tr>
+        <td>
+                           
+        </td>
+   </tr>
+    <tr>
+      <td align="center">
+        &nbsp;
+              </td>
+
+    </tr>
+  </tbody></table>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write("\<script src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'>\<\/script>" );
+</script><script src="./A Tutorial on creating DLLs with VC++_files/ga.js" type="text/javascript"></script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-489208-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+
+<!-- google_ad_section_end -->
+
+<script type="text/javascript" src="./A Tutorial on creating DLLs with VC++_files/snap_shots.js"></script>
+
+
+</body></html>

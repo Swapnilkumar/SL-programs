@@ -1,0 +1,94 @@
+function OAS_RICH(position) {
+if (position == '234x60-1') {
+document.write ('<A HREF="http://mjxads.internet.com/RealMedia/ads/click_lx.ads/intm/webdev/www.codeguru.com/forum/L34/1261581610/234x60-1/WMBrands/OAS_INTM_234_60-blankgif/blank.gif/65666265363030793975304143333654" target="_top"><IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.ads/intm/webdev/www.codeguru.com/forum/L34/1261581610/234x60-1/WMBrands/OAS_INTM_234_60-blankgif/blank.gif/65666265363030793975304143333654?"  ALT=""  BORDER="0"></A>');
+}
+if (position == '234x60-2') {
+document.write ('<A HREF="http://mjxads.internet.com/RealMedia/ads/click_lx.ads/intm/webdev/www.codeguru.com/forum/1209656430/234x60-2/WMBrands/default/empty.gif/65666265363030793975304143333654" target="_top"><IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.ads/intm/webdev/www.codeguru.com/forum/1209656430/234x60-2/WMBrands/default/empty.gif/65666265363030793975304143333654?"  WIDTH=1 HEIGHT=1 ALT="" BORDER=0 BORDER="0"></A>');
+}
+if (position == '125x800') {
+document.write ('<A HREF="http://mjxads.internet.com/RealMedia/ads/click_lx.ads/intm/webdev/www.codeguru.com/forum/L4/940430090/125x800/WMBrands/OAS-backupINTM-Sky1/socnet_sky_01a.GIF/65666265363030793975304143333654" target="_top"><IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.ads/intm/webdev/www.codeguru.com/forum/L4/940430090/125x800/WMBrands/OAS-backupINTM-Sky1/socnet_sky_01a.GIF/65666265363030793975304143333654?"  ALT=""  BORDER="0"></A>');
+}
+if (position == '125x125-1') {
+document.write ('<A HREF="http://www.trellian.com/"><IMG SRC="http://mjxads.internet.com/RealMedia/ads/Creatives/WMBrands/Trellian_112b/commercepartner.gif" BORDER=0 WIDTH=125 HEIGHT=125></A>\n');
+document.write ('<IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.cgi/intm/webdev/www.codeguru.com/forum/L11/305778786/125x125-1/WMBrands/Trellian_112b/commercepartner.html/65666265363030793975304143333654?_RM_EMPTY_" WIDTH=1 HEIGHT=1>');
+}
+if (position == '468x60-1') {
+document.write ('<A HREF="http://mjxads.internet.com/RealMedia/ads/click_lx.ads/intm/webdev/www.codeguru.com/forum/L4/879495769/468x60-1/WMBrands/OAS-backupINTM-Leo1/win7_leo1.GIF/65666265363030793975304143333654" target="_top"><IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.ads/intm/webdev/www.codeguru.com/forum/L4/879495769/468x60-1/WMBrands/OAS-backupINTM-Leo1/win7_leo1.GIF/65666265363030793975304143333654?"  ALT=""  BORDER="0"></A>');
+}
+if (position == '468x60-2') {
+document.write ('<A HREF="http://mjxads.internet.com/RealMedia/ads/click_lx.ads/intm/webdev/www.codeguru.com/forum/L4/1892544705/468x60-2/WMBrands/OAS-backupINTM-Leo2/win7_leo2.GIF/65666265363030793975304143333654" target="_top"><IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.ads/intm/webdev/www.codeguru.com/forum/L4/1892544705/468x60-2/WMBrands/OAS-backupINTM-Leo2/win7_leo2.GIF/65666265363030793975304143333654?"  ALT=""  BORDER="0"></A>');
+}
+if (position == 'cp1') {
+document.write ('<a href="http://www.callingcardplus.com/" target=new>Phone Cards</a>\n');
+document.write ('<IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.cgi/intm/webdev/www.codeguru.com/forum/L4/2111460390/cp1/WMBrands/TelePlus_CP_51f/CP_PhoneCards.html/65666265363030793975304143333654?_RM_EMPTY_" WIDTH=1 HEIGHT=1>');
+}
+if (position == 'cp10') {
+document.write ('<a href="http://shopping.yahoo.com/b:Cell%20Phones:89015929" target=new>Cell Phones</a>\n');
+document.write ('<IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.cgi/intm/webdev/www.codeguru.com/forum/L4/2022092544/cp10/WMBrands/Yahoo_CP_82j/CellPhones.html/65666265363030793975304143333654?_RM_EMPTY_" WIDTH=1 HEIGHT=1>');
+}
+if (position == 'cp11') {
+document.write ('<a href="http://www.trellian.com" target=new>Promote Your Website</a>\n');
+document.write ('<IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.cgi/intm/webdev/www.codeguru.com/forum/L4/612354696/cp11/WMBrands/Trellian_112c/PromoteYourWebsite.html/65666265363030793975304143333654?_RM_EMPTY_" WIDTH=1 HEIGHT=1>');
+}
+if (position == 'cp12') {
+document.write ('<a href="http://myhosting.com">Virtual Server</a>\n');
+document.write ('<IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.cgi/intm/webdev/www.codeguru.com/forum/L4/690720181/cp12/WMBrands/Softcom_CP_G16/VirtualServer.html/65666265363030793975304143333654?_RM_EMPTY_" WIDTH=1 HEIGHT=1 BORDER=0>\n');
+}
+if (position == 'cp13') {
+document.write ('<a href="http://smallbusiness.yahoo.com/webhosting/" target=new>Host your Site</a>\n');
+document.write ('<IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.cgi/intm/webdev/www.codeguru.com/forum/L4/243182252/cp13/WMBrands/Yahoo_CP_82cc/HostyourSite.html/65666265363030793975304143333654?_RM_EMPTY_" WIDTH=1 HEIGHT=1>\n');
+}
+if (position == 'cp2') {
+document.write ('<a href="http://www.businessinsurancenow.com/">Liability Insurance</a>\n');
+document.write ('<IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.cgi/intm/webdev/www.codeguru.com/forum/L4/337442941/cp2/WMBrands/TechInsurance_CP_F5/LiabilityInsurance.html/65666265363030793975304143333654?_RM_EMPTY_" WIDTH=1 HEIGHT=1 BORDER=0>');
+}
+if (position == 'cp3') {
+document.write ('<a href="http://www.callingcardplus.com/" target=new>prepaid calling card</a>\n');
+document.write ('<IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.cgi/intm/webdev/www.codeguru.com/forum/L4/2039304919/cp3/WMBrands/TelePlus_CP_51h/prepaidcallingcard.html/65666265363030793975304143333654?_RM_EMPTY_" WIDTH=1 HEIGHT=1>\n');
+}
+if (position == 'cp4') {
+document.write ('<a href="http://www.contractedge.com/">IT Legal Contracts</a>\n');
+document.write ('<IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.cgi/intm/webdev/www.codeguru.com/forum/L4/700788504/cp4/WMBrands/TechInsurance_CP_F4/ITLegalContracts.html/65666265363030793975304143333654?_RM_EMPTY_" WIDTH=1 HEIGHT=1 BORDER=0>');
+}
+if (position == 'cp5') {
+document.write ('<a href="http://shopping.yahoo.com/b:PDAs:20148420">PDA Phones & Cases</a>\n');
+document.write ('<IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.cgi/intm/webdev/www.codeguru.com/forum/L4/224014201/cp5/WMBrands/Yahoo_CP_82x/PDAPhonesCases.html/65666265363030793975304143333654?_RM_EMPTY_" WIDTH=1 HEIGHT=1>');
+}
+if (position == 'cp6') {
+document.write ('<a href="http://www.callingcardplus.com/">Calling Cards</a>\n');
+document.write ('<IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.cgi/intm/webdev/www.codeguru.com/forum/L4/715081772/cp6/WMBrands/TelePlus_CP_51a/CallingCards.html/65666265363030793975304143333654?_RM_EMPTY_" WIDTH=1 HEIGHT=1 BORDER=0>');
+}
+if (position == 'cp7') {
+document.write ('<a href="http://shopping.yahoo.com/b:Desktops:22483485">Desktop Computers</a>\n');
+document.write ('<IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.cgi/intm/webdev/www.codeguru.com/forum/L4/273338877/cp7/WMBrands/Yahoo_CP_82z/DesktopComputers.html/65666265363030793975304143333654?_RM_EMPTY_" WIDTH=1 HEIGHT=1>');
+}
+if (position == 'cp8') {
+document.write ('<a href="http://shopping.yahoo.com/b:Television%20%26%20Video:20350761">Televisions</a>\n');
+document.write ('<IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.cgi/intm/webdev/www.codeguru.com/forum/L4/1325978480/cp8/WMBrands/Yahoo_CP_82y/Televisions.html/65666265363030793975304143333654?_RM_EMPTY_" WIDTH=1 HEIGHT=1>');
+}
+if (position == 'cp9') {
+document.write ('<a href="http://www.techinsurance.com/">Business Liability</a>\n');
+document.write ('<IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.cgi/intm/webdev/www.codeguru.com/forum/L4/869393208/cp9/WMBrands/TechInsurance_CP_F2/BusinessLiability.html/65666265363030793975304143333654?_RM_EMPTY_" WIDTH=1 HEIGHT=1 BORDER=0>');
+}
+if (position == 'flex') {
+document.write ('<A HREF="http://mjxads.internet.com/RealMedia/ads/click_lx.ads/intm/webdev/www.codeguru.com/forum/L34/1658168005/flex/WMBrands/IronSpeed_Hotlist_GEMS_7f/DevX.EasyWayHardWay.2010.02.25.336x280CodelessProgrammingIsHere.gif/65666265363030793975304143333654" target="_top"><IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.ads/intm/webdev/www.codeguru.com/forum/L34/1658168005/flex/WMBrands/IronSpeed_Hotlist_GEMS_7f/DevX.EasyWayHardWay.2010.02.25.336x280CodelessProgrammingIsHere.gif/65666265363030793975304143333654?"  ALT=""  BORDER="0"></A>');
+}
+if (position == 'send') {
+document.write ('<A HREF="http://mjxads.internet.com/RealMedia/ads/click_lx.ads/intm/webdev/www.codeguru.com/forum/1876749153/send/WMBrands/default/empty.gif/65666265363030793975304143333654" target="_top"><IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.ads/intm/webdev/www.codeguru.com/forum/1876749153/send/WMBrands/default/empty.gif/65666265363030793975304143333654?"  WIDTH=1 HEIGHT=1 ALT="" BORDER=0 BORDER="0"></A>');
+}
+if (position == 'stickypost') {
+document.write ('<A HREF="http://mjxads.internet.com/RealMedia/ads/click_lx.ads/intm/webdev/www.codeguru.com/forum/1905463316/stickypost/WMBrands/default/empty.gif/65666265363030793975304143333654" target="_top"><IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.ads/intm/webdev/www.codeguru.com/forum/1905463316/stickypost/WMBrands/default/empty.gif/65666265363030793975304143333654?"  WIDTH=1 HEIGHT=1 ALT="" BORDER=0 BORDER="0"></A>');
+}
+if (position == 'house_ribbon') {
+document.write ('<A HREF="http://mjxads.internet.com/RealMedia/ads/click_lx.ads/intm/webdev/www.codeguru.com/forum/L34/2084579746/house_ribbon/WMBrands/OAS-Toolbar-ESFDev/blank.gif/65666265363030793975304143333654" target="_top"><IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.ads/intm/webdev/www.codeguru.com/forum/L34/2084579746/house_ribbon/WMBrands/OAS-Toolbar-ESFDev/blank.gif/65666265363030793975304143333654?"  ALT=""  BORDER="0"></A>');
+}
+if (position == '336x280') {
+document.write ('<A HREF="http://mjxads.internet.com/RealMedia/ads/click_lx.ads/intm/webdev/www.codeguru.com/forum/L34/1250276437/336x280/WMBrands/IronSpeed_Hotlist_GEMS_7e/DevX.EasyWayHardWay.2010.02.25.336x280CodeIsCheap.gif/65666265363030793975304143333654" target="_top"><IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.ads/intm/webdev/www.codeguru.com/forum/L34/1250276437/336x280/WMBrands/IronSpeed_Hotlist_GEMS_7e/DevX.EasyWayHardWay.2010.02.25.336x280CodeIsCheap.gif/65666265363030793975304143333654?"  ALT=""  BORDER="0"></A>');
+}
+if (position == '336x280-2') {
+document.write ('<A HREF="http://mjxads.internet.com/RealMedia/ads/click_lx.ads/intm/webdev/www.codeguru.com/forum/L34/266566782/336x280-2/WMBrands/IronSpeed_Hotlist_GEMS_7g/DevX.EasyWayHardWay.2010.02.25.336x280Write10000.gif/65666265363030793975304143333654" target="_top"><IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.ads/intm/webdev/www.codeguru.com/forum/L34/266566782/336x280-2/WMBrands/IronSpeed_Hotlist_GEMS_7g/DevX.EasyWayHardWay.2010.02.25.336x280Write10000.gif/65666265363030793975304143333654?"  ALT=""  BORDER="0"></A>');
+}
+if (position == 'sponsor-20') {
+document.write ('<A HREF="http://mjxads.internet.com/RealMedia/ads/click_lx.ads/intm/webdev/www.codeguru.com/forum/2038800790/sponsor-20/WMBrands/default/empty.gif/65666265363030793975304143333654" target="_top"><IMG SRC="http://mjxads.internet.com/RealMedia/ads/adstream_lx.ads/intm/webdev/www.codeguru.com/forum/2038800790/sponsor-20/WMBrands/default/empty.gif/65666265363030793975304143333654?"  WIDTH=1 HEIGHT=1 ALT="" BORDER=0 BORDER="0"></A>');
+}
+}

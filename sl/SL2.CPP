@@ -1,0 +1,430 @@
+#include<conio.h>
+#include<stdio.h>
+#include<fstream.h>
+#include<iostream.h>
+#include<string.h>
+#include<stdlib.h>
+
+class asmb
+{
+	public:
+
+	void pass1();
+	char* getmot(char*);
+	void tabdisplay();
+};
+
+struct mot
+{
+	char mno[10];
+	char op[10];
+	int size;
+	struct mot* npt;
+};
+mot mott[26]={NULL};
+char dltab[5][5]={"DC","DS"},adtab[10][10]={"start","end","origin","equ","ltorg"};
+char regtab[5][5]={"AREG","BREG","CREG","DREG"};
+char condtab[7][5]={"LT","LE","EQ","GT","GE","ANY"};
+
+char symtab[10][3][10],littab[10][2][10];
+int pooltab[10]={0};
+int symptr=0,litptr=0,poolptr=0,mnosize;
+
+void asmb::pass1()
+{
+	fstream fin,fout;
+
+	fin.open
+	 ("myfile.asm",ios::in);
+	fout.open("inter.obj",ios::out);
+	char str[10],str1[10],str2[10],str3[10],str4[10];
+	int lptr,pptr;
+
+up :
+
+	fin>>str;
+
+	if(!strcmpi(str,"LTORG"))
+	{
+		fout<<"\nAD 05";
+		fin>>str;
+		pptr=pooltab[poolptr];
+		while(str[0] == '=')
+		{
+			//if(littab[poolptr][0],)
+			itoa(lptr,str2,10);
+			strcpy(littab[pptr][1],str2);
+			lptr++;
+			pptr++;
+			fin>>str;
+		}
+		poolptr++;
+		pooltab[poolptr]=litptr;
+	}
+	//check in assembler directives
+	int adflag=0;
+	for(int i=0;i<5;i++)
+	{
+		if(!strcmpi(adtab[i],str))
+		{
+			adflag=1;i++;
+			break;
+		}
+	}
+
+	if (adflag==1)
+	{
+		cout<<"\n\n"<<str;
+		switch(i)
+		{
+			case 1 :            //start
+			fin>>lptr;
+			cout<<" "<<lptr;
+			cout<<"\t\t(AD "<<i<<") (C "<<lptr<<")";
+			fout<<"\nAD "<<i<<" C "<<lptr;
+			//lptr++;
+			break;
+		}
+		goto up;
+	}
+
+	// check str in mnemonic table
+	strcpy(str1,getmot(str));
+	int icode,j,regflag,symflag,dlflag,condflag;
+
+	if(strlen(str1))
+	{
+		cout<<"\n\n"<<str;
+		icode=atoi(str1);
+
+		switch(icode)
+		{
+			case 9 :
+				fin>>str2;
+				cout<<" "<<str2;
+				strcpy(symtab[symptr][0],str2);
+				itoa(lptr,str2,10);
+				strcpy(symtab[symptr][1],str2);
+				symptr++;
+				lptr++;
+				cout<<"\t\t\t(IS, "<<icode<<")  (S "<<symptr<<")";
+				fout<<"\nIS "<<icode<<" S "<<symptr;
+			break;
+			case 2 :
+			case 4 :
+			case 5 :
+				fout<<"\nIS "<<icode;
+				fin>>str2;
+				j=i=0;
+				while(str2[i]!=',')
+					i++;
+				str2[i]='\0';
+				i++;
+				while(str2[i]!='\0')
+					str3[j++]=str2[i++];
+				str3[j]='\0';
+				cout<<" "<<str2<<","<<str3;
+				cout<<"\t\t(IS,"<<icode<<")";
+
+				regflag=0;
+				for(i=0;i<5;i++)
+				{
+					if(!strcmpi(str2,regtab[i]))
+					{
+						regflag=1;
+						break;
+					}
+				}
+				if(regflag==1)
+				{
+					fout<<" "<<++i;
+					cout<<" ("<<i<<")";
+				}
+				if(str3[0] == '=')
+				{
+					strcpy(littab[litptr][0],str3);
+					litptr++;
+					fout<<" L "<<litptr;
+					cout<<"(L, "<<litptr<<")";
+					lptr++;
+					break;
+				}
+				symflag=0;
+				for(i=0;i<symptr;i++)
+				{
+					if(!strcmpi(str3,symtab[i][0]))
+					{
+						symflag=1;
+						break;
+					}
+				}
+				if(symflag==1)
+				{
+					fout<<" S "<<++i;
+					cout<<"(S, "<<i<<")";
+				}
+				else
+				{
+					strcpy(symtab[symptr][0],str3);
+					itoa(lptr,str2,10);
+					strcpy(symtab[symptr][1],str2);
+					symptr++;
+					fout<<" S "<<symptr;
+					cout<<"(S, "<<symptr<<")";
+				}
+				lptr++;
+				break;
+
+			case 7:
+				fout<<"\nIS "<<icode;
+				fin>>str2;
+				j=i=0;
+				while(str2[i]!=',')
+					i++;
+				str2[i]='\0';
+				i++;
+				while(str2[i]!='\0')
+					str3[j++]=str2[i++];
+				str3[j]='\0';
+				cout<<" "<<str2<<","<<str3;
+				cout<<"\t\t(IS,"<<icode<<")";
+
+				condflag=0;
+				for(i=0;i<5;i++)
+				{
+					if(!strcmpi(str2,condtab[i]))
+					{
+						condflag=1;
+						break;
+					}
+				}
+				if(condflag==1)
+				{
+					fout<<" "<<++i;
+					cout<<" ("<<i<<")";
+				}
+				symflag=0;
+				for(i=0;i<symptr;i++)
+				{
+					if(!strcmpi(str3,symtab[i][0]))
+					{
+						symflag=1;
+						break;
+					}
+				}
+				if(symflag==1)
+				{
+					fout<<" S "<<++i;
+					cout<<"(S, "<<i<<")";
+				}
+				else
+				{
+					strcpy(symtab[symptr][0],str3);
+					itoa(lptr,str2,10);
+					strcpy(symtab[symptr][1],str2);
+					symptr++;
+					fout<<" S "<<symptr;
+					cout<<"(S, "<<symptr<<")";
+				}
+				lptr++;
+
+
+			break;
+			default :
+				cout<<"\n\nnot found";
+		}
+		goto up;
+	}
+	// CHECK FOR DS DC SYMBOL
+	symflag=0;
+	for(i=0;i<symptr;i++)
+	{
+		if(!strcmpi(str,symtab[i][0]))
+		{
+			symflag=1;
+			break;
+		}
+	}
+	j=i;
+	if(symflag==1)
+	{
+		cout<<"\n\n"<<str<<" ";
+		fin>>str2;
+		cout<<str2<<" ";
+		dlflag=0;
+		for(i=0;i<2;i++)
+		{
+			if(!strcmpi(str2,dltab[i]))
+			{
+				dlflag=1;
+				break;
+			}
+		}
+		if(dlflag == 1)
+		{
+			itoa(lptr,str2,10);
+			strcpy(symtab[j][1],str2);
+
+			if(i==0)
+			{
+
+				fin>>str2;
+				cout<<str2;
+				strcpy(str2,str2+1);
+				str2[strlen(str2)-1]='\0';
+				strcpy(symtab[j][2],"1");
+				fout<<"\nDL "<<++i<<" C "<<str2;
+				lptr++;
+				cout<<"\t\t(DL, "<<i<<") (C, "<<str2<<")";
+			}
+			else
+			{
+				fin>>str2;
+				strcpy(symtab[j][2],str2);
+				fout<<"\nDL "<<++i<<" C "<<str2;
+				cout<<" "<<str2<<"\t\t\t(DL, "<<i<<") (C, "<<str2<<")";
+				lptr+=atoi(str2);
+			}
+
+		}
+	}
+	else
+	{
+		cout<<"\n\n"<<str;
+		//STR is symbol
+		strcpy(symtab[symptr][0],str);
+		itoa(lptr,str2,10);
+		strcpy(symtab[symptr][1],str2);
+		strcpy(symtab[symptr][2],"1");
+		symptr++;
+	}
+	if(!fin.eof())
+		goto up;
+	fin.close();
+	fout.close();
+}
+
+void asmb::tabdisplay()
+{
+	int i,j;
+
+	fstream fout;
+	fout.open("symbol.txt",ios::out);
+
+	cout<<"\n\n\tSymbol Table : \n";
+	for(i=0;i<symptr-1;i++)
+	{
+
+		cout<<"\n "<<symtab[i][0]<<"\t"<<symtab[i][1]<<"\t"<<symtab[i][2];
+		fout<<"\n "<<symtab[i][0]<<"\t"<<symtab[i][1]<<"\t"<<symtab[i][2];
+
+	}
+	fout.close();
+
+	fout.open("literal.txt",ios::out);
+	cout<<"\n\n\tLiteral Table : \n";
+	for(i=0;i<litptr;i++)
+	{
+		cout<<"\n "<<littab[i][0]<<"\t"<<littab[i][1];
+		fout<<"\n "<<littab[i][0]<<"\t"<<littab[i][1];
+	}
+	fout.close();
+
+	fout.open("pooltab.txt",ios::out);
+
+	cout<<"\n\n\tPool Table : \n";
+	for(i=0;i<poolptr+1;i++)
+	{
+		cout<<"\n "<<pooltab[i]+1;
+		fout<<"\n "<<pooltab[i]+1;
+	}
+	fout.close();
+}
+
+char* asmb::getmot(char mno[10])
+{
+	char str[10],str1[10];
+	int n;
+	str1[0]=mno[0];
+	str1[1]='\0';
+	n=strcmpi(str1,"A");
+
+	mot* t;
+	t=mott[n].npt;
+	int flag=0;
+	while(t!=NULL)
+	{
+		if(!strcmpi(t->mno,mno))
+		{
+			flag=1;
+			break;
+		}
+		t=t->npt;
+	}
+	str[0]='\0';
+	if(flag==0)
+	{
+		return str;//cout<<"\n\n"<<mno<<" Not found in Hash Table";
+	}
+	strcpy(str,t->op);
+	return str;
+}
+
+void cmot()
+{
+	fstream fin;
+
+	fin.open("mot.txt",ios::in);
+	char str[10],str1[10];
+	int n,size;
+
+	mot t,p;
+	while(1)
+	{
+
+		fin>>str;
+		if(strlen(str)==0)
+			break;
+	str1[0]=str[0];
+	str1[1]='\0';
+	n=strcmpi(str1,"A");
+	if(mott[n].npt==NULL)
+	{
+		fin>>str1;
+		fin>>size;
+		t.npt=mott[n].npt;
+		t.npt=(mot *)malloc(sizeof(mot));
+		strcpy(t.npt->mno,str);
+		strcpy(t.npt->op,str1);
+		t.npt->size=size;
+		t.npt->npt=NULL;
+		mott[n].npt=t.npt;
+		continue;
+	}
+	t.npt=mott[n].npt;
+	while(t.npt->npt!=NULL)
+		t.npt=t.npt->npt;
+
+		fin>>str1;
+		fin>>size;
+		t.npt->npt=(mot *)malloc(sizeof(mot));
+		strcpy(t.npt->npt->mno,str);
+		strcpy(t.npt->npt->op,str1);
+		t.npt->npt->size=size;
+		t.npt->npt->npt=NULL;
+	}
+	fin.close();
+}
+
+int main()
+{
+	clrscr();
+
+	cmot();
+
+	asmb a;
+	a.pass1();
+	a.tabdisplay();
+	getch();
+	return 0;
+}

@@ -1,0 +1,19 @@
+macro abc &a,&b
+load &a
+load &b
+add ax,&a
+mend
+macro pqr
+mov ah,4ch
+int 21h
+mend
+macro disp q
+add ax,q
+load p
+mend
+load 34
+add bx,78
+abc 8,4
+disp 34h
+abc 6,7
+end

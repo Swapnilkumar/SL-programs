@@ -1,0 +1,722 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0053)http://msdn.microsoft.com/en-us/library/1ez7dh12.aspx -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>
+	
+  DLLs
+
+</title>
+<link href="./DLLs_files/9bed644b42c722b49f193b3a12c03de5.css" rel="stylesheet" type="text/css">
+
+
+<link rel="stylesheet" type="text/css" href="./DLLs_files/1ba8bf2312747032664951f2966a4bf3.css" media="print" title="printonly">
+
+
+
+
+<meta name="DCS.dcsuri" content="/en-us/library/1ez7dh12(d=lightweight,l=en-us,v=VS.100).aspx">
+
+<meta name="NormalizedUrl" content="http://msdn.microsoft.com/en-us/library/1ez7dh12(d=lightweight,l=en-us,v=VS.100).aspx">
+
+<meta name="DCSext.ProductFamily" content="LIB_DG">
+
+<meta name="DCSext.Product" content="VS_VC">
+
+<meta name="DCSext.Title" content="DLLs">
+
+<meta name="VotingContextUrl" content="http://msdn.microsoft.com/en-us/library/1ez7dh12(l=en-us,v=VS.100).aspx">
+
+<meta name="MN" content="783CB6BB-7:22:09 PM">
+
+<meta name="Search.ShortId" content="1ez7dh12">
+
+<meta name="Ms.Locale" content="en-us">
+</head>
+<body>
+  <div class="header">
+    
+
+<table border="0" cellpadding="0" cellspacing="0" class="headerBar cl_lightweight_topnav_slice">
+		<tbody><tr>
+			<td class="leftSection cl_lightweight_header_leftSection_wave leftSectionImageClusterOverride">
+        <div class="tabContainer">
+          <a href="http://msdn.microsoft.com/en-us/" title="Home" class=" headerTab">Home</a>
+          <a href="http://msdn.microsoft.com/en-us/library" title="Library" class="headerTabSelected cl_lightweight_selected_tab_repeatX ">Library</a>
+          <a href="http://msdn.microsoft.com/en-us/bb188199.aspx" title="Learn" class=" headerTab">Learn</a>
+          <a href="http://msdn.microsoft.com/en-us/aa570309.aspx" title="Downloads" class=" headerTab">Downloads</a>
+          <a href="http://msdn.microsoft.com/en-us/aa570318.aspx" title="Support" class=" headerTab">Support</a>
+          <a href="http://msdn.microsoft.com/en-us/aa497440.aspx" title="Community" class=" headerTab">Community</a>
+          
+        </div>
+      </td>
+			<td class="rightSection cl_lightweight_header_rightSection_wave rightSectionImageClusterOverride">
+        <div class="tabContainer">
+            
+            <a href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=11&ct=1298344929&rver=6.0.5276.0&wp=MCLBI&wlcxt=msdn%24msdn%24msdn&wreply=http:%2F%2Fmsdn.microsoft.com%2Fen-us%2Flibrary%2F1ez7dh12.aspx&lc=1033&cb=&id=254354" title="Sign in">Sign in </a>
+            <span class="pipe">|</span>
+            <a href="http://msdn.microsoft.com/en-us/library/preferences/locale/?returnurl=%252fen-us%252flibrary%252f1ez7dh12.aspx" title="United States - English">United States - English </a>
+            <span class="pipe">|</span>
+            <a href="http://msdn.microsoft.com/en-us/library/preferences/experience/?returnurl=%252fen-us%252flibrary%252f1ez7dh12.aspx" title="Preferences">Preferences</a>
+        </div>
+			</td>
+	</tr>
+</tbody></table>
+
+  </div>
+  <div class="contentPlaceHolder">
+    
+    
+  <div class="navigation" id="Navigation" style="width:280px;padding-bottom:96px;">
+    <div class="searchcontainer">
+      
+<form id="SearchForm" action="http://social.msdn.microsoft.com/Search/en-us" method="get" style="margin: 0; padding: 0;">
+<div class="searchBoxContainer" style="">
+  <table class="searchBox" cellpadding="0" cellspacing="0" border="0">
+    <tbody><tr>
+      <td class="searchTextBoxTd">
+        <input id="searchTextBox" type="text" maxlength="200" class="searchTextBox" name="query" value="Search MSDN with Bing" onfocus="document.onkeydown = &#39;&#39;; WatermarkFocus(this, &#39;Search MSDN with Bing&#39;, &#39;searchTextBoxTrue&#39;) " onblur="document.onkeydown = Presskey;WatermarkBlur(this, &#39;Search MSDN with Bing&#39;, &#39;searchTextBox&#39;)">
+      </td>
+      <td class="searchButtonTd">
+        <a href="javascript:void(0)" style="display: block; overflow: hidden; width: 19px; height: 19px; position: relative;           padding: 0; margin: 0;" onclick="javascript:if(document.getElementById(&#39;searchTextBox&#39;).value == &#39;Search MSDN with Bing&#39;)document.getElementById(&#39;searchTextBox&#39;).value=&#39;&#39;; document.getElementById(&#39;SearchForm&#39;).submit();">
+          <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_search_icon" style="position: relative;" title="Search" alt="Search"></a>
+      </td>
+    </tr>
+  </tbody></table>
+</div>
+</form>
+
+
+    </div>
+    <div class="navcontainer">
+      
+<div class="nav">
+  
+  <div class="toclevel0 ancestry">
+    
+    <div class="clip5x9 nav_root">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_bullet" alt="">
+    </div>
+    
+    <div class="nav_div_currentroot">
+      <a href="http://msdn.microsoft.com/en-us/library/ms123401.aspx" title="MSDN Library">MSDN Library</a></div>
+    
+    <div class="clip5x9 nav_arrows">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_arrow" alt="">
+    </div>
+    
+    <div class="nav_div_currentroot">
+      <a href="http://msdn.microsoft.com/en-us/library/aa187916.aspx" title="Development Tools and Languages">Development Tools and Languages</a></div>
+    
+    <div class="clip5x9 nav_arrows">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_arrow" alt="">
+    </div>
+    
+    <div class="nav_div_currentroot">
+      <a href="http://msdn.microsoft.com/en-us/library/dd831853.aspx" title="Visual Studio 2010">Visual Studio 2010</a></div>
+    
+    <div class="clip5x9 nav_arrows">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_arrow" alt="">
+    </div>
+    
+    <div class="nav_div_currentroot">
+      <a href="http://msdn.microsoft.com/en-us/library/52f3sw5c.aspx" title="Visual Studio">Visual Studio</a></div>
+    
+    <div class="clip5x9 nav_arrows">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_arrow" alt="">
+    </div>
+    
+    <div class="nav_div_currentroot">
+      <a href="http://msdn.microsoft.com/en-us/library/ee822860.aspx" title="Visual Studio Languages">Visual Studio Languages</a></div>
+    
+    <div class="clip5x9 nav_arrows">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_arrow" alt="">
+    </div>
+    
+    <div class="nav_div_currentroot">
+      <a href="http://msdn.microsoft.com/en-us/library/60k1461a.aspx" title="Visual C++">Visual C++</a></div>
+    
+    <div class="clip5x9 nav_arrows">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_arrow" alt="">
+    </div>
+    
+    <div class="nav_div_currentroot">
+      <a href="http://msdn.microsoft.com/en-us/library/ms173251.aspx" title="Visual C++ Programming Methodologies">Visual C++ Programming Methodologies</a></div>
+    
+  </div>
+  
+  <div class="clip13x9 nav_dots_current">
+    <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_dots" alt="">
+  </div>
+  
+  <div class="toclevel1 current">
+    <a href="./DLLs_files/DLLs.htm" title="DLLs">DLLs</a></div>
+  
+  <div class="toclevel2 children" style="border-bottom: 1px solid #bbbbbb;">
+    
+    <div class="clip13x9 nav_dots">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_dots" alt="">
+    </div>
+    <div>
+      <a href="http://msdn.microsoft.com/en-us/library/d1587c1h.aspx" title="Differences Between Applications and DLLs">Differences Between Applications and DLLs</a></div>
+    
+    <div class="clip13x9 nav_dots">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_dots" alt="">
+    </div>
+    <div>
+      <a href="http://msdn.microsoft.com/en-us/library/dtba4t8b.aspx" title="Advantages of Using DLLs">Advantages of Using DLLs</a></div>
+    
+    <div class="clip13x9 nav_dots">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_dots" alt="">
+    </div>
+    <div>
+      <a href="http://msdn.microsoft.com/en-us/library/9se914de.aspx" title="Kinds of DLLs">Kinds of DLLs</a></div>
+    
+    <div class="clip13x9 nav_dots">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_dots" alt="">
+    </div>
+    <div>
+      <a href="http://msdn.microsoft.com/en-us/library/89es04xa.aspx" title="DLL Frequently Asked Questions">DLL Frequently Asked Questions</a></div>
+    
+    <div class="clip13x9 nav_dots">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_dots" alt="">
+    </div>
+    <div>
+      <a href="http://msdn.microsoft.com/en-us/library/9yd93633.aspx" title="Linking an Executable to a DLL">Linking an Executable to a DLL</a></div>
+    
+    <div class="clip13x9 nav_dots">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_dots" alt="">
+    </div>
+    <div>
+      <a href="http://msdn.microsoft.com/en-us/library/7h0a8139.aspx" title="Initializing a DLL">Initializing a DLL</a></div>
+    
+    <div class="clip13x9 nav_dots">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_dots" alt="">
+    </div>
+    <div>
+      <a href="http://msdn.microsoft.com/en-us/library/988ye33t.aspx" title="Run-Time Library Behavior">Run-Time Library Behavior</a></div>
+    
+    <div class="clip13x9 nav_dots">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_dots" alt="">
+    </div>
+    <div>
+      <a href="http://msdn.microsoft.com/en-us/library/zzk20sxw.aspx" title="LoadLibrary and AfxLoadLibrary">LoadLibrary and AfxLoadLibrary</a></div>
+    
+    <div class="clip13x9 nav_dots">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_dots" alt="">
+    </div>
+    <div>
+      <a href="http://msdn.microsoft.com/en-us/library/64tkc9y5.aspx" title="GetProcAddress">GetProcAddress</a></div>
+    
+    <div class="clip13x9 nav_dots">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_dots" alt="">
+    </div>
+    <div>
+      <a href="http://msdn.microsoft.com/en-us/library/h4ff11tc.aspx" title="FreeLibrary and AfxFreeLibrary">FreeLibrary and AfxFreeLibrary</a></div>
+    
+    <div class="clip13x9 nav_dots">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_dots" alt="">
+    </div>
+    <div>
+      <a href="http://msdn.microsoft.com/en-us/library/7d83bc18.aspx" title="Search Path Used by Windows to Locate a DLL">Search Path Used by Windows to Locate a DLL</a></div>
+    
+    <div class="clip13x9 nav_dots">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_dots" alt="">
+    </div>
+    <div>
+      <a href="http://msdn.microsoft.com/en-us/library/w25be484.aspx" title="Module States of a Regular DLL Dynamically Linked to MFC">Module States of a Regular DLL Dynamically Linked to MFC</a></div>
+    
+    <div class="clip13x9 nav_dots">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_dots" alt="">
+    </div>
+    <div>
+      <a href="http://msdn.microsoft.com/en-us/library/h5f7ck28.aspx" title="Extension DLLs">Extension DLLs</a></div>
+    
+    <div class="clip13x9 nav_dots">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_dots" alt="">
+    </div>
+    <div>
+      <a href="http://msdn.microsoft.com/en-us/library/24b2tcy0.aspx" title="Creating a Resource-Only DLL">Creating a Resource-Only DLL</a></div>
+    
+    <div class="clip13x9 nav_dots">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_dots" alt="">
+    </div>
+    <div>
+      <a href="http://msdn.microsoft.com/en-us/library/8fkteez0.aspx" title="Localized Resources in MFC Applications: Satellite DLLs">Localized Resources in MFC Applications: Satellite DLLs</a></div>
+    
+    <div class="clip13x9 nav_dots">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_dots" alt="">
+    </div>
+    <div>
+      <a href="http://msdn.microsoft.com/en-us/library/9h658af8.aspx" title="Importing and Exporting">Importing and Exporting</a></div>
+    
+    <div class="clip13x9 nav_dots">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_dots" alt="">
+    </div>
+    <div>
+      <a href="http://msdn.microsoft.com/en-us/library/zksae4h8.aspx" title="Active Technology and DLLs">Active Technology and DLLs</a></div>
+    
+    <div class="clip13x9 nav_dots">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_dots" alt="">
+    </div>
+    <div>
+      <a href="http://msdn.microsoft.com/en-us/library/efshcbz3.aspx" title="Automation in a DLL">Automation in a DLL</a></div>
+    
+    <div class="clip13x9 nav_dots">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_dots" alt="">
+    </div>
+    <div>
+      <a href="http://msdn.microsoft.com/en-us/library/eezxhb2t.aspx" title="Naming Conventions for MFC DLLs">Naming Conventions for MFC DLLs</a></div>
+    
+    <div class="clip13x9 nav_dots">
+      <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_nav_dots" alt="">
+    </div>
+    <div>
+      <a href="http://msdn.microsoft.com/en-us/library/dt232c9t.aspx" title="Calling DLL Functions from Visual Basic Applications">Calling DLL Functions from Visual Basic Applications</a></div>
+    
+  </div>
+  <img src="./DLLs_files/030c41d9079671d09a62d8e2c1db6973.gif" alt="Separator" class="communityContentNavigationSeparator cl_lt_cc_line_top">
+  
+  <div class="communityContentNavigation">
+    <div class="communityContentNavigationHeader">
+      Community Content</div>
+    
+    <div class="communityContentNavigationPost">
+      <div class="communityContentNavigationAvatarContainer">
+        <a class="communityContentNavigationLinkAvatar" href="http://msdn.microsoft.com/en-us/library/1ez7dh12.aspx#CommunityContent" title="User"><img alt="Avatar" class="cl_default_avatar" src="./DLLs_files/030c41d9079671d09a62d8e2c1db6973.gif"></a></div>
+      
+      <div class="communityContentNavigationLinkAbstractAdvertisement">
+        <ul>
+          <li>
+            Add code samples and tips to enhance this topic.</li>
+        </ul>
+      </div>
+      
+    </div>
+    
+    <div class="communityContentNavigationMoreLink">
+      <a href="http://msdn.microsoft.com/en-us/library/1ez7dh12.aspx#CommunityContent" title="More...">More...</a></div>
+  </div>
+  
+</div>
+
+
+    </div>
+    
+  </div>
+  <a href="http://msdn.microsoft.com/en-us/library/1ez7dh12.aspx#" onclick="onIncreaseToc()" class="tocResize" id="TocResize" style="left:280px">
+    <img id="ResizeImageIncrease" class="cl_nav_resize_open" src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" onmousedown="onIncreaseToc()" title="Expand" alt="Expand">
+      <img id="ResizeImageReset" class="cl_nav_resize_close" src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" style="display:none" onmousedown="onResetToc()" title="Minimize" alt="Minimize">
+  </a>
+  <div class="content">
+    <img class="TOC_Fade_Top cl_lw_toc_fade_top" src="./DLLs_files/030c41d9079671d09a62d8e2c1db6973.gif" alt="">
+    
+
+<div class="clip117x31 logo">
+  <a href="http://msdn.microsoft.com/en-us/default.aspx">
+    <img src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="msdn_body_logo" alt="MSDN" title="MSDN">
+  </a>
+</div>
+
+    <div class="topicContainer" style="">
+      
+<div class="topic" xmlns="http://www.w3.org/1999/xhtml">
+  <h1 class="title">DLLs</h1>
+  <div class="lw_vs">
+    <div id="curversion">
+      <strong>
+            Visual Studio 2010</strong>
+    </div>
+    <div id="vsseperator" class="cl_lw_vs_seperator"></div>
+    <div id="versionclick" onclick="ChangeVersionClick()">
+      <div id="versionclick_c1"></div>
+      <div id="versionclick_c2">
+        <div class="">
+          <a id="vsLink" href="javascript:;">
+                    Other Versions
+                </a>
+        </div>
+        <div class="cl_vs_arrow clip10x10">
+          <img class="cl_lw_vs_arrow" id="vsArrow" alt="" src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png">
+        </div>
+      </div>
+      <div id="versionclick_c3"></div>
+    </div>
+    <ul id="vsPanel">
+      <li>
+        <a href="http://msdn.microsoft.com/en-us/library/1ez7dh12(v=VS.90).aspx" title="">Visual Studio 2008</a>
+      </li>
+      <li>
+        <a href="http://msdn.microsoft.com/en-us/library/1ez7dh12(v=VS.80).aspx" title="">Visual Studio 2005</a>
+      </li>
+      <li>
+        <a href="http://msdn.microsoft.com/en-us/library/1ez7dh12(v=VS.71).aspx" title="">Visual Studio .NET 2003</a>
+      </li>
+    </ul>
+  </div>
+  
+  <div id="mainSection">
+    <div id="mainBody">
+      <p>
+        
+      </p> <div class="introduction"><p>A dynamic-link library (DLL) is an executable file that acts as a shared library of functions. Dynamic linking provides a way for a process to call a function that is not part of its executable code. The executable code for the function is located in a DLL, which contains one or more functions that are compiled, linked, and stored separately from the processes that use them. DLLs also facilitate the sharing of data and resources. Multiple applications can simultaneously access the contents of a single copy of a DLL in memory.</p><p>Dynamic linking differs from static linking in that it allows an executable module (either a .dll or .exe file) to include only the information needed at run time to locate the executable code for a DLL function. In static linking, the linker gets all of the referenced functions from the static link library and places it with your code into your executable.</p><p>Using dynamic linking instead of static linking offers several advantages. DLLs save memory, reduce swapping, save disk space, upgrade easier, provide after-market support, provide a mechanism to extend the MFC library classes, support multilanguage programs, and ease the creation of international versions.</p><p>The following topics provide detailed information about programming DLLs.</p></div><div xmlns=""><div class="LW_CollapsibleArea_TitleDiv"><div><a href="javascript:void(0)" class="LW_CollapsibleArea_TitleAhref" title="Collapse" id="793916c6-e721-4128-87d4-3d82b20916a2" onclick="javascript:CA_Click(&#39;793916c6-e721-4128-87d4-3d82b20916a2&#39;,&#39;Expand&#39;,&#39;Collapse&#39;)"><img src="./DLLs_files/030c41d9079671d09a62d8e2c1db6973.gif" class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"><span class="LW_CollapsibleArea_Title">In This Section</span></a><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></div><div class="sectionblock" id="793916c6-e721-4128-87d4-3d82b20916a2_c"><a id="sectionToggle0" xmlns="http://www.w3.org/1999/xhtml">
+  
+</a>
+<dl class="authored" xmlns="http://www.w3.org/1999/xhtml">
+  <dt>
+    <a href="http://msdn.microsoft.com/en-us/library/ms235636.aspx">Walkthrough: Creating and Using a Dynamic Link Library (C++)</a>
+  </dt>
+  <dd>
+    <p>Describes how to create and use a DLL using Visual Studio.</p>
+  </dd>
+  <dt>
+    <a href="http://msdn.microsoft.com/en-us/library/d1587c1h.aspx">Differences Between Applications and DLLs</a>
+  </dt>
+  <dd>
+    <p>Describes the fundamental differences between applications and DLLs.</p>
+  </dd>
+  <dt>
+    <a href="http://msdn.microsoft.com/en-us/library/dtba4t8b.aspx">Advantages of Using DLLs</a>
+  </dt>
+  <dd>
+    <p>Describes the advantages of dynamic linking.</p>
+  </dd>
+  <dt>
+    <a href="http://msdn.microsoft.com/en-us/library/89es04xa.aspx">DLL Frequently Asked Questions</a>
+  </dt>
+  <dd>
+    <p>Provides answers to frequently asked questions about DLLs.</p>
+  </dd>
+  <dt>
+    <a href="http://msdn.microsoft.com/en-us/library/9yd93633.aspx">Linking an Executable to a DLL</a>
+  </dt>
+  <dd>
+    <p>Describes explicit and implicit linking to a DLL.</p>
+  </dd>
+  <dt>
+    <a href="http://msdn.microsoft.com/en-us/library/7h0a8139.aspx">Initializing a DLL</a>
+  </dt>
+  <dd>
+    <p>Discusses DLL initialization code (such as allocating memory) that must execute when your DLL loads.</p>
+  </dd>
+  <dt>
+    <a href="http://msdn.microsoft.com/en-us/library/988ye33t.aspx">Run-Time Library Behavior</a>
+  </dt>
+  <dd>
+    <p>Describes how the run-time library performs the DLL startup sequence.</p>
+  </dd>
+  <dt>
+    <a href="http://msdn.microsoft.com/en-us/library/zzk20sxw.aspx">LoadLibrary and AfxLoadLibrary</a>
+  </dt>
+  <dd>
+    <p>Discusses using <strong>LoadLibrary</strong> and <strong>AfxLoadLibrary</strong> to explicitly link to a DLL.</p>
+  </dd>
+  <dt>
+    <a href="http://msdn.microsoft.com/en-us/library/64tkc9y5.aspx">GetProcAddress</a>
+  </dt>
+  <dd>
+    <p>Discusses using <strong>GetProcAddress</strong> to obtain the address of an exported function in the DLL.</p>
+  </dd>
+  <dt>
+    <a href="http://msdn.microsoft.com/en-us/library/h4ff11tc.aspx">FreeLibrary and AfxFreeLibrary</a>
+  </dt>
+  <dd>
+    <p>Discusses using <strong>FreeLibrary</strong> and <strong>AfxFreeLibrary</strong> when the DLL module is no longer needed.</p>
+  </dd>
+  <dt>
+    <a href="http://msdn.microsoft.com/en-us/library/7d83bc18.aspx">Search Path Used by Windows to Locate a DLL</a>
+  </dt>
+  <dd>
+    <p>Describes the search path that the Windows operating system uses to locate a DLL on your system.</p>
+  </dd>
+  <dt>
+    <a href="http://msdn.microsoft.com/en-us/library/w25be484.aspx">Module States of a Regular DLL Dynamically Linked to MFC</a>
+  </dt>
+  <dd>
+    <p>Describes the module states of a regular DLL dynamically linked to MFC.</p>
+  </dd>
+  <dt>
+    <a href="http://msdn.microsoft.com/en-us/library/20ytt2wa.aspx">Extension DLLs</a>
+  </dt>
+  <dd>
+    <p>Explains DLLs that typically implements reusable classes derived from the existing Microsoft Foundation Class Library classes. </p>
+  </dd>
+  <dt>
+    <a href="http://msdn.microsoft.com/en-us/library/24b2tcy0.aspx">Creating a Resource-Only DLL</a>
+  </dt>
+  <dd>
+    <p>Discusses a resource-only DLL, which contains nothing but resources, such as icons, bitmaps, strings, and dialog boxes.</p>
+  </dd>
+  <dt>
+    <a href="http://msdn.microsoft.com/en-us/library/8fkteez0.aspx">Localizing Resources in MFC Applications: Satellite DLLs</a>
+  </dt>
+  <dd>
+    <p>Provides enhanced support for satellite DLLs, a feature that helps in creating applications localized for multiple languages. </p>
+  </dd>
+  <dt>
+    <a href="http://msdn.microsoft.com/en-us/library/9h658af8.aspx">Importing and Exporting</a>
+  </dt>
+  <dd>
+    <p>Describes importing public symbols into an application or exporting functions from a DLL</p>
+  </dd>
+  <dt>
+    <a href="http://msdn.microsoft.com/en-us/library/zksae4h8.aspx">Active Technology and DLLs</a>
+  </dt>
+  <dd>
+    <p>Allows object servers to be completely implemented inside a DLL.</p>
+  </dd>
+  <dt>
+    <a href="http://msdn.microsoft.com/en-us/library/efshcbz3.aspx">Automation in a DLL</a>
+  </dt>
+  <dd>
+    <p>Describes what the Automation option in the MFC DLL Wizard supplies.</p>
+  </dd>
+  <dt>
+    <a href="http://msdn.microsoft.com/en-us/library/eezxhb2t.aspx">Naming Conventions for MFC DLLs</a>
+  </dt>
+  <dd>
+    <p>Discusses how the DLLs and libraries included in MFC follow a structured naming convention. </p>
+  </dd>
+  <dt>
+    <a href="http://msdn.microsoft.com/en-us/library/dt232c9t.aspx">Calling DLL functions from Visual Basic Applications</a>
+  </dt>
+  <dd>
+    <p>Describes how to call DLL functions from Visual Basic applications.</p>
+  </dd>
+</dl></div></div><div xmlns=""><div class="LW_CollapsibleArea_TitleDiv"><div><a href="javascript:void(0)" class="LW_CollapsibleArea_TitleAhref" title="Collapse" id="da545b85-2e27-409f-8af5-be5c7e91e808" onclick="javascript:CA_Click(&#39;da545b85-2e27-409f-8af5-be5c7e91e808&#39;,&#39;Expand&#39;,&#39;Collapse&#39;)"><img src="./DLLs_files/030c41d9079671d09a62d8e2c1db6973.gif" class="cl_CollapsibleArea_expanding LW_CollapsibleArea_Img"><span class="LW_CollapsibleArea_Title">Related Sections</span></a><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr"></div></div></div><div class="sectionblock" id="da545b85-2e27-409f-8af5-be5c7e91e808_c"><a id="sectionToggle1" xmlns="http://www.w3.org/1999/xhtml">
+  
+</a>
+<dl class="authored" xmlns="http://www.w3.org/1999/xhtml">
+  <dt>
+    <a href="http://msdn.microsoft.com/en-us/library/zfz4xb9a.aspx">Using MFC as Part of a DLL</a>
+  </dt>
+  <dd>
+    <p>Describes regular DLLs, which allow you to use the MFC library as part of a Windows dynamic-link library.</p>
+  </dd>
+  <dt>
+    <a href="http://msdn.microsoft.com/en-us/library/hw85e4bb.aspx">DLL Version of MFC</a>
+  </dt>
+  <dd>
+    <p>Describes how you can use the MFCxx.dll and MFCxxD.dll (where x is the MFC version number) shared dynamic-link libraries with MFC applications and extension DLLs.</p>
+  </dd>
+  <dt>
+    <span>
+      <a href="http://msdn.microsoft.com/en-us/library/ms173251.aspx">Visual C++ Programming Methodologies</a>
+    </span>
+  </dt>
+  <dd>
+    <p>Provides links to topics describing conceptual information about the Visual C++ libraries and topics discussing various coding technologies and techniques.</p>
+  </dd>
+</dl></div></div></div>
+  </div>
+</div>
+    </div>
+    
+    <div class="topicEndLine">
+    </div>
+    <div id="CommunityContent" class="CommunityContent">
+      
+<div class="CommunityContentContainer">
+    <div id="CommunityContentHeader" class="CommunityContentHeader">
+      <div class="CommunityContentHeaderTitleContainer">
+        <span class="CommunityContentHeaderTitle h1">Community Content</span>
+          
+        <a href="http://msdn.microsoft.com/en-us/library/community/add/1ez7dh12.aspx" title="Add">Add</a>
+          
+        </div>
+        <div class="CommunityContentFaq">
+            <a href="http://msdn.microsoft.com/en-us/library/community-edits.rss?topic=1ez7dh12|en-us|VS.100" title="Annotations"><img class="cl_rss_button" alt="Annotations" src="./DLLs_files/030c41d9079671d09a62d8e2c1db6973.gif"></a>
+            <a href="http://msdn.microsoft.com/en-us/library/community-msdnwikifaq.aspx" title="FAQ">FAQ</a>
+        </div>
+        <div style="clear:both"></div>
+    </div>
+    
+    
+
+</div>
+    </div>
+    
+  </div>
+  
+  
+
+  </div>
+  <div class="footer">
+    
+
+<div id="footer" class="footerContainer cl_footer_slice">
+  <div class="footerLogoContainer">
+    <div class="footerContent">
+    <div class="copyright">
+      © 2011 Microsoft. All rights reserved.</div>
+    <div class="footerLogo cl_footer_logo"></div>
+    <a href="http://msdn.microsoft.com/cc300389.aspx">Terms of Use</a><span class="pipe"> | </span>
+    <a href="http://www.microsoft.com/library/toolbar/3.0/trademarks/en-us.mspx">Trademarks</a><span class="pipe"> | </span>
+    <a href="http://www.microsoft.com/info/privacy.mspx">Privacy Statement</a>
+    <span class="pipe">| </span>
+    <a onclick="javascript:ShowFeedbackDialog();" title="Feedback" class="FeedbackLink" href="http://msdn.microsoft.com/en-us/library/1ez7dh12.aspx#footerLink">
+      Feedback
+        <span class="FeedbackButton clip20x21" id="FeedbackButton">
+          <img class="cl_footer_feedback_icon" src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" alt="Feedback">
+        </span>
+      </a>
+    
+
+  <div id="FeedbackContainer" class="FeedbackContainer">
+    <form method="post" action="http://msdn.microsoft.com/en-us/library/feedback/add/1ez7dh12.aspx">
+    <div class="FeedbackTitleContainer">
+        <div class="FeedbackTitle">
+            Feedback</div>
+        <div class="FeedbackCancel">
+            <a href="javascript:;" onclick="document.getElementById(&#39;FeedbackContainer&#39;).style.display = &#39;none&#39;;">x</a>
+            </div>
+    </div>
+    <div class="FeedbackData">
+        <div class="FeedbackInfoText">
+            Tell us about your experience...
+        </div>
+        <div class="QuestionText">
+            Did the page load quickly?
+        </div>
+        <div class="AnswerText">
+            
+            <span>
+                Yes<span>
+                    <input id="searchBox" name="searchBox" type="radio" value="1"></span></span>
+            
+            <span>
+                No<span>
+                    <input id="searchBox" name="searchBox" type="radio" value="0"></span></span>
+            
+        </div>
+        <div class="QuestionText">
+            Do you like the page design?
+        </div>
+        <div class="AnswerText">
+            
+            <span>
+                Yes<span>
+                    <input id="tabbedCode" name="tabbedCode" type="radio" value="1"></span></span>
+            
+            <span>
+                No<span>
+                    <input id="tabbedCode" name="tabbedCode" type="radio" value="0"></span></span>
+            
+        </div>
+        <div class="QuestionText">
+            How useful is this topic?
+        </div>
+        <div class="FeedbackGraphicHolder clip269x23">            
+                <img alt="" src="./DLLs_files/0f73868cd340280cac28f7eeb3d2dd7d.png" class="cl_online_scale FeedbackSiderGraphic">
+        </div>        
+            <div class="RadioButtonHolder"><div class="RateRadioOne">
+                    <input id="topicUseful" name="topicUseful" title="Really disliked it" type="radio" value="1">
+                </div>
+               <div class="RateRadio">
+                    <input id="topicUseful" name="topicUseful" title="Disliked it" type="radio" value="2">
+                </div>
+               <div class="RateRadio">
+                    <input id="topicUseful" name="topicUseful" title="OK" type="radio" value="3">
+                </div>
+               <div class="RateRadio">
+                    <input id="topicUseful" name="topicUseful" title="Good" type="radio" value="4">
+                </div>
+               <div class="RateRadioLast">
+                    <input id="topicUseful" name="topicUseful" title="Really Good" type="radio" value="5">
+                </div>
+               
+            </div>            
+        <div class="QuestionText">
+            Tell us more
+        </div>
+        <div class="FeedbackTextAreaContainer">
+            <textarea name="feedbackText" cols="25" rows="5" class="FeedbackTextArea" onfocus="document.onkeydown = &#39;&#39;;" onblur="document.onkeydown = Presskey;" onkeyup="LimitText(this, 4000);" onkeydown="LimitText(this, 4000);"></textarea>
+            
+            <textarea id="feedbackDescription" name="feedbackDescription" cols="25" rows="10" style="display:none;" onkeyup="LimitText(this, 4000);" onkeydown="LimitText(this, 4000);">Enter description here.</textarea>
+            <input type="hidden" id="feedbackPriority" name="feedbackPriority" value="">
+            <input type="hidden" id="feedbackSourceUrl" name="feedbackSourceUrl" value="">
+            <input type="hidden" id="ClientIP" name="ClientIP" value="">
+            <input type="hidden" id="ClientOS" name="ClientOS" value="">
+            <input type="hidden" id="ClientBrowser" name="ClientBrowser" value="">
+            <input type="hidden" id="ClientTime" name="ClientTime" value="">
+            <input type="hidden" id="ClientTimeZone" name="ClientTimeZone" value="">
+            
+            
+        </div>
+        <div>
+            <input type="submit" value="Send" class="FeedbackSubmit" onclick="document.getElementById(&#39;feedbackDescription&#39;).value=&#39;&#39;;document.getElementById(&#39;feedBackVersion&#39;).value = &#39;-1&#39;;">
+        </div>
+    </div>
+    <input type="hidden" id="returnUrl" name="returnUrl" value="http://msdn.microsoft.com/en-us/library/1ez7dh12.aspx">
+    
+    
+    <input type="hidden" id="feedBackVersion" name="feedBackVersion" value="1">
+    
+  </form> 
+</div>
+
+    </div>
+  </div>
+</div>
+
+  </div>
+  <div class="MetricsContainer">
+    
+    <div class="WebtrendsContainer">
+      
+
+<script type="text/javascript" language="javascript">
+//<![CDATA[
+  var literalNormalizedUrl = '/en-us/library/1ez7dh12(d=lightweight,l=en-us,v=VS.100).aspx';
+  var wt_nvr_ru = 'WT_NVR_RU';
+  var wt_fpcdom = '.microsoft.com';
+  var wt_domlist = 'msdn.microsoft.com';
+  var wt_pathlist = '';
+  var wt_paramlist = 'DCSext.mtps_devcenter';
+  var wt_siteid = 'MSDN';
+  var gDomain = 'm.webtrends.com';
+  var gDcsId = 'dcsmgru7m99k7mqmgrhudo0k8_8c6m';
+  var gFpc = 'WT_FPC';
+  if (document.cookie.indexOf(gFpc + "=") == -1) {
+    document.write("<scr" + "ipt type='text/javascript' src='" + "http" + (window.location.protocol.indexOf('https:') == 0 ? 's' : '') + "://" + gDomain + "/" + gDcsId + "/wtid.js" + "'><\\/scr" + "ipt>");
+  }
+  var detectedLocale = 'en-us';
+  var wtsp = 'msdnlib_devtools_lang';
+  var gTrackEvents = '0';
+/*]]>*/
+</script>
+<noscript>&lt;div&gt;&lt;img alt="DCSIMG" id="Img1" width="1" height="1" src="http://m.webtrends.com/dcsmgru7m99k7mqmgrhudo0k8_8c6m/njs.gif?dcsuri=/nojavascript&amp;amp;WT.js=No" /&gt;&lt;/div&gt;</noscript>
+
+
+    </div>
+    
+    <div class="OmnitureContainer">
+      
+
+
+
+<script type="text/javascript">
+  var omni_guid = '92e9b36f-6410-4bb8-912d-9dce7acb2826'; 
+</script>
+
+
+
+<noscript>
+    &lt;a href="http://www.omniture.com" title="Web Analytics"&gt;
+        &lt;img src="//msstonojsmsdn.112.2o7.net/b/ss/msstonojsmsdn/1/H.20.2--NS/0" height="1" width="1" border="0" alt="" /&gt;&lt;/a&gt;
+</noscript>
+
+
+    </div>
+    
+    <div class="WebMetrixContainer">
+      
+<div class="MetricsContainer">
+    <img alt="Page view tracker" src="./DLLs_files/trans_pixel.asp" width="0" height="0" border="0">
+</div>
+
+    </div>
+    
+</div>
+<script language="javascript" type="text/javascript" src="./DLLs_files/broker.js"></script>
+<script type="text/javascript" src="./DLLs_files/243d2d723b5d243070b49b2ec9daf514.js" xmlns="http://www.w3.org/1999/xhtml"></script>
+
+<script src="./DLLs_files/broker-config.js"></script></body></html>

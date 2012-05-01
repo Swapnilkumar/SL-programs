@@ -1,0 +1,7 @@
+LIBRARY String
+EXPORTS
+rev @1
+lent @2
+pal @3
+cct @4
+cmp @5

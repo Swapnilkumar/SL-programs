@@ -1,0 +1,10 @@
+LIBRARY sl_5
+
+EXPORTS
+
+sum	@1
+sub1 @2
+mult @3
+div1 @4
+sumref @5
+subref @6

@@ -1,0 +1,64 @@
+
+
+//test.c
+
+#include<stdio.h>
+#include<sys/types.h>
+#include<unistd.h>
+
+int main()
+{
+	int i,id;
+	printf("\nStarting main..");
+	i=fork();
+	if(i==0)
+	{
+	id=execl("child.o",(char*)0,(char*)0);
+	}
+	else
+	{
+	printf("\nParent Begins..\n");
+	wait();
+	printf("\nParent Ends..\n");
+	}
+	printf("\nExit from Main..");
+	return 0;
+
+}
+
+//child.c
+
+#include<stdio.h>
+#include<sys/types.h>
+#include<unistd.h>
+
+int main()
+{
+	int a;
+	printf("\nChild Process Begins..\n");
+	scanf("%d",&a);
+	printf("\nChild Process Ends..\n");
+	printf("\nReturning Back to Main program");
+	return 0;
+}
+
+//OUTPUT
+
+[dbsl@dell7 Desktop]$ gcc child.c -o child.o
+[dbsl@dell7 Desktop]$ gcc test.c
+[dbsl@dell7 Desktop]$ ./a.out
+
+Starting main..
+Parent Begins..
+
+Child Process Begins..
+123
+
+Child Process Ends..
+
+Returning Back to Main program
+Parent Ends..
+
+Exit from Main..
+[dbsl@dell7 Desktop]$
+

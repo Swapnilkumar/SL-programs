@@ -1,0 +1,84 @@
+
+/* College Name		:	PICT
+*   Subject			:	SL
+*   Assignment No.	:	11
+*   Title			:	system calls
+*   Software Used		:	Turbo C++
+*   Start Date		:	04-02-11
+*   Date Last Modified  :	07-03-11
+*   Developed By		:	Swapnilkumar Khorate.
+*   Roll No			:	3133
+*/
+//test.c
+#include<stdio.h>
+#include<sys/types.h>
+#include<unistd.h>
+
+int main()
+{
+	int i,id;
+	printf("\nStarting main..");
+	i=fork();
+	sleep(10);
+	if(i==0)
+	{
+		id=execl("child.o",(char*)0,(char*)0);
+	}
+	else
+	{
+		printf("\nParent Begins..\n\n");
+		wait();
+		printf("\nParent Ends..\n\n");
+	}
+	printf("\nExit from Main..\n\n");
+	return 0;
+
+}
+/* child.c
+#include<stdio.h>
+#include<sys/types.h>
+#include<unistd.h>
+
+int main()
+{
+	char a[10];
+	printf("\nChild Process Begins..\n");
+	scanf("%s",a);
+	scanf("%s",a);
+	sleep(10);
+	printf("\nChild Process Ends..\n");
+	printf("\nReturning Back to Main program\n");
+	return 0;
+}
+swapnil@ubuntu:~/Desktop/mysl11$ gcc child.c -o child.o
+swapnil@ubuntu:~/Desktop/mysl11$ gcc test.c
+swapnil@ubuntu:~/Desktop/mysl11$ ./a.out
+
+ps
+ps -f
+Starting main..
+Parent Begins..
+
+Child Process Begins..
+ps -f
+ps
+ps -f
+
+Child Process Ends..
+
+Returning Back to Main program
+Parent Ends..
+
+Exit from Main..swapnil@ubuntu:~/Desktop/mysl11$ ps -f
+UID        PID  PPID  C STIME TTY          TIME CMD
+swapnil    1760  1758  0 10:54 pts/0    00:00:00 bash
+swapnil    2010  1760  0 11:06 pts/0    00:00:00 ps -f
+swapnil@ubuntu:~/Desktop/mysl11$ ps
+  PID TTY          TIME CMD
+ 1760 pts/0    00:00:00 bash
+ 2011 pts/0    00:00:00 ps
+swapnil@ubuntu:~/Desktop/mysl11$ ps -f
+UID        PID  PPID  C STIME TTY          TIME CMD
+swapnil    1760  1758  0 10:54 pts/0    00:00:00 bash
+swapnil    2012  1760  0 11:06 pts/0    00:00:00 ps -f
+

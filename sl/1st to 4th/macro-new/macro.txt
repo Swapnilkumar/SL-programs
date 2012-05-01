@@ -1,0 +1,28 @@
+macro abc &a,&b
+load &a
+load &b
+add &a,&b
+mend
+macro disp msg
+load dx,msg
+mov ax,09h
+int 21h
+mend
+macro ad p,q
+abc 4,5
+disp "hi"
+mul p,q
+mend
+macro dhiraj
+abc 100,50
+disp "dhiraj"
+mend
+mov ax,@data
+load var
+abc 10,20
+ad 9,9,8,8
+int 4ch
+dhiraj
+end
+
+

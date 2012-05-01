@@ -1,0 +1,10 @@
+p {font-family: verdana; font-size: 75%}
+li {font-family: verdana; font-size: 75%}
+.sidelink {font-family: verdana; font-size: 100%}
+.topbar {font-family: verdana;
+ font-size: 150%; color: #FFFFFF; font-weight="bold"}
+.bottombar {font-family: verdana;
+ font-size: 90%; color: #FFFFFF}
+h1 {font-family: verdana; color: #000080; font-size: 100%; font-weight="bold"}
+h2 {font-family: verdana; color: #808080; font-size: 90%; font-weight="bold"}
+caption {font-family: verdana; font-size: 75%}

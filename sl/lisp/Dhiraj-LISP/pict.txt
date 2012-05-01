@@ -1,0 +1,4 @@
+hello pict
+this is writing lines in file
+this edited line no 3
+this inserted line no 4

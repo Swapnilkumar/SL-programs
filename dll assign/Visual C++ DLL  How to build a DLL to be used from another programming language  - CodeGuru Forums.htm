@@ -1,0 +1,1887 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0053)http://www.codeguru.com/forum/showthread.php?t=231254 -->
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	
+<meta name="generator" content="vBulletin 3.7.3">
+
+<meta name="keywords" content=" Visual C++ DLL: How to build a DLL to be used from another programming language?, Visual C++,C++,CodeGuru,Code,Guru,.NET,Microsoft,C#,Visual Basic,Coding,forum,bbs,discussion">
+<meta name="description" content=" Visual C++ DLL: How to build a DLL to be used from another programming language? CodeGuru Individual FAQs">
+
+
+
+<!-- CSS Stylesheet -->
+<style type="text/css" id="vbulletin_css">
+/**
+* vBulletin 3.7.3 CSS
+* Style: 'CodeGuru Forumsredesign3.7.3'; Style ID: 5
+*/
+body
+{
+	background: #053061;
+	color: #000000;
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 5px 10px 10px 10px;
+}
+a:link, body_alink
+{
+	color: #053061;
+}
+a:visited, body_avisited
+{
+	color: #053061;
+}
+a:hover, a:active, body_ahover
+{
+	color: #FF4400;
+}
+.page
+{
+	background: #FFFFFF;
+	color: #000000;
+}
+td, th, p, li
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tborder
+{
+	background: #5b5d43;
+	color: #000000;
+	border: 1px solid #0B198C;
+}
+.tcat
+{
+	background: #727453;
+	color: #FFFFFF;
+	font: bold 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.tcat a:link, .tcat_alink
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:visited, .tcat_avisited
+{
+	color: #ffffff;
+	text-decoration: none;
+}
+.tcat a:hover, .tcat a:active, .tcat_ahover
+{
+	color: #FFFF66;
+	text-decoration: underline;
+}
+.thead
+{
+	background: #5b5d43;
+	color: #FFFFFF;
+	font: bold 11px tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.thead a:link, .thead_alink
+{
+	color: #FFFFFF;
+}
+.thead a:visited, .thead_avisited
+{
+	color: #FFFFFF;
+}
+.thead a:hover, .thead a:active, .thead_ahover
+{
+	color: #FFFF00;
+}
+.tfoot
+{
+	background: #727453;
+	color: #FFFFFF;
+}
+.tfoot a:link, .tfoot_alink
+{
+	color: #FFFFFF;
+}
+.tfoot a:visited, .tfoot_avisited
+{
+	color: #FFFFFF;
+}
+.tfoot a:hover, .tfoot a:active, .tfoot_ahover
+{
+	color: #FFFF66;
+}
+.alt1, .alt1Active
+{
+	background: #F5F5FF;
+	color: #000000;
+}
+.alt2, .alt2Active
+{
+	background: #DDDDDD;
+	color: #000000;
+}
+.inlinemod
+{
+	background: #FFFFCC;
+	color: #000000;
+}
+.wysiwyg
+{
+	background: #DDDDDD;
+	color: #000000;
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	margin: 5px 10px 10px 10px;
+	padding: 0px;
+}
+.wysiwyg a:link, .wysiwyg_alink
+{
+	color: #22229C;
+}
+.wysiwyg a:visited, .wysiwyg_avisited
+{
+	color: #22229C;
+}
+.wysiwyg a:hover, .wysiwyg a:active, .wysiwyg_ahover
+{
+	color: #FF4400;
+}
+textarea, .bginput
+{
+	font: 10pt verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.bginput option, .bginput optgroup
+{
+	font-size: 10pt;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.button
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+select
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+option, optgroup
+{
+	font-size: 11px;
+	font-family: verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.smallfont
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.time
+{
+	color: #333333;
+}
+.navbar
+{
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.highlight
+{
+	color: #FF0000;
+	font-weight: bold;
+}
+.fjsel
+{
+	background: #053061;
+	color: #DDDDDD;
+}
+.fjdpth0
+{
+	background: #F7F7F7;
+	color: #000000;
+}
+.panel
+{
+	background: #CCCCCC;
+	color: #000000;
+	padding: 10px;
+	border: 2px outset;
+}
+.panelsurround
+{
+	background: #CCCCCC;
+	color: #000000;
+}
+legend
+{
+	color: #22229C;
+	font: 11px tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+}
+.vbmenu_control
+{
+	background: #727453;
+	color: #FFFFFF;
+	font: bold 11px tahoma, verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	padding: 3px 6px 3px 6px;
+	white-space: nowrap;
+}
+.vbmenu_control a:link, .vbmenu_control_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:visited, .vbmenu_control_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_control a:hover, .vbmenu_control a:active, .vbmenu_control_ahover
+{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+.vbmenu_popup
+{
+	background: #FFFFFF;
+	color: #000000;
+	border: 1px solid #0B198C;
+}
+.vbmenu_option
+{
+	background: #CCCCCC;
+	color: #000000;
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_option a:link, .vbmenu_option_alink
+{
+	color: #22229C;
+	text-decoration: none;
+}
+.vbmenu_option a:visited, .vbmenu_option_avisited
+{
+	color: #22229C;
+	text-decoration: none;
+}
+.vbmenu_option a:hover, .vbmenu_option a:active, .vbmenu_option_ahover
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_hilite
+{
+	background: #8A949E;
+	color: #FFFFFF;
+	font: 11px verdana, geneva, lucida, 'lucida grande', arial, helvetica, sans-serif;
+	white-space: nowrap;
+	cursor: pointer;
+}
+.vbmenu_hilite a:link, .vbmenu_hilite_alink
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_hilite a:visited, .vbmenu_hilite_avisited
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+.vbmenu_hilite a:hover, .vbmenu_hilite a:active, .vbmenu_hilite_ahover
+{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+/* ***** styling for 'big' usernames on postbit etc. ***** */
+.bigusername { font-size: 14pt; }
+
+/* ***** small padding on 'thead' elements ***** */
+td.thead, div.thead { padding: 4px; }
+
+/* ***** basic styles for multi-page nav elements */
+.pagenav a { text-decoration: none; }
+.pagenav td { padding: 2px 4px 2px 4px; }
+
+/* ***** define margin and font-size for elements inside panels ***** */
+.fieldset { margin-bottom: 6px; }
+.fieldset, .fieldset td, .fieldset p, .fieldset li { font-size: 11px; }
+
+/* ***** don't change the following ***** */
+form { display: inline; }
+label { cursor: default; }
+.normal { font-weight: normal; }
+.inlineimg { vertical-align: middle; }
+
+BODY {
+	SCROLLBAR-BASE-COLOR: {categorybackcolor};
+	SCROLLBAR-ARROW-COLOR: {categoryfontcolor};
+}
+SELECT {
+	FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif;
+	FONT-SIZE: 11px;
+	COLOR: #000000;
+	BACKGROUND-COLOR: #CFCFCF
+}
+TEXTAREA, .bginput {
+	FONT-SIZE: 12px;
+	FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif;
+	COLOR: #000000;
+	BACKGROUND-COLOR: #CFCFCF
+}
+A:link.os {
+ font-family: Verdana, Helvetica, sans-serif;
+ font-size: 12px;
+ color: #F1F1F1;
+} 
+A:visited.os {
+ font-family: Verdana, Helvetica, sans-serif;
+ font-size: 12px;
+ color: #F1F1F1;
+}
+A:link, A:visited, A:active {
+	COLOR: {linkcolor};
+}
+A:hover {
+	COLOR: {hovercolor};
+}
+#cat A:link, #cat A:visited, #cat A:active {
+	COLOR: {categoryfontcolor};
+	TEXT-DECORATION: none;
+}
+#cat A:hover {
+	COLOR: {categoryfontcolor};
+	TEXT-DECORATION: underline;
+}
+#ltlink A:link, #ltlink A:visited, #ltlink A:active {
+	COLOR: {linkcolor};
+	TEXT-DECORATION: none;
+}
+#ltlink A:hover {
+	COLOR: {hovercolor};
+	TEXT-DECORATION: underline;
+}
+.thtcolor {
+	COLOR: {tableheadtextcolor};
+}
+
+#aup  { font-size:10pt }
+.clickhere { cursor:pointer }
+
+/* RSS stlying */
+
+.rssttl {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	font-style: normal;
+	color: #000000;
+	font-weight: bold;
+	
+		margin: 0px 0;
+	padding: 0;
+}
+/* begin styles for RSS Feed */
+
+.rss_box {
+	width: 325px;
+	background-color: #EEEEEE;
+	text-align: left;
+	vertical-align: middle;
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+}
+.rss_items {
+	padding:5px;
+	color:#000000;
+	margin: 0px;
+
+}
+p.rss_title {
+	margin: 0px;
+	padding:3px;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bolder;
+	color: #FFFFCC;
+	background-color:#FFFFFF;
+	border-top: 1px solid #727453;
+	border-right: 1px solid #727453;
+	border-bottom: 1px solid #727453;
+	border-left: 1px solid #727453;
+	
+	
+}
+.rss_title, rss_title a {
+	text-decoration: none;
+	font-family: verdana, sans-serif;
+	font-size: 9px
+	background-color:#DDDDDD;
+	color:#000000;
+	font-weight:bold;
+	margin: 0px;
+	padding:0px;
+	text-align: left;
+	font-size: 12px;
+	border-left-width: 0px;
+	border-left-style: solid;
+	border-left-color: #ffffff;
+}
+
+.rss_item  {
+	font-family: verdana, arial, sans-serif;
+	font-size: 9px;
+	font-weight : normal;
+	color: #000000;
+	list-style:none;
+	margin-bottom: 6px;
+	padding:0;
+      
+         overflow:hidden
+}
+
+.rss_item a {
+	color:#053061;
+	font-size: 11px;
+	font-weight:bold;
+	font-family: Arial, Helvetica, sans-serif;
+	font-style: normal;
+	text-decoration: none;
+	text-indent: 0px;
+	line-height: 12px;
+	letter-spacing: normal;
+	text-align: left;
+	vertical-align: bottom;
+	word-spacing: normal;
+	}
+	
+.rss_item a:visited {
+	color:#053061;
+}
+.rss_item a:hover {
+	color:#053061;
+	text-decoration: underline;
+}
+
+.rss_date {
+	font-size: 10px;
+	font-weight : normal;
+	color: #0033CC;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	}
+</style>
+<link rel="stylesheet" type="text/css" href="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/vbulletin_important.css">
+
+
+<!-- / CSS Stylesheet -->
+
+      
+
+<script language="JavaScript"> 
+<!-- 
+OAS_url = 'http://mjxads.internet.com/RealMedia/ads/'; 
+OAS_sitepage ='intm/webdev/www.codeguru.com/forum'; 
+OAS_listpos = '234x60-1,234x60-2,125x800,125x125-1,468x60-1,468x60-2,cp1,cp10,cp11,cp12,cp13,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,flex,send,stickypost,house_ribbon,336x280,336x280-2,sponsor-20'; 
+OAS_query = ''; 
+OAS_target = '_top'; 
+OAS_version = 10; 
+OAS_rn = '001234567890'; OAS_rns = '1234567890'; 
+OAS_rn = new String (Math.random()); OAS_rns = OAS_rn.substring (2, 11); 
+function OAS_NORMAL(pos) { 
+var_a=('<A HREF="' + OAS_url + 'click_nx.cgi/' + OAS_sitepage ); 
+var_b=(var_a + '/1' + OAS_rns + '@' + OAS_listpos + '!' + pos + '?' ); 
+var_c=(var_b+ OAS_query + '" TARGET=' + OAS_target + '>'); 
+document.write(var_c); 
+var_aa=('<IMG SRC="' + OAS_url + 'adstream_nx.cgi/' + OAS_sitepage ); 
+var_bb=( var_aa + '/1' + OAS_rns + '@' + OAS_listpos + '!' + pos + '?'); 
+var_cc=( var_bb + OAS_query + '" BORDER=0></A>'); 
+document.write(var_cc); 
+} 
+//--> 
+</script> 
+
+<script language="JavaScript1.1"> 
+<!-- 
+OAS_version = 11; 
+if (navigator.userAgent.indexOf('Mozilla/3') != -1 ) 
+OAS_version = 10; 
+if (navigator.userAgent.indexOf('Mozilla/4.0 WebTV') != -1) 
+OAS_version = 10; 
+if (OAS_version >= 11) { 
+var_aaa=('<SCRIPT LANGUAGE=JavaScript1.1 SRC="' + OAS_url); 
+var_bbb=(var_aaa + 'adstream_mjx.ads/' + OAS_sitepage + '/1'); 
+var_ccc=(var_bbb + OAS_rns + '@' + OAS_listpos + '?' + OAS_query ); 
+var_ddd=(var_ccc + '"><\/SCRIPT>'); 
+document.write(var_ddd); 
+} 
+//--> 
+</script><script language="JavaScript1.1" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/1350238330@234x60-1,234x60-2,125x800,125x125-1,468x60-1,468x60-2,cp1,cp10,cp11,cp12,cp13,cp2,cp3,cp4,cp5,cp6,cp7,cp8,cp9,flex,sen"></script> 
+
+<script language="JavaScript"> 
+<!-- 
+document.write(''); 
+function OAS_AD(pos) { 
+if (OAS_version >= 11) 
+OAS_RICH(pos); 
+else 
+OAS_NORMAL(pos); 
+} 
+//--> 
+</script>
+
+<script type="text/javascript" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/yahoo-dom-event.js"></script>
+<script type="text/javascript" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/connection-min.js"></script>
+<script type="text/javascript">
+<!--
+var SESSIONURL = "s=6178fdf8c460f20fdc419a04ddac58c7&";
+var SECURITYTOKEN = "guest";
+var IMGDIR_MISC = "images/misc";
+var vb_disable_ajax = parseInt("0", 10);
+// -->
+</script>
+<script type="text/javascript" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/vbulletin_global.js"></script>
+<script type="text/javascript" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/vbulletin_menu.js"></script>
+
+
+	<link rel="alternate" type="application/rss+xml" title="CodeGuru Forums RSS Feed" href="http://www.codeguru.com/forum/external.php?type=RSS2">
+	
+		<link rel="alternate" type="application/rss+xml" title="CodeGuru Forums - CodeGuru Individual FAQs - RSS Feed" href="http://www.codeguru.com/forum/external.php?type=RSS2&forumids=81">
+	
+
+
+<script type="text/JavaScript">
+<!--
+function xmlhttpPost(strURL) {
+
+var superTracker = _gat._getTracker("UA-2838492-1"); 
+ superTracker._initData();
+ superTracker._trackPageview();
+ 
+    pageTracker._initData();
+    pageTracker._trackPageview();
+
+    var xmlHttpReq = false;
+    var self = this;
+    // gecko/opera/safari
+    if (window.XMLHttpRequest) {
+        self.xmlHttpReq = new XMLHttpRequest();
+    }
+    // IE
+    else if (window.ActiveXObject) {
+        self.xmlHttpReq = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    self.xmlHttpReq.open('POST', strURL, true);
+    self.xmlHttpReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    self.xmlHttpReq.onreadystatechange = function() {
+        if (self.xmlHttpReq.readyState == 4) {
+            updatepage(self.xmlHttpReq.responseText);
+        }
+    }
+    self.xmlHttpReq.send(getquerystring());
+}
+
+function getquerystring() {
+
+qstr='<?'+
+ 'oas_setup("intm/webdev/www.codeguru.com/forum@'+
+ '468x60-1,336x280,336x280-2,468x60-2,'+
+ 'echo oas_ad(\'OAS_468-1\');'+
+ '?>';
+
+    return qstr;
+
+}
+
+function updatepage(str){
+var ads=str.split('|');
+
+var bob=ads[0];
+var bot=ads[1];
+
+    
+    document.getElementById("bob").innerHTML = bob;
+    document.getElementById("bot").innerHTML = bot;
+
+}
+//-->
+</script>
+	<title> Visual C++ DLL: How to build a DLL to be used from another programming language? - CodeGuru Forums</title>
+	<script type="text/javascript" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/vbulletin_post_loader.js"></script>
+	<style type="text/css" id="vbulletin_showthread_css">
+	<!--
+	
+	#links div { white-space: nowrap; }
+	#links img { vertical-align: middle; }
+	-->
+	</style>
+</head>
+<body onload="">
+
+
+
+	<title>CodeGuru Forums - </title>
+
+
+
+
+
+<script language="javascript" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/cmp0.js"></script>
+<script language="javascript" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/fx.js"></script>
+<script language="JavaScript" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/fc.js"></script>
+
+
+<!-- JP -->
+<!-- blj - changed bgcolor="FFFFFF" to class="vbmenu_control" in columns -->
+
+<table bgcolor="000000" background="" cellspacing="1" cellpadding="2" border="0" width="100%">
+      	<tbody><tr>
+      	  <td class="vbmenu_control" align="center"><a href="http://www.codeguru.com/" class="topnav">CodeGuru Home</a></td>
+      	  <td class="vbmenu_control" align="center"><a href="http://www.codeguru.com/Cpp/" class="topnav">VC++ / MFC / C++ </a></td>
+      	  <td class="vbmenu_control" align="center"><a href="http://www.codeguru.com/Csharp/" class="topnav">.NET / C#</a></td>
+      	  <td class="vbmenu_control" align="center"><a href="http://www.codeguru.com/vb/" class="topnav">Visual Basic</a></td>
+      	  <td class="vbmenu_control" align="center"><a href="http://e-newsletters.internet.com/" class="topnav">Newsletters</a></td>
+      	  <td class="vbmenu_control" align="center"><a href="http://www.vbforums.com/" target="new" class="topnav">VB Forums</a></td>
+      	  <td class="vbmenu_control" align="center"><a href="http://www.developer.com/" class="topnav">Developer.com</a></td>
+      	  <td class="vbmenu_control" align="center"><a href="http://www.internet.com/ebook" class="topnav">eBook Library</a></td>
+
+      	</tr>
+</tbody></table>
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tbody><tr>
+    <td valign="top" align="center" width="100%">
+
+	  <br>
+
+	  <table width="100%" cellpadding="0" cellspacing="0" bordercolor="#555576" valign="top" border="0" style="border-collapse:collapse" height="200" bgcolor="#FFFFFF">
+ 	    <tbody><tr>
+<!-- blj -->
+<!-- replaced background color from bgcolor="#888888" with class= in following column -->
+	      <td class="vbmenu_control">
+<font face="verdana,arial,helvetica" size="2">
+<br>
+<center><b><font color="#FFF788"><strong>Newest <a href="http://www.codeguru.com/">CodeGuru.com</a>
+Articles:</strong></font></b></center>
+<br>
+
+		  </font></td>
+		</tr>
+		<tr>
+
+		
+
+		  <td bgcolor="#F1F1F1">
+
+
+			<table border="0" cellpadding="0" cellspacing="0" width="373" align="center">
+			    <tbody><tr>
+			    <td align="center">
+<!-- News Headlines -->
+
+<font size="-1">
+<li type="square">
+<a href="http://www.codeguru.com//csharp/.net/net_framework/article.php/c18527">Top 6 Ways to Improve Your .NET Framework Code</a>
+</li>
+<li type="square">
+<a href="http://www.codeguru.com//announcements/article.php/422294">Custom Walkthrough: Create an Azure-integrated Windows 7 Phone App</a>
+</li>
+<li type="square">
+<a href="http://www.codeguru.com//announcements/article.php/422292">Tapping the Power of Facebook and the Cloud</a>
+</li>
+<li type="square">
+<a href="http://www.codeguru.com//csharp/.net/net_asp/mvc/article.php/c18513">Add Simple Ajax Paging to Grids in ASP.NET MVC</a>
+</li>
+
+</font>
+
+<!-- /News Headlines -->
+
+				</td>
+				</tr>
+			</tbody></table>
+
+<br>
+
+				  <!-- ------ SEARCH BOX ------ -->
+<!--form method=post action="http://search.internet.com/codeguru.earthweb.com">
+<input type="hidden" name="IC_QueryDatabase" value="www.codeguru.com+www.codeguru.com-article+www.codeguru.com-comment"-->
+<form method="post" action="http://search.internet.com/www.codeguru.com" name="myform">
+<input type="hidden" name="starget" value="">
+<input type="hidden" name="IC_QueryDatabase" value="">
+<font face="verdana, arial, helvetica" size="2"></font><center><font face="verdana, arial, helvetica" size="2"><b>Search CodeGuru:</b></font><br>
+<select name="searchsite" style="color: #000000; font-family:  verdana, arial, sans-serif ; font-weight: normal; font-size: 9pt; background-color: #ffffff;">
+<option value="CodeGuru" selected="">CodeGuru.com</option>
+<option value="CodeGuru-Articles">---Articles</option>
+<option value="CodeGuru-Comments">---Comments</option>
+<option value="CodeGuru-Forums">---Forums</option>
+<option value="Earthweb">Earthweb</option>
+</select>
+<input type="text" name="IC_QueryText" size="9" maxlength="50">
+&nbsp;<input type="image" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/search2.gif" align="ABSMIDDLE" vspace="4" hspace="0" border="0" name="submit" value="Go">
+</center>
+<!-- ------ SEARCH BOX ------ -->
+</form>
+
+<br><!-- blj --><!-- removed 2 BR tags and added one below -->
+
+</td></tr>
+        <tr align="left" valign="bottom">
+	<td valign="bottom" align="left" width="100%" bgcolor="#053061">
+<br><a href="http://www.codeguru.com/"><img src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/cg_logo3.gif" border="0" align="center" valign="bottom"></a>
+
+		  </td>
+		</tr>
+	  </tbody></table>
+
+    </td>  
+
+	<!--<td>
+	
+	  <table cellpadding="5" cellspacing="0" border="0" valign = top>
+		<tr> -->
+		<td id="bob" valign="top"><br>
+
+
+				<!-- BOB AD -->
+		 
+<script language="JavaScript">zzfocrender("203", "9479", "651421/651419/651418/651132/581034", "9", "300", "250", "", "", "");</script><script language="JavaScript" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/i0.js"></script><a href="http://o1.qnsr.com//cgi/c?a=20133382;x=2305;c=203651421,203651421;i=0;n=203;p=20934695;;;y=http://www.codeguru.com/forum/showthread.php?t=231254;;e=i;s=9479;g=254;w=0;m=0;z=4790865979&exp=y;;k=http://www.ironspeed.com/DevX03.aspx" target="_blank" onmouseover="window.status=&#39;&#39;; return true;" onmouseout="window.status=&#39;&#39;; return true;"><img src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/DevX.EasyWayHardWay.2010.02.25.336x280CodeIsCheap.gif" border="0" alt="Click Here!" title="Click Here!"></a><script language="JavaScript" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/g.js"></script>
+<noscript>
+&lt;a href="http://o1.qnsr.com/cgi/r?;n=203;c=651421/651419/651418/651132/581034;s=9479;x=2304;f=465987862;u=j;z=20110221222155" target="_blank"&gt;
+&lt;img border="0" width="300" height="250" src="http://o1.qnsr.com/cgi/x?;n=203;c=651421/651419/651418/651132/581034;s=9479;x=2304;f=465987862;u=j;z=20110221222155" alt="Click here"&gt;&lt;/a&gt;
+</noscript>
+
+				<!-- /BOB AD -->
+
+	<!--	</td>	
+	  </tr>
+	</table>-->
+</td></tr>
+	</tbody></table>
+
+  
+<!-- JP -->
+<br>
+
+<!-- breadcrumb, login, pm info -->
+<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="100%" align="center">
+<tbody><tr>
+	<td class="alt1" width="100%">
+		
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tbody><tr valign="bottom">
+				<td><a href="http://www.codeguru.com/forum/showthread.php?t=231254#" onclick="history.back(1); return false;"><img src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/navbits_start.gif" alt="Go Back" border="0" title="Go Back"></a></td>
+				<td>&nbsp;</td>
+				<td width="100%"><span class="navbar"><a href="http://www.codeguru.com/forum/index.php?s=6178fdf8c460f20fdc419a04ddac58c7" accesskey="1">CodeGuru Forums</a></span> 
+	<span class="navbar">&gt; <a href="http://www.codeguru.com/forum/forumdisplay.php?s=6178fdf8c460f20fdc419a04ddac58c7&f=72">CodeGuru Technical FAQs</a></span>
+
+
+	<span class="navbar">&gt; <a href="http://www.codeguru.com/forum/forumdisplay.php?s=6178fdf8c460f20fdc419a04ddac58c7&f=81">CodeGuru Individual FAQs</a></span>
+
+</td>
+			</tr>
+			<tr>
+				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums.htm"><img class="inlineimg" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/navbits_finallink_ltr.gif" alt="Reload this Page" border="0" title="Reload this Page"></a> <strong>
+	 Visual C++ DLL: How to build a DLL to be used from another programming language?
+
+</strong></td>
+			</tr>
+			</tbody></table>
+		
+	</td>
+
+	<td class="alt2" nowrap="nowrap" style="padding:0px">
+		<!-- login form -->
+		<!-- <form action="/login.php" method="post" onsubmit="md5hash(vb_login_password, vb_login_md5password, vb_login_md5password_utf, 0)">
+		<script type="text/javascript" src="clientscript/vbulletin_md5.js?v=373"></script> -->
+
+<form action="http://www.codeguru.com/login.php" method="post">
+  <input type="hidden" name="action" value="login">
+  <input type="hidden" name="url" value="/">
+
+		<table cellpadding="0" cellspacing="3" border="0">
+		<tbody><tr>
+			<td class="smallfont" style="white-space: nowrap;"><label for="navbar_username">User Name</label></td>
+			<td><input type="text" class="bginput" style="font-size: 11px" name="username" id="navbar_username" size="10" accesskey="u" tabindex="101" value="User Name" onfocus="if (this.value == &#39;User Name&#39;) this.value = &#39;&#39;;"></td>
+			<td class="smallfont" nowrap="nowrap"><label for="cb_cookieuser_navbar"><input type="checkbox" name="perm" value="1" tabindex="103" id="cb_cookieuser_navbar" accesskey="c">Remember Me?</label></td>
+		</tr>
+		<tr>
+			<td class="smallfont"><label for="navbar_password">Password</label></td>
+			<td><input type="password" class="bginput" style="font-size: 11px" name="password" id="navbar_password" size="10" tabindex="102"></td>
+			<td><input type="submit" class="button" value="Log in" tabindex="104" title="Enter your username and password in the boxes provided to login, or click the &#39;register&#39; button to create a profile for yourself." accesskey="s"></td>
+		</tr>
+
+
+		</tbody></table>
+		<input type="hidden" name="s" value="6178fdf8c460f20fdc419a04ddac58c7">
+		<input type="hidden" name="securitytoken" value="guest">
+		<input type="hidden" name="action" value="login">
+		<input type="hidden" name="vb_login_md5password">
+		<input type="hidden" name="vb_login_md5password_utf">
+  <input type="hidden" name="url" value="/forum/showthread.php?t=231254">
+		</form>
+		<!-- / login form -->
+	</td>
+
+</tr>
+</tbody></table>
+<!-- / breadcrumb, login, pm info -->
+
+<!-- nav buttons bar -->
+<div class="tborder" style="padding:1px; border-top-width:0px">
+	<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+	<tbody><tr align="center">
+		
+		
+		
+		<td class="vbmenu_control"><a href="http://www.codeguru.com/forum/faq.php?s=6178fdf8c460f20fdc419a04ddac58c7" accesskey="5">FAQ</a></td>
+		
+			<td class="vbmenu_control"><a href="http://www.codeguru.com/forum/memberlist.php?s=6178fdf8c460f20fdc419a04ddac58c7">Members List</a></td>
+		
+		<td class="vbmenu_control"><a href="http://www.codeguru.com/forum/calendar.php?s=6178fdf8c460f20fdc419a04ddac58c7">Calendar</a></td>
+		
+			
+				
+				<td class="vbmenu_control"><a href="http://www.codeguru.com/forum/search.php?s=6178fdf8c460f20fdc419a04ddac58c7&do=getdaily" accesskey="2">Today's Posts</a></td>
+				
+				<td id="navbar_search" class="vbmenu_control"><a href="http://www.codeguru.com/forum/search.php?s=6178fdf8c460f20fdc419a04ddac58c7" accesskey="4" rel="nofollow">Search</a> </td>
+			
+			
+		
+		
+		
+		</tr>
+	</tbody></table>
+</div>
+<!-- / nav buttons bar -->
+
+<br>
+
+
+
+
+	<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="100%" align="center">
+	<tbody><tr>
+		<td class="alt1" width="100%"><strong>CodeGuru Individual FAQs</strong> <span class="smallfont">The indivdual FAQs for CodeGuru. See the specific Topic FAQ forums for index pages and links to these Frequently Asked/Answered Questions.</span></td>
+
+	</tr>
+	</tbody></table>
+	<br>
+
+
+
+<!-- NAVBAR POPUP MENUS -->
+
+	
+	<!-- header quick search form -->
+	<div class="vbmenu_popup" id="navbar_search_menu" style="display:none" align="left">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead">Search Forums</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+				<form action="http://www.codeguru.com/forum/search.php?do=process" method="post">
+
+					<input type="hidden" name="do" value="process">
+					<input type="hidden" name="quicksearch" value="1">
+					<input type="hidden" name="childforums" value="1">
+					<input type="hidden" name="exactname" value="1">
+					<input type="hidden" name="s" value="6178fdf8c460f20fdc419a04ddac58c7">
+					<input type="hidden" name="securitytoken" value="guest">
+					<div><input type="text" class="bginput" name="query" size="25" tabindex="1001"><input type="submit" class="button" value="Go" tabindex="1004"></div>
+					<div style="margin-top:3px">
+						<label for="rb_nb_sp0"><input type="radio" name="showposts" value="0" id="rb_nb_sp0" tabindex="1002" checked="checked">Show Threads</label>
+						&nbsp;
+						<label for="rb_nb_sp1"><input type="radio" name="showposts" value="1" id="rb_nb_sp1" tabindex="1003">Show Posts</label>
+					</div>
+				</form>
+			</td>
+		</tr>
+		
+		<tr>
+			<td class="vbmenu_option"><a href="http://www.codeguru.com/forum/tags.php?s=6178fdf8c460f20fdc419a04ddac58c7" rel="nofollow">Tag Search</a></td>
+		</tr>
+		
+		<tr>
+			<td class="vbmenu_option"><a href="http://www.codeguru.com/forum/search.php?s=6178fdf8c460f20fdc419a04ddac58c7" accesskey="4" rel="nofollow">Advanced Search</a></td>
+		</tr>
+		
+		</tbody></table>
+	</div>
+	<!-- / header quick search form -->
+	
+
+	
+<!-- / NAVBAR POPUP MENUS -->
+
+<!-- PAGENAV POPUP -->
+	<div class="vbmenu_popup" id="pagenav_menu" style="display:none">
+		<table cellpadding="4" cellspacing="1" border="0">
+		<tbody><tr>
+			<td class="thead" nowrap="nowrap">Go to Page...</td>
+		</tr>
+		<tr>
+			<td class="vbmenu_option" title="nohilite">
+			<form action="http://www.codeguru.com/forum/index.php" method="get" onsubmit="return this.gotopage()" id="pagenav_form">
+				<input type="text" class="bginput" id="pagenav_itxt" style="font-size:11px" size="4">
+				<input type="button" class="button" id="pagenav_ibtn" value="Go">
+			</form>
+			</td>
+		</tr>
+		</tbody></table>
+	</div>
+<!-- / PAGENAV POPUP -->
+
+
+<center></center>
+
+
+
+
+
+<a name="poststop" id="poststop"></a>
+
+<!-- controls above postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-bottom:3px">
+<tbody><tr valign="bottom">
+	
+		<td class="smallfont"><a href="http://www.codeguru.com/forum/newreply.php?s=6178fdf8c460f20fdc419a04ddac58c7&do=newreply&noquote=1&p=679174" rel="nofollow"><img src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	
+</tr>
+</tbody></table>
+<!-- / controls above postbits -->
+
+<!-- toolbar -->
+<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="100%" align="center" style="border-bottom-width:0px">
+<tbody><tr>
+	<td class="tcat" width="100%">
+		<div class="smallfont">
+		
+		&nbsp;
+		</div>
+	</td>
+	<td class="vbmenu_control" id="threadtools" nowrap="nowrap" style="cursor: pointer; ">
+		<a href="http://www.codeguru.com/forum/showthread.php?t=231254&nojs=1#goto_threadtools">Thread Tools</a>
+		<script type="text/javascript"> vbmenu_register("threadtools"); </script> <img src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+		<td class="vbmenu_control" id="threadsearch" nowrap="nowrap" style="cursor: pointer; ">
+			<a href="http://www.codeguru.com/forum/showthread.php?t=231254&nojs=1#goto_threadsearch">Search this Thread</a>
+			<script type="text/javascript"> vbmenu_register("threadsearch"); </script> <img src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/menu_open.gif" border="0" title="" alt="">
+		</td>
+	
+	
+	
+	<td class="vbmenu_control" id="displaymodes" nowrap="nowrap" style="cursor: pointer; ">
+		<a href="http://www.codeguru.com/forum/showthread.php?t=231254&nojs=1#goto_displaymodes">Display Modes</a>
+		<script type="text/javascript"> vbmenu_register("displaymodes"); </script> <img src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/menu_open.gif" border="0" title="" alt="">
+	</td>
+	
+
+	
+
+</tr>
+</tbody></table>
+<!-- / toolbar -->
+
+
+
+<!-- end content table -->
+
+		
+	
+
+
+<!-- / close content container -->
+<!-- / end content table -->
+
+
+
+
+
+<div id="posts"><!-- post #679174 -->
+
+	<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 5px 0px 5px" align="left">
+
+	<div id="edit679174" style="padding:0px 0px 3px 0px">
+	
+
+
+
+<table class="tborder" id="post679174" cellpadding="3" cellspacing="1" border="0" width="100%" align="center">
+<tbody><tr>
+	<td class="thead">
+		<div class="normal" style="float:right">
+			&nbsp;
+			#<a href="http://www.codeguru.com/forum/showpost.php?s=6178fdf8c460f20fdc419a04ddac58c7&p=679174&postcount=1" target="new" rel="nofollow" id="postcount679174" name="1"><strong>1</strong></a> &nbsp;
+
+<!--JP added reps test-->
+  
+			
+
+<!--/JP added reps test-->
+
+				<script type="text/javascript"> vbrep_register("679174")</script>&nbsp;
+			
+			
+			
+			
+			
+		</div>
+
+		<div class="normal">
+			<!-- status icon and date -->
+			<a name="post679174"><img class="inlineimg" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/post_old.gif" alt="Old" border="0" title="Old"></a>
+			
+				February 14th, 2003, 10:47 AM
+			
+			
+			<!-- / status icon and date -->
+		</div>
+	</td>
+</tr>
+<tr>
+	<td class="alt2" style="padding:0px">
+		<!-- user info -->
+		<table cellpadding="0" cellspacing="3" border="0" width="100%">
+		<tbody><tr>
+			<td class="alt2"><a href="http://www.codeguru.com/forum/member.php?s=6178fdf8c460f20fdc419a04ddac58c7&u=54586"><img src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/image.php" alt="Gabriel Fleseriu&#39;s Avatar" border="0" title="Gabriel Fleseriu&#39;s Avatar"></a></td>
+			<td nowrap="nowrap">
+
+				<div id="postmenu_679174">
+					
+					<a class="bigusername" href="http://www.codeguru.com/forum/member.php?s=6178fdf8c460f20fdc419a04ddac58c7&u=54586">Gabriel Fleseriu</a>
+					<img class="inlineimg" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/user_offline.gif" alt="Gabriel Fleseriu is offline" border="0" title="Gabriel Fleseriu is offline">
+
+
+					<script type="text/javascript"> vbmenu_register("postmenu_679174", true); </script>
+					
+				</div>
+
+				<div class="smallfont">Moderator/Microsoft MVP</div>
+				
+				
+
+			</td>
+			<td width="100%">&nbsp;</td>
+			<td valign="top" nowrap="nowrap">
+
+				<div class="smallfont">
+					<div>Join Date: Jun 2001</div>
+					<div>Location: Switzerland</div>
+					
+					<div>
+						Posts: 4,443
+					</div>
+					
+					
+<div><span id="repdisplay_679174_54586"><img class="inlineimg" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/reputation_pos.gif" alt="Gabriel Fleseriu is a glorious beacon of light (400+)" border="0" title="Gabriel Fleseriu is a glorious beacon of light (400+)"><img class="inlineimg" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/reputation_pos.gif" alt="Gabriel Fleseriu is a glorious beacon of light (400+)" border="0" title="Gabriel Fleseriu is a glorious beacon of light (400+)"><img class="inlineimg" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/reputation_pos.gif" alt="Gabriel Fleseriu is a glorious beacon of light (400+)" border="0" title="Gabriel Fleseriu is a glorious beacon of light (400+)"><img class="inlineimg" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/reputation_pos.gif" alt="Gabriel Fleseriu is a glorious beacon of light (400+)" border="0" title="Gabriel Fleseriu is a glorious beacon of light (400+)"><img class="inlineimg" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/reputation_pos.gif" alt="Gabriel Fleseriu is a glorious beacon of light (400+)" border="0" title="Gabriel Fleseriu is a glorious beacon of light (400+)"><img class="inlineimg" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/reputation_highpos.gif" alt="Gabriel Fleseriu is a glorious beacon of light (400+)" border="0" title="Gabriel Fleseriu is a glorious beacon of light (400+)"></span></div>
+					
+					<div>    </div>
+				</div>
+
+			</td>
+		</tr>
+		</tbody></table>
+		<!-- / user info -->
+	</td>
+</tr>
+<tr>
+	
+	<td class="alt1" id="td_post_679174">
+		
+	<!-- message, attachments, sig -->
+
+		
+
+		
+			<!-- icon and title -->
+			<div class="smallfont">
+				
+				<strong>Visual C++ DLL: How to build a DLL to be used from another programming language?</strong>
+			</div>
+			<hr size="1" style="color:#5b5d43; background-color:#5b5d43">
+			<!-- / icon and title -->
+		
+
+<div class="litcontent">
+		<!-- message -->
+		<div id="post_message_679174">
+			
+			<b>Q:</b> How to build a DLL to be used from another programming language?<br>
+<b>Q:</b> How to a DLL and have the exported functions called via LoadLibrary() and GetProcAddress()?<br>
+<br>
+<b>A:</b> When you create a DLL with Visual C++, and you want to use the DLL with other languages, there are a few things that you should do (creating a DLL isn't just compiling code).<br>
+<br><ol style="list-style-type: lower-alpha"><li>Make sure your exported functions are declared as extern "C". The reason for this is so that the C++ name mangling is not used on the exported function names.<br>
+<br><br></li>
+<li>Make sure your exported functions use '__stdcall' calling convention. The reason for this is that most other Window's languages assume the exported functions retrieve parameters starting from the rightmost parameter, and that the function called is responsible for stack cleanup on return. By default C and C++ functions assume '__cdecl' calling convention.<br>
+<br>
+You won't know when this problem exists until you call the exported function in your Delphi program. You did not declare<br>
+your function as '__stdcall', so your [insert porgramming language, other than C/C++, here] program would have crashed as soon as you called the function.<br>
+<br><br></li>
+<li>Use '__declspec(dllexport)'. This is so that the function can be exported (of course).<br>
+<br><br></li>
+<li>Use a module definition file (.def-file). This removes the "@x" decoration that appears at the end of VC++ exported function names, where "x" is the total number of bytes in the arguments passed to the function. When the user of the DLL is using another language, the programmer would rather call "tempest", not "tempest@4". Yes, many of these other languages have an "aliasing" features so that you can access the function by a different name, but it is a pain in the neck. Just use a .def-file to remove the additional decoration and you won't have to do anything else.</li>
+</ol><br><br>
+<b>Note:</b> Just exporting the name does *not* remove all the decoration - you must follow steps a) *and* d). A lot think that you only need to do a) and b) and c). This is if you plan on using the DLL in only Visual C++. If you leave the module definition file out of these steps, you will get what you're seeing now -- an exported name that is not what you expect.<br>
+<br>
+If you do a search on CodeGuru, your question has been asked many times in various ways, and the reason for the problem is almost always that step d) was left out.<br>
+<br>
+Here is a sample of a module-definition fie (DEF file).<br>
+<br>
+<div style="margin:20px; margin-top:5px; ">
+	<div class="smallfont" style="margin-bottom:2px">Quote:</div>
+	<table cellpadding="3" cellspacing="0" border="0" width="100%">
+	<tbody><tr>
+		<td class="alt2" style="border:1px inset">
+			
+				LIBRARY YOURDLL<br>
+DESCRIPTION 'This is my DLL<br>
+<br>
+EXPORTS<br>
+Whatever1 @2<br>
+Whatever2 @3
+			
+		</td>
+	</tr>
+	</tbody></table>
+</div>The LIBRARY command must match the name of your DLL. So if your DLL is named YOURDLL.DLL, the LIBRARY command is followed by YOURDLL.<br>
+<br>
+The DESCRIPTION is any description you feel is appropriate for your DLL. The actual description is preceeded by a single quote (').<br>
+<br>
+The EXPORTS lists the functions that you exported, along with an ordinal number. It doesn't matter what ordinal numbers you use, so long as you maintain different numbers for each function, and you shouldn't change the ordinal numbers when you create an upgraded version of your DLL -- persons preferring to use ordinal numbers to call your functions will get angry.<br>
+<br>
+<br>
+<font color="red">FAQ contributed by:</font> [<a rel="nofollow" href="http://www.codeguru.com/forum/member.php?u=1549" target="_blank">Paul McKenzie</a>]<br>
+<br><br>
+		</div>
+		<!-- / message -->
+</div>
+
+		
+
+		
+		
+
+		
+
+		
+
+		
+		<!-- edit note -->
+			<div class="smallfont">
+				<hr size="1" style="color:#5b5d43; background-color:#5b5d43">
+				<em>
+					
+						Last edited by Andreas Masur; July 25th, 2005 at <span class="time">01:48 AM</span>.
+					
+					
+				</em>
+			</div>
+		<!-- / edit note -->
+		
+
+		<div style="margin-top: 10px" align="right">
+			<!-- controls -->
+			
+			
+			
+				<a href="http://www.codeguru.com/forum/newreply.php?s=6178fdf8c460f20fdc419a04ddac58c7&do=newreply&p=679174" rel="nofollow"><img src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/quote.gif" alt="Reply With Quote" border="0" title="Reply With Quote"></a>
+			
+			
+			
+			
+			
+			
+			
+				
+			
+			
+			<!-- / controls -->
+		</div>
+
+	<!-- message, attachments, sig -->
+
+	</td>
+</tr>
+</tbody></table>
+
+
+<!-- post 679174 popup menu -->
+<div class="vbmenu_popup" id="postmenu_679174_menu" style="display:none;">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Gabriel Fleseriu</td>
+	</tr>
+	
+		<tr><td class="vbmenu_option"><a href="http://www.codeguru.com/forum/member.php?s=6178fdf8c460f20fdc419a04ddac58c7&u=54586">View Public Profile</a></td></tr>
+	
+	
+	
+	
+	
+		<tr><td class="vbmenu_option"><a href="http://www.codeguru.com/forum/search.php?s=6178fdf8c460f20fdc419a04ddac58c7&do=finduser&u=54586" rel="nofollow">Find all posts by Gabriel Fleseriu</a></td></tr>
+	
+	
+	
+	</tbody></table>
+</div>
+<!-- / post 679174 popup menu -->
+
+
+	</div>
+	
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+
+<!-- / post #679174 --><div id="lastpost"></div></div>
+
+<!-- start content table -->
+<!-- open content container -->
+
+<div align="center">
+	<div class="page" style="width:100%; text-align:left">
+		<div style="padding:0px 5px 0px 5px" align="left">
+
+<!-- / start content table -->
+
+<!-- controls below postbits -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:0px">
+<tbody><tr valign="top">
+	
+		<td class="smallfont"><a href="http://www.codeguru.com/forum/newreply.php?s=6178fdf8c460f20fdc419a04ddac58c7&do=newreply&noquote=1&p=679174" rel="nofollow"><img src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/reply.gif" alt="Reply" border="0" title="Reply"></a></td>
+	
+	
+</tr>
+</tbody></table>
+<!-- / controls below postbits -->
+
+
+
+
+<!-- social bookmarking links -->
+	<br>
+	<table cellpadding="3" cellspacing="1" border="0" width="100%" class="tborder" align="center">
+	<tbody><tr>
+		<td class="thead">Bookmarks</td>
+	</tr>
+	<tr>
+		<td class="alt2" style="padding-top:0px"><div style="clear:both"></div><ul style="list-style-type:none; margin:0px; padding:0px"><li class="smallfont" style="width:25%; min-width:160px; float:left; margin-top:3px">
+	
+		<a href="http://digg.com/submit?phrase=2&url=http%3A%2F%2Fwww.codeguru.com%2Fforum%2Fshowthread.php%3Ft%3D231254&title=Visual+C%2B%2B+DLL%3A+How+to+build+a+DLL+to+be+used+from+another+programming+language%3F" target="socialbookmark"><img src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/bookmarksite_digg.gif" border="0" alt="Submit Thread to Digg" class="inlineimg" title="Submit Thread to Digg"></a>
+	
+	<a href="http://digg.com/submit?phrase=2&url=http%3A%2F%2Fwww.codeguru.com%2Fforum%2Fshowthread.php%3Ft%3D231254&title=Visual+C%2B%2B+DLL%3A+How+to+build+a+DLL+to+be+used+from+another+programming+language%3F" target="socialbookmark" style="text-decoration:none">Digg</a>
+</li><li class="smallfont" style="width:25%; min-width:160px; float:left; margin-top:3px">
+	
+		<a href="http://del.icio.us/post?url=http%3A%2F%2Fwww.codeguru.com%2Fforum%2Fshowthread.php%3Ft%3D231254&title=Visual+C%2B%2B+DLL%3A+How+to+build+a+DLL+to+be+used+from+another+programming+language%3F" target="socialbookmark"><img src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/bookmarksite_delicious.gif" border="0" alt="Submit Thread to del.icio.us" class="inlineimg" title="Submit Thread to del.icio.us"></a>
+	
+	<a href="http://del.icio.us/post?url=http%3A%2F%2Fwww.codeguru.com%2Fforum%2Fshowthread.php%3Ft%3D231254&title=Visual+C%2B%2B+DLL%3A+How+to+build+a+DLL+to+be+used+from+another+programming+language%3F" target="socialbookmark" style="text-decoration:none">del.icio.us</a>
+</li><li class="smallfont" style="width:25%; min-width:160px; float:left; margin-top:3px">
+	
+		<a href="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fwww.codeguru.com%2Fforum%2Fshowthread.php%3Ft%3D231254&title=Visual+C%2B%2B+DLL%3A+How+to+build+a+DLL+to+be+used+from+another+programming+language%3F" target="socialbookmark"><img src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/bookmarksite_stumbleupon.gif" border="0" alt="Submit Thread to StumbleUpon" class="inlineimg" title="Submit Thread to StumbleUpon"></a>
+	
+	<a href="http://www.stumbleupon.com/submit?url=http%3A%2F%2Fwww.codeguru.com%2Fforum%2Fshowthread.php%3Ft%3D231254&title=Visual+C%2B%2B+DLL%3A+How+to+build+a+DLL+to+be+used+from+another+programming+language%3F" target="socialbookmark" style="text-decoration:none">StumbleUpon</a>
+</li><li class="smallfont" style="width:25%; min-width:160px; float:left; margin-top:3px">
+	
+		<a href="http://www.google.com/bookmarks/mark?op=edit&output=popup&bkmk=http%3A%2F%2Fwww.codeguru.com%2Fforum%2Fshowthread.php%3Ft%3D231254&title=Visual+C%2B%2B+DLL%3A+How+to+build+a+DLL+to+be+used+from+another+programming+language%3F" target="socialbookmark"><img src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/bookmarksite_google.gif" border="0" alt="Submit Thread to Google" class="inlineimg" title="Submit Thread to Google"></a>
+	
+	<a href="http://www.google.com/bookmarks/mark?op=edit&output=popup&bkmk=http%3A%2F%2Fwww.codeguru.com%2Fforum%2Fshowthread.php%3Ft%3D231254&title=Visual+C%2B%2B+DLL%3A+How+to+build+a+DLL+to+be+used+from+another+programming+language%3F" target="socialbookmark" style="text-decoration:none">Google</a>
+</li></ul><div style="clear:both"></div></td>
+	</tr>
+	</tbody></table>
+<!-- / social bookmarking links -->
+
+
+
+
+
+
+
+<!-- lightbox scripts -->
+	<script type="text/javascript" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/vbulletin_lightbox.js"></script>
+	<script type="text/javascript">
+	<!--
+	vBulletin.register_control("vB_Lightbox_Container", "posts", 1);
+	//-->
+	</script>
+<!-- / lightbox scripts -->
+
+
+
+
+
+
+
+
+
+<!-- JP Added following as lower page breadcrumbs.... -->
+<table>
+<tbody><tr>
+<td width="100%">
+		
+			<table cellpadding="0" cellspacing="0" border="0">
+			<tbody><tr valign="bottom">
+				<td><a href="http://www.codeguru.com/forum/showthread.php?t=231254#" onclick="history.back(1)"><img src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/navbits_start.gif" alt="Go Back" border="0" title="Go Back"></a></td>
+				<td>&nbsp;</td>
+				<td width="100%"><span class="navbar"><a href="http://www.codeguru.com/forum/index.php?s=6178fdf8c460f20fdc419a04ddac58c7&" accesskey="1">CodeGuru Forums</a></span> 
+	<span class="navbar">&gt; <a href="http://www.codeguru.com/forum/forumdisplay.php?s=6178fdf8c460f20fdc419a04ddac58c7&f=72">CodeGuru Technical FAQs</a></span>
+
+
+	<span class="navbar">&gt; <a href="http://www.codeguru.com/forum/forumdisplay.php?s=6178fdf8c460f20fdc419a04ddac58c7&f=81">CodeGuru Individual FAQs</a></span>
+
+</td>
+			</tr>
+			<tr>
+				<td class="navbar" style="font-size:10pt; padding-top:1px" colspan="3"><a href="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums.htm"><img class="inlineimg" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/navbits_finallink.gif" alt="Reload this Page" border="0" title="Reload this Page"></a> <strong>
+	 Visual C++ DLL: How to build a DLL to be used from another programming language?
+
+</strong></td>
+			</tr>
+			</tbody></table>			
+		
+	</td>
+</tr>
+</tbody></table>
+<br> 
+<!-- /JP end of breadcrumbs -->
+
+
+<!-- next / previous links -->
+	<br>
+	<div class="smallfont" align="center">
+		<strong>«</strong>
+			<a href="http://www.codeguru.com/forum/showthread.php?s=6178fdf8c460f20fdc419a04ddac58c7&t=231254&goto=nextoldest" rel="nofollow">Previous Thread</a>
+			|
+			<a href="http://www.codeguru.com/forum/showthread.php?s=6178fdf8c460f20fdc419a04ddac58c7&t=231254&goto=nextnewest" rel="nofollow">Next Thread</a>
+		<strong>»</strong>
+	</div>
+<!-- / next / previous links -->
+
+
+
+
+
+<!-- popup menu contents -->
+<br>
+
+<!-- thread tools menu -->
+<div class="vbmenu_popup" id="threadtools_menu" style="display:none">
+<form action="http://www.codeguru.com/forum/postings.php?t=231254&pollid=" method="post" name="threadadminform">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Thread Tools<a name="goto_threadtools"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/printer.gif" alt="Show Printable Version" title="Show Printable Version"> <a href="http://www.codeguru.com/forum/printthread.php?s=6178fdf8c460f20fdc419a04ddac58c7&t=231254" accesskey="3" rel="nofollow">Show Printable Version</a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/sendtofriend.gif" alt="Email this Page" title="Email this Page"> <a href="http://www.codeguru.com/forum/sendmessage.php?s=6178fdf8c460f20fdc419a04ddac58c7&do=sendtofriend&t=231254" rel="nofollow">Email this Page</a></td>
+	</tr>
+	
+	
+
+<!-- JP "Thread resolving" -->
+	<tr>
+		<td class="vbmenu_option"><img class="inlineimg" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/subscribe.gif" alt="Resolve" title="Resolve"> <a href="http://www.codeguru.com/forum/showthread.php?s=6178fdf8c460f20fdc419a04ddac58c7&&t=231254&is_resolved=1">
+Mark Thread Resolved</a></td>
+	</tr>
+<!--/JP -->
+
+	
+	</tbody></table>
+</form>
+</div>
+<!-- / thread tools menu -->
+
+<!-- **************************************************** -->
+
+<!-- thread display mode menu -->
+<div class="vbmenu_popup" id="displaymodes_menu" style="display:none">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Display Modes<a name="goto_displaymodes"></a></td>
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option" title="nohilite"><img class="inlineimg" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/mode_linear.gif" alt="Linear Mode" title="Linear Mode"> <strong>Linear Mode</strong></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/mode_hybrid.gif" alt="Hybrid Mode" title="Hybrid Mode"> <a href="http://www.codeguru.com/forum/showthread.php?s=6178fdf8c460f20fdc419a04ddac58c7&mode=hybrid&t=231254">Switch to Hybrid Mode</a></td>
+	
+	</tr>
+	<tr>
+	
+		<td class="vbmenu_option"><img class="inlineimg" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/mode_threaded.gif" alt="Threaded Mode" title="Threaded Mode"> <a href="http://www.codeguru.com/forum/showthread.php?s=6178fdf8c460f20fdc419a04ddac58c7&p=679174&mode=threaded#post679174">Switch to Threaded Mode</a></td>
+	
+	</tr>
+	</tbody></table>
+</div>
+<!-- / thread display mode menu -->
+
+<!-- **************************************************** -->
+
+
+<!-- thread search menu -->
+<div class="vbmenu_popup" id="threadsearch_menu" style="display:none">
+<form action="http://www.codeguru.com/forum/search.php?do=process&searchthreadid=231254" method="post">
+	<table cellpadding="4" cellspacing="1" border="0">
+	<tbody><tr>
+		<td class="thead">Search this Thread<a name="goto_threadsearch"></a></td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option" title="nohilite">
+			<input type="hidden" name="s" value="6178fdf8c460f20fdc419a04ddac58c7">
+			<input type="hidden" name="securitytoken" value="guest">
+			<input type="hidden" name="do" value="process">
+			<input type="hidden" name="searchthreadid" value="231254">
+			<input type="text" class="bginput" name="query" size="25"><input type="submit" class="button" value="Go"><br>
+		</td>
+	</tr>
+	<tr>
+		<td class="vbmenu_option"><a href="http://www.codeguru.com/forum/search.php?s=6178fdf8c460f20fdc419a04ddac58c7&searchthreadid=231254">Advanced Search</a></td>
+	</tr>
+	</tbody></table>
+</form>
+</div>
+<!-- / thread search menu -->
+
+
+<!-- **************************************************** -->
+
+
+
+<!-- / popup menu contents -->
+
+
+<!-- forum rules and admin links -->
+<table cellpadding="0" cellspacing="0" border="0" width="100%" align="center">
+<tbody><tr valign="bottom">
+	<td width="100%" valign="top">
+		<table class="tborder" cellpadding="3" cellspacing="1" border="0" width="210">
+<thead>
+<tr>
+	<td class="thead">
+		<a style="float:right" href="http://www.codeguru.com/forum/showthread.php?t=231254#top" onclick="return toggle_collapse(&#39;forumrules&#39;)"><img id="collapseimg_forumrules" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/collapse_thead.gif" alt="" border="0"></a>
+		Posting Rules
+	</td>
+</tr>
+</thead>
+<tbody id="collapseobj_forumrules" style="">
+<tr>
+	<td class="alt1" nowrap="nowrap"><div class="smallfont">
+		
+		<div>You <strong>may not</strong> post new threads</div>
+		<div>You <strong>may not</strong> post replies</div>
+		<div>You <strong>may not</strong> post attachments</div>
+		<div>You <strong>may not</strong> edit your posts</div>
+		<hr>
+		
+		<div><a href="http://www.codeguru.com/forum/misc.php?s=6178fdf8c460f20fdc419a04ddac58c7&do=bbcode" target="_blank">BB code</a> is <strong>On</strong></div>
+		<div><a href="http://www.codeguru.com/forum/misc.php?s=6178fdf8c460f20fdc419a04ddac58c7&do=showsmilies" target="_blank">Smilies</a> are <strong>On</strong></div>
+		<div><a href="http://www.codeguru.com/forum/misc.php?s=6178fdf8c460f20fdc419a04ddac58c7&do=bbcode#imgcode" target="_blank">[IMG]</a> code is <strong>On</strong></div>
+		<div>HTML code is <strong>On</strong></div>
+	</div></td>
+</tr>
+</tbody>
+</table>
+	</td>
+	<td class="smallfont" align="right">
+		<table cellpadding="0" cellspacing="0" border="0">
+		
+		<tbody><tr>
+			<td>
+			<div class="smallfont" style="text-align:left; white-space:nowrap">
+	<form action="http://www.codeguru.com/forum/forumdisplay.php" method="get">
+	<input type="hidden" name="s" value="6178fdf8c460f20fdc419a04ddac58c7">
+	<input type="hidden" name="daysprune" value="">
+	<strong>Forum Jump</strong><br>
+	<select name="f" onchange="this.form.submit();">
+		<optgroup label="Site Areas">
+			<option value="cp">User Control Panel</option>
+			<option value="pm">Private Messages</option>
+			<option value="subs">Subscriptions</option>
+			<option value="wol">Who's Online</option>
+			<option value="search">Search Forums</option>
+			<option value="home">Forums Home</option>
+		</optgroup>
+		
+		<optgroup label="Forums">
+		<option value="41" class="fjdpth0"> Visual C++ &amp; C++ Programming</option>
+<option value="7" class="fjdpth1">&nbsp; &nbsp;  Visual C++ Programming</option>
+<option value="52" class="fjdpth1">&nbsp; &nbsp;  Visual C++ FAQs</option>
+<option value="9" class="fjdpth1">&nbsp; &nbsp;  C++  (Non Visual C++ Issues)</option>
+<option value="47" class="fjdpth1">&nbsp; &nbsp;  C++ and WinAPI</option>
+<option value="17" class="fjdpth1">&nbsp; &nbsp;  Managed C++ and C++/CLI</option>
+<option value="6" class="fjdpth1">&nbsp; &nbsp;  Visual C++ Bugs &amp; Fixes</option>
+<option value="60" class="fjdpth1">&nbsp; &nbsp;  Graphics Programming</option>
+<option value="63" class="fjdpth1">&nbsp; &nbsp;  Multithreading</option>
+<option value="62" class="fjdpth1">&nbsp; &nbsp;  Network Programming</option>
+<option value="68" class="fjdpth1">&nbsp; &nbsp;  Driver Development</option>
+<option value="42" class="fjdpth0"> Visual Basic Programming</option>
+<option value="4" class="fjdpth1">&nbsp; &nbsp;  Visual Basic 6.0 Programming</option>
+<option value="12" class="fjdpth1">&nbsp; &nbsp;  Visual Basic .NET</option>
+<option value="64" class="fjdpth1">&nbsp; &nbsp;  Crystal Reports</option>
+<option value="53" class="fjdpth1">&nbsp; &nbsp;  VBForums</option>
+<option value="10" class="fjdpth0"> .NET Programming</option>
+<option value="11" class="fjdpth1">&nbsp; &nbsp;  C-Sharp Programming</option>
+<option value="15" class="fjdpth1">&nbsp; &nbsp;  ASP.NET</option>
+<option value="46" class="fjdpth1">&nbsp; &nbsp;  .NET Framework</option>
+<option value="14" class="fjdpth1">&nbsp; &nbsp;  ADO.NET</option>
+<option value="99" class="fjdpth1">&nbsp; &nbsp;  Windows Presentation Foundation (WPF) &amp; XAML forum</option>
+<option value="94" class="fjdpth1">&nbsp; &nbsp;  Silverlight</option>
+<option value="16" class="fjdpth1">&nbsp; &nbsp;  .NET Installation and Configuration Issues</option>
+<option value="67" class="fjdpth0"> Java Programming</option>
+<option value="5" class="fjdpth1">&nbsp; &nbsp;  Java Programming</option>
+<option value="3" class="fjdpth0"> Other Programming</option>
+<option value="88" class="fjdpth1">&nbsp; &nbsp;  AJAX</option>
+<option value="8" class="fjdpth1">&nbsp; &nbsp;  Scripting - Client Side</option>
+<option value="51" class="fjdpth1">&nbsp; &nbsp;  Database</option>
+<option value="13" class="fjdpth1">&nbsp; &nbsp;  XML</option>
+<option value="35" class="fjdpth1">&nbsp; &nbsp;  Wireless/Mobile Development</option>
+<option value="69" class="fjdpth1">&nbsp; &nbsp;  Assembly</option>
+<option value="70" class="fjdpth1">&nbsp; &nbsp;  Scripting - Server Side (PHP, Perl, etc.)</option>
+<option value="96" class="fjdpth0"> Proving Ground: New Forum Areas</option>
+<option value="95" class="fjdpth1">&nbsp; &nbsp;  Python</option>
+<option value="18" class="fjdpth0"> General Discussion</option>
+<option value="19" class="fjdpth1">&nbsp; &nbsp;  General Developer Topics</option>
+<option value="59" class="fjdpth1">&nbsp; &nbsp;  Project Planning, Design, and Management</option>
+<option value="91" class="fjdpth1">&nbsp; &nbsp;  Testers and Testing</option>
+<option value="65" class="fjdpth1">&nbsp; &nbsp;  Algorithms &amp; Data Structures</option>
+<option value="22" class="fjdpth1">&nbsp; &nbsp;  General Discussion / Chit Chat</option>
+<option value="21" class="fjdpth1">&nbsp; &nbsp;  Announcements, Press Releases, &amp; News</option>
+<option value="23" class="fjdpth0"> CodeGuru Community</option>
+<option value="25" class="fjdpth1">&nbsp; &nbsp;  Feedback</option>
+<option value="27" class="fjdpth1">&nbsp; &nbsp;  Articles Suggestions</option>
+<option value="26" class="fjdpth1">&nbsp; &nbsp;  Testing Area</option>
+<option value="37" class="fjdpth1">&nbsp; &nbsp;  Programming Projects</option>
+<option value="39" class="fjdpth2">&nbsp; &nbsp; &nbsp; &nbsp;  C# Game(s) Project</option>
+<option value="90" class="fjdpth2">&nbsp; &nbsp; &nbsp; &nbsp;  Game Engine Project</option>
+<option value="40" class="fjdpth2">&nbsp; &nbsp; &nbsp; &nbsp;  C++ Coding Project</option>
+<option value="50" class="fjdpth2">&nbsp; &nbsp; &nbsp; &nbsp;  Project: Code War</option>
+<option value="101" class="fjdpth0"> Slow Chat Archives</option>
+<option value="102" class="fjdpth1">&nbsp; &nbsp;  Slow Chat: Talk with Microsoft Developer Teams</option>
+<option value="100" class="fjdpth1">&nbsp; &nbsp;  Slow Chat: Developing Multithreaded Applications</option>
+<option value="98" class="fjdpth1">&nbsp; &nbsp;  Slow Chat: C++0x</option>
+<option value="89" class="fjdpth1">&nbsp; &nbsp;  Slow Chat: Visual C++: Yesterday, Today, and Tomorrow</option>
+<option value="28" class="fjdpth0"> Windows Central</option>
+<option value="29" class="fjdpth1">&nbsp; &nbsp;  Directory Services</option>
+<option value="30" class="fjdpth1">&nbsp; &nbsp;  General Windows and DNA Programming</option>
+<option value="31" class="fjdpth1">&nbsp; &nbsp;  Windows OS Issues</option>
+<option value="32" class="fjdpth0"> Jobs</option>
+<option value="33" class="fjdpth1">&nbsp; &nbsp;  Open Positions (Jobs)</option>
+<option value="34" class="fjdpth1">&nbsp; &nbsp;  Looking for Work</option>
+<option value="72" class="fjdpth0"> CodeGuru Technical FAQs</option>
+<option value="85" class="fjdpth1">&nbsp; &nbsp;  C++ FAQs</option>
+<option value="86" class="fjdpth1">&nbsp; &nbsp;  STL FAQs</option>
+<option value="84" class="fjdpth1">&nbsp; &nbsp;  Windows SDK FAQs</option>
+<option value="73" class="fjdpth1">&nbsp; &nbsp;  Visual C++ FAQs</option>
+<option value="82" class="fjdpth1">&nbsp; &nbsp;  MFC FAQs</option>
+<option value="83" class="fjdpth1">&nbsp; &nbsp;  ATL FAQs</option>
+<option value="79" class="fjdpth1">&nbsp; &nbsp;  .NET Framework (non-language specific)  FAQs</option>
+<option value="78" class="fjdpth1">&nbsp; &nbsp;  C# FAQs</option>
+<option value="76" class="fjdpth1">&nbsp; &nbsp;  Visual Basic .NET FAQs</option>
+<option value="75" class="fjdpth1">&nbsp; &nbsp;  Visual Basic FAQs</option>
+<option value="81" class="fjsel" selected="selected">&nbsp; &nbsp;  CodeGuru Individual FAQs</option>
+<option value="93" class="fjdpth1">&nbsp; &nbsp;  CodeGuru Individual Visual Basic FAQs</option>
+
+		</optgroup>
+		
+	</select><input type="submit" class="button" value="Go">
+	</form>
+</div>
+			</td>
+		</tr>
+		</tbody></table>
+	</td>
+</tr>
+</tbody></table>
+<!-- /forum rules and admin links -->
+
+<br>
+
+
+
+
+
+<br>
+<div class="smallfont" align="center">All times are GMT -5. The time now is <span class="time">10:21 PM</span>.</div>
+<br>
+
+
+		</div>
+	</div>
+</div>
+
+<!-- / close content container -->
+<!-- /content area table -->
+
+
+<form action="http://www.codeguru.com/forum/index.php" method="get">
+
+<table cellpadding="3" cellspacing="0" border="0" width="100%" class="page" align="center">
+<tbody><tr>
+	
+		<td class="tfoot">
+			<select name="styleid" onchange="switch_id(this, &#39;style&#39;)">
+				<optgroup label="Quick Style Chooser">
+					<option value="4" class="">-- CodeGuru Forums3.7.3</option>
+<option value="5" class="" selected="selected">---- CodeGuru Forumsredesign3.7.3</option>
+<option value="7" class="">------ Alt-CodeGuru Forumsredesign3.7.3</option>
+
+				</optgroup>
+			</select>
+		</td>
+	
+	
+	<td class="tfoot" align="right" width="100%">
+		<div class="smallfont">
+			<strong>
+				<a href="mailto:webmaster@codeguru.com" rel="nofollow" accesskey="9">Contact Us</a> -
+				<a href="http://www.codeguru.com/forum">CodeGuru Forums</a> -
+				
+				
+				<a href="http://www.codeguru.com/forum/archive/index.php">Archive</a> -
+				
+				<a href="http://www.internet.com/corporate/privacy/aup.html">Privacy Statement</a> -
+				<a href="http://www.codeguru.com/forum/showthread.php?t=231254#top" onclick="self.scrollTo(0, 0); return false;">Top</a>
+			</strong>
+		</div>
+	</td>
+</tr>
+</tbody></table>
+
+<br>
+
+<!-- JP -->
+<div style="background-color:#FFF;width:100%">
+  <!-- bottom leo ad -->
+  <center id="bot">
+<script language="JavaScript">zzfocrender("203", "9479", "651425/651419/651418/651132/581034", "9", "300", "250", "", "", "");</script><script language="JavaScript" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/i0(1).js"></script><script language="JavaScript" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/i.js"></script><a href="http://o1.qnsr.com//cgi/c?a=20134667;x=2304;c=203651425,203651425;i=0;n=203;s=9479;p=20936405;;;y=http://www.codeguru.com/forum/showthread.php?t=231254;;e=i;s=9479;g=34;w=0;m=0;z=7728693627;k=http://www.insurancecomplete.com/save/?src=179958" target="_blank" onmouseover="window.status=&#39;&#39;; return true;" onmouseout="window.status=&#39;&#39;; return true;"><img src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/300x250_InsuranceComplete_autorates.jpg" border="0" alt="Click Here!" title="Click Here!"></a>
+<noscript>
+&lt;a href="http://o1.qnsr.com/cgi/r?;n=203;c=651425/651419/651418/651132/581034;s=9479;x=2304;f=1254856583;u=j;z=20110221222155" target="_blank"&gt;
+&lt;img border="0" width="300" height="250" src="http://o1.qnsr.com/cgi/x?;n=203;c=651425/651419/651418/651132/581034;s=9479;x=2304;f=1254856583;u=j;z=20110221222155" alt="Click here"&gt;&lt;/a&gt;
+</noscript>
+</center>
+  <!-- Jupitermedia footer -->
+  <!-- Google Analytics -->
+<script src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/ga.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+<!--     hide from no js browsers
+delete Array.prototype.itemValidation;
+delete Array.prototype.isArray;
+var superTracker = _gat._getTracker("UA-2838492-1");
+superTracker._initData();
+superTracker._trackPageview();
+
+-->
+</script>
+<script type="text/javascript">
+   var site_name =  location.hostname;
+   if ( site_name.indexOf("www.") != 0 ) {
+     site_name  = "www."+site_name ;
+   }
+   document.write("<SCR" + "IPT LANGUAGE='JavaScript1.2' SRC='/icom_includes/footers/sites/"+ site_name +".js' TYPE='text/javascript'><\/SCR" + "IPT>");
+-->
+</script><script language="JavaScript1.2" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/www.codeguru.com.js" type="text/javascript"></script><script type="text/javascript" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/wtid.js"></script><script type="text/javascript" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/webtrends.js"></script>
+<script type="text/javascript">
+<!--     hide from no js browsers
+   pageTracker._initData();
+   pageTracker._trackPageview();
+   // -->
+</script>
+<!-- End Google Analytics -->
+
+<style type="text/css">
+@charset "UTF-8";
+/* CSS Document */
+
+
+/* JOM CSS */
+
+#jomfooter {
+	border: 0;
+	margin: 5px;
+	padding: 5px;
+	}
+
+#jomfooter * {
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 0;
+	margin: 0;
+	}
+
+#jomfooter img {
+	border: 0;
+	behavior: url('/icom_includes/footers/css/iepngfix.htc');
+	padding: 5px;
+	padding: expression('0');
+	}
+
+#jomfooter p {
+	font-size: 11px;
+	line-height: 20px;
+	margin: 10px;
+	}
+
+#jomfooter form b {
+	font-size: 12px;
+	}
+
+#jomfooter a {
+	text-decoration: underline;
+	}
+
+#jomfooter a:hover {
+	text-decoration: none;
+	}
+
+#jomfooter table td {
+	border: 0;
+	}
+
+
+/* GEMS Solutions CSS */
+
+#jomfooter #solsect {
+	margin: 0 auto;
+	padding: 10px 0;
+	width: 720px;
+	}
+
+#jomfooter #solsect .top {
+	background: url('/icom_includes/footers/soltopbg.gif') repeat-x #bbb;
+	height: 26px;
+	margin-bottom: 1px;
+	}
+
+#jomfooter #solsect .top a {
+	font-size: 16px;
+	font-weight: bold;
+	color:#333;
+	text-decoration:none;
+	margin-left: 5px;
+	padding: 0;
+	line-height: 25px;
+	}
+
+#jomfooter #solsect .top a:hover {
+	text-decoration: none;
+	}
+
+#jomfooter #solsect .solsectpad {
+	background: #fff;
+	}
+
+#jomfooter #solsect .solsectpad .main {
+	background:url('/icom_includes/footers/solmidbg.gif') repeat-x #e7e8e3;
+	padding: 5px;
+	margin-bottom: 1px;
+	}
+
+#jomfooter #solsect .solsectpad .main h2 {
+	font-size: 12px;
+	color: #000;
+	font-weight: normal;
+	padding-bottom: 3px;
+	}
+
+#jomfooter #solsect a {
+	color: #333;
+	font-size: 10px;
+	text-decoration: none;
+	line-height: 13px;
+	}
+
+#jomfooter #solsect a:hover {
+	text-decoration: underline;
+	}
+</style>
+
+
+<br clear="all">
+<center><table border="0" cellspacing="0" cellpadding="5">
+                <tbody><tr> 
+                    <td align="center">
+
+<!-- Begin JOM Footer -->
+<div id="jomfooter" align="center">
+<p>
+<a href="http://www.internet.com/Internetcom/Door/41221" id="aup">Acceptable Use Policy</a>
+					<br><br>
+    <a href="http://www.internet.com/"><img src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/icom_logo_qsfooter.png" alt="Internet.com" width="240" height="40" hspace="0" border="0" title="Internet.com"></a>
+
+    <br>
+    The Network for Technology Professionals</p>
+        
+        <input type="HIDDEN" name="IC_Summary" value="1">
+        <input type="HIDDEN" name="IC_StartNumber" value="0">
+        <input type="HIDDEN" name="IC_BatchSize" value="10">
+        <input type="HIDDEN" name="IC_RelevanceThreshold" value="50">
+        <input type="hidden" name="IC_QueryDatabase" value="all">
+        <b>Search:</b> 
+        <input type="text" name="IC_QueryText" size="45">
+
+        <input type="image" border="0" value="Find" name="SUBMIT" src="./Visual C++ DLL  How to build a DLL to be used from another programming language  - CodeGuru Forums_files/but_find.gif" width="41" height="20" align="absmiddle">
+  
+    <p>
+        <a target="_blank" rel="nofollow" href="http://www.internet.com/Internetcom/Door/41188"> About Internet.com</a> 
+        <br>
+      <script type="text/javascript">
+            document.write(' Copyright ');
+            var today = new Date();
+            document.write(  + today.getFullYear());
+            document.write(' QuinStreet Inc. All Rights Reserved.');
+        </script> Copyright 2011 QuinStreet Inc. All Rights Reserved.
+  <noscript>
+        Copyright 2009 QuinStreet Inc. All Rights Reserved.
+  </noscript>
+
+  </p>
+       <p> <a target="_blank" rel="nofollow" href="http://www.internet.com/Internetcom/Door/41187">Legal Notices</a>, <a target="_blank" rel="nofollow" href="http://www.internet.com/Internetcom/Door/41189#Licensing1">Licensing</a>, <a target="_blank" rel="nofollow" href="http://www.internet.com/Internetcom/Door/41189#Permissions">Permissions</a>, <a target="_blank" rel="nofollow" href="http://www.internet.com/Internetcom/Door/41186">Privacy  Policy</a>.
+        <br>
+
+        <a target="_blank" rel="nofollow" href="http://www.internet.com/mediakit/">Advertise</a> | <a target="_blank" rel="nofollow" href="http://e-newsletters.internet.com/">Newsletters</a> |  <a target="_blank" rel="nofollow" href="http://e-newsletters.internet.com/announcement_list.html">E-mail Offers</a>
+
+  </p>
+  
+</div>
+<br>
+<!-- JP -->
+
+<div align="center">
+	<div class="smallfont" align="center">
+	<!-- Do not remove this copyright notice -->
+	Powered by vBulletin® Version 3.7.3<br>Copyright ©2000 - 2011, Jelsoft Enterprises Ltd.
+	<!-- Do not remove this copyright notice -->
+	</div>
+
+	<div class="smallfont" align="center">
+	<!-- Do not remove  or your scheduled tasks will cease to function -->
+	
+	<!-- Do not remove  or your scheduled tasks will cease to function -->
+
+	
+	</div>
+</div>
+
+
+
+
+
+
+<script type="text/javascript">
+<!--
+	// Main vBulletin Javascript Initialization
+	vBulletin_init();
+//-->
+</script>
+
+<!-- temp -->
+<div style="display:none">
+	<!-- thread rate -->
+	
+		
+	
+	<!-- / thread rate -->
+</div>
+
+
+</td></tr></tbody></table></center></div></form></body></html>

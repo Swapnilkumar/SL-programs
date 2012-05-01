@@ -1,0 +1,34 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: dhiraj - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\Dhiru\LOCALS~1\Temp\RSP40.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "DHIRAJ_EXPORTS" /Fp"Debug/dhiraj.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ  /c 
+"F:\Dhiraj Assignment\SL\DLL\dhiraj\dhiraj.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\Dhiru\LOCALS~1\Temp\RSP40.tmp" 
+Creating temporary file "C:\DOCUME~1\Dhiru\LOCALS~1\Temp\RSP41.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /dll /incremental:yes /pdb:"Debug/dhiraj.pdb" /debug /machine:I386 /def:".\dhiraj.def" /out:"Debug/dhiraj.dll" /implib:"Debug/dhiraj.lib" /pdbtype:sept 
+".\Debug\StdAfx.obj"
+".\Debug\dhiraj.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\Dhiru\LOCALS~1\Temp\RSP41.tmp"
+<h3>Output Window</h3>
+Compiling...
+dhiraj.cpp
+Linking...
+   Creating library Debug/dhiraj.lib and object Debug/dhiraj.exp
+
+
+
+<h3>Results</h3>
+dhiraj.dll - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

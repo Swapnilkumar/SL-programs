@@ -1,0 +1,3 @@
+LIBRARY dhiraj
+EXPORTS
+square @1
